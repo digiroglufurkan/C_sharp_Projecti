@@ -107,5 +107,38 @@ namespace Kaikille_pakollinen_projekti
             RekisteroidyPanel.Visible = true; // Rekisteröityminen näkyväksi
             GalleriaJulkPanel.Visible = false; // Julkinen Galleria piiloon
         }
+        private bool tarkistaTextBox ( TextBox a, string b)
+        { 
+            if (a.Text == "" && a.Text != "Ole Hyvä ja Syottä tiedot")
+            {
+                MessageBox.Show(b);
+                return true;
+            }
+                return false;
+        }
+        private void RetallennaBT_Click(object sender, EventArgs e)
+        {
+            if (tarkistaTextBox(ReEtunimiTB, "Vaaditan Etunimi")) { goto loppu; };
+            string etunimi = ReEtunimiTB.Text;
+            if (tarkistaTextBox(ReSukunimiTB, "Vaaditan Sukunimi")) { goto loppu; };
+            string sukunimi = ReSukunimiTB.Text;
+            if (tarkistaTextBox(RePuhelinTB, "Vaaditan Puhelin")) { goto loppu; };
+            string puh = RePuhelinTB.Text;
+            if (tarkistaTextBox(ReOsaiteTB, "Vaaditan Osaite")) { goto loppu; };
+            string osaite = ReOsaiteTB.Text;
+            string sukupuoli = ReSukupuoliCB.Text;
+            if (tarkistaTextBox(ReEmailTB, "Vaaditan Sahköposti osaite")) { goto loppu; };
+            string email = ReEmailTB.Text;
+            Tiedansyotto uusisyotto = new Tiedansyotto();
+            if (uusisyotto.lisakayttaja(etunimi, sukunimi, puh, email, osaite, sukupuoli))
+            {
+                MessageBox.Show("onnistu");
+            }
+            else
+            {
+                MessageBox.Show("Epåonnistu");
+            }
+        loppu:;
+        }
     }
 }

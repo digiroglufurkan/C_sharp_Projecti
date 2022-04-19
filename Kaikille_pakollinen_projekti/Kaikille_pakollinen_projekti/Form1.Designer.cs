@@ -404,7 +404,7 @@
             // 
             // ReEmailTB
             // 
-            this.ReEmailTB.Location = new System.Drawing.Point(178, 264);
+            this.ReEmailTB.Location = new System.Drawing.Point(190, 267);
             this.ReEmailTB.Name = "ReEmailTB";
             this.ReEmailTB.Size = new System.Drawing.Size(479, 43);
             this.ReEmailTB.TabIndex = 6;
@@ -496,6 +496,7 @@
             this.RetallennaBT.TabIndex = 17;
             this.RetallennaBT.Text = "Tallenna";
             this.RetallennaBT.UseVisualStyleBackColor = true;
+            this.RetallennaBT.Click += new System.EventHandler(this.RetallennaBT_Click);
             // 
             // SivuForm
             // 
