@@ -33,6 +33,19 @@
             this.KirjauduLL = new System.Windows.Forms.LinkLabel();
             this.GalleriaLL = new System.Windows.Forms.LinkLabel();
             this.RekisteroidyPanel = new System.Windows.Forms.Panel();
+            this.RetallennaBT = new System.Windows.Forms.Button();
+            this.ReOsaiteLB = new System.Windows.Forms.Label();
+            this.ReOsaiteTB = new System.Windows.Forms.TextBox();
+            this.ReSukupuoliCB = new System.Windows.Forms.ComboBox();
+            this.ReSukupuoliLB = new System.Windows.Forms.Label();
+            this.RePuhelinLB = new System.Windows.Forms.Label();
+            this.RePuhelinTB = new System.Windows.Forms.TextBox();
+            this.ReEmailLb = new System.Windows.Forms.Label();
+            this.ReSukunimiLB = new System.Windows.Forms.Label();
+            this.ReEtunimiLB = new System.Windows.Forms.Label();
+            this.ReEmailTB = new System.Windows.Forms.TextBox();
+            this.ReSukunimiTB = new System.Windows.Forms.TextBox();
+            this.ReEtunimiTB = new System.Windows.Forms.TextBox();
             this.RGalleriaLL = new System.Windows.Forms.LinkLabel();
             this.RKirjauduLL = new System.Windows.Forms.LinkLabel();
             this.RKotiLL = new System.Windows.Forms.LinkLabel();
@@ -52,37 +65,24 @@
             this.GRekisteroidyLL = new System.Windows.Forms.LinkLabel();
             this.GKirjauduLL = new System.Windows.Forms.LinkLabel();
             this.GEtusivuLL = new System.Windows.Forms.LinkLabel();
-            this.GalJulkPB1 = new System.Windows.Forms.PictureBox();
             this.GalJulkPB2 = new System.Windows.Forms.PictureBox();
             this.GalJulkPB3 = new System.Windows.Forms.PictureBox();
             this.GalleriaOtsLB = new System.Windows.Forms.Label();
-            this.ReEtunimiTB = new System.Windows.Forms.TextBox();
-            this.ReSukunimiTB = new System.Windows.Forms.TextBox();
-            this.ReEmailTB = new System.Windows.Forms.TextBox();
-            this.ReEtunimiLB = new System.Windows.Forms.Label();
-            this.ReSukunimiLB = new System.Windows.Forms.Label();
-            this.ReEmailLb = new System.Windows.Forms.Label();
-            this.ReSukupuoliLB = new System.Windows.Forms.Label();
-            this.RePuhelinLB = new System.Windows.Forms.Label();
-            this.RePuhelinTB = new System.Windows.Forms.TextBox();
-            this.ReSukupuoliCB = new System.Windows.Forms.ComboBox();
-            this.ReOsaiteTB = new System.Windows.Forms.TextBox();
-            this.ReOsaiteLB = new System.Windows.Forms.Label();
-            this.RetallennaBT = new System.Windows.Forms.Button();
+            this.GalJulkPB1 = new System.Windows.Forms.PictureBox();
             this.RekisteroidyPanel.SuspendLayout();
             this.KotisivuPanel.SuspendLayout();
             this.KirjauduPanel.SuspendLayout();
             this.GalleriaJulkPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB1)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Bernard MT Condensed", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OtsikkoLB.Location = new System.Drawing.Point(325, 0);
+            this.OtsikkoLB.Location = new System.Drawing.Point(342, 12);
             this.OtsikkoLB.Name = "OtsikkoLB";
             this.OtsikkoLB.Size = new System.Drawing.Size(168, 55);
             this.OtsikkoLB.TabIndex = 0;
@@ -91,7 +91,7 @@
             // RekisteroidyLL
             // 
             this.RekisteroidyLL.AutoSize = true;
-            this.RekisteroidyLL.Location = new System.Drawing.Point(368, 108);
+            this.RekisteroidyLL.Location = new System.Drawing.Point(327, 120);
             this.RekisteroidyLL.Name = "RekisteroidyLL";
             this.RekisteroidyLL.Size = new System.Drawing.Size(183, 35);
             this.RekisteroidyLL.TabIndex = 1;
@@ -102,7 +102,7 @@
             // KirjauduLL
             // 
             this.KirjauduLL.AutoSize = true;
-            this.KirjauduLL.Location = new System.Drawing.Point(84, 108);
+            this.KirjauduLL.Location = new System.Drawing.Point(101, 120);
             this.KirjauduLL.Name = "KirjauduLL";
             this.KirjauduLL.Size = new System.Drawing.Size(128, 35);
             this.KirjauduLL.TabIndex = 2;
@@ -113,7 +113,7 @@
             // GalleriaLL
             // 
             this.GalleriaLL.AutoSize = true;
-            this.GalleriaLL.Location = new System.Drawing.Point(761, 108);
+            this.GalleriaLL.Location = new System.Drawing.Point(591, 120);
             this.GalleriaLL.Name = "GalleriaLL";
             this.GalleriaLL.Size = new System.Drawing.Size(118, 35);
             this.GalleriaLL.TabIndex = 3;
@@ -144,8 +144,118 @@
             this.RekisteroidyPanel.Font = new System.Drawing.Font("Harrington", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RekisteroidyPanel.Location = new System.Drawing.Point(0, 0);
             this.RekisteroidyPanel.Name = "RekisteroidyPanel";
-            this.RekisteroidyPanel.Size = new System.Drawing.Size(976, 504);
+            this.RekisteroidyPanel.Size = new System.Drawing.Size(1011, 540);
             this.RekisteroidyPanel.TabIndex = 4;
+            // 
+            // RetallennaBT
+            // 
+            this.RetallennaBT.Location = new System.Drawing.Point(384, 422);
+            this.RetallennaBT.Name = "RetallennaBT";
+            this.RetallennaBT.Size = new System.Drawing.Size(217, 50);
+            this.RetallennaBT.TabIndex = 17;
+            this.RetallennaBT.Text = "Tallenna";
+            this.RetallennaBT.UseVisualStyleBackColor = true;
+            this.RetallennaBT.Click += new System.EventHandler(this.RetallennaBT_Click);
+            // 
+            // ReOsaiteLB
+            // 
+            this.ReOsaiteLB.AutoSize = true;
+            this.ReOsaiteLB.Location = new System.Drawing.Point(12, 360);
+            this.ReOsaiteLB.Name = "ReOsaiteLB";
+            this.ReOsaiteLB.Size = new System.Drawing.Size(98, 35);
+            this.ReOsaiteLB.TabIndex = 16;
+            this.ReOsaiteLB.Text = "Osaite";
+            // 
+            // ReOsaiteTB
+            // 
+            this.ReOsaiteTB.Location = new System.Drawing.Point(168, 352);
+            this.ReOsaiteTB.Name = "ReOsaiteTB";
+            this.ReOsaiteTB.Size = new System.Drawing.Size(796, 43);
+            this.ReOsaiteTB.TabIndex = 15;
+            // 
+            // ReSukupuoliCB
+            // 
+            this.ReSukupuoliCB.FormattingEnabled = true;
+            this.ReSukupuoliCB.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.ReSukupuoliCB.Location = new System.Drawing.Point(663, 203);
+            this.ReSukupuoliCB.Name = "ReSukupuoliCB";
+            this.ReSukupuoliCB.Size = new System.Drawing.Size(121, 43);
+            this.ReSukupuoliCB.TabIndex = 14;
+            // 
+            // ReSukupuoliLB
+            // 
+            this.ReSukupuoliLB.AutoSize = true;
+            this.ReSukupuoliLB.Location = new System.Drawing.Point(509, 211);
+            this.ReSukupuoliLB.Name = "ReSukupuoliLB";
+            this.ReSukupuoliLB.Size = new System.Drawing.Size(148, 35);
+            this.ReSukupuoliLB.TabIndex = 13;
+            this.ReSukupuoliLB.Text = "Sukupuoli";
+            // 
+            // RePuhelinLB
+            // 
+            this.RePuhelinLB.AutoSize = true;
+            this.RePuhelinLB.Location = new System.Drawing.Point(512, 152);
+            this.RePuhelinLB.Name = "RePuhelinLB";
+            this.RePuhelinLB.Size = new System.Drawing.Size(115, 35);
+            this.RePuhelinLB.TabIndex = 12;
+            this.RePuhelinLB.Text = "Puhelin";
+            // 
+            // RePuhelinTB
+            // 
+            this.RePuhelinTB.Location = new System.Drawing.Point(648, 146);
+            this.RePuhelinTB.Name = "RePuhelinTB";
+            this.RePuhelinTB.Size = new System.Drawing.Size(316, 43);
+            this.RePuhelinTB.TabIndex = 10;
+            // 
+            // ReEmailLb
+            // 
+            this.ReEmailLb.AutoSize = true;
+            this.ReEmailLb.Location = new System.Drawing.Point(10, 275);
+            this.ReEmailLb.Name = "ReEmailLb";
+            this.ReEmailLb.Size = new System.Drawing.Size(162, 35);
+            this.ReEmailLb.TabIndex = 9;
+            this.ReEmailLb.Text = "Sähköposti";
+            // 
+            // ReSukunimiLB
+            // 
+            this.ReSukunimiLB.AutoSize = true;
+            this.ReSukunimiLB.Location = new System.Drawing.Point(10, 211);
+            this.ReSukunimiLB.Name = "ReSukunimiLB";
+            this.ReSukunimiLB.Size = new System.Drawing.Size(135, 35);
+            this.ReSukunimiLB.TabIndex = 8;
+            this.ReSukunimiLB.Text = "Sukunimi";
+            // 
+            // ReEtunimiLB
+            // 
+            this.ReEtunimiLB.AutoSize = true;
+            this.ReEtunimiLB.Location = new System.Drawing.Point(10, 152);
+            this.ReEtunimiLB.Name = "ReEtunimiLB";
+            this.ReEtunimiLB.Size = new System.Drawing.Size(115, 35);
+            this.ReEtunimiLB.TabIndex = 7;
+            this.ReEtunimiLB.Text = "Etunimi";
+            // 
+            // ReEmailTB
+            // 
+            this.ReEmailTB.Location = new System.Drawing.Point(190, 267);
+            this.ReEmailTB.Name = "ReEmailTB";
+            this.ReEmailTB.Size = new System.Drawing.Size(479, 43);
+            this.ReEmailTB.TabIndex = 6;
+            // 
+            // ReSukunimiTB
+            // 
+            this.ReSukunimiTB.Location = new System.Drawing.Point(178, 200);
+            this.ReSukunimiTB.Name = "ReSukunimiTB";
+            this.ReSukunimiTB.Size = new System.Drawing.Size(316, 43);
+            this.ReSukunimiTB.TabIndex = 5;
+            // 
+            // ReEtunimiTB
+            // 
+            this.ReEtunimiTB.Location = new System.Drawing.Point(178, 141);
+            this.ReEtunimiTB.Name = "ReEtunimiTB";
+            this.ReEtunimiTB.Size = new System.Drawing.Size(316, 43);
+            this.ReEtunimiTB.TabIndex = 4;
             // 
             // RGalleriaLL
             // 
@@ -200,7 +310,7 @@
             this.KotisivuPanel.Font = new System.Drawing.Font("Harrington", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KotisivuPanel.Location = new System.Drawing.Point(0, 0);
             this.KotisivuPanel.Name = "KotisivuPanel";
-            this.KotisivuPanel.Size = new System.Drawing.Size(976, 504);
+            this.KotisivuPanel.Size = new System.Drawing.Size(1011, 540);
             this.KotisivuPanel.TabIndex = 5;
             // 
             // KirjauduPanel
@@ -218,7 +328,7 @@
             this.KirjauduPanel.Font = new System.Drawing.Font("Harrington", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KirjauduPanel.Location = new System.Drawing.Point(0, 0);
             this.KirjauduPanel.Name = "KirjauduPanel";
-            this.KirjauduPanel.Size = new System.Drawing.Size(976, 504);
+            this.KirjauduPanel.Size = new System.Drawing.Size(1011, 540);
             this.KirjauduPanel.TabIndex = 6;
             // 
             // KirKirjauduBT
@@ -318,7 +428,7 @@
             this.GalleriaJulkPanel.Font = new System.Drawing.Font("Harrington", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GalleriaJulkPanel.Location = new System.Drawing.Point(0, 0);
             this.GalleriaJulkPanel.Name = "GalleriaJulkPanel";
-            this.GalleriaJulkPanel.Size = new System.Drawing.Size(976, 504);
+            this.GalleriaJulkPanel.Size = new System.Drawing.Size(1011, 540);
             this.GalleriaJulkPanel.TabIndex = 7;
             // 
             // GRekisteroidyLL
@@ -354,14 +464,6 @@
             this.GEtusivuLL.Text = "Etusivu";
             this.GEtusivuLL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GEtusivuLL_LinkClicked);
             // 
-            // GalJulkPB1
-            // 
-            this.GalJulkPB1.Location = new System.Drawing.Point(134, 155);
-            this.GalJulkPB1.Name = "GalJulkPB1";
-            this.GalJulkPB1.Size = new System.Drawing.Size(100, 50);
-            this.GalJulkPB1.TabIndex = 3;
-            this.GalJulkPB1.TabStop = false;
-            // 
             // GalJulkPB2
             // 
             this.GalJulkPB2.Location = new System.Drawing.Point(408, 155);
@@ -388,125 +490,23 @@
             this.GalleriaOtsLB.TabIndex = 0;
             this.GalleriaOtsLB.Text = "Galleria";
             // 
-            // ReEtunimiTB
+            // GalJulkPB1
             // 
-            this.ReEtunimiTB.Location = new System.Drawing.Point(178, 141);
-            this.ReEtunimiTB.Name = "ReEtunimiTB";
-            this.ReEtunimiTB.Size = new System.Drawing.Size(316, 43);
-            this.ReEtunimiTB.TabIndex = 4;
-            // 
-            // ReSukunimiTB
-            // 
-            this.ReSukunimiTB.Location = new System.Drawing.Point(178, 200);
-            this.ReSukunimiTB.Name = "ReSukunimiTB";
-            this.ReSukunimiTB.Size = new System.Drawing.Size(316, 43);
-            this.ReSukunimiTB.TabIndex = 5;
-            // 
-            // ReEmailTB
-            // 
-            this.ReEmailTB.Location = new System.Drawing.Point(190, 267);
-            this.ReEmailTB.Name = "ReEmailTB";
-            this.ReEmailTB.Size = new System.Drawing.Size(479, 43);
-            this.ReEmailTB.TabIndex = 6;
-            // 
-            // ReEtunimiLB
-            // 
-            this.ReEtunimiLB.AutoSize = true;
-            this.ReEtunimiLB.Location = new System.Drawing.Point(10, 152);
-            this.ReEtunimiLB.Name = "ReEtunimiLB";
-            this.ReEtunimiLB.Size = new System.Drawing.Size(115, 35);
-            this.ReEtunimiLB.TabIndex = 7;
-            this.ReEtunimiLB.Text = "Etunimi";
-            // 
-            // ReSukunimiLB
-            // 
-            this.ReSukunimiLB.AutoSize = true;
-            this.ReSukunimiLB.Location = new System.Drawing.Point(10, 211);
-            this.ReSukunimiLB.Name = "ReSukunimiLB";
-            this.ReSukunimiLB.Size = new System.Drawing.Size(135, 35);
-            this.ReSukunimiLB.TabIndex = 8;
-            this.ReSukunimiLB.Text = "Sukunimi";
-            // 
-            // ReEmailLb
-            // 
-            this.ReEmailLb.AutoSize = true;
-            this.ReEmailLb.Location = new System.Drawing.Point(10, 275);
-            this.ReEmailLb.Name = "ReEmailLb";
-            this.ReEmailLb.Size = new System.Drawing.Size(162, 35);
-            this.ReEmailLb.TabIndex = 9;
-            this.ReEmailLb.Text = "Sähköposti";
-            // 
-            // ReSukupuoliLB
-            // 
-            this.ReSukupuoliLB.AutoSize = true;
-            this.ReSukupuoliLB.Location = new System.Drawing.Point(509, 211);
-            this.ReSukupuoliLB.Name = "ReSukupuoliLB";
-            this.ReSukupuoliLB.Size = new System.Drawing.Size(148, 35);
-            this.ReSukupuoliLB.TabIndex = 13;
-            this.ReSukupuoliLB.Text = "Sukupuoli";
-            // 
-            // RePuhelinLB
-            // 
-            this.RePuhelinLB.AutoSize = true;
-            this.RePuhelinLB.Location = new System.Drawing.Point(512, 152);
-            this.RePuhelinLB.Name = "RePuhelinLB";
-            this.RePuhelinLB.Size = new System.Drawing.Size(115, 35);
-            this.RePuhelinLB.TabIndex = 12;
-            this.RePuhelinLB.Text = "Puhelin";
-            // 
-            // RePuhelinTB
-            // 
-            this.RePuhelinTB.Location = new System.Drawing.Point(648, 146);
-            this.RePuhelinTB.Name = "RePuhelinTB";
-            this.RePuhelinTB.Size = new System.Drawing.Size(316, 43);
-            this.RePuhelinTB.TabIndex = 10;
-            // 
-            // ReSukupuoliCB
-            // 
-            this.ReSukupuoliCB.FormattingEnabled = true;
-            this.ReSukupuoliCB.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.ReSukupuoliCB.Location = new System.Drawing.Point(663, 203);
-            this.ReSukupuoliCB.Name = "ReSukupuoliCB";
-            this.ReSukupuoliCB.Size = new System.Drawing.Size(121, 43);
-            this.ReSukupuoliCB.TabIndex = 14;
-            // 
-            // ReOsaiteTB
-            // 
-            this.ReOsaiteTB.Location = new System.Drawing.Point(168, 352);
-            this.ReOsaiteTB.Name = "ReOsaiteTB";
-            this.ReOsaiteTB.Size = new System.Drawing.Size(796, 43);
-            this.ReOsaiteTB.TabIndex = 15;
-            // 
-            // ReOsaiteLB
-            // 
-            this.ReOsaiteLB.AutoSize = true;
-            this.ReOsaiteLB.Location = new System.Drawing.Point(12, 360);
-            this.ReOsaiteLB.Name = "ReOsaiteLB";
-            this.ReOsaiteLB.Size = new System.Drawing.Size(98, 35);
-            this.ReOsaiteLB.TabIndex = 16;
-            this.ReOsaiteLB.Text = "Osaite";
-            // 
-            // RetallennaBT
-            // 
-            this.RetallennaBT.Location = new System.Drawing.Point(384, 422);
-            this.RetallennaBT.Name = "RetallennaBT";
-            this.RetallennaBT.Size = new System.Drawing.Size(217, 50);
-            this.RetallennaBT.TabIndex = 17;
-            this.RetallennaBT.Text = "Tallenna";
-            this.RetallennaBT.UseVisualStyleBackColor = true;
-            this.RetallennaBT.Click += new System.EventHandler(this.RetallennaBT_Click);
+            this.GalJulkPB1.Location = new System.Drawing.Point(134, 155);
+            this.GalJulkPB1.Name = "GalJulkPB1";
+            this.GalJulkPB1.Size = new System.Drawing.Size(100, 50);
+            this.GalJulkPB1.TabIndex = 3;
+            this.GalJulkPB1.TabStop = false;
             // 
             // SivuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 504);
+            this.ClientSize = new System.Drawing.Size(1011, 540);
+            this.Controls.Add(this.KotisivuPanel);
             this.Controls.Add(this.RekisteroidyPanel);
             this.Controls.Add(this.GalleriaJulkPanel);
             this.Controls.Add(this.KirjauduPanel);
-            this.Controls.Add(this.KotisivuPanel);
             this.Name = "SivuForm";
             this.Text = "Sivuston nimi";
             this.Load += new System.EventHandler(this.SivuForm_Load);
@@ -518,9 +518,9 @@
             this.KirjauduPanel.PerformLayout();
             this.GalleriaJulkPanel.ResumeLayout(false);
             this.GalleriaJulkPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GalJulkPB1)).EndInit();
             this.ResumeLayout(false);
 
         }
