@@ -1,6 +1,6 @@
 ﻿namespace Pakkolinen_Ryhmä_Projecti
 {
-    partial class KirjautunutKotisivu
+    partial class SalasananVaihto
     {
         /// <summary>
         /// Required designer variable.
@@ -39,23 +39,24 @@
             this.ksMuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksVaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tervetuloaLB = new System.Windows.Forms.Label();
-            this.ksEtusivuPB = new System.Windows.Forms.PictureBox();
-            this.mitaUuttaLB = new System.Windows.Forms.Label();
-            this.ksKotisivuDG = new System.Windows.Forms.DataGridView();
+            this.salisVahvistusLB = new System.Windows.Forms.Label();
+            this.uusiSalisLB = new System.Windows.Forms.Label();
+            this.vanhaSalisLB = new System.Windows.Forms.Label();
+            this.palauteNimiTB = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.salasanaVahvistusBT = new System.Windows.Forms.Button();
             this.ksKotisivuMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksEtusivuPB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).BeginInit();
             this.SuspendLayout();
             // 
             // ksEtusivuOtsikkoLB
             // 
             this.ksEtusivuOtsikkoLB.AutoSize = true;
             this.ksEtusivuOtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ksEtusivuOtsikkoLB.Location = new System.Drawing.Point(320, 9);
+            this.ksEtusivuOtsikkoLB.Location = new System.Drawing.Point(328, 9);
             this.ksEtusivuOtsikkoLB.Name = "ksEtusivuOtsikkoLB";
             this.ksEtusivuOtsikkoLB.Size = new System.Drawing.Size(149, 51);
-            this.ksEtusivuOtsikkoLB.TabIndex = 2;
+            this.ksEtusivuOtsikkoLB.TabIndex = 3;
             this.ksEtusivuOtsikkoLB.Text = "Otsikko";
             // 
             // ksKotisivuMS
@@ -68,10 +69,10 @@
             this.ksKotisivuKeskustelupalstaToolStripMenuItem,
             this.ksKotisivuPalauteToolStripMenuItem,
             this.ksKotisivuAsetuksetToolStripMenuItem});
-            this.ksKotisivuMS.Location = new System.Drawing.Point(108, 71);
+            this.ksKotisivuMS.Location = new System.Drawing.Point(104, 71);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
-            this.ksKotisivuMS.TabIndex = 3;
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
+            this.ksKotisivuMS.TabIndex = 4;
             // 
             // ksKotisivuKotisivuToolStripMenuItem
             // 
@@ -86,7 +87,6 @@
             this.KotisivuLatauksetToolStripMenuItem.Name = "KotisivuLatauksetToolStripMenuItem";
             this.KotisivuLatauksetToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.KotisivuLatauksetToolStripMenuItem.Text = "Lataukset";
-            this.KotisivuLatauksetToolStripMenuItem.Click += new System.EventHandler(this.kotisivuLatauksetToolStripMenuItem_Click);
             // 
             // ksKotisivuJaaTiedostoToolStripMenuItem
             // 
@@ -94,7 +94,6 @@
             this.ksKotisivuJaaTiedostoToolStripMenuItem.Name = "ksKotisivuJaaTiedostoToolStripMenuItem";
             this.ksKotisivuJaaTiedostoToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
             this.ksKotisivuJaaTiedostoToolStripMenuItem.Text = "Jaa tiedosto";
-            this.ksKotisivuJaaTiedostoToolStripMenuItem.Click += new System.EventHandler(this.ksKotisivuJaaTiedostoToolStripMenuItem_Click);
             // 
             // ksKotisivuKeskustelupalstaToolStripMenuItem
             // 
@@ -102,7 +101,6 @@
             this.ksKotisivuKeskustelupalstaToolStripMenuItem.Name = "ksKotisivuKeskustelupalstaToolStripMenuItem";
             this.ksKotisivuKeskustelupalstaToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.ksKotisivuKeskustelupalstaToolStripMenuItem.Text = "Keskustelupalsta";
-            this.ksKotisivuKeskustelupalstaToolStripMenuItem.Click += new System.EventHandler(this.ksKotisivuKeskustelupalstaToolStripMenuItem_Click);
             // 
             // ksKotisivuPalauteToolStripMenuItem
             // 
@@ -110,7 +108,6 @@
             this.ksKotisivuPalauteToolStripMenuItem.Name = "ksKotisivuPalauteToolStripMenuItem";
             this.ksKotisivuPalauteToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ksKotisivuPalauteToolStripMenuItem.Text = "Palaute";
-            this.ksKotisivuPalauteToolStripMenuItem.Click += new System.EventHandler(this.ksKotisivuPalauteToolStripMenuItem_Click);
             // 
             // ksKotisivuAsetuksetToolStripMenuItem
             // 
@@ -140,63 +137,88 @@
             this.ksKirjauduUlosToolStripMenuItem.Name = "ksKirjauduUlosToolStripMenuItem";
             this.ksKirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksKirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
-            this.ksKirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.ksKirjauduUlosToolStripMenuItem_Click);
             // 
-            // tervetuloaLB
+            // salisVahvistusLB
             // 
-            this.tervetuloaLB.AutoSize = true;
-            this.tervetuloaLB.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tervetuloaLB.Location = new System.Drawing.Point(291, 114);
-            this.tervetuloaLB.Name = "tervetuloaLB";
-            this.tervetuloaLB.Size = new System.Drawing.Size(219, 32);
-            this.tervetuloaLB.TabIndex = 4;
-            this.tervetuloaLB.Text = "Tervetuloa takaisin!";
+            this.salisVahvistusLB.AutoSize = true;
+            this.salisVahvistusLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.salisVahvistusLB.Location = new System.Drawing.Point(141, 273);
+            this.salisVahvistusLB.Name = "salisVahvistusLB";
+            this.salisVahvistusLB.Size = new System.Drawing.Size(156, 20);
+            this.salisVahvistusLB.TabIndex = 13;
+            this.salisVahvistusLB.Text = "Vahvista uusi salasana:";
             // 
-            // ksEtusivuPB
+            // uusiSalisLB
             // 
-            this.ksEtusivuPB.Location = new System.Drawing.Point(47, 155);
-            this.ksEtusivuPB.Name = "ksEtusivuPB";
-            this.ksEtusivuPB.Size = new System.Drawing.Size(129, 121);
-            this.ksEtusivuPB.TabIndex = 5;
-            this.ksEtusivuPB.TabStop = false;
+            this.uusiSalisLB.AutoSize = true;
+            this.uusiSalisLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uusiSalisLB.Location = new System.Drawing.Point(197, 215);
+            this.uusiSalisLB.Name = "uusiSalisLB";
+            this.uusiSalisLB.Size = new System.Drawing.Size(100, 20);
+            this.uusiSalisLB.TabIndex = 14;
+            this.uusiSalisLB.Text = "Uusi salasana:";
             // 
-            // mitaUuttaLB
+            // vanhaSalisLB
             // 
-            this.mitaUuttaLB.AutoSize = true;
-            this.mitaUuttaLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mitaUuttaLB.Location = new System.Drawing.Point(361, 165);
-            this.mitaUuttaLB.Name = "mitaUuttaLB";
-            this.mitaUuttaLB.Size = new System.Drawing.Size(77, 20);
-            this.mitaUuttaLB.TabIndex = 6;
-            this.mitaUuttaLB.Text = "Mitä uutta";
+            this.vanhaSalisLB.AutoSize = true;
+            this.vanhaSalisLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.vanhaSalisLB.Location = new System.Drawing.Point(185, 162);
+            this.vanhaSalisLB.Name = "vanhaSalisLB";
+            this.vanhaSalisLB.Size = new System.Drawing.Size(112, 20);
+            this.vanhaSalisLB.TabIndex = 15;
+            this.vanhaSalisLB.Text = "Vanha salasana:";
             // 
-            // ksKotisivuDG
+            // palauteNimiTB
             // 
-            this.ksKotisivuDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksKotisivuDG.Location = new System.Drawing.Point(250, 199);
-            this.ksKotisivuDG.Name = "ksKotisivuDG";
-            this.ksKotisivuDG.RowTemplate.Height = 25;
-            this.ksKotisivuDG.Size = new System.Drawing.Size(305, 215);
-            this.ksKotisivuDG.TabIndex = 7;
+            this.palauteNimiTB.Location = new System.Drawing.Point(316, 215);
+            this.palauteNimiTB.Multiline = true;
+            this.palauteNimiTB.Name = "palauteNimiTB";
+            this.palauteNimiTB.Size = new System.Drawing.Size(185, 20);
+            this.palauteNimiTB.TabIndex = 16;
             // 
-            // KirjautunutKotisivu
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(316, 274);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(316, 162);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(185, 20);
+            this.textBox2.TabIndex = 18;
+            // 
+            // salasanaVahvistusBT
+            // 
+            this.salasanaVahvistusBT.Location = new System.Drawing.Point(355, 346);
+            this.salasanaVahvistusBT.Name = "salasanaVahvistusBT";
+            this.salasanaVahvistusBT.Size = new System.Drawing.Size(89, 29);
+            this.salasanaVahvistusBT.TabIndex = 19;
+            this.salasanaVahvistusBT.Text = "Vahvista";
+            this.salasanaVahvistusBT.UseVisualStyleBackColor = true;
+            // 
+            // SalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ksKotisivuDG);
-            this.Controls.Add(this.mitaUuttaLB);
-            this.Controls.Add(this.ksEtusivuPB);
-            this.Controls.Add(this.tervetuloaLB);
-            this.Controls.Add(this.ksEtusivuOtsikkoLB);
+            this.Controls.Add(this.salasanaVahvistusBT);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.palauteNimiTB);
+            this.Controls.Add(this.vanhaSalisLB);
+            this.Controls.Add(this.uusiSalisLB);
+            this.Controls.Add(this.salisVahvistusLB);
             this.Controls.Add(this.ksKotisivuMS);
-            this.MainMenuStrip = this.ksKotisivuMS;
-            this.Name = "KirjautunutKotisivu";
-            this.Text = "Kirjautunut Kotisivu";
+            this.Controls.Add(this.ksEtusivuOtsikkoLB);
+            this.Name = "SalasananVaihto";
+            this.Text = "Kirjautuneena Salasanan Vaihto";
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksEtusivuPB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,9 +237,12 @@
         private ToolStripMenuItem ksMuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem ksVaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
-        private Label tervetuloaLB;
-        private PictureBox ksEtusivuPB;
-        private Label mitaUuttaLB;
-        private DataGridView ksKotisivuDG;
+        private Label salisVahvistusLB;
+        private Label uusiSalisLB;
+        private Label vanhaSalisLB;
+        private TextBox palauteNimiTB;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Button salasanaVahvistusBT;
     }
 }

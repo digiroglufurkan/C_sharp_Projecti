@@ -852,19 +852,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Okehittaja\\.nuget\\packages\\": {}
+    "C:\\Users\\prett\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Okehittaja\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
+      "projectUniqueName": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
       "projectName": "Pakkolinen_Ryhmä_Projecti",
-      "projectPath": "C:\\Users\\Okehittaja\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
-      "packagesPath": "C:\\Users\\Okehittaja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Okehittaja\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\obj\\",
+      "projectPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
+      "packagesPath": "C:\\Users\\prett\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Okehittaja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prett\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
