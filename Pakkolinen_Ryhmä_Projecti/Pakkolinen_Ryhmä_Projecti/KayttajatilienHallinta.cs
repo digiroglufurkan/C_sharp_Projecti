@@ -18,6 +18,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KayttajatilienHallinta : Form
     {
+        ADMINKAYTHALLINTA ad = new ADMINKAYTHALLINTA();
         public KayttajatilienHallinta()
         {
             InitializeComponent();
@@ -81,6 +82,27 @@ namespace Pakkolinen_Ryhmä_Projecti
             tiJaAd.FormClosing += f1_FormClosing;
             tiJaAd.Show();
             this.Hide();
+        }
+
+        private void KayttajatilienHallinta_Load(object sender, EventArgs e)
+        {
+            KayttajatDG.DataSource = ad.fetchInformation(); // Kutsutaan OP CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
+            KayttajatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 125;
+        }
+
+        private void KayttajatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool delStudent = ad.deleteKayttaja(); // OP CLASS:ssa olevaa funktiota, joka poistaa opiilaan tiedot
+            if (delStudent == true) // toiminta mikäli edellä kutsuttu funktio palauttaa OK
+            {
+                MessageBox.Show($"Kayttaja poistettu");// ilmoitus, että oppilas on poistettu
+            }
+            else // toiminta mikäli poisto ei onnistunut
+            {
+                MessageBox.Show($"Kayttaja ei pystytty poistamaan!"); // ilmoitus, että poisto ei onnistunut
+            }
         }
     }
 }

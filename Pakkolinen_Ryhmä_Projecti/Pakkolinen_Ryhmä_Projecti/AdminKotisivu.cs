@@ -18,6 +18,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class AdminKotisivu : Form
     {
+        //Form.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
         public AdminKotisivu()
         {
             InitializeComponent();
@@ -91,6 +92,14 @@ namespace Pakkolinen_Ryhmä_Projecti
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
             tiJaAd.FormClosing += f1_FormClosing;
             tiJaAd.Show();
+            this.Hide();
+        }
+
+        private void MuokkaaProfiiliatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
+            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.Show();
             this.Hide();
         }
     }

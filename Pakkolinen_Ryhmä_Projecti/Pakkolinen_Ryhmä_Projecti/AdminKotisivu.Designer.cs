@@ -37,11 +37,11 @@
             this.yhteydenottojenHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mitäUuttaHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiedostonJakoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SalasanojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksettoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SalasanojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,9 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -68,11 +71,12 @@
             this.yhteydenottojenHallintaToolStripMenuItem,
             this.mitäUuttaHallintaToolStripMenuItem,
             this.tiedostonJakoToolStripMenuItem,
-            this.SalasanojenHallintatoolStripMenuItem,
             this.AsetuksettoolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(-2, 61);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1847, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(1497, 38);
+            this.menuStrip1.Stretch = false;
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -125,16 +129,10 @@
             this.tiedostonJakoToolStripMenuItem.Text = "Tiedoston jako";
             this.tiedostonJakoToolStripMenuItem.Click += new System.EventHandler(this.tiedostonJakoToolStripMenuItem_Click);
             // 
-            // SalasanojenHallintatoolStripMenuItem
-            // 
-            //this.SalasanojenHallintatoolStripMenuItem.Name = "SalasanojenHallintatoolStripMenuItem";
-            //this.SalasanojenHallintatoolStripMenuItem.Size = new System.Drawing.Size(214, 34);
-            //this.SalasanojenHallintatoolStripMenuItem.Text = "Salasanojen hallinta";
-            //this.SalasanojenHallintatoolStripMenuItem.Click += new System.EventHandler(this.SalasanojenHallintatoolStripMenuItem_Click);
-            // 
             // AsetuksettoolStripMenuItem
             // 
             this.AsetuksettoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SalasanojenHallintatoolStripMenuItem,
             this.MuokkaaProfiiliatoolStripMenuItem,
             this.vaihdaSalasanaToolStripMenuItem,
             this.kirjauduUlosToolStripMenuItem});
@@ -145,20 +143,27 @@
             // MuokkaaProfiiliatoolStripMenuItem
             // 
             this.MuokkaaProfiiliatoolStripMenuItem.Name = "MuokkaaProfiiliatoolStripMenuItem";
-            this.MuokkaaProfiiliatoolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.MuokkaaProfiiliatoolStripMenuItem.Size = new System.Drawing.Size(287, 34);
             this.MuokkaaProfiiliatoolStripMenuItem.Text = "Muokkaa profiilia";
+            this.MuokkaaProfiiliatoolStripMenuItem.Click += new System.EventHandler(this.MuokkaaProfiiliatoolStripMenuItem_Click);
             // 
             // vaihdaSalasanaToolStripMenuItem
             // 
             this.vaihdaSalasanaToolStripMenuItem.Name = "vaihdaSalasanaToolStripMenuItem";
-            this.vaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.vaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(287, 34);
             this.vaihdaSalasanaToolStripMenuItem.Text = "Vaihda salasana";
             // 
             // kirjauduUlosToolStripMenuItem
             // 
             this.kirjauduUlosToolStripMenuItem.Name = "kirjauduUlosToolStripMenuItem";
-            this.kirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
+            this.kirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(287, 34);
             this.kirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
+            // 
+            // SalasanojenHallintatoolStripMenuItem
+            // 
+            this.SalasanojenHallintatoolStripMenuItem.Name = "SalasanojenHallintatoolStripMenuItem";
+            this.SalasanojenHallintatoolStripMenuItem.Size = new System.Drawing.Size(287, 34);
+            this.SalasanojenHallintatoolStripMenuItem.Text = "Salasanojen hallinta";
             // 
             // AdminKotisivu
             // 
@@ -189,10 +194,10 @@
         private ToolStripMenuItem yhteydenottojenHallintaToolStripMenuItem;
         private ToolStripMenuItem mitäUuttaHallintaToolStripMenuItem;
         private ToolStripMenuItem tiedostonJakoToolStripMenuItem;
-        private ToolStripMenuItem SalasanojenHallintatoolStripMenuItem;
         private ToolStripMenuItem AsetuksettoolStripMenuItem;
         private ToolStripMenuItem MuokkaaProfiiliatoolStripMenuItem;
         private ToolStripMenuItem vaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem kirjauduUlosToolStripMenuItem;
+        private ToolStripMenuItem SalasanojenHallintatoolStripMenuItem;
     }
 }
