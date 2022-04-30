@@ -25,6 +25,24 @@
     <Compile Update="KayttajatilienHallinta.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="KeskusteluPalsta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KirjautunutJaaTiedosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KirjautunutKotisivu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KirjautunutLataukset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KirjautunutMuokkaaProfiilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KirjautunutPalaute.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LatauksienHallinta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -32,6 +50,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PalautteenHallinta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SalasananVaihto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SalasanojenHallinta.cs">
