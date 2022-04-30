@@ -113,3 +113,12 @@ C:\Users\prett\Source\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolin
 C:\Users\prett\Source\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.genruntimeconfig.cache
 C:\Users\prett\Source\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.SalasananVaihto.resources
 C:\Users\prett\Source\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutMuokkaaProfiilia.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.AdminProfiilinMuokkaus.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KeskusteluPalsta.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutJaaTiedosto.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutKotisivu.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutLataukset.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutMuokkaaProfiilia.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.KirjautunutPalaute.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.SalasananVaihto.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.AdminSalasananVaihto.resources

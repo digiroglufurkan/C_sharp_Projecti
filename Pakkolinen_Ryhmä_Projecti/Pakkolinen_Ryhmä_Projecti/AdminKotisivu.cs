@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 27.4.2022
+/// version 30.4.2022
 /// <summary>
-/// Tehty suurinosa sivuista. Mietin vielä miten toteuttaa kohta asetukset, menustripitem vai combobox.
-/// Tekeminen jatkuu kaikinpuolin myöhemmin tänään.
+/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -24,20 +23,16 @@ namespace Pakkolinen_Ryhmä_Projecti
             InitializeComponent();
         }
 
-        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
-
-        }
-        private void asetuksetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void kotisivuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
-            adKo.FormClosing += f1_FormClosing;
+            adKo.FormClosing += formClosing;
             adKo.Show();
             this.Hide();
         }
@@ -50,7 +45,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void palautteenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PalautteenHallinta paHa = new PalautteenHallinta();
-            paHa.FormClosing += f1_FormClosing;
+            paHa.FormClosing += formClosing;
             paHa.Show();
             this.Hide();
         }
@@ -58,7 +53,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void latauksienHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LatauksienHallinta laHa = new LatauksienHallinta();
-            laHa.FormClosing += f1_FormClosing;
+            laHa.FormClosing += formClosing;
             laHa.Show();
             this.Hide();
         }
@@ -66,7 +61,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void kayttäjätilienHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajatilienHallinta kaTiHa = new KayttajatilienHallinta();
-            kaTiHa.FormClosing += f1_FormClosing;
+            kaTiHa.FormClosing += formClosing;
             kaTiHa.Show();
             this.Hide();
         }
@@ -74,7 +69,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void yhteydenottojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             YhteydenottojenHallinta yhHa = new YhteydenottojenHallinta();
-            yhHa.FormClosing += f1_FormClosing;
+            yhHa.FormClosing += formClosing;
             yhHa.Show();
             this.Hide();
         }
@@ -82,7 +77,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void mitäUuttaHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MitaUuttaHallinta miUuHa = new MitaUuttaHallinta();
-            miUuHa.FormClosing += f1_FormClosing;
+            miUuHa.FormClosing += formClosing;
             miUuHa.Show();
             this.Hide();
         }
@@ -90,7 +85,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void tiedostonJakoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
-            tiJaAd.FormClosing += f1_FormClosing;
+            tiJaAd.FormClosing += formClosing;
             tiJaAd.Show();
             this.Hide();
         }
@@ -98,8 +93,32 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MuokkaaProfiiliatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
-            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.FormClosing += formClosing;
             adPrMu.Show();
+            this.Hide();
+        }
+
+        private void SalasanojenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalasanojenHallinta saHa = new SalasanojenHallinta();
+            saHa.FormClosing += formClosing;
+            saHa.Show();
+            this.Hide();
+        }
+
+        private void vaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
+            adSaVa.FormClosing += formClosing;
+            adSaVa.Show();
+            this.Hide();
+        }
+
+        private void kirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Etusivu etusivu = new Etusivu();
+            etusivu.FormClosing += formClosing;
+            etusivu.Show();
             this.Hide();
         }
     }

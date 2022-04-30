@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 27.4.2022
+/// version 30.4.2022
 /// <summary>
-/// Tehty suurinosa sivuista. Mietin vielä miten toteuttaa kohta asetukset, menustripitem vai combobox.
-/// Tekeminen jatkuu kaikinpuolin myöhemmin tänään.
+/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -81,6 +80,38 @@ namespace Pakkolinen_Ryhmä_Projecti
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
             tiJaAd.FormClosing += f1_FormClosing;
             tiJaAd.Show();
+            this.Hide();
+        }
+
+        private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalasanojenHallinta saHa = new SalasanojenHallinta();
+            saHa.FormClosing += f1_FormClosing;
+            saHa.Show();
+            this.Hide();
+        }
+
+        private void MuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
+            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.Show();
+            this.Hide();
+        }
+
+        private void VaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
+            adSaVa.FormClosing += f1_FormClosing;
+            adSaVa.Show();
+            this.Hide();
+        }
+
+        private void KirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Etusivu etusivu = new Etusivu();
+            etusivu.FormClosing += f1_FormClosing;
+            etusivu.Show();
             this.Hide();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Pakkolinen_Ryhmä_Projecti
 {
-    partial class SalasanojenHallinta
+    partial class AdminSalasananVaihto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,57 +29,57 @@
         private void InitializeComponent()
         {
             this.OtsikkoLB = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.KotisivutoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NavmenuStrip = new System.Windows.Forms.MenuStrip();
+            this.AdminKotisivutoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PalautteenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LatauksienHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.KayttajatilienHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.YhteydenottojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KayttajienHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MitaUuttaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.YhteydenottojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TiedostonJakotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksettoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.NavmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // OtsikkoLB
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(703, 11);
+            this.OtsikkoLB.Location = new System.Drawing.Point(601, 3);
             this.OtsikkoLB.Name = "OtsikkoLB";
             this.OtsikkoLB.Size = new System.Drawing.Size(183, 62);
             this.OtsikkoLB.TabIndex = 0;
             this.OtsikkoLB.Text = "Otsikko";
             // 
-            // menuStrip1
+            // NavmenuStrip
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.KotisivutoolStripMenuItem,
+            this.NavmenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.NavmenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.NavmenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AdminKotisivutoolStripMenuItem,
             this.PalautteenHallintatoolStripMenuItem,
             this.LatauksienHallintatoolStripMenuItem,
-            this.KayttajatilienHallintatoolStripMenuItem,
-            this.YhteydenottojenHallintatoolStripMenuItem,
+            this.KayttajienHallintatoolStripMenuItem,
             this.MitaUuttaHallintatoolStripMenuItem,
+            this.YhteydenottojenHallintatoolStripMenuItem,
             this.TiedostonJakotoolStripMenuItem,
             this.AsetuksettoolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(9, 85);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1072, 28);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.NavmenuStrip.Location = new System.Drawing.Point(0, 78);
+            this.NavmenuStrip.Name = "NavmenuStrip";
+            this.NavmenuStrip.Size = new System.Drawing.Size(1072, 28);
+            this.NavmenuStrip.TabIndex = 1;
+            this.NavmenuStrip.Text = "menuStrip1";
             // 
-            // KotisivutoolStripMenuItem
+            // AdminKotisivutoolStripMenuItem
             // 
-            this.KotisivutoolStripMenuItem.Name = "KotisivutoolStripMenuItem";
-            this.KotisivutoolStripMenuItem.Size = new System.Drawing.Size(75, 24);
-            this.KotisivutoolStripMenuItem.Text = "Kotisivu";
-            this.KotisivutoolStripMenuItem.Click += new System.EventHandler(this.KotisivutoolStripMenuItem_Click);
+            this.AdminKotisivutoolStripMenuItem.Name = "AdminKotisivutoolStripMenuItem";
+            this.AdminKotisivutoolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.AdminKotisivutoolStripMenuItem.Text = "Kotisivu";
+            this.AdminKotisivutoolStripMenuItem.Click += new System.EventHandler(this.AdminKotisivutoolStripMenuItem_Click);
             // 
             // PalautteenHallintatoolStripMenuItem
             // 
@@ -95,19 +95,12 @@
             this.LatauksienHallintatoolStripMenuItem.Text = "Latauksien hallinta";
             this.LatauksienHallintatoolStripMenuItem.Click += new System.EventHandler(this.LatauksienHallintatoolStripMenuItem_Click);
             // 
-            // KayttajatilienHallintatoolStripMenuItem
+            // KayttajienHallintatoolStripMenuItem
             // 
-            this.KayttajatilienHallintatoolStripMenuItem.Name = "KayttajatilienHallintatoolStripMenuItem";
-            this.KayttajatilienHallintatoolStripMenuItem.Size = new System.Drawing.Size(163, 24);
-            this.KayttajatilienHallintatoolStripMenuItem.Text = "Käyttäjätilien hallinta";
-            this.KayttajatilienHallintatoolStripMenuItem.Click += new System.EventHandler(this.KayttajatilienHallintatoolStripMenuItem_Click);
-            // 
-            // YhteydenottojenHallintatoolStripMenuItem
-            // 
-            this.YhteydenottojenHallintatoolStripMenuItem.Name = "YhteydenottojenHallintatoolStripMenuItem";
-            this.YhteydenottojenHallintatoolStripMenuItem.Size = new System.Drawing.Size(185, 24);
-            this.YhteydenottojenHallintatoolStripMenuItem.Text = "Yhteydenottojen hallinta";
-            this.YhteydenottojenHallintatoolStripMenuItem.Click += new System.EventHandler(this.YhteydenottojenHallintatoolStripMenuItem_Click);
+            this.KayttajienHallintatoolStripMenuItem.Name = "KayttajienHallintatoolStripMenuItem";
+            this.KayttajienHallintatoolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.KayttajienHallintatoolStripMenuItem.Text = "Käyttäjätilien hallinta";
+            this.KayttajienHallintatoolStripMenuItem.Click += new System.EventHandler(this.KayttajienHallintatoolStripMenuItem_Click);
             // 
             // MitaUuttaHallintatoolStripMenuItem
             // 
@@ -115,6 +108,13 @@
             this.MitaUuttaHallintatoolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.MitaUuttaHallintatoolStripMenuItem.Text = "Mitä uutta hallinta";
             this.MitaUuttaHallintatoolStripMenuItem.Click += new System.EventHandler(this.MitaUuttaHallintatoolStripMenuItem_Click);
+            // 
+            // YhteydenottojenHallintatoolStripMenuItem
+            // 
+            this.YhteydenottojenHallintatoolStripMenuItem.Name = "YhteydenottojenHallintatoolStripMenuItem";
+            this.YhteydenottojenHallintatoolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.YhteydenottojenHallintatoolStripMenuItem.Text = "Yhteydenottojen hallinta";
+            this.YhteydenottojenHallintatoolStripMenuItem.Click += new System.EventHandler(this.YhteydenottojenHallintatoolStripMenuItem_Click);
             // 
             // TiedostonJakotoolStripMenuItem
             // 
@@ -162,18 +162,18 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
-            // SalasanojenHallinta
+            // AdminSalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1269, 506);
+            this.ClientSize = new System.Drawing.Size(1255, 450);
             this.Controls.Add(this.OtsikkoLB);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "SalasanojenHallinta";
-            this.Text = "Salasanojen hallinta";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.Controls.Add(this.NavmenuStrip);
+            this.MainMenuStrip = this.NavmenuStrip;
+            this.Name = "AdminSalasananVaihto";
+            this.Text = "Salasanan vaihto";
+            this.NavmenuStrip.ResumeLayout(false);
+            this.NavmenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,15 +182,15 @@
         #endregion
 
         private Label OtsikkoLB;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem KotisivutoolStripMenuItem;
+        private MenuStrip NavmenuStrip;
+        private ToolStripMenuItem AdminKotisivutoolStripMenuItem;
         private ToolStripMenuItem PalautteenHallintatoolStripMenuItem;
+        private ToolStripMenuItem KayttajienHallintatoolStripMenuItem;
         private ToolStripMenuItem LatauksienHallintatoolStripMenuItem;
-        private ToolStripMenuItem KayttajatilienHallintatoolStripMenuItem;
         private ToolStripMenuItem YhteydenottojenHallintatoolStripMenuItem;
         private ToolStripMenuItem MitaUuttaHallintatoolStripMenuItem;
-        private ToolStripMenuItem TiedostonJakotoolStripMenuItem;
         private ToolStripMenuItem AsetuksettoolStripMenuItem;
+        private ToolStripMenuItem TiedostonJakotoolStripMenuItem;
         private ToolStripMenuItem SalasanojenHallintaToolStripMenuItem;
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
