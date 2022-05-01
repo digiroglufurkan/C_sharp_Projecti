@@ -12,8 +12,8 @@ namespace Pakkolinen_Ryhmä_Projecti
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Etusivu()); 
-            Application.Run(new AdminKotisivu()); // Tämä on, jotta ohjelma aloittaa pyörimisen Adminin kotisivulta
-            //Application.Run(new KirjautunutKotisivu()); // Avautuu kirjautuneen kotisivuun
+            //Application.Run(new AdminKotisivu()); // Tämä on, jotta ohjelma aloittaa pyörimisen Adminin kotisivulta
+            Application.Run(new KirjautunutKotisivu()); // Avautuu kirjautuneen kotisivuun
         }
     }
 }

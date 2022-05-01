@@ -71,7 +71,7 @@
             this.ksJaaTiedostoAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(89, 77);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
             this.ksKotisivuMS.TabIndex = 4;
             // 
             // ksJaaTiedostoKotisivuToolStripMenuItem
@@ -80,6 +80,7 @@
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Name = "ksJaaTiedostoKotisivuToolStripMenuItem";
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Text = "Kotisivu";
+            this.ksJaaTiedostoKotisivuToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoKotisivuToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoLatauksetToolStripMenuItem
             // 
@@ -87,6 +88,7 @@
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Name = "ksJaaTiedostoLatauksetToolStripMenuItem";
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Text = "Lataukset";
+            this.ksJaaTiedostoLatauksetToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoLatauksetToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoJaaTiedostoToolStripMenuItem
             // 
@@ -101,6 +103,7 @@
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Name = "ksJaaTiedostoKeskustelupalstaToolStripMenuItem";
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Text = "Keskustelupalsta";
+            this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoPalauteToolStripMenuItem
             // 
@@ -108,6 +111,7 @@
             this.ksJaaTiedostoPalauteToolStripMenuItem.Name = "ksJaaTiedostoPalauteToolStripMenuItem";
             this.ksJaaTiedostoPalauteToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ksJaaTiedostoPalauteToolStripMenuItem.Text = "Palaute";
+            this.ksJaaTiedostoPalauteToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoPalauteToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoAsetuksetToolStripMenuItem
             // 
@@ -125,18 +129,21 @@
             this.muokkaaProfiiliaToolStripMenuItem.Name = "muokkaaProfiiliaToolStripMenuItem";
             this.muokkaaProfiiliaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.muokkaaProfiiliaToolStripMenuItem.Text = "Muokkaa profiilia";
+            this.muokkaaProfiiliaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaProfiiliaToolStripMenuItem_Click);
             // 
             // ksVaihdaSalasanaToolStripMenuItem
             // 
             this.ksVaihdaSalasanaToolStripMenuItem.Name = "ksVaihdaSalasanaToolStripMenuItem";
             this.ksVaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksVaihdaSalasanaToolStripMenuItem.Text = "Vaihda salasana";
+            this.ksVaihdaSalasanaToolStripMenuItem.Click += new System.EventHandler(this.ksVaihdaSalasanaToolStripMenuItem_Click);
             // 
             // ksKirjauduUlosToolStripMenuItem
             // 
             this.ksKirjauduUlosToolStripMenuItem.Name = "ksKirjauduUlosToolStripMenuItem";
             this.ksKirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksKirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
+            this.ksKirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.ksKirjauduUlosToolStripMenuItem_Click);
             // 
             // kuvausLB
             // 
