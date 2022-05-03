@@ -101,7 +101,7 @@
             this.ksJaaTiedostoAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(123, 79);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 13;
             // 
             // ksJaaTiedostoKotisivuToolStripMenuItem
@@ -206,7 +206,7 @@
             this.palauteLahetaBT.Name = "palauteLahetaBT";
             this.palauteLahetaBT.Size = new System.Drawing.Size(89, 29);
             this.palauteLahetaBT.TabIndex = 17;
-            this.palauteLahetaBT.Text = "Lataa";
+            this.palauteLahetaBT.Text = "Lähetä";
             this.palauteLahetaBT.UseVisualStyleBackColor = true;
             // 
             // KirjautunutPalaute

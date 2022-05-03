@@ -77,5 +77,18 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.Show();
             this.Hide();
         }
+
+        private void jaaSelaaBT_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            //ofd.Title = "Valitse kuva";
+
+            //ofd.Filter = "PNG Image|*.png|JPEG Image|*.jpeg";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                valitseTiedostoTB.Text = ofd.FileName;
+            }
+        }
     }
 }
