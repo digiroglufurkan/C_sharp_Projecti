@@ -10,19 +10,19 @@
     <Compile Update="AdminSalasananVaihto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
+    <Compile Update="Etusivu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form2.cs">
+    <Compile Update="Rekisteroidy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form3.cs">
+    <Compile Update="Galaria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form4.cs">
+    <Compile Update="Kirjaudu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form5.cs">
+    <Compile Update="Otayhtayta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="KayttajatilienHallinta.cs">

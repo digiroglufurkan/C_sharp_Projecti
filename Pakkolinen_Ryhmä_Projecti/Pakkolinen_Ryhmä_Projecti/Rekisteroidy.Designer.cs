@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rekistreidy));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.etusivuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kirjaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +51,12 @@
             this.RePostipaikkaTB = new System.Windows.Forms.TextBox();
             this.ReTitteliTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ReprofiliKuvaLB = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.RetiedostoBT = new System.Windows.Forms.Button();
             this.RekysteroidyBT = new System.Windows.Forms.Button();
+            this.ReProfiiliKuvaPB = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReProfiiliKuvaPB)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -114,7 +116,7 @@
             // 
             this.ReEtunimiLB.AutoSize = true;
             this.ReEtunimiLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReEtunimiLB.Location = new System.Drawing.Point(53, 233);
+            this.ReEtunimiLB.Location = new System.Drawing.Point(144, 371);
             this.ReEtunimiLB.Name = "ReEtunimiLB";
             this.ReEtunimiLB.Size = new System.Drawing.Size(78, 28);
             this.ReEtunimiLB.TabIndex = 3;
@@ -124,7 +126,7 @@
             // 
             this.ReSukunimiLB.AutoSize = true;
             this.ReSukunimiLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReSukunimiLB.Location = new System.Drawing.Point(484, 230);
+            this.ReSukunimiLB.Location = new System.Drawing.Point(575, 368);
             this.ReSukunimiLB.Name = "ReSukunimiLB";
             this.ReSukunimiLB.Size = new System.Drawing.Size(93, 28);
             this.ReSukunimiLB.TabIndex = 4;
@@ -134,7 +136,7 @@
             // 
             this.ResahkopostiLB.AutoSize = true;
             this.ResahkopostiLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ResahkopostiLB.Location = new System.Drawing.Point(52, 290);
+            this.ResahkopostiLB.Location = new System.Drawing.Point(143, 428);
             this.ResahkopostiLB.Name = "ResahkopostiLB";
             this.ResahkopostiLB.Size = new System.Drawing.Size(110, 28);
             this.ResahkopostiLB.TabIndex = 5;
@@ -143,7 +145,7 @@
             // ReEtunimiTB
             // 
             this.ReEtunimiTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReEtunimiTB.Location = new System.Drawing.Point(174, 230);
+            this.ReEtunimiTB.Location = new System.Drawing.Point(265, 368);
             this.ReEtunimiTB.Name = "ReEtunimiTB";
             this.ReEtunimiTB.Size = new System.Drawing.Size(224, 34);
             this.ReEtunimiTB.TabIndex = 6;
@@ -151,7 +153,7 @@
             // ReSukunimiTB
             // 
             this.ReSukunimiTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReSukunimiTB.Location = new System.Drawing.Point(608, 230);
+            this.ReSukunimiTB.Location = new System.Drawing.Point(699, 368);
             this.ReSukunimiTB.Name = "ReSukunimiTB";
             this.ReSukunimiTB.Size = new System.Drawing.Size(230, 34);
             this.ReSukunimiTB.TabIndex = 7;
@@ -159,7 +161,7 @@
             // ResahkopostiTB
             // 
             this.ResahkopostiTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ResahkopostiTB.Location = new System.Drawing.Point(174, 290);
+            this.ResahkopostiTB.Location = new System.Drawing.Point(265, 428);
             this.ResahkopostiTB.Name = "ResahkopostiTB";
             this.ResahkopostiTB.Size = new System.Drawing.Size(304, 34);
             this.ResahkopostiTB.TabIndex = 8;
@@ -168,7 +170,7 @@
             // 
             this.RePuhelinLB.AutoSize = true;
             this.RePuhelinLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePuhelinLB.Location = new System.Drawing.Point(484, 290);
+            this.RePuhelinLB.Location = new System.Drawing.Point(575, 428);
             this.RePuhelinLB.Name = "RePuhelinLB";
             this.RePuhelinLB.Size = new System.Drawing.Size(76, 28);
             this.RePuhelinLB.TabIndex = 9;
@@ -177,7 +179,7 @@
             // RePuhelinTB
             // 
             this.RePuhelinTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePuhelinTB.Location = new System.Drawing.Point(608, 290);
+            this.RePuhelinTB.Location = new System.Drawing.Point(699, 428);
             this.RePuhelinTB.Name = "RePuhelinTB";
             this.RePuhelinTB.Size = new System.Drawing.Size(230, 34);
             this.RePuhelinTB.TabIndex = 10;
@@ -186,7 +188,7 @@
             // 
             this.ReOsaiteLB.AutoSize = true;
             this.ReOsaiteLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReOsaiteLB.Location = new System.Drawing.Point(53, 354);
+            this.ReOsaiteLB.Location = new System.Drawing.Point(144, 492);
             this.ReOsaiteLB.Name = "ReOsaiteLB";
             this.ReOsaiteLB.Size = new System.Drawing.Size(67, 28);
             this.ReOsaiteLB.TabIndex = 11;
@@ -195,7 +197,7 @@
             // ReOsaiteTB
             // 
             this.ReOsaiteTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReOsaiteTB.Location = new System.Drawing.Point(174, 353);
+            this.ReOsaiteTB.Location = new System.Drawing.Point(265, 491);
             this.ReOsaiteTB.Name = "ReOsaiteTB";
             this.ReOsaiteTB.Size = new System.Drawing.Size(422, 34);
             this.ReOsaiteTB.TabIndex = 12;
@@ -204,7 +206,7 @@
             // 
             this.RePostiNumeroLB.AutoSize = true;
             this.RePostiNumeroLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePostiNumeroLB.Location = new System.Drawing.Point(602, 354);
+            this.RePostiNumeroLB.Location = new System.Drawing.Point(693, 492);
             this.RePostiNumeroLB.Name = "RePostiNumeroLB";
             this.RePostiNumeroLB.Size = new System.Drawing.Size(131, 28);
             this.RePostiNumeroLB.TabIndex = 13;
@@ -213,7 +215,7 @@
             // RePostinumeroTB
             // 
             this.RePostinumeroTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePostinumeroTB.Location = new System.Drawing.Point(733, 353);
+            this.RePostinumeroTB.Location = new System.Drawing.Point(824, 491);
             this.RePostinumeroTB.Name = "RePostinumeroTB";
             this.RePostinumeroTB.Size = new System.Drawing.Size(105, 34);
             this.RePostinumeroTB.TabIndex = 14;
@@ -222,7 +224,7 @@
             // 
             this.RePostiPaikkaLB.AutoSize = true;
             this.RePostiPaikkaLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePostiPaikkaLB.Location = new System.Drawing.Point(52, 420);
+            this.RePostiPaikkaLB.Location = new System.Drawing.Point(143, 558);
             this.RePostiPaikkaLB.Name = "RePostiPaikkaLB";
             this.RePostiPaikkaLB.Size = new System.Drawing.Size(157, 28);
             this.RePostiPaikkaLB.TabIndex = 15;
@@ -231,7 +233,7 @@
             // RePostipaikkaTB
             // 
             this.RePostipaikkaTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RePostipaikkaTB.Location = new System.Drawing.Point(243, 417);
+            this.RePostipaikkaTB.Location = new System.Drawing.Point(334, 555);
             this.RePostipaikkaTB.Name = "RePostipaikkaTB";
             this.RePostipaikkaTB.Size = new System.Drawing.Size(138, 34);
             this.RePostipaikkaTB.TabIndex = 16;
@@ -239,7 +241,7 @@
             // ReTitteliTB
             // 
             this.ReTitteliTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReTitteliTB.Location = new System.Drawing.Point(532, 420);
+            this.ReTitteliTB.Location = new System.Drawing.Point(623, 558);
             this.ReTitteliTB.Name = "ReTitteliTB";
             this.ReTitteliTB.Size = new System.Drawing.Size(138, 34);
             this.ReTitteliTB.TabIndex = 17;
@@ -248,21 +250,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(432, 420);
+            this.label1.Location = new System.Drawing.Point(523, 558);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 28);
             this.label1.TabIndex = 18;
             this.label1.Text = "Titteli";
-            // 
-            // ReprofiliKuvaLB
-            // 
-            this.ReprofiliKuvaLB.AutoSize = true;
-            this.ReprofiliKuvaLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReprofiliKuvaLB.Location = new System.Drawing.Point(53, 495);
-            this.ReprofiliKuvaLB.Name = "ReprofiliKuvaLB";
-            this.ReprofiliKuvaLB.Size = new System.Drawing.Size(109, 28);
-            this.ReprofiliKuvaLB.TabIndex = 19;
-            this.ReprofiliKuvaLB.Text = "Profiilikuva";
             // 
             // openFileDialog1
             // 
@@ -270,18 +262,20 @@
             // 
             // RetiedostoBT
             // 
+            this.RetiedostoBT.FlatAppearance.BorderSize = 0;
             this.RetiedostoBT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RetiedostoBT.Location = new System.Drawing.Point(168, 493);
+            this.RetiedostoBT.Location = new System.Drawing.Point(305, 319);
             this.RetiedostoBT.Name = "RetiedostoBT";
-            this.RetiedostoBT.Size = new System.Drawing.Size(111, 33);
+            this.RetiedostoBT.Size = new System.Drawing.Size(167, 33);
             this.RetiedostoBT.TabIndex = 20;
-            this.RetiedostoBT.Text = "Tiedosto";
+            this.RetiedostoBT.Text = "Ladata Kuva";
             this.RetiedostoBT.UseVisualStyleBackColor = true;
+            this.RetiedostoBT.Click += new System.EventHandler(this.RetiedostoBT_Click);
             // 
             // RekysteroidyBT
             // 
             this.RekysteroidyBT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.RekysteroidyBT.Location = new System.Drawing.Point(384, 547);
+            this.RekysteroidyBT.Location = new System.Drawing.Point(475, 685);
             this.RekysteroidyBT.Name = "RekysteroidyBT";
             this.RekysteroidyBT.Size = new System.Drawing.Size(150, 46);
             this.RekysteroidyBT.TabIndex = 21;
@@ -289,14 +283,25 @@
             this.RekysteroidyBT.UseVisualStyleBackColor = true;
             this.RekysteroidyBT.Click += new System.EventHandler(this.RekysteroidyBT_Click);
             // 
+            // ReProfiiliKuvaPB
+            // 
+            this.ReProfiiliKuvaPB.BackColor = System.Drawing.Color.Orange;
+            this.ReProfiiliKuvaPB.Image = ((System.Drawing.Image)(resources.GetObject("ReProfiiliKuvaPB.Image")));
+            this.ReProfiiliKuvaPB.Location = new System.Drawing.Point(143, 190);
+            this.ReProfiiliKuvaPB.Name = "ReProfiiliKuvaPB";
+            this.ReProfiiliKuvaPB.Size = new System.Drawing.Size(144, 162);
+            this.ReProfiiliKuvaPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ReProfiiliKuvaPB.TabIndex = 22;
+            this.ReProfiiliKuvaPB.TabStop = false;
+            // 
             // Rekistreidy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 644);
+            this.ClientSize = new System.Drawing.Size(1039, 743);
+            this.Controls.Add(this.ReProfiiliKuvaPB);
             this.Controls.Add(this.RekysteroidyBT);
             this.Controls.Add(this.RetiedostoBT);
-            this.Controls.Add(this.ReprofiliKuvaLB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ReTitteliTB);
             this.Controls.Add(this.RePostipaikkaTB);
@@ -319,6 +324,7 @@
             this.Text = "Rekisteroidy";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ReProfiiliKuvaPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,9 +354,9 @@
         private TextBox RePostipaikkaTB;
         private TextBox ReTitteliTB;
         private Label label1;
-        private Label ReprofiliKuvaLB;
         private OpenFileDialog openFileDialog1;
         private Button RetiedostoBT;
         private Button RekysteroidyBT;
+        private PictureBox ReProfiiliKuvaPB;
     }
 }

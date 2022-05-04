@@ -67,13 +67,13 @@ namespace Pakkolinen_Ryhmä_Projecti
             if (tarkistaTextBox(ReTitteliTB, "Vaaditan Titteli")) { goto loppu; };
             string titteli = ReTitteliTB.Text;
             Tiedansyotto uusisyotto = new Tiedansyotto();
-            if (uusisyotto.lisakayttaja(etunimi, sukunimi, puh, email, osaite,postinumero,toimipaikka,titteli))
+            if (uusisyotto.lisakayttaja(etunimi, sukunimi, puh, email, osaite,postinumero,toimipaikka,titteli,kuva,ReProfiiliKuvaPB))
             {
-                MessageBox.Show("onnistu");
+                MessageBox.Show("Rekisteroidy Onnistuu");
             }
             else
             {
-                MessageBox.Show("Epåonnistu");
+                MessageBox.Show("Valittevasti Ei Rekistreidy yritään udestan ");
             }
         loppu:;
         }
@@ -85,6 +85,23 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return true;
             }
             return false;
+        }
+        //Profili Kuva valitse
+        bool kuva = false;
+        private void RetiedostoBT_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters pictruebox  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // näyttä picturebox
+                ReProfiiliKuvaPB.Image = new Bitmap(open.FileName);
+                kuva = true;
+                
+            }
+         
         }
     }
     }
