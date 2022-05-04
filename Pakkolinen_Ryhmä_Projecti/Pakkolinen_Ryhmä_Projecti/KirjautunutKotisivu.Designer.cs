@@ -128,12 +128,14 @@
             this.ksMuokkaaProfiiliaToolStripMenuItem.Name = "ksMuokkaaProfiiliaToolStripMenuItem";
             this.ksMuokkaaProfiiliaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksMuokkaaProfiiliaToolStripMenuItem.Text = "Muokkaa profiilia";
+            this.ksMuokkaaProfiiliaToolStripMenuItem.Click += new System.EventHandler(this.ksMuokkaaProfiiliaToolStripMenuItem_Click);
             // 
             // ksVaihdaSalasanaToolStripMenuItem
             // 
             this.ksVaihdaSalasanaToolStripMenuItem.Name = "ksVaihdaSalasanaToolStripMenuItem";
             this.ksVaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksVaihdaSalasanaToolStripMenuItem.Text = "Vaihda salasana";
+            this.ksVaihdaSalasanaToolStripMenuItem.Click += new System.EventHandler(this.ksVaihdaSalasanaToolStripMenuItem_Click);
             // 
             // ksKirjauduUlosToolStripMenuItem
             // 

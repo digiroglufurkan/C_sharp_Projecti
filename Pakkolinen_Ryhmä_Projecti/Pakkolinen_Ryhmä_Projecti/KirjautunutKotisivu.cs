@@ -60,7 +60,28 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void ksKirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            Etusivu etuSiv = new Etusivu();
+            etuSiv.Show();
+            etuSiv.FormClosing += f1_FormClosing;
+            this.Hide();
+            
+        }
+
+        private void ksMuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KirjautunutMuokkaaProfiilia muoPro = new KirjautunutMuokkaaProfiilia();
+            muoPro.Show();
+            muoPro.FormClosing += f1_FormClosing;
+            this.Hide();
+        }
+
+        private void ksVaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalasananVaihto salVai = new SalasananVaihto();
+            salVai.Show();
+            salVai.FormClosing += f1_FormClosing;
+            this.Hide();
         }
     }
 }

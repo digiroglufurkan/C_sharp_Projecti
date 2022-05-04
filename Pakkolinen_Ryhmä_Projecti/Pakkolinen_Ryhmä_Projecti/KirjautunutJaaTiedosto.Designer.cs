@@ -46,6 +46,8 @@
             this.jaaLataaBT = new System.Windows.Forms.Button();
             this.jaaAiheTB = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.valitseTiedostoTB = new System.Windows.Forms.TextBox();
+            this.ksJaaTiedostoFD = new System.Windows.Forms.OpenFileDialog();
             this.ksKotisivuMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +82,7 @@
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Name = "ksJaaTiedostoKotisivuToolStripMenuItem";
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.ksJaaTiedostoKotisivuToolStripMenuItem.Text = "Kotisivu";
+            this.ksJaaTiedostoKotisivuToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoKotisivuToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoLatauksetToolStripMenuItem
             // 
@@ -87,6 +90,7 @@
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Name = "ksJaaTiedostoLatauksetToolStripMenuItem";
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.ksJaaTiedostoLatauksetToolStripMenuItem.Text = "Lataukset";
+            this.ksJaaTiedostoLatauksetToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoLatauksetToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoJaaTiedostoToolStripMenuItem
             // 
@@ -101,6 +105,7 @@
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Name = "ksJaaTiedostoKeskustelupalstaToolStripMenuItem";
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Text = "Keskustelupalsta";
+            this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoKeskustelupalstaToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoPalauteToolStripMenuItem
             // 
@@ -108,6 +113,7 @@
             this.ksJaaTiedostoPalauteToolStripMenuItem.Name = "ksJaaTiedostoPalauteToolStripMenuItem";
             this.ksJaaTiedostoPalauteToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ksJaaTiedostoPalauteToolStripMenuItem.Text = "Palaute";
+            this.ksJaaTiedostoPalauteToolStripMenuItem.Click += new System.EventHandler(this.ksJaaTiedostoPalauteToolStripMenuItem_Click);
             // 
             // ksJaaTiedostoAsetuksetToolStripMenuItem
             // 
@@ -125,18 +131,21 @@
             this.muokkaaProfiiliaToolStripMenuItem.Name = "muokkaaProfiiliaToolStripMenuItem";
             this.muokkaaProfiiliaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.muokkaaProfiiliaToolStripMenuItem.Text = "Muokkaa profiilia";
+            this.muokkaaProfiiliaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaProfiiliaToolStripMenuItem_Click);
             // 
             // ksVaihdaSalasanaToolStripMenuItem
             // 
             this.ksVaihdaSalasanaToolStripMenuItem.Name = "ksVaihdaSalasanaToolStripMenuItem";
             this.ksVaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksVaihdaSalasanaToolStripMenuItem.Text = "Vaihda salasana";
+            this.ksVaihdaSalasanaToolStripMenuItem.Click += new System.EventHandler(this.ksVaihdaSalasanaToolStripMenuItem_Click);
             // 
             // ksKirjauduUlosToolStripMenuItem
             // 
             this.ksKirjauduUlosToolStripMenuItem.Name = "ksKirjauduUlosToolStripMenuItem";
             this.ksKirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.ksKirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
+            this.ksKirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.ksKirjauduUlosToolStripMenuItem_Click);
             // 
             // kuvausLB
             // 
@@ -170,12 +179,13 @@
             // 
             // jaaSelaaBT
             // 
-            this.jaaSelaaBT.Location = new System.Drawing.Point(385, 204);
+            this.jaaSelaaBT.Location = new System.Drawing.Point(489, 204);
             this.jaaSelaaBT.Name = "jaaSelaaBT";
             this.jaaSelaaBT.Size = new System.Drawing.Size(89, 29);
             this.jaaSelaaBT.TabIndex = 10;
             this.jaaSelaaBT.Text = "Selaa";
             this.jaaSelaaBT.UseVisualStyleBackColor = true;
+            this.jaaSelaaBT.Click += new System.EventHandler(this.jaaSelaaBT_Click);
             // 
             // jaaLataaBT
             // 
@@ -202,11 +212,25 @@
             this.textBox1.Size = new System.Drawing.Size(185, 20);
             this.textBox1.TabIndex = 13;
             // 
+            // valitseTiedostoTB
+            // 
+            this.valitseTiedostoTB.Location = new System.Drawing.Point(289, 208);
+            this.valitseTiedostoTB.Multiline = true;
+            this.valitseTiedostoTB.Name = "valitseTiedostoTB";
+            this.valitseTiedostoTB.ReadOnly = true;
+            this.valitseTiedostoTB.Size = new System.Drawing.Size(185, 20);
+            this.valitseTiedostoTB.TabIndex = 14;
+            // 
+            // ksJaaTiedostoFD
+            // 
+            this.ksJaaTiedostoFD.FileName = "ksJaaTiedostoFD";
+            // 
             // KirjautunutJaaTiedosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.valitseTiedostoTB);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.jaaAiheTB);
             this.Controls.Add(this.jaaLataaBT);
@@ -245,5 +269,7 @@
         private Button jaaLataaBT;
         private TextBox jaaAiheTB;
         private TextBox textBox1;
+        private TextBox valitseTiedostoTB;
+        private OpenFileDialog ksJaaTiedostoFD;
     }
 }
