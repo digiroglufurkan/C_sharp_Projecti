@@ -46,6 +46,8 @@
             this.jaaLataaBT = new System.Windows.Forms.Button();
             this.jaaAiheTB = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.valitseTiedostoTB = new System.Windows.Forms.TextBox();
+            this.ksJaaTiedostoFD = new System.Windows.Forms.OpenFileDialog();
             this.ksKotisivuMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             this.ksJaaTiedostoAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(89, 77);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 4;
             // 
             // ksJaaTiedostoKotisivuToolStripMenuItem
@@ -177,12 +179,13 @@
             // 
             // jaaSelaaBT
             // 
-            this.jaaSelaaBT.Location = new System.Drawing.Point(385, 204);
+            this.jaaSelaaBT.Location = new System.Drawing.Point(489, 204);
             this.jaaSelaaBT.Name = "jaaSelaaBT";
             this.jaaSelaaBT.Size = new System.Drawing.Size(89, 29);
             this.jaaSelaaBT.TabIndex = 10;
             this.jaaSelaaBT.Text = "Selaa";
             this.jaaSelaaBT.UseVisualStyleBackColor = true;
+            this.jaaSelaaBT.Click += new System.EventHandler(this.jaaSelaaBT_Click);
             // 
             // jaaLataaBT
             // 
@@ -209,11 +212,25 @@
             this.textBox1.Size = new System.Drawing.Size(185, 20);
             this.textBox1.TabIndex = 13;
             // 
+            // valitseTiedostoTB
+            // 
+            this.valitseTiedostoTB.Location = new System.Drawing.Point(289, 208);
+            this.valitseTiedostoTB.Multiline = true;
+            this.valitseTiedostoTB.Name = "valitseTiedostoTB";
+            this.valitseTiedostoTB.ReadOnly = true;
+            this.valitseTiedostoTB.Size = new System.Drawing.Size(185, 20);
+            this.valitseTiedostoTB.TabIndex = 14;
+            // 
+            // ksJaaTiedostoFD
+            // 
+            this.ksJaaTiedostoFD.FileName = "ksJaaTiedostoFD";
+            // 
             // KirjautunutJaaTiedosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.valitseTiedostoTB);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.jaaAiheTB);
             this.Controls.Add(this.jaaLataaBT);
@@ -252,5 +269,7 @@
         private Button jaaLataaBT;
         private TextBox jaaAiheTB;
         private TextBox textBox1;
+        private TextBox valitseTiedostoTB;
+        private OpenFileDialog ksJaaTiedostoFD;
     }
 }
