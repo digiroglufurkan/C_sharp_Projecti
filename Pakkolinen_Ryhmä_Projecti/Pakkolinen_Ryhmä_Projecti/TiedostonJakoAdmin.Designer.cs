@@ -42,6 +42,15 @@
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AiheLB = new System.Windows.Forms.Label();
+            this.TiedostoVaLB = new System.Windows.Forms.Label();
+            this.KuvausLB = new System.Windows.Forms.Label();
+            this.JaaBT = new System.Windows.Forms.Button();
+            this.AiheTB = new System.Windows.Forms.TextBox();
+            this.KuvausTB = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.VaTieBT = new System.Windows.Forms.Button();
+            this.TiedostoNimiLB = new System.Windows.Forms.Label();
             this.NavmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +80,7 @@
             this.AsetuksettoolStripMenuItem});
             this.NavmenuStrip.Location = new System.Drawing.Point(9, 79);
             this.NavmenuStrip.Name = "NavmenuStrip";
-            this.NavmenuStrip.Size = new System.Drawing.Size(1633, 38);
+            this.NavmenuStrip.Size = new System.Drawing.Size(1483, 38);
             this.NavmenuStrip.TabIndex = 1;
             this.NavmenuStrip.Text = "menuStrip1";
             // 
@@ -163,11 +172,93 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
+            // AiheLB
+            // 
+            this.AiheLB.AutoSize = true;
+            this.AiheLB.Location = new System.Drawing.Point(308, 159);
+            this.AiheLB.Name = "AiheLB";
+            this.AiheLB.Size = new System.Drawing.Size(42, 20);
+            this.AiheLB.TabIndex = 2;
+            this.AiheLB.Text = "Aihe:";
+            // 
+            // TiedostoVaLB
+            // 
+            this.TiedostoVaLB.AutoSize = true;
+            this.TiedostoVaLB.Location = new System.Drawing.Point(308, 229);
+            this.TiedostoVaLB.Name = "TiedostoVaLB";
+            this.TiedostoVaLB.Size = new System.Drawing.Size(114, 20);
+            this.TiedostoVaLB.TabIndex = 3;
+            this.TiedostoVaLB.Text = "Valitse tiedosto:";
+            // 
+            // KuvausLB
+            // 
+            this.KuvausLB.AutoSize = true;
+            this.KuvausLB.Location = new System.Drawing.Point(308, 317);
+            this.KuvausLB.Name = "KuvausLB";
+            this.KuvausLB.Size = new System.Drawing.Size(58, 20);
+            this.KuvausLB.TabIndex = 4;
+            this.KuvausLB.Text = "Kuvaus:";
+            // 
+            // JaaBT
+            // 
+            this.JaaBT.Location = new System.Drawing.Point(492, 399);
+            this.JaaBT.Name = "JaaBT";
+            this.JaaBT.Size = new System.Drawing.Size(94, 29);
+            this.JaaBT.TabIndex = 5;
+            this.JaaBT.Text = "Jaa";
+            this.JaaBT.UseVisualStyleBackColor = true;
+            this.JaaBT.Click += new System.EventHandler(this.JaaBT_Click);
+            // 
+            // AiheTB
+            // 
+            this.AiheTB.Location = new System.Drawing.Point(461, 152);
+            this.AiheTB.Name = "AiheTB";
+            this.AiheTB.Size = new System.Drawing.Size(125, 27);
+            this.AiheTB.TabIndex = 6;
+            // 
+            // KuvausTB
+            // 
+            this.KuvausTB.Location = new System.Drawing.Point(461, 317);
+            this.KuvausTB.Name = "KuvausTB";
+            this.KuvausTB.Size = new System.Drawing.Size(125, 27);
+            this.KuvausTB.TabIndex = 7;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // VaTieBT
+            // 
+            this.VaTieBT.Location = new System.Drawing.Point(461, 229);
+            this.VaTieBT.Name = "VaTieBT";
+            this.VaTieBT.Size = new System.Drawing.Size(94, 29);
+            this.VaTieBT.TabIndex = 8;
+            this.VaTieBT.Text = "Valitse";
+            this.VaTieBT.UseVisualStyleBackColor = true;
+            this.VaTieBT.Click += new System.EventHandler(this.VaTieBT_Click);
+            // 
+            // TiedostoNimiLB
+            // 
+            this.TiedostoNimiLB.AutoSize = true;
+            this.TiedostoNimiLB.Location = new System.Drawing.Point(589, 234);
+            this.TiedostoNimiLB.Name = "TiedostoNimiLB";
+            this.TiedostoNimiLB.Size = new System.Drawing.Size(170, 20);
+            this.TiedostoNimiLB.TabIndex = 9;
+            this.TiedostoNimiLB.Text = "Et ole valinnut tiedostoa";
+            // 
             // TiedostonJakoAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1535, 513);
+            this.Controls.Add(this.TiedostoNimiLB);
+            this.Controls.Add(this.VaTieBT);
+            this.Controls.Add(this.KuvausTB);
+            this.Controls.Add(this.AiheTB);
+            this.Controls.Add(this.JaaBT);
+            this.Controls.Add(this.KuvausLB);
+            this.Controls.Add(this.TiedostoVaLB);
+            this.Controls.Add(this.AiheLB);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavmenuStrip);
             this.MainMenuStrip = this.NavmenuStrip;
@@ -196,5 +287,14 @@
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private Label AiheLB;
+        private Label TiedostoVaLB;
+        private Label KuvausLB;
+        private Button JaaBT;
+        private TextBox AiheTB;
+        private TextBox KuvausTB;
+        private OpenFileDialog openFileDialog1;
+        private Button VaTieBT;
+        private Label TiedostoNimiLB;
     }
 }

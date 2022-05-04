@@ -40,21 +40,21 @@ namespace Pakkolinen_Ryhmä_Projecti
             
         }
 
-        public bool deleteKayttaja()
+        public bool deleteKayttaja(string ktun)
         {
             bool va; // määritys palutettavalle muutujalle
-            MySqlCommand command = new MySqlCommand("DELETE FROM kayttajat WHERE opiskelijanumero = @oid", yh.otaYhteys()); // tämä kesken
-            //command.Parameters.Add("@oid", MySqlDbType.UInt32).Value = oId; // arvojen lisäys poistokyselyyn
+            MySqlCommand command = new MySqlCommand("DELETE FROM kayttajat WHERE KAYTTAJA_TUNNUS = @ktun", yh.otaYhteys()); // tämä kesken
+            command.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = ktun; // arvojen lisäys poistokyselyyn
             yh.avaaYhteys(); // Yhteyden avaus YH CLASS:n funktiolla
             if (command.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
             {
-                yh.suljeYhteys(); // suljetaan yhteys YH CLASS:n funktiolla
+                yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
                 va = true; // vastaus viesti
                 return va; // vastauksen palautus
             }
             else
             {
-                yh.suljeYhteys(); // suljetaan yhteys YH CLASS:n funktiolla
+                yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
                 va = false;// vastaus viesti
                 return va;  // vastauksen palautus
             }

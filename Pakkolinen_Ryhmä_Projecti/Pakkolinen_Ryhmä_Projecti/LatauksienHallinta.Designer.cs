@@ -42,7 +42,9 @@
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LaHallintadataGridView = new System.Windows.Forms.DataGridView();
             this.NavmenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LaHallintadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
@@ -163,11 +165,22 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
+            // LaHallintadataGridView
+            // 
+            this.LaHallintadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LaHallintadataGridView.Location = new System.Drawing.Point(430, 218);
+            this.LaHallintadataGridView.Name = "LaHallintadataGridView";
+            this.LaHallintadataGridView.RowHeadersWidth = 51;
+            this.LaHallintadataGridView.RowTemplate.Height = 29;
+            this.LaHallintadataGridView.Size = new System.Drawing.Size(459, 253);
+            this.LaHallintadataGridView.TabIndex = 2;
+            // 
             // LatauksienHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1708, 541);
+            this.Controls.Add(this.LaHallintadataGridView);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavmenuStrip);
             this.MainMenuStrip = this.NavmenuStrip;
@@ -175,6 +188,7 @@
             this.Text = "Latauksien hallinta";
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LaHallintadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +210,6 @@
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private DataGridView LaHallintadataGridView;
     }
 }

@@ -67,7 +67,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return ssana;
         }
-        private string Encrypt(string clearText)
+        public string Encrypt(string clearText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .Unicode = Gets an encoding for the UTF-16 format using the little endian byte order.
@@ -97,7 +97,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return clearText;
         }
-        private string Decrypt(string cipherText)
+        public string Decrypt(string cipherText) // Tähän vaihdettu public, jotta voi käyttää muualta käsin. Selvitän voiko näin toimia vai pitääkö keksiä toinen tapa.
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .FromBase64String = Converts a CryptoStream from base 64.
