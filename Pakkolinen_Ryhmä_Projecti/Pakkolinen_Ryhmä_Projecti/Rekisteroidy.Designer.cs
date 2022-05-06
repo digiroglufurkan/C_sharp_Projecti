@@ -55,6 +55,10 @@
             this.RetiedostoBT = new System.Windows.Forms.Button();
             this.RekysteroidyBT = new System.Windows.Forms.Button();
             this.ReProfiiliKuvaPB = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Resalasana1TB = new System.Windows.Forms.TextBox();
+            this.ReSalasana2TB = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ReProfiiliKuvaPB)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +73,7 @@
             this.kirjaiToolStripMenuItem,
             this.galleriaToolStripMenuItem,
             this.otaYhteyttäToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(215, 139);
+            this.menuStrip.Location = new System.Drawing.Point(311, 133);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(482, 39);
             this.menuStrip.TabIndex = 1;
@@ -106,7 +110,7 @@
             // 
             this.OtsitkoLB.AutoSize = true;
             this.OtsitkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsitkoLB.Location = new System.Drawing.Point(396, 53);
+            this.OtsitkoLB.Location = new System.Drawing.Point(492, 47);
             this.OtsitkoLB.Name = "OtsitkoLB";
             this.OtsitkoLB.Size = new System.Drawing.Size(176, 62);
             this.OtsitkoLB.TabIndex = 2;
@@ -294,11 +298,51 @@
             this.ReProfiiliKuvaPB.TabIndex = 22;
             this.ReProfiiliKuvaPB.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(143, 628);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 28);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Salasana";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(523, 631);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 28);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Uudestan Salasana";
+            // 
+            // Resalasana1TB
+            // 
+            this.Resalasana1TB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Resalasana1TB.Location = new System.Drawing.Point(334, 625);
+            this.Resalasana1TB.Name = "Resalasana1TB";
+            this.Resalasana1TB.Size = new System.Drawing.Size(164, 34);
+            this.Resalasana1TB.TabIndex = 25;
+            // 
+            // ReSalasana2TB
+            // 
+            this.ReSalasana2TB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ReSalasana2TB.Location = new System.Drawing.Point(704, 622);
+            this.ReSalasana2TB.Name = "ReSalasana2TB";
+            this.ReSalasana2TB.Size = new System.Drawing.Size(170, 34);
+            this.ReSalasana2TB.TabIndex = 26;
+            // 
             // Rekistreidy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 743);
+            this.Controls.Add(this.ReSalasana2TB);
+            this.Controls.Add(this.Resalasana1TB);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ReProfiiliKuvaPB);
             this.Controls.Add(this.RekysteroidyBT);
             this.Controls.Add(this.RetiedostoBT);
@@ -358,5 +402,9 @@
         private Button RetiedostoBT;
         private Button RekysteroidyBT;
         private PictureBox ReProfiiliKuvaPB;
+        private Label label2;
+        private Label label3;
+        private TextBox Resalasana1TB;
+        private TextBox ReSalasana2TB;
     }
 }

@@ -65,11 +65,20 @@ namespace Pakkolinen_Ryhmä_Projecti
             if(tarkistaTextBox(RePostipaikkaTB, "Vaaditan Postitoimipaikka")) { goto loppu; };
             string toimipaikka= RePostipaikkaTB.Text;
             if (tarkistaTextBox(ReTitteliTB, "Vaaditan Titteli")) { goto loppu; };
+            if (tarkistaTextBox(Resalasana1TB, "Vaaditan Salasana")) { goto loppu; };
+            if (tarkistaTextBox(ReSalasana2TB, "Vaaditan Salasana Udestan")) { goto loppu; };
             string titteli = ReTitteliTB.Text;
             Tiedansyotto uusisyotto = new Tiedansyotto();
-            if (uusisyotto.lisakayttaja(etunimi, sukunimi, puh, email, osaite,postinumero,toimipaikka,titteli,kuva,ReProfiiliKuvaPB))
+            string salasana;
+            if (Resalasana1TB.Text == ReSalasana2TB.Text)
             {
-                MessageBox.Show("Rekisteroidy Onnistuu");
+                salasana = Resalasana1TB.Text;
+            }
+            else { MessageBox.Show("Salasana ei ole sama"); goto loppu; }
+            string ktunus = uusisyotto.lisakayttaja(etunimi, sukunimi, puh, email, osaite, postinumero, toimipaikka, titteli, kuva, ReProfiiliKuvaPB,salasana);
+            if (ktunus != "")
+            {
+                MessageBox.Show("Rekisteroidy Onnistuu Ja Kayttäyän Tunnnus : "+ ktunus);
             }
             else
             {
@@ -77,9 +86,9 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
         loppu:;
         }
-        private bool tarkistaTextBox(TextBox a, string b)
+        private bool tarkistaTextBox(TextBox a, string b, string c = "")
         {
-            if (a.Text == "" && a.Text != "Ole Hyvä ja Syottä tiedot")
+            if (a.Text == c)
             {
                 MessageBox.Show(b);
                 return true;

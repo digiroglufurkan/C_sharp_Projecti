@@ -16,11 +16,11 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yhdeys = new Yhdista();
 
-        public bool lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB)
+        public string  lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB,String salasana)
         {
             String ktunnus = enimi.Substring(0, 3).ToLower() + snimi.Substring(0, 5).ToLower();
-            String salis = salasana();
-            String salattu = Encrypt(salis);
+            //String salis = salasana();
+            String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
             if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
@@ -58,12 +58,12 @@ namespace Pakkolinen_Ryhmä_Projecti
             if (komento.ExecuteNonQuery() == 1)
             {
                 yhdeys.suljeYhteys();
-                return true;
+                return ktunnus;
             }
             else
             {
                 yhdeys.suljeYhteys();
-                return false;
+                return "";
             }
         }
 
@@ -80,7 +80,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return ssana;
         }
-        private string Encrypt(string clearText)
+        public string Encrypt(string clearText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .Unicode = Gets an encoding for the UTF-16 format using the little endian byte order.
@@ -110,7 +110,9 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return clearText;
         }
-        private string Decrypt(string cipherText)
+
+       
+        public string Decrypt(string cipherText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .FromBase64String = Converts a CryptoStream from base 64.
@@ -134,10 +136,12 @@ namespace Pakkolinen_Ryhmä_Projecti
                         cs.Write(cipherBytes, 0, cipherBytes.Length);
                         cs.Close();
                     }
+                    
                     cipherText = Encoding.Unicode.GetString(ms.ToArray());
                 }
             }
             return cipherText;
         }
+        
     }
 }
