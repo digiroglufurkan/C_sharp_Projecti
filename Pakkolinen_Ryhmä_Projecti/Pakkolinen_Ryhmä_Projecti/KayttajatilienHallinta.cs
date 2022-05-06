@@ -89,20 +89,11 @@ namespace Pakkolinen_Ryhmä_Projecti
             KayttajatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             var datagridview = new DataGridView();
             datagridview.RowTemplate.MinimumHeight = 125;
+            string salattu = KayttajatDG.Columns[9].ToString();
+            MessageBox.Show($"{salattu}");
         }
 
-        private void KayttajatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            bool delStudent = ad.deleteKayttaja(); // ADMINKAYTHALLINTA CLASS:ssa olevaa funktiota, joka poistaa opiilaan tiedot
-            if (delStudent == true) // toiminta mikäli edellä kutsuttu funktio palauttaa OK
-            {
-                MessageBox.Show($"Kayttaja poistettu");// ilmoitus, että kayttäjä on poistettu
-            }
-            else // toiminta mikäli poisto ei onnistunut
-            {
-                MessageBox.Show($"Kayttaja ei pystytty poistamaan!"); // ilmoitus, että poisto ei onnistunut
-            }
-        }
+
 
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -134,6 +125,42 @@ namespace Pakkolinen_Ryhmä_Projecti
             etusivu.FormClosing += f1_FormClosing;
             etusivu.Show();
             this.Hide();
+        }
+
+        private void KayttajatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            KaytTunnusTB.Text = KayttajatDG.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void PoistaBT_Click(object sender, EventArgs e)
+        {
+            string ktun;
+            try
+            {
+                ktun = KaytTunnusTB.Text.ToString();
+                if (ktun.Equals(""))
+                {
+                    MessageBox.Show($"Valitse käyttäjä taulukosta ja tuplaklikka, jotta käyttäjätunnus siirtyyy tekstikenttään");
+                }
+                else
+                {
+                    bool vastaus = ad.deleteKayttaja(ktun);
+                    if (vastaus==true)
+                    {
+                        MessageBox.Show($"Käyttäjä poistettu.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Käyttäjän poisto epäonnistui");
+                    }
+                    KayttajatDG.DataSource = ad.fetchInformation();
+                    KaytTunnusTB.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

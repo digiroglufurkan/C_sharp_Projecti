@@ -17,6 +17,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class SalasanojenHallinta : Form
     {
+        SALASANOJENHALLINTATIETOKANTA tieto = new SALASANOJENHALLINTATIETOKANTA();
         public SalasanojenHallinta()
         {
             InitializeComponent();
@@ -113,6 +114,64 @@ namespace Pakkolinen_Ryhmä_Projecti
             etusivu.FormClosing += f1_FormClosing;
             etusivu.Show();
             this.Hide();
+        }
+
+        private void HaeSalasanaBT_Click(object sender, EventArgs e)
+        {/*
+            string ktunnus;
+            try
+            {
+                ktunnus = KaytTunnusTB.Text.ToString();
+                if (ktunnus.Equals(""))
+                {
+                    MessageBox.Show($"Kirjoita käyttäjätunnus sille tarkoitettuun kenttään.");
+                }
+                else
+                {
+                    string salasana = tieto.haeSalasana(ktunnus);
+                    NykSalasana.Text = salasana;
+                    NykSalasana.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        */}
+
+        private void VaihdaBT_Click(object sender, EventArgs e)
+        {
+            string ktunnus, uusiSalasana, uusiUudestaan;
+            try
+            {
+                ktunnus = KaytTunnusTB.Text.ToString();
+                uusiSalasana = UusiSalasanaTB.Text.ToString();
+                uusiUudestaan = SalasanaUudelleenTB.Text.ToString();
+                if (ktunnus.Equals("") || uusiSalasana.Equals("") || uusiUudestaan.Equals(""))
+                {
+                    MessageBox.Show($"Tarkista tekstikentät");
+                }
+                else if (uusiSalasana != uusiUudestaan)
+                {
+                    MessageBox.Show($"Salasanat eivät täsmää.");
+                }
+                else
+                {
+                    bool paivitys = tieto.paivitaSalasana(ktunnus, uusiSalasana);
+                    if (paivitys == true)
+                    {
+                        MessageBox.Show($"Salasana päivitetty");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Salasanan päivitys epäonnistui.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

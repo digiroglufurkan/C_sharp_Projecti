@@ -43,7 +43,10 @@
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KayttajatDG = new System.Windows.Forms.DataGridView();
-            this.Poista = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PoistaKayttajaLB = new System.Windows.Forms.Label();
+            this.KaytTunnusLB = new System.Windows.Forms.Label();
+            this.KaytTunnusTB = new System.Windows.Forms.TextBox();
+            this.PoistaBT = new System.Windows.Forms.Button();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KayttajatDG)).BeginInit();
             this.SuspendLayout();
@@ -173,9 +176,7 @@
             // KayttajatDG
             // 
             this.KayttajatDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.KayttajatDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Poista});
-            this.KayttajatDG.Location = new System.Drawing.Point(12, 147);
+            this.KayttajatDG.Location = new System.Drawing.Point(12, 228);
             this.KayttajatDG.Name = "KayttajatDG";
             this.KayttajatDG.RowHeadersWidth = 51;
             this.KayttajatDG.RowTemplate.Height = 29;
@@ -183,20 +184,51 @@
             this.KayttajatDG.TabIndex = 2;
             this.KayttajatDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KayttajatDG_CellContentClick);
             // 
-            // Poista
+            // PoistaKayttajaLB
             // 
-            this.Poista.HeaderText = "Poista";
-            this.Poista.MinimumWidth = 6;
-            this.Poista.Name = "Poista";
-            this.Poista.Text = "Poista";
-            this.Poista.UseColumnTextForButtonValue = true;
-            this.Poista.Width = 125;
+            this.PoistaKayttajaLB.AutoSize = true;
+            this.PoistaKayttajaLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.PoistaKayttajaLB.Location = new System.Drawing.Point(138, 124);
+            this.PoistaKayttajaLB.Name = "PoistaKayttajaLB";
+            this.PoistaKayttajaLB.Size = new System.Drawing.Size(138, 28);
+            this.PoistaKayttajaLB.TabIndex = 3;
+            this.PoistaKayttajaLB.Text = "Poista käyttäjä";
+            // 
+            // KaytTunnusLB
+            // 
+            this.KaytTunnusLB.AutoSize = true;
+            this.KaytTunnusLB.Location = new System.Drawing.Point(9, 171);
+            this.KaytTunnusLB.Name = "KaytTunnusLB";
+            this.KaytTunnusLB.Size = new System.Drawing.Size(106, 20);
+            this.KaytTunnusLB.TabIndex = 4;
+            this.KaytTunnusLB.Text = "Käyttäjätunnus";
+            // 
+            // KaytTunnusTB
+            // 
+            this.KaytTunnusTB.Location = new System.Drawing.Point(138, 170);
+            this.KaytTunnusTB.Name = "KaytTunnusTB";
+            this.KaytTunnusTB.Size = new System.Drawing.Size(125, 27);
+            this.KaytTunnusTB.TabIndex = 5;
+            // 
+            // PoistaBT
+            // 
+            this.PoistaBT.Location = new System.Drawing.Point(311, 168);
+            this.PoistaBT.Name = "PoistaBT";
+            this.PoistaBT.Size = new System.Drawing.Size(94, 29);
+            this.PoistaBT.TabIndex = 6;
+            this.PoistaBT.Text = "Poista";
+            this.PoistaBT.UseVisualStyleBackColor = true;
+            this.PoistaBT.Click += new System.EventHandler(this.PoistaBT_Click);
             // 
             // KayttajatilienHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1745, 589);
+            this.Controls.Add(this.PoistaBT);
+            this.Controls.Add(this.KaytTunnusTB);
+            this.Controls.Add(this.KaytTunnusLB);
+            this.Controls.Add(this.PoistaKayttajaLB);
             this.Controls.Add(this.KayttajatDG);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavmenuStrip);
@@ -224,11 +256,14 @@
         private ToolStripMenuItem MitaUuttaHallintatoolStripMenuItem;
         private ToolStripMenuItem TiedostonJakotoolStripMenuItem;
         private DataGridView KayttajatDG;
-        private DataGridViewButtonColumn Poista;
         private ToolStripMenuItem AsetuksettoolStripMenuItem;
         private ToolStripMenuItem SalasanojenHallintaToolStripMenuItem;
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private Label PoistaKayttajaLB;
+        private Label KaytTunnusLB;
+        private TextBox KaytTunnusTB;
+        private Button PoistaBT;
     }
 }

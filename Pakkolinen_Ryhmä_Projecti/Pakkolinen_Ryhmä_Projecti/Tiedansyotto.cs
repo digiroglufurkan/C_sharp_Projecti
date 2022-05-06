@@ -16,11 +16,11 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yhdeys = new Yhdista();
 
-        public string  lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB,String salasana)
+        public bool lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB)
         {
             String ktunnus = enimi.Substring(0, 3).ToLower() + snimi.Substring(0, 5).ToLower();
-            //String salis = salasana();
-            String salattu = Encrypt(salasana);
+            String salis = salasana();
+            String salattu = Encrypt(salis);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
             if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
@@ -58,12 +58,12 @@ namespace Pakkolinen_Ryhmä_Projecti
             if (komento.ExecuteNonQuery() == 1)
             {
                 yhdeys.suljeYhteys();
-                return ktunnus;
+                return true;
             }
             else
             {
                 yhdeys.suljeYhteys();
-                return "";
+                return false;
             }
         }
 
@@ -110,9 +110,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return clearText;
         }
-
-       
-        public string Decrypt(string cipherText)
+        public string Decrypt(string cipherText) // Tähän vaihdettu public, jotta voi käyttää muualta käsin. Selvitän voiko näin toimia vai pitääkö keksiä toinen tapa.
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .FromBase64String = Converts a CryptoStream from base 64.
@@ -136,12 +134,10 @@ namespace Pakkolinen_Ryhmä_Projecti
                         cs.Write(cipherBytes, 0, cipherBytes.Length);
                         cs.Close();
                     }
-                    
                     cipherText = Encoding.Unicode.GetString(ms.ToArray());
                 }
             }
             return cipherText;
         }
-        
     }
 }

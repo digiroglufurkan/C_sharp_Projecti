@@ -42,6 +42,15 @@
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KaytTunnusLB = new System.Windows.Forms.Label();
+            this.KaytTunnusTB = new System.Windows.Forms.TextBox();
+            this.HaeSalasanaBT = new System.Windows.Forms.Button();
+            this.UusiSalasanaLB = new System.Windows.Forms.Label();
+            this.UusiSalasanaTB = new System.Windows.Forms.TextBox();
+            this.NykSalasana = new System.Windows.Forms.Label();
+            this.SalasanaUudelleenLB = new System.Windows.Forms.Label();
+            this.SalasanaUudelleenTB = new System.Windows.Forms.TextBox();
+            this.VaihdaBT = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,11 +171,99 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
+            // KaytTunnusLB
+            // 
+            this.KaytTunnusLB.AutoSize = true;
+            this.KaytTunnusLB.Location = new System.Drawing.Point(414, 174);
+            this.KaytTunnusLB.Name = "KaytTunnusLB";
+            this.KaytTunnusLB.Size = new System.Drawing.Size(106, 20);
+            this.KaytTunnusLB.TabIndex = 2;
+            this.KaytTunnusLB.Text = "Käyttäjätunnus";
+            // 
+            // KaytTunnusTB
+            // 
+            this.KaytTunnusTB.Location = new System.Drawing.Point(632, 171);
+            this.KaytTunnusTB.Name = "KaytTunnusTB";
+            this.KaytTunnusTB.Size = new System.Drawing.Size(137, 27);
+            this.KaytTunnusTB.TabIndex = 3;
+            // 
+            // HaeSalasanaBT
+            // 
+            this.HaeSalasanaBT.Location = new System.Drawing.Point(475, 250);
+            this.HaeSalasanaBT.Name = "HaeSalasanaBT";
+            this.HaeSalasanaBT.Size = new System.Drawing.Size(187, 29);
+            this.HaeSalasanaBT.TabIndex = 4;
+            this.HaeSalasanaBT.Text = "Hae salasana";
+            this.HaeSalasanaBT.UseVisualStyleBackColor = true;
+            this.HaeSalasanaBT.Visible = false;
+            this.HaeSalasanaBT.Click += new System.EventHandler(this.HaeSalasanaBT_Click);
+            // 
+            // UusiSalasanaLB
+            // 
+            this.UusiSalasanaLB.AutoSize = true;
+            this.UusiSalasanaLB.Location = new System.Drawing.Point(414, 382);
+            this.UusiSalasanaLB.Name = "UusiSalasanaLB";
+            this.UusiSalasanaLB.Size = new System.Drawing.Size(97, 20);
+            this.UusiSalasanaLB.TabIndex = 5;
+            this.UusiSalasanaLB.Text = "Uusi salasana";
+            // 
+            // UusiSalasanaTB
+            // 
+            this.UusiSalasanaTB.Location = new System.Drawing.Point(630, 375);
+            this.UusiSalasanaTB.Name = "UusiSalasanaTB";
+            this.UusiSalasanaTB.Size = new System.Drawing.Size(139, 27);
+            this.UusiSalasanaTB.TabIndex = 6;
+            // 
+            // NykSalasana
+            // 
+            this.NykSalasana.AutoSize = true;
+            this.NykSalasana.Location = new System.Drawing.Point(550, 315);
+            this.NykSalasana.Name = "NykSalasana";
+            this.NykSalasana.Size = new System.Drawing.Size(50, 20);
+            this.NykSalasana.TabIndex = 7;
+            this.NykSalasana.Text = "label2";
+            this.NykSalasana.Visible = false;
+            // 
+            // SalasanaUudelleenLB
+            // 
+            this.SalasanaUudelleenLB.AutoSize = true;
+            this.SalasanaUudelleenLB.Location = new System.Drawing.Point(414, 478);
+            this.SalasanaUudelleenLB.Name = "SalasanaUudelleenLB";
+            this.SalasanaUudelleenLB.Size = new System.Drawing.Size(139, 20);
+            this.SalasanaUudelleenLB.TabIndex = 8;
+            this.SalasanaUudelleenLB.Text = "Salasana uudestaan";
+            // 
+            // SalasanaUudelleenTB
+            // 
+            this.SalasanaUudelleenTB.Location = new System.Drawing.Point(630, 478);
+            this.SalasanaUudelleenTB.Name = "SalasanaUudelleenTB";
+            this.SalasanaUudelleenTB.Size = new System.Drawing.Size(139, 27);
+            this.SalasanaUudelleenTB.TabIndex = 9;
+            // 
+            // VaihdaBT
+            // 
+            this.VaihdaBT.Location = new System.Drawing.Point(495, 577);
+            this.VaihdaBT.Name = "VaihdaBT";
+            this.VaihdaBT.Size = new System.Drawing.Size(156, 29);
+            this.VaihdaBT.TabIndex = 10;
+            this.VaihdaBT.Text = "Vaihda";
+            this.VaihdaBT.UseVisualStyleBackColor = true;
+            this.VaihdaBT.Click += new System.EventHandler(this.VaihdaBT_Click);
+            // 
             // SalasanojenHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1269, 506);
+            this.ClientSize = new System.Drawing.Size(1269, 645);
+            this.Controls.Add(this.VaihdaBT);
+            this.Controls.Add(this.SalasanaUudelleenTB);
+            this.Controls.Add(this.SalasanaUudelleenLB);
+            this.Controls.Add(this.NykSalasana);
+            this.Controls.Add(this.UusiSalasanaTB);
+            this.Controls.Add(this.UusiSalasanaLB);
+            this.Controls.Add(this.HaeSalasanaBT);
+            this.Controls.Add(this.KaytTunnusTB);
+            this.Controls.Add(this.KaytTunnusLB);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -195,5 +292,14 @@
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private Label KaytTunnusLB;
+        private TextBox KaytTunnusTB;
+        private Button HaeSalasanaBT;
+        private Label UusiSalasanaLB;
+        private TextBox UusiSalasanaTB;
+        private Label NykSalasana;
+        private Label SalasanaUudelleenLB;
+        private TextBox SalasanaUudelleenTB;
+        private Button VaihdaBT;
     }
 }

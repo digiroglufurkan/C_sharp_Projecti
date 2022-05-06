@@ -42,6 +42,14 @@
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VaSalasanaLB = new System.Windows.Forms.Label();
+            this.UuSalasanaLB = new System.Windows.Forms.Label();
+            this.UusiSalasanaUdLB = new System.Windows.Forms.Label();
+            this.VaSalasanaTB = new System.Windows.Forms.TextBox();
+            this.UuSalasanaTB = new System.Windows.Forms.TextBox();
+            this.UusiSalasanaUdTB = new System.Windows.Forms.TextBox();
+            this.VaSalasanaBT = new System.Windows.Forms.Button();
+            this.SalasanaLB = new System.Windows.Forms.Label();
             this.NavmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,16 +170,92 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
+            // VaSalasanaLB
+            // 
+            this.VaSalasanaLB.AutoSize = true;
+            this.VaSalasanaLB.Location = new System.Drawing.Point(137, 157);
+            this.VaSalasanaLB.Name = "VaSalasanaLB";
+            this.VaSalasanaLB.Size = new System.Drawing.Size(112, 20);
+            this.VaSalasanaLB.TabIndex = 2;
+            this.VaSalasanaLB.Text = "Vanha salasana:";
+            // 
+            // UuSalasanaLB
+            // 
+            this.UuSalasanaLB.AutoSize = true;
+            this.UuSalasanaLB.Location = new System.Drawing.Point(137, 225);
+            this.UuSalasanaLB.Name = "UuSalasanaLB";
+            this.UuSalasanaLB.Size = new System.Drawing.Size(100, 20);
+            this.UuSalasanaLB.TabIndex = 3;
+            this.UuSalasanaLB.Text = "Uusi salasana:";
+            // 
+            // UusiSalasanaUdLB
+            // 
+            this.UusiSalasanaUdLB.AutoSize = true;
+            this.UusiSalasanaUdLB.Location = new System.Drawing.Point(137, 303);
+            this.UusiSalasanaUdLB.Name = "UusiSalasanaUdLB";
+            this.UusiSalasanaUdLB.Size = new System.Drawing.Size(172, 20);
+            this.UusiSalasanaUdLB.TabIndex = 4;
+            this.UusiSalasanaUdLB.Text = "Uusi salasana uudestaan:";
+            // 
+            // VaSalasanaTB
+            // 
+            this.VaSalasanaTB.Location = new System.Drawing.Point(331, 154);
+            this.VaSalasanaTB.Name = "VaSalasanaTB";
+            this.VaSalasanaTB.Size = new System.Drawing.Size(125, 27);
+            this.VaSalasanaTB.TabIndex = 5;
+            // 
+            // UuSalasanaTB
+            // 
+            this.UuSalasanaTB.Location = new System.Drawing.Point(331, 222);
+            this.UuSalasanaTB.Name = "UuSalasanaTB";
+            this.UuSalasanaTB.Size = new System.Drawing.Size(125, 27);
+            this.UuSalasanaTB.TabIndex = 6;
+            // 
+            // UusiSalasanaUdTB
+            // 
+            this.UusiSalasanaUdTB.Location = new System.Drawing.Point(331, 303);
+            this.UusiSalasanaUdTB.Name = "UusiSalasanaUdTB";
+            this.UusiSalasanaUdTB.Size = new System.Drawing.Size(125, 27);
+            this.UusiSalasanaUdTB.TabIndex = 7;
+            // 
+            // VaSalasanaBT
+            // 
+            this.VaSalasanaBT.Location = new System.Drawing.Point(331, 377);
+            this.VaSalasanaBT.Name = "VaSalasanaBT";
+            this.VaSalasanaBT.Size = new System.Drawing.Size(94, 29);
+            this.VaSalasanaBT.TabIndex = 8;
+            this.VaSalasanaBT.Text = "Vaihda";
+            this.VaSalasanaBT.UseVisualStyleBackColor = true;
+            this.VaSalasanaBT.Click += new System.EventHandler(this.VaSalasanaBT_Click);
+            // 
+            // SalasanaLB
+            // 
+            this.SalasanaLB.AutoSize = true;
+            this.SalasanaLB.Location = new System.Drawing.Point(689, 161);
+            this.SalasanaLB.Name = "SalasanaLB";
+            this.SalasanaLB.Size = new System.Drawing.Size(50, 20);
+            this.SalasanaLB.TabIndex = 9;
+            this.SalasanaLB.Text = "label1";
+            // 
             // AdminSalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 450);
+            this.ClientSize = new System.Drawing.Size(1255, 462);
+            this.Controls.Add(this.SalasanaLB);
+            this.Controls.Add(this.VaSalasanaBT);
+            this.Controls.Add(this.UusiSalasanaUdTB);
+            this.Controls.Add(this.UuSalasanaTB);
+            this.Controls.Add(this.VaSalasanaTB);
+            this.Controls.Add(this.UusiSalasanaUdLB);
+            this.Controls.Add(this.UuSalasanaLB);
+            this.Controls.Add(this.VaSalasanaLB);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavmenuStrip);
             this.MainMenuStrip = this.NavmenuStrip;
             this.Name = "AdminSalasananVaihto";
             this.Text = "Salasanan vaihto";
+            this.Load += new System.EventHandler(this.AdminSalasananVaihto_Load);
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -195,5 +279,13 @@
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private Label VaSalasanaLB;
+        private Label UuSalasanaLB;
+        private Label UusiSalasanaUdLB;
+        private TextBox VaSalasanaTB;
+        private TextBox UuSalasanaTB;
+        private TextBox UusiSalasanaUdTB;
+        private Button VaSalasanaBT;
+        private Label SalasanaLB;
     }
 }

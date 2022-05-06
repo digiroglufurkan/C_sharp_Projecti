@@ -17,6 +17,8 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class AdminSalasananVaihto : Form
     {
+        SALASANOJENHALLINTATIETOKANTA tieto = new SALASANOJENHALLINTATIETOKANTA();
+        Tiedansyotto salaus =new Tiedansyotto();
         public AdminSalasananVaihto()
         {
             InitializeComponent();
@@ -114,6 +116,51 @@ namespace Pakkolinen_Ryhmä_Projecti
             etusivu.FormClosing += formClosing;
             etusivu.Show();
             this.Hide();
+        }
+
+        private void VaSalasanaBT_Click(object sender, EventArgs e)
+        {
+            string vanhaSalasana, uusiSalasana, uusiUudestaan,tarkistettu;
+            try
+            {
+                vanhaSalasana = VaSalasanaTB.Text;
+                uusiSalasana = UuSalasanaTB.Text;
+                uusiUudestaan = UusiSalasanaUdTB.Text;
+                tarkistettu = salaus.Decrypt(vanhaSalasana);
+                if (vanhaSalasana.Equals("") || uusiSalasana.Equals("") || uusiUudestaan.Equals(""))
+                {
+                    MessageBox.Show($"Tarkista tekstikentät.");
+                }
+                else if (uusiSalasana != uusiUudestaan)
+                {
+                    MessageBox.Show($"Uudet salasanat eivät täsmää.");
+                }
+                /*else if (tarkistettu != vanhaSalasana)
+                {
+                    MessageBox.Show($"Vanhaa salasanaa ei löydy tieokannasta annettuväärä salasana");
+                }*/
+                else
+                {
+                    bool vastaus = tieto.vaihdaSalasana(vanhaSalasana, uusiSalasana);
+                    if (vastaus == true)
+                    {
+                        MessageBox.Show($"Salasanan vaihto onnistui.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Salasanan vaihto ei onnistunut.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AdminSalasananVaihto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

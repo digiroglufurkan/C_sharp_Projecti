@@ -42,7 +42,9 @@
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.YhtOttHallintadataGridView = new System.Windows.Forms.DataGridView();
             this.NavmenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.YhtOttHallintadataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
@@ -163,11 +165,22 @@
             this.KirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.KirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.KirjauduUlosToolStripMenuItem_Click);
             // 
+            // YhtOttHallintadataGridView
+            // 
+            this.YhtOttHallintadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.YhtOttHallintadataGridView.Location = new System.Drawing.Point(351, 206);
+            this.YhtOttHallintadataGridView.Name = "YhtOttHallintadataGridView";
+            this.YhtOttHallintadataGridView.RowHeadersWidth = 51;
+            this.YhtOttHallintadataGridView.RowTemplate.Height = 29;
+            this.YhtOttHallintadataGridView.Size = new System.Drawing.Size(630, 319);
+            this.YhtOttHallintadataGridView.TabIndex = 2;
+            // 
             // YhteydenottojenHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1545, 567);
+            this.Controls.Add(this.YhtOttHallintadataGridView);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavmenuStrip);
             this.MainMenuStrip = this.NavmenuStrip;
@@ -175,6 +188,7 @@
             this.Text = "Yhteydenottojen hallinta";
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.YhtOttHallintadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +210,6 @@
         private ToolStripMenuItem MuokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
+        private DataGridView YhtOttHallintadataGridView;
     }
 }
