@@ -18,8 +18,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         public string  lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB,String salasana)
         {
-            String ktunnus = enimi.Substring(0, 3).ToLower() + snimi.Substring(0, 5).ToLower();
-            //String salis = salasana();
+            String ktunnus = enimi.ToLower() + "."+snimi.ToLower();
             String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
@@ -66,20 +65,6 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return "";
             }
         }
-
-
-        public String salasana()
-        {
-            char[] merkkijono = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-            String ssana = "";
-            Random r = new Random();
-            for (int i = 0; i < 15; i++)
-            {
-                int rInt = r.Next(0, 61);
-                ssana += merkkijono[rInt];
-            }
-            return ssana;
-        }
         public string Encrypt(string clearText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
@@ -110,7 +95,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return clearText;
         }
-        private string Decrypt(string cipherText)
+        public string Decrypt(string cipherText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .FromBase64String = Converts a CryptoStream from base 64.
@@ -139,6 +124,27 @@ namespace Pakkolinen_Ryhmä_Projecti
                 }
             }
             return cipherText;
+        }
+
+        public bool lisaOtayhtayta(String email, String aihe, String teksti, String nimi)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            String lisayskysely;
+            lisayskysely = "INSERT INTO `otayhteytta`( `Name`,`lahettaja_email`, `Aihe`, `Text`) VALUES(@nimi, @eml, @aihe, @text);";
+            komento.CommandText = lisayskysely;
+            komento.Connection = yhdeys.otaYhteys();
+            komento.Parameters.Add("@text", MySqlDbType.VarChar).Value = teksti;
+            komento.Parameters.Add("@aihe", MySqlDbType.VarChar).Value = aihe;
+            komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
+            komento.Parameters.Add("@nimi", MySqlDbType.VarChar).Value = nimi;
+            yhdeys.avaaYhteys();
+            if (komento.ExecuteNonQuery() == 1)
+            {
+                yhdeys.suljeYhteys();
+                return true;
+            }
+            yhdeys.suljeYhteys();
+            return false;
         }
         
     }

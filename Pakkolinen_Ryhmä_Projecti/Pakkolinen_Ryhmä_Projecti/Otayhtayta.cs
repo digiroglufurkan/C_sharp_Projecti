@@ -16,5 +16,37 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             InitializeComponent();
         }
+
+        private void OtLahetaBT_Click(object sender, EventArgs e)
+        {
+            if (tarkistaTextBox(OtEmailTB.Text, "Vaaditan Sahköposti osaite")) { goto loppu; };
+            if (tarkistaTextBox(OtNimiTB.Text, "Vaaditan Nimisi ")) { goto loppu; };
+            if (tarkistaTextBox(OtAiheTB.Text, "Vaaditan Aihe")) { goto loppu; };
+            if(tarkistaTextBox(OtTekstiRTB.Text, "Vaaditan Teksti")) { goto loppu; };
+            Tiedansyotto ti = new Tiedansyotto();
+           if( ti.lisaOtayhtayta(OtEmailTB.Text, OtAiheTB.Text, OtTekstiRTB.Text,OtNimiTB.Text))
+            {
+                MessageBox.Show("Viestisi on vastaanotettu");
+                OtEmailTB.Text = "";
+                OtAiheTB.Text = "";
+                OtTekstiRTB.Text = "";
+                OtNimiTB.Text = "";
+            }
+           else
+            {
+                MessageBox.Show("Valittevasti  ei vastaanotettu");
+            }
+        loppu:;
+        }
+
+        private bool tarkistaTextBox(string a, string b, string c = "")
+        {
+            if (a == c)
+            {
+                MessageBox.Show(b);
+                return true;
+            }
+            return false;
+        }
     }
 }

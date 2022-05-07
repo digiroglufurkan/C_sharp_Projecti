@@ -123,6 +123,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             string vanhaSalasana, uusiSalasana, uusiUudestaan,tarkistettu;
             try
             {
+                
                 vanhaSalasana = VaSalasanaTB.Text;
                 uusiSalasana = UuSalasanaTB.Text;
                 uusiUudestaan = UusiSalasanaUdTB.Text;

@@ -30,16 +30,28 @@ namespace Pakkolinen_Ryhmä_Projecti
         Tiedansyotto ti = new Tiedansyotto();
         private void KirjoiduBT_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT SALASANA FROM `kayttajat` WHERE KAYTTAJA_TUNNUS='" + KiTunnusTB.Text +"'", yh.otaYhteys());
+            MySqlCommand cmd = new MySqlCommand("SELECT SALASANA,ADMIN FROM `kayttajat` WHERE KAYTTAJA_TUNNUS='" + KiTunnusTB.Text +"'", yh.otaYhteys());
             yh.avaaYhteys();
             MySqlDataReader dr = cmd.ExecuteReader();
             dr.Read();
+
             if (KiSalasanaTB.Text == ti.Decrypt((String)dr.GetValue(0)))
             {
-                KirjautunutKotisivu ki = new KirjautunutKotisivu();
-                ki.FormClosing += f1_FormClosing;
-                ki.Show();
-                this.Hide();
+                if(1 == Convert.ToInt32(dr.GetValue(1))) // tarkista etta onko kayttaja admin tai ei
+                {
+                    AdminKotisivu  ki = new AdminKotisivu();
+                    ki.FormClosing += f1_FormClosing;
+                    ki.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    KirjautunutKotisivu ki = new KirjautunutKotisivu();
+                    ki.FormClosing += f1_FormClosing;
+                    ki.Show();
+                    this.Hide();
+                }
+                
                 
             }
             else
