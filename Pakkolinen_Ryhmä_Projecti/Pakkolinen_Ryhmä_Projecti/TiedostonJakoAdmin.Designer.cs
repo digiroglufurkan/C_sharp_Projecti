@@ -51,6 +51,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.VaTieBT = new System.Windows.Forms.Button();
             this.TiedostoNimiLB = new System.Windows.Forms.Label();
+            this.TyyppiLB = new System.Windows.Forms.Label();
             this.NavmenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,11 +247,21 @@
             this.TiedostoNimiLB.TabIndex = 9;
             this.TiedostoNimiLB.Text = "Et ole valinnut tiedostoa";
             // 
+            // TyyppiLB
+            // 
+            this.TyyppiLB.AutoSize = true;
+            this.TyyppiLB.Location = new System.Drawing.Point(716, 272);
+            this.TyyppiLB.Name = "TyyppiLB";
+            this.TyyppiLB.Size = new System.Drawing.Size(50, 20);
+            this.TyyppiLB.TabIndex = 10;
+            this.TyyppiLB.Text = "label1";
+            // 
             // TiedostonJakoAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1535, 513);
+            this.Controls.Add(this.TyyppiLB);
             this.Controls.Add(this.TiedostoNimiLB);
             this.Controls.Add(this.VaTieBT);
             this.Controls.Add(this.KuvausTB);
@@ -296,5 +307,6 @@
         private OpenFileDialog openFileDialog1;
         private Button VaTieBT;
         private Label TiedostoNimiLB;
+        private Label TyyppiLB;
     }
 }

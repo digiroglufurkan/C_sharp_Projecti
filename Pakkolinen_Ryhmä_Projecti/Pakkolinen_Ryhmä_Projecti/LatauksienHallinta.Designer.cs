@@ -43,6 +43,9 @@
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LaHallintadataGridView = new System.Windows.Forms.DataGridView();
+            this.LataaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PoistaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TallennasaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaHallintadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -168,12 +171,32 @@
             // LaHallintadataGridView
             // 
             this.LaHallintadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LaHallintadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LataaColumn,
+            this.PoistaColumn});
             this.LaHallintadataGridView.Location = new System.Drawing.Point(430, 218);
             this.LaHallintadataGridView.Name = "LaHallintadataGridView";
             this.LaHallintadataGridView.RowHeadersWidth = 51;
             this.LaHallintadataGridView.RowTemplate.Height = 29;
             this.LaHallintadataGridView.Size = new System.Drawing.Size(459, 253);
             this.LaHallintadataGridView.TabIndex = 2;
+            this.LaHallintadataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LaHallintadataGridView_CellContentClick);
+            // 
+            // LataaColumn
+            // 
+            this.LataaColumn.HeaderText = "Lataa tiedosto";
+            this.LataaColumn.MinimumWidth = 6;
+            this.LataaColumn.Name = "LataaColumn";
+            this.LataaColumn.Text = "Lataa";
+            this.LataaColumn.Width = 125;
+            // 
+            // PoistaColumn
+            // 
+            this.PoistaColumn.HeaderText = "Poista";
+            this.PoistaColumn.MinimumWidth = 6;
+            this.PoistaColumn.Name = "PoistaColumn";
+            this.PoistaColumn.Text = "Poista";
+            this.PoistaColumn.Width = 125;
             // 
             // LatauksienHallinta
             // 
@@ -186,6 +209,7 @@
             this.MainMenuStrip = this.NavmenuStrip;
             this.Name = "LatauksienHallinta";
             this.Text = "Latauksien hallinta";
+            this.Load += new System.EventHandler(this.LatauksienHallinta_Load);
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaHallintadataGridView)).EndInit();
@@ -211,5 +235,8 @@
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
         private DataGridView LaHallintadataGridView;
+        private DataGridViewButtonColumn LataaColumn;
+        private DataGridViewButtonColumn PoistaColumn;
+        private SaveFileDialog TallennasaveFileDialog;
     }
 }

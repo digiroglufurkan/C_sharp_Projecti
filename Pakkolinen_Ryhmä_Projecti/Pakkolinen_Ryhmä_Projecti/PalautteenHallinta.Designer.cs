@@ -43,6 +43,7 @@
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PaHallintadataGridView = new System.Windows.Forms.DataGridView();
+            this.PoistaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaHallintadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -168,12 +169,23 @@
             // PaHallintadataGridView
             // 
             this.PaHallintadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PaHallintadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PoistaColumn});
             this.PaHallintadataGridView.Location = new System.Drawing.Point(349, 167);
             this.PaHallintadataGridView.Name = "PaHallintadataGridView";
             this.PaHallintadataGridView.RowHeadersWidth = 51;
             this.PaHallintadataGridView.RowTemplate.Height = 29;
             this.PaHallintadataGridView.Size = new System.Drawing.Size(585, 280);
             this.PaHallintadataGridView.TabIndex = 2;
+            this.PaHallintadataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PaHallintadataGridView_CellContentClick);
+            // 
+            // PoistaColumn
+            // 
+            this.PoistaColumn.HeaderText = "Poista";
+            this.PoistaColumn.MinimumWidth = 6;
+            this.PoistaColumn.Name = "PoistaColumn";
+            this.PoistaColumn.Text = "Poista";
+            this.PoistaColumn.Width = 125;
             // 
             // PalautteenHallinta
             // 
@@ -186,6 +198,7 @@
             this.MainMenuStrip = this.NavmenuStrip;
             this.Name = "PalautteenHallinta";
             this.Text = "Palautteen hallinta";
+            this.Load += new System.EventHandler(this.PalautteenHallinta_Load);
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PaHallintadataGridView)).EndInit();
@@ -211,5 +224,6 @@
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
         private DataGridView PaHallintadataGridView;
+        private DataGridViewButtonColumn PoistaColumn;
     }
 }

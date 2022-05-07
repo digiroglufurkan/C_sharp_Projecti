@@ -17,6 +17,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class PalautteenHallinta : Form
     {
+        ADMINYHTOTTOJAPALAUTE ad = new ADMINYHTOTTOJAPALAUTE();
         public PalautteenHallinta()
         {
             InitializeComponent();
@@ -113,6 +114,63 @@ namespace Pakkolinen_Ryhmä_Projecti
             etusivu.FormClosing += f1_FormClosing;
             etusivu.Show();
             this.Hide();
+        }
+
+        private void PaHallintadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex != PoistaColumn.Index)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        string yTun = PaHallintadataGridView.CurrentRow.Cells[1].Value.ToString();
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {
+                            bool poisto = ad.poistaPalaute(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Poisto suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Poisto ei onnistunut.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PalautteenHallinta_Load(object sender, EventArgs e)
+        {
+            PaHallintadataGridView.DataSource = ad.haeYhtotot(); // Kutsutaan ADMINYHTOTTOJAPALAUTE CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
+            if (PaHallintadataGridView.DataSource == null)
+            {
+                MessageBox.Show($"Virhe tietokannan kanssa.");
+            }
+            else
+            {
+                PaHallintadataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                var datagridview = new DataGridView();
+                datagridview.RowTemplate.MinimumHeight = 125;
+            }
         }
     }
 }

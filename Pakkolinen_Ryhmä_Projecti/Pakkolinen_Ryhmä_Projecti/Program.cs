@@ -11,9 +11,9 @@ namespace Pakkolinen_Ryhmä_Projecti
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Etusivu()); 
+            Application.Run(new Etusivu()); 
             //Application.Run(new AdminKotisivu()); // Tämä on, jotta ohjelma aloittaa pyörimisen Adminin kotisivulta
-            Application.Run(new Etusivu()); // Avautuu kirjautuneen kotisivuun
+            //Application.Run(new Etusivu()); // Avautuu kirjautuneen kotisivuun
         }
     }
 }

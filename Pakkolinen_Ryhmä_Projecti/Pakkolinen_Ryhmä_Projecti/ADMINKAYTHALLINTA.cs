@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@ Antti Kuusisto
-/// version 30.4.2022
+/// version 7.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// Tietojen hakeminen tietokannasta Datagrid:n toimii sekä käyttäjän poistaminen.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -17,18 +17,19 @@ namespace Pakkolinen_Ryhmä_Projecti
     class ADMINKAYTHALLINTA
     {
         Yhdista yh = new Yhdista();
-        public DataTable fetchInformation() // haetaan opiskelijoiden tiedot tietokannasta
-        {   // Alla Sql komento jossa samassa hakukysely tietokantaan ja yhteydenluonti tietokantaan
-            try 
-            {
-                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA, MAARAAIKA FROM kayttajat", yh.otaYhteys());
+        public DataTable fetchInformation() // haetaan käyttäjien tiedot tietokannasta
+        {   // Aloitetaan try:lla
+            try
+            {   // Alla Sql komento jossa samassa hakukysely tietokantaan ja yhteydenluonti tietokantaan
+                MySqlCommand command = new MySqlCommand("SELECT * FROM kayttajat", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
                 DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
-                adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tieto
+                adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
                 adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
+                adapter.Dispose();
                 return table; // palautetaan DataTable 
             }
-            catch (Exception ex)
+            catch (Exception ex) // poimitaan virhe ja toiminta sen jälkeen
             {
                 MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA, MAARAAIKA FROM kayttajat", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle

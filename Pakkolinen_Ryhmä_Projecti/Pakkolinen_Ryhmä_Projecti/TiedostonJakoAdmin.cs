@@ -11,15 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 30.4.2022
+/// version 6.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// HUOMIO!!! VAATII MUOKKAAMANI TIETOKANNAN, JOTTA TOIMII. HUOMIO!!!
+///  PUUTTUU DYNAAMINEN KÄYTTÄJÄTUNNUS ja vaatii päätöksen tietotyypeistä 
+///  tai regex:n käyttöä tiedostotyypin poimimiseen tiedoston nimestä.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class TiedostonJakoAdmin : Form
     {
+        //muuttuja tietojenlähetys class:n
+        ADMINTIEDOSTOJENHALLINTA ad = new ADMINTIEDOSTOJENHALLINTA();
         Yhdista yh = new Yhdista();
         public TiedostonJakoAdmin()
         {
@@ -118,28 +122,69 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
+        // Valitaan tiedosto - button:n toiminta
         private void VaTieBT_Click(object sender, EventArgs e)
-        {
-            string path = ""; // muuttuja tiedosto sijainnille
-            openFileDialog1.InitialDirectory = "C:"; // Hakemisto, johon tiedoston valinta aukeaa
-            openFileDialog1.Filter = "All files (*.*)|*.*|All files (*.*)|*.*"; // Tiedosto tyypin suodatin
-            DialogResult result = openFileDialog1.ShowDialog(); // näyttää tiedoston valinnan
-            if (result == DialogResult.OK) // Kokeilee että on kelvollinen tulos
+        {   // Aloitetaan try:lla
+            try
             {
-                //openFileDialog1.Filter = "Doc Files|*.doc|Docx File|*.docx|PDF doc|*.pdf";
+                string path = ""; // muuttuja tiedosto sijainnille
                 openFileDialog1.InitialDirectory = "C:"; // Hakemisto, johon tiedoston valinta aukeaa
-                string fileName = System.IO.Path.GetFileName(openFileDialog1.FileName); // Tiedosto tyypin suodatin
-                path = Path.GetDirectoryName(openFileDialog1.FileName);
-                TiedostoNimiLB.Text = path + "/" + fileName;
+                openFileDialog1.Filter = "txt files (*.txt)|*.txt|js files (*.js)|*.js|py files (*.py)|*.py|html files (*.html)|*.html"; // Tiedosto tyypin suodatin"
+                DialogResult result = openFileDialog1.ShowDialog(); // näyttää tiedoston valinnan
+                if (result == DialogResult.OK) // Kokeilee että on kelvollinen tulos
+                { 
+                    openFileDialog1.InitialDirectory = "C:"; // Hakemisto, johon tiedoston valinta aukeaa
+                    string fileName = System.IO.Path.GetFileName(openFileDialog1.FileName); // Tiedoston nimi
+                    string sfdname = openFileDialog1.FileName; // tiedoston polku
+                    string content = Path.GetExtension(sfdname); // tiedosto tyyppi
+                    //path = Path.GetDirectoryName(openFileDialog1.FileName);
+                    TiedostoNimiLB.Text = sfdname; // Näytetään tiedosto polku
+                    TyyppiLB.Text = content; // tiedosto tyyppi. Tallennetaan label:n, kun ei tule muuta nyt mieleen
+                }
+            }
+            catch (Exception ex) // virheen poiminta ja näyttö
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void JaaBT_Click(object sender, EventArgs e)
-        {
-            
-        }
+        {   // Aloitetaan try:lla
+            try
+            {   // Luetaan polku label:sta 
+                string path = TiedostoNimiLB.Text.ToString();
+                // Tietokantaan tuleva tiedostonimi
+                string filename = AiheTB.Text.ToString();
+                // Tietotyypin luku
+                string content = TyyppiLB.Text.ToString();
+                // Katsotaan, että muuttujissa on tietoa
+                if (path.Equals("") || filename.Equals("") || content.Equals(""))
+                {
+                    MessageBox.Show($"Et ole valinnut tiedostoa.");
+                }
+                else
+                {
+                    /* Kutsutaan DMINTIEDOSTOJENHALLINTA class:ssa olevaa metodia
+                     * läheteään polku, nimi ja tietotyyppi*/
+                    bool lisays = ad.jaaTiedosto(path, filename,content);
+                    if(lisays == true) // mikäli lisäys on onnistunut
+                    {
+                        MessageBox.Show($"Tiedosto lisätty onnistuneesti tietokantaan.");
+                    }
+                    else
+                    {   // virhe viesti
+                        MessageBox.Show($"Tiedoston lisäys tietokantaan ei onnistunut");
+                    }
 
-        public void SaveToMysql()
+                }
+            }
+            catch (Exception ex) // virheen poiminta ja näyttö
+            {
+                MessageBox.Show($"{ex.Message} virhe1");
+            }
+        }
+        // Malli, jota en vielä halua poistaa
+       /* public void SaveToMysql()
         {
             try
             {
@@ -164,5 +209,29 @@ namespace Pakkolinen_Ryhmä_Projecti
                 MessageBox.Show(ex.Message);
             }
         }
+        /*var fileContent = string.Empty;
+        var filePath = string.Empty;
+
+        using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        {
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+
+                //Read the contents of the file into a stream
+                var fileStream = openFileDialog.OpenFile();
+
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    fileContent = reader.ReadToEnd();
+                }
+            }
+        }*/
     }
 }

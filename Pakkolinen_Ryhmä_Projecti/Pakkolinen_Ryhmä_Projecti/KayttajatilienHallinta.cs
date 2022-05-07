@@ -88,9 +88,10 @@ namespace Pakkolinen_Ryhmä_Projecti
             KayttajatDG.DataSource = ad.fetchInformation(); // Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
             KayttajatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             var datagridview = new DataGridView();
-            datagridview.RowTemplate.MinimumHeight = 125;
-            string salattu = KayttajatDG.Columns[9].ToString();
-            MessageBox.Show($"{salattu}");
+            datagridview.RowTemplate.MinimumHeight = 200;
+            DataGridViewImageColumn kuvat = new DataGridViewImageColumn();
+            kuvat = (DataGridViewImageColumn)KayttajatDG.Columns[11];
+            kuvat.ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
 
@@ -129,32 +130,39 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void KayttajatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            KaytTunnusTB.Text = KayttajatDG.CurrentRow.Cells[0].Value.ToString();
-        }
-
-        private void PoistaBT_Click(object sender, EventArgs e)
-        {
-            string ktun;
             try
             {
-                ktun = KaytTunnusTB.Text.ToString();
-                if (ktun.Equals(""))
+                if (e.ColumnIndex != PoistaColumn.Index)
                 {
-                    MessageBox.Show($"Valitse käyttäjä taulukosta ja tuplaklikka, jotta käyttäjätunnus siirtyyy tekstikenttään");
+                    return;
                 }
                 else
                 {
-                    bool vastaus = ad.deleteKayttaja(ktun);
-                    if (vastaus==true)
+                    try
                     {
-                        MessageBox.Show($"Käyttäjä poistettu.");
+                        string yTun = KayttajatDG.CurrentRow.Cells[1].Value.ToString();
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {
+                            bool poisto = ad.deleteKayttaja(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Poisto suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Poisto ei onnistunut.");
+                            }
+                            KayttajatDG.DataSource = ad.fetchInformation();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"Käyttäjän poisto epäonnistui");
+                        MessageBox.Show(ex.Message);
                     }
-                    KayttajatDG.DataSource = ad.fetchInformation();
-                    KaytTunnusTB.Text = "";
                 }
             }
             catch (Exception ex)

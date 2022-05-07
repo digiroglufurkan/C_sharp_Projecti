@@ -10,10 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 /// author@ Antti Kuusisto
-/// version 30.4.2022
+/// version 7.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// Tiedot eivät tule Dynaamisesti, mutta muuten toimii salasanan näyttöä lukuunottamatta.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -21,11 +22,12 @@ namespace Pakkolinen_Ryhmä_Projecti
     public partial class AdminProfiilinMuokkaus : Form
     {
         ADMINPROFMUOKKAUS ad = new ADMINPROFMUOKKAUS();
+        Tiedansyotto salaus = new Tiedansyotto();
+        Yhdista yh = new Yhdista();
         public AdminProfiilinMuokkaus()
         {
             InitializeComponent();
         }
-        Tiedansyotto salaus = new Tiedansyotto();
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
@@ -120,18 +122,22 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
+        /* Formin latautuessa hakee tiedot kenttiin. Hakukysely vielä "virheellisesti" tässä.
+         * Salasanan decrypt:nen ei toimi.*/
         private void AdminProfiilinMuokkaus_Load(object sender, EventArgs e)
-        {
+        {   // Aloitua try:lla
             try 
             { 
-                Yhdista yh = new Yhdista();
+                // Hakukysely käyttäjän tiedoista. Kuvan haku puuttuu vielä.
                 string query = "SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA FROM kayttajat WHERE KAYTTAJA_TUNNUS = @ktun";
+                // Komento tässä hieman erilainen
                 MySqlCommand command1 = new MySqlCommand(query, yh.otaYhteys());
-                yh.avaaYhteys();
                 command1.Parameters.AddWithValue("@ktun", "testesti");
-                //command1.Parameters.AddWithValue("@Emplname", txtEmplyName.Text);
+                yh.avaaYhteys();
+                // hakukysely DataReaderiin
                 MySqlDataReader reader1 = command1.ExecuteReader();
-                while (reader1.Read())
+                string salattu;
+                while (reader1.Read()) // Kun DataReader lukee
                 {
                     this.EnimiTB.Text = (reader1["ETUNIMI"].ToString());
                     this.SnimiTB.Text = (reader1["SUKUNIMI"].ToString());
@@ -142,23 +148,28 @@ namespace Pakkolinen_Ryhmä_Projecti
                     this.PtoimipaikkaTB.Text = (reader1["TOIMIPAIKKA"].ToString());
                     this.TitteliTB.Text = (reader1["TITTELI"].ToString());
                     this.NakyvaSalasanaLB.Text = (reader1["SALASANA"].ToString());
-                    reader1.Close();
-                    break;
+                    reader1.Close(); // DataReader:n sulku
+                    //string salattu = NakyvaSalasanaLB.Text.ToString();
+                    //string salasana = salaus.Decrypt(salattu);
+                    //NakyvaSalasanaLB.Text = salattu;
+                    //MessageBox.Show(salattu);
+                    break; // Silmukan lopetus
                 }
-                string salattu = NakyvaSalasanaLB.Text.ToString();
-                string salasana = salaus.Decrypt(salattu);
-                NakyvaSalasanaLB.Text = salasana;
+                /*string salattu = NakyvaSalasanaLB.Text.ToString();
+                string salasana = Decrypt(salattu);
+                NakyvaSalasanaLB.Text = salasana;*/
             }
-            catch (Exception ex)
+            catch (Exception ex) // poimitaan virhe ja näytetään
             {
-                MessageBox.Show($"Virhe tietokanta yhteydessä. Palaa myöhemmin sivulle tai ota yhteys palveluntarjoajaan.");           
+                MessageBox.Show($"{ex} v1");           
             }
         }
 
+        // Profiilikuvan vaihtaminen
         private void ProfKuvaBT_Click(object sender, EventArgs e)
-        {
+        {   // Aloitus try:lla
             try
-            {
+            {   // JOKIN MALLI / HARJOITUS, JOTA EN OLE VIELÄ POISTANUT
                 //ProfKuvaopenFileDialog valKuv = new ProfKuvaopenFileDialog();
                 /*string path = ""; // muuttuja tiedosto sijainnille
                 ProfKuvaopenFileDialog.InitialDirectory = "C:"; // Hakemisto, johon tiedoston valinta aukeaa
@@ -173,54 +184,91 @@ namespace Pakkolinen_Ryhmä_Projecti
                     KuvanosoiteLB.Text = path + "/" + fileName;
                     ProfKuvaPB.Image = Image.FromFile(fileName);
                 }*/
+                // Avataan FileDialog.
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Filter = "Image files | *.jpg";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                // Filter:ssä kuva tiedostot nyt
+                openFileDialog1.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK) // Mikäli dialogin ehdot täyttyvät
                 {
-                    KuvanosoiteLB.Text = openFileDialog1.FileName;
+                    string sfdname = openFileDialog1.FileName; // tiedoston polku
+                    KuvanosoiteLB.Text = sfdname; // Näytetään polku
+                    // Avataan kuva näytölle
                     ProfKuvaPB.Image = Image.FromFile(openFileDialog1.FileName);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) // poimitaan virhe ja näytetään se
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"{ex} v1");
             }
         }
-            private void PaivitaProfiiliBT_Click(object sender, EventArgs e)
-            {
-                try
+
+        //Toiminta, kun painetaan Päivitä profiili - button:a.
+        private void PaivitaProfiiliBT_Click(object sender, EventArgs e)
+        {   // Aloitetaan try:lla
+            try
                 {
-                string enimi = EnimiTB.Text.ToString();
-                string snimi = SnimiTB.Text.ToString();
-                string email = EmailTB.Text.ToString();
-                string puh = PuhNroTB.Text.ToString();
-                string osoite = OsoiteTB.Text.ToString();
-                string postinro = PostiNroTB.Text.ToString();
-                string postitoimi = PtoimipaikkaTB.Text.ToString();
-                string titteli = TitteliTB.Text.ToString();
-                string kuva = KuvanosoiteLB.Text.ToString();
-                if (enimi.Equals("") || snimi.Equals("") || email.Equals("") || puh.Equals("") || osoite.Equals("") || postinro.Equals("") ||
-                    postitoimi.Equals("") || titteli.Equals("") || kuva.Equals(""))
-                {
-                    MessageBox.Show($"Tarkista tekstikentät");
-                }
-                else
-                {
-                    bool vastaus = ad.paivitaTiedot(enimi,snimi,email,puh,osoite,postinro,postitoimi,titteli,kuva);
-                    if (vastaus == true)
+                    string enimi = EnimiTB.Text.ToString(); // luetaan etunimi
+                    string snimi = SnimiTB.Text.ToString(); // luetaan sukunimi
+                    string email = EmailTB.Text.ToString(); // luetaan sähköposti
+                    string puh = PuhNroTB.Text.ToString(); // luetaan puhelin
+                    string osoite = OsoiteTB.Text.ToString(); // luetaan osoite
+                    string postinro = PostiNroTB.Text.ToString(); // luetaan postinumero
+                    string postitoimi = PtoimipaikkaTB.Text.ToString(); // luetaan postitoimipaikka
+                    string titteli = TitteliTB.Text.ToString(); // luetaan titteli
+                    string kuva = KuvanosoiteLB.Text.ToString(); // luetaan kuvan polku
+                    // Katsotaan, että kentissä on tekstiä
+                    if (enimi.Equals("") || snimi.Equals("") || email.Equals("") || puh.Equals("") || osoite.Equals("") || postinro.Equals("") ||
+                        postitoimi.Equals("") || titteli.Equals("") || kuva.Equals(""))
                     {
-                        MessageBox.Show($"Päivitys onnistui");
+                        MessageBox.Show($"Tarkista tekstikentät");
                     }
                     else
                     {
+                        // Kutsutaan ADMINPROFMUOKKAUS class:ssa olevaa metodia
+                        bool vastaus = ad.paivitaTiedot(enimi,snimi,email,puh,osoite,postinro,postitoimi,titteli,kuva);
+                        if (vastaus == true) // mikäli vastaus on true
+                        {   //ilmoitus onnistuneesta päivityksestä
+                            MessageBox.Show($"Päivitys onnistui");
+                        }
+                        else // mikäli vastaus on false
+                    {   //ilmoitus epäonnistuneesta päivityksestä
                         MessageBox.Show($"Päivitys ei onnistunut");
+                        }
                     }
                 }
-            }
-                catch (Exception ex)
+             catch (Exception ex) // Poimitaan virhe ja näytetään se
                 {
-                MessageBox.Show(ex.Message);
+                    MessageBox.Show($"{ex} v1");
                 }
             }
+        public string Decrypt(string cipherText) // Tähän vaihdettu public, jotta voi käyttää muualta käsin. Selvitän voiko näin toimia vai pitääkö keksiä toinen tapa.
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            // .FromBase64String = Converts a CryptoStream from base 64.
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            // Aes = Represents the abstract base class from which all implementations of the Advanced Encryption Standard (AES) must inherit
+            // .Create = Creates a cryptographic object that is used to perform the symmetric algorithm.
+            using (Aes encryptor = Aes.Create())
+            {
+                // Rfc2898DeriveBytes = Implements password-based key derivation functionality, PBKDF2, by using a pseudo-random number generator based on HMACSHA1.
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                // .Key = Gets or sets the secret key for the symmetric algorithm.
+                // .IV = Gets or sets the initialization vector (IV) for the symmetric algorithm. 
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    // CryptoStream = Defines a stream that links data streams to cryptographic transformations.
+                    // .CreateEncryptor() = Creates a symmetric encryptor object with the current Key property and initialization vector (IV).
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
+        }
     }
 }

@@ -43,6 +43,7 @@
             this.VaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.YhtOttHallintadataGridView = new System.Windows.Forms.DataGridView();
+            this.PoistaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YhtOttHallintadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -168,12 +169,24 @@
             // YhtOttHallintadataGridView
             // 
             this.YhtOttHallintadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.YhtOttHallintadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PoistaColumn});
             this.YhtOttHallintadataGridView.Location = new System.Drawing.Point(351, 206);
             this.YhtOttHallintadataGridView.Name = "YhtOttHallintadataGridView";
             this.YhtOttHallintadataGridView.RowHeadersWidth = 51;
             this.YhtOttHallintadataGridView.RowTemplate.Height = 29;
             this.YhtOttHallintadataGridView.Size = new System.Drawing.Size(630, 319);
             this.YhtOttHallintadataGridView.TabIndex = 2;
+            this.YhtOttHallintadataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.YhtOttHallintadataGridView_CellContentClick);
+            // 
+            // PoistaColumn
+            // 
+            this.PoistaColumn.HeaderText = "Poista";
+            this.PoistaColumn.MinimumWidth = 6;
+            this.PoistaColumn.Name = "PoistaColumn";
+            this.PoistaColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PoistaColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.PoistaColumn.Width = 125;
             // 
             // YhteydenottojenHallinta
             // 
@@ -186,6 +199,7 @@
             this.MainMenuStrip = this.NavmenuStrip;
             this.Name = "YhteydenottojenHallinta";
             this.Text = "Yhteydenottojen hallinta";
+            this.Load += new System.EventHandler(this.YhteydenottojenHallinta_Load);
             this.NavmenuStrip.ResumeLayout(false);
             this.NavmenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.YhtOttHallintadataGridView)).EndInit();
@@ -211,5 +225,6 @@
         private ToolStripMenuItem VaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem KirjauduUlosToolStripMenuItem;
         private DataGridView YhtOttHallintadataGridView;
+        private DataGridViewButtonColumn PoistaColumn;
     }
 }
