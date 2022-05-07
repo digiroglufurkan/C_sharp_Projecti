@@ -154,7 +154,7 @@
             this.ksKotisivuAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(105, 90);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 25;
             // 
             // ksKotisivuKotisivuToolStripMenuItem
@@ -246,6 +246,7 @@
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KirjautunutMuokkaaProfiilia";
             this.Text = "KirjautunutMuokkaaProfiilia";
+            this.Enter += new System.EventHandler(this.KirjautunutMuokkaaProfiilia_Enter);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             this.ResumeLayout(false);

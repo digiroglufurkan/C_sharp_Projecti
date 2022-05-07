@@ -12,6 +12,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutMuokkaaProfiilia : Form
     {
+
         public KirjautunutMuokkaaProfiilia()
         {
             InitializeComponent();
@@ -76,6 +77,11 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.FormClosing += f1_FormClosing;
             etuSiv.Show();
             this.Hide();
+        }
+
+        private void KirjautunutMuokkaaProfiilia_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

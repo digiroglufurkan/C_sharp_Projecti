@@ -83,12 +83,43 @@ namespace Pakkolinen_Ryhmä_Projecti
             OpenFileDialog ofd = new OpenFileDialog();
             //ofd.Title = "Valitse kuva";
 
-            //ofd.Filter = "PNG Image|*.png|JPEG Image|*.jpeg";
+            ofd.Filter = "PNG Image|*.png|JPEG Image|*.jpeg|JPG Image|*.jpg";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 valitseTiedostoTB.Text = ofd.FileName;
+                jaaTiedostoPB.Image = new Bitmap(ofd.FileName);
+                
             }
+        }
+
+        private void jaaLataaBT_Click(object sender, EventArgs e)
+        {
+            if (vaadittuTextBox(jaaAiheTB, "Kirjoita tiedostolle nimi ja/tai aihe.")) { goto loppu; };
+            string aihe = jaaAiheTB.Text;
+            if (vaadittuTextBox(valitseTiedostoTB, "Valitse tiedosto jaettavaksi.")) { goto loppu; };
+            string tiedosto = valitseTiedostoTB.Text;
+            TiedostonJako uusitiedosto = new TiedostonJako();
+            string tiedostoilmoitus = uusitiedosto.lisaatiedosto(aihe, tiedosto);
+            if (tiedostoilmoitus != "")
+            {
+                MessageBox.Show("Tiedoston jakaminen onnistui!");
+            }
+            else
+            {
+                MessageBox.Show("Tiedoston jako ei onnistunut!");
+            }
+        loppu:;
+        }
+
+        private bool vaadittuTextBox(TextBox a, string b, string c = "")
+        {
+            if (a.Text == c)
+            {
+                MessageBox.Show(b);
+                return true;
+            }
+            return false;
         }
     }
 }
