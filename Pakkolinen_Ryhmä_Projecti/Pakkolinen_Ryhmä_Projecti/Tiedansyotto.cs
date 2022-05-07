@@ -16,11 +16,10 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yhdeys = new Yhdista();
 
-        public bool lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB)
+        public string  lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB,String salasana)
         {
-            String ktunnus = enimi.Substring(0, 3).ToLower() + snimi.Substring(0, 5).ToLower();
-            String salis = salasana();
-            String salattu = Encrypt(salis);
+            String ktunnus = enimi.ToLower() + "."+snimi.ToLower();
+            String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
             if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
@@ -58,27 +57,13 @@ namespace Pakkolinen_Ryhmä_Projecti
             if (komento.ExecuteNonQuery() == 1)
             {
                 yhdeys.suljeYhteys();
-                return true;
+                return ktunnus;
             }
             else
             {
                 yhdeys.suljeYhteys();
-                return false;
+                return "";
             }
-        }
-
-
-        public String salasana()
-        {
-            char[] merkkijono = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-            String ssana = "";
-            Random r = new Random();
-            for (int i = 0; i < 15; i++)
-            {
-                int rInt = r.Next(0, 61);
-                ssana += merkkijono[rInt];
-            }
-            return ssana;
         }
         public string Encrypt(string clearText)
         {
@@ -110,7 +95,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             return clearText;
         }
-        public string Decrypt(string cipherText) // Tähän vaihdettu public, jotta voi käyttää muualta käsin. Selvitän voiko näin toimia vai pitääkö keksiä toinen tapa.
+        public string Decrypt(string cipherText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             // .FromBase64String = Converts a CryptoStream from base 64.
@@ -134,10 +119,33 @@ namespace Pakkolinen_Ryhmä_Projecti
                         cs.Write(cipherBytes, 0, cipherBytes.Length);
                         cs.Close();
                     }
+                    
                     cipherText = Encoding.Unicode.GetString(ms.ToArray());
                 }
             }
             return cipherText;
         }
+
+        public bool lisaOtayhtayta(String email, String aihe, String teksti, String nimi)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            String lisayskysely;
+            lisayskysely = "INSERT INTO `otayhteytta`( `Name`,`lahettaja_email`, `Aihe`, `Text`) VALUES(@nimi, @eml, @aihe, @text);";
+            komento.CommandText = lisayskysely;
+            komento.Connection = yhdeys.otaYhteys();
+            komento.Parameters.Add("@text", MySqlDbType.VarChar).Value = teksti;
+            komento.Parameters.Add("@aihe", MySqlDbType.VarChar).Value = aihe;
+            komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
+            komento.Parameters.Add("@nimi", MySqlDbType.VarChar).Value = nimi;
+            yhdeys.avaaYhteys();
+            if (komento.ExecuteNonQuery() == 1)
+            {
+                yhdeys.suljeYhteys();
+                return true;
+            }
+            yhdeys.suljeYhteys();
+            return false;
+        }
+        
     }
 }
