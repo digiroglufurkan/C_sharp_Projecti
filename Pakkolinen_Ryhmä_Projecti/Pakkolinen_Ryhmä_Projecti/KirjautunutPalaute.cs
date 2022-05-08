@@ -97,7 +97,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             {
                 MessageBox.Show("Palautetta ei lähetetty!");
             }
-            loppu; ;
+            loppu:;
         }
 
         private bool vaadittuTextBox(TextBox a, string b, string c = "")

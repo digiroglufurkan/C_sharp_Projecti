@@ -154,11 +154,13 @@
             // ksLatauksetDG
             // 
             this.ksLatauksetDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksLatauksetDG.Location = new System.Drawing.Point(229, 188);
+            this.ksLatauksetDG.Location = new System.Drawing.Point(57, 188);
             this.ksLatauksetDG.Name = "ksLatauksetDG";
             this.ksLatauksetDG.RowTemplate.Height = 25;
-            this.ksLatauksetDG.Size = new System.Drawing.Size(345, 199);
+            this.ksLatauksetDG.Size = new System.Drawing.Size(686, 220);
             this.ksLatauksetDG.TabIndex = 8;
+            this.ksLatauksetDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksLatauksetDG_CellContentClick);
+            this.ksLatauksetDG.Click += new System.EventHandler(this.ksLatauksetDG_Click);
             // 
             // KirjautunutLataukset
             // 
