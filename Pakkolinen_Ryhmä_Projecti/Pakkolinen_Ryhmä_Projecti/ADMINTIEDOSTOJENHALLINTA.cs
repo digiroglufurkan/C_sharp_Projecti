@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@Antti Kuusisto
-/// version 6.5.2022
+/// version 9.5.2022
 /// <summary>
 /// HUOMIO!!! VAATII MUOKKAAMANI TIETOKANNAN, JOTTA TOIMII. HUOMIO!!!
-/// Tiedoston poisto toimii. Lataus tietokannasta toimii. Tietokantaan lataus: PUUTTUU DYNAAMINEN KÄYTTÄJÄTUNNUS
-/// ja vaatii päätöksen tietotyypeistä tai regex:n käyttöä tyypin poimimiseen tiedoston nimestä.
+/// Tiedoston poisto toimii. Lataus tietokannasta toimii. Tietokantaan lataus toimi.
+/// Siivottu.
 /// </summary>
 namespace Pakkolinen_Ryhmä_Projecti
 {
@@ -19,47 +19,9 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yh = new Yhdista();// Muuttuja tietokanta yhteyden class:n
 
-        public bool jaaTiedosto(string path, string filename,string content)
+        public bool jaaTiedosto(string path, string filename,string kuvaus,string content,string id)
         // Metodi tiedoston lisäämiseen tietokantaan. Muuttujat sijainti,nimi,tietotyyppi.
         {
-            /*try // jokin kokeilu joka kommentoitu pois käytöstä.
-            {
-                bool va;
-                //string path = Path.GetDirectoryName(openFileDialog1.FileName);
-                //string filename = System.IO.Path.GetFileName(openFileDialog1.FileName);
-                byte[] rawData = File.ReadAllBytes(path);
-                FileInfo info = new FileInfo(filename);//
-                MySqlCommand command = new MySqlCommand("INSERT INTO ladattavat_tiedostot (KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, Tiedosto) VALUES (?id, ?fileName, ?rawData);", yh.otaYhteys());
-                MySqlParameter TIEDOSTON_NIMI = new MySqlParameter("?fileName", MySqlDbType.VarChar);
-                MySqlParameter Tiedosto = new MySqlParameter("?rawData", MySqlDbType.Blob, rawData.Length);
-                MySqlParameter KAYTTAJA_TUNNUS = new MySqlParameter("?id", MySqlDbType.VarChar);
-                Tiedosto.Value = rawData;
-                TIEDOSTON_NIMI.Value = info.Name;
-                KAYTTAJA_TUNNUS.Value = "testesti";
-                command.Parameters.Add(Tiedosto);
-                command.Parameters.Add(TIEDOSTON_NIMI);
-                command.Parameters.Add(KAYTTAJA_TUNNUS);
-                yh.avaaYhteys();
-                if (command.ExecuteNonQuery() == 1) // Katsotaan suoritettiinko komento
-                {
-                    yh.suljeYhteys(); // Suljetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
-                    va = true; // Vastaus viesti
-                    return va; // viestin palautus
-                }
-                else // mikäli ei onnistunut tietokannan muokkaus
-                {
-                    yh.suljeYhteys();  // Suljetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla 
-                    va = false; // Vastaus viesti
-                    return va; // viestin palautus
-                }
-                /*yh.suljeYhteys();
-                MessageBox.Show($"Tiedosto ladattu tietokantaan.");*/
-            /*}
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message} virhe2 ");
-                return false;
-            }*/
             // Aloitus try:lla
             try
             {
@@ -72,9 +34,10 @@ namespace Pakkolinen_Ryhmä_Projecti
                 fs.Read(rawData, 0, (int)FileSize); //luetaan tiedosto muuttujiin
                 fs.Close(); // suljetaan filestream
                 // Tietokanta kysely ja avataan yhteys tietokantaan
-                MySqlCommand command = new MySqlCommand("INSERT INTO ladattavat_tiedostot (KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, file_size, Tiedosto, extension) VALUES (@ktun, @FileName, @FileSize, @File, @ext);", yh.otaYhteys());
-                command.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = "testesti"; // käyttäjä, joka lisää tiedoston
+                MySqlCommand command = new MySqlCommand("INSERT INTO ladattavat_tiedostot (KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, kuvaus, file_size, Tiedosto, extension) VALUES (@ktun, @FileName, @kuvaus, @FileSize, @File, @ext);", yh.otaYhteys());
+                command.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = id; // käyttäjä, joka lisää tiedoston
                 command.Parameters.Add("@FileName", MySqlDbType.VarChar).Value = filename; // tiedoston nimi
+                command.Parameters.Add("@kuvaus", MySqlDbType.VarChar).Value = kuvaus; // tiedoston kuvaus
                 command.Parameters.Add("@FileSize", MySqlDbType.VarChar).Value = FileSize; // tiedoston koko
                 command.Parameters.Add("@File", MySqlDbType.LongBlob).Value = rawData; // tiedoston data
                 command.Parameters.Add("@ext", MySqlDbType.VarChar).Value = content; // tietotyypi
@@ -89,13 +52,6 @@ namespace Pakkolinen_Ryhmä_Projecti
                     yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
                     return false;  // vastauksen palautus
                 }
-                /*command.ExecuteNonQuery();
-
-                MessageBox.Show("File Inserted into database successfully!",
-                    "Success!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                yh.suljeYhteys();
-                return true;*/
             }
             catch (MySql.Data.MySqlClient.MySqlException ex) // mikäli tulee viehe
             {
@@ -109,7 +65,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             // Aloitetaan try:lla
             try
             {   // Alla Sql komento jossa samassa hakukysely tietokantaan ja yhteydenluonti tietokantaan
-                MySqlCommand command = new MySqlCommand("SELECT LadattavatID, KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, file_size,extension, DATE FROM ladattavat_tiedostot", yh.otaYhteys());
+                MySqlCommand command = new MySqlCommand("SELECT LadattavatID, KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, kuvaus, file_size,extension, DATE FROM ladattavat_tiedostot", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
                 DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
                 adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
@@ -119,11 +75,6 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
             catch (Exception ex) // mikäli virhe
             {
-                /*MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA, MAARAAIKA FROM kayttajat", yh.otaYhteys());
-                MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
-                DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
-                adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tieto
-                adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen*/
                 MessageBox.Show(ex.Message);
                 DataTable table = new DataTable();
                 return table; // palautetaan DataTable
@@ -154,22 +105,18 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return false;
             }
         }
-        /* TIEDOSTON LATAUKSEEN KAKSI(2) VERSIOTA. KÄYTÖSSÄ OLEVA TOIMII,
-           POIS KOMMENTOITU SEKOAA, JOS KESKEYTTÄÄ TALLENNUS DIALOGIN.
-           VAIN KÄYTÖSSÄ OLEVA ON KOMMENTOITU.
+        /* Tiedoston lataus.
       */public bool lataaTiedosto(int id)
         {   
-            //SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            //string sfdname;
+            
             try
             {
-                 MySqlDataReader myData; // muuttuja DataReader:lle
-                 //string SQL;
-                 UInt32 FileSize; // muuttuja tiedosto koolle
+                MySqlDataReader myData; // muuttuja DataReader:lle
+                UInt32 FileSize; // muuttuja tiedosto koolle
                 byte[] rawData; // muuttuja tiedoston datalle
                 string content; // muuttuja tietotyypille
                 FileStream fs; // muuttuja filestream metodille
-                // Kysely tietokantaan ja yhteyden avaus
+                // Kysely tietokantaan ja yhteyden muodostus
                 MySqlCommand command = new MySqlCommand("SELECT TIEDOSTON_NIMI, file_size, Tiedosto, extension FROM ladattavat_tiedostot WHERE LadattavatID = @oid;", yh.otaYhteys());
                 // id parametrin lisäys kyselyyn 
                 command.Parameters.Add("@oid", MySqlDbType.UInt32).Value = id;
@@ -187,18 +134,39 @@ namespace Pakkolinen_Ryhmä_Projecti
                  myData.GetBytes(myData.GetOrdinal("Tiedosto"), 0, rawData, 0, (int)FileSize);
                  // Kutsutaa saveFileDialog
                  SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                 saveFileDialog1.InitialDirectory = "C:"; // Hakemisto, johon tiedoston tallennus aukeaa
                  saveFileDialog1.Filter = "All files (*.*)|*.*|All files (*.*)|*.*"; // Nyt tälläiset filter määritykset
                  saveFileDialog1.Title = "Save File"; // Otsikko
-                 saveFileDialog1.ShowDialog(); // Näytetään dialogi
+                 DialogResult result = saveFileDialog1.ShowDialog(); // Näytetään dialogi
+                 if (result == DialogResult.Cancel)
+                 {
+                    myData.Close(); // suljetaan DataReader
+                    yh.suljeYhteys(); // suljetaan yhteys
+                    return false; // palautetaan false
+                }
                  string sfdname = saveFileDialog1.FileName; // otetaan talteen käyttäjän antama tiedostonimi
-                 // määritetään mitä kirjoitetaan FileStream metodilla valittuun tiedostoon 
-                 fs = new FileStream(sfdname + content, FileMode.OpenOrCreate, FileAccess.Write); 
+                 // määritetään mitä kirjoitetaan FileStream metodilla valittuun tiedostoon huomaa tiedoston nimeäminen ja tiedostotyypin lisäys (nimi + . + tyyppi)
+                 fs = new FileStream(sfdname + "." + content, FileMode.OpenOrCreate, FileAccess.Write);
                  fs.Write(rawData, 0, (int)FileSize); // Kirjoitetaan tiedosto
                  fs.Close(); // suljetaan FileStream
                  myData.Close(); // suljetaan DataReader
                 yh.suljeYhteys(); // suljetaan yhteys
                  return true; // palautetaan true 
-                /*MySqlDataReader myData;
+            }
+            catch(MySql.Data.MySqlClient.MySqlException ex) // poimitaan virhe talteen
+            {
+                MessageBox.Show("Error " + ex.Number + " has occurred: " + ex.Message,
+                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // palautetaan false
+            }
+        }
+    }
+    /*KOODIVARASTO
+     * alla SaveFileDialog:n keskeytyksen muokkauksella toimiva tiedoston lataus
+      SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+      string sfdname;
+      string SQL;
+      MySqlDataReader myData;
                 string SQL;
                 UInt32 FileSize;
                 byte[] rawData;
@@ -259,8 +227,45 @@ namespace Pakkolinen_Ryhmä_Projecti
 
                     myData.Close();
                     yh.suljeYhteys();
-                    return true;*/
-                /*FileSize = myData.GetUInt32(myData.GetOrdinal("file_size"));
+                    return true;
+    try // jokin kokeilu joka kommentoitu pois käytöstä.
+            {
+                bool va;
+                //string path = Path.GetDirectoryName(openFileDialog1.FileName);
+                //string filename = System.IO.Path.GetFileName(openFileDialog1.FileName);
+                byte[] rawData = File.ReadAllBytes(path);
+                FileInfo info = new FileInfo(filename);//
+                MySqlCommand command = new MySqlCommand("INSERT INTO ladattavat_tiedostot (KAYTTAJA_TUNNUS, TIEDOSTON_NIMI, Tiedosto) VALUES (?id, ?fileName, ?rawData);", yh.otaYhteys());
+                MySqlParameter TIEDOSTON_NIMI = new MySqlParameter("?fileName", MySqlDbType.VarChar);
+                MySqlParameter Tiedosto = new MySqlParameter("?rawData", MySqlDbType.Blob, rawData.Length);
+                MySqlParameter KAYTTAJA_TUNNUS = new MySqlParameter("?id", MySqlDbType.VarChar);
+                Tiedosto.Value = rawData;
+                TIEDOSTON_NIMI.Value = info.Name;
+                KAYTTAJA_TUNNUS.Value = "testesti";
+                command.Parameters.Add(Tiedosto);
+                command.Parameters.Add(TIEDOSTON_NIMI);
+                command.Parameters.Add(KAYTTAJA_TUNNUS);
+                yh.avaaYhteys();
+                if (command.ExecuteNonQuery() == 1) // Katsotaan suoritettiinko komento
+                {
+                    yh.suljeYhteys(); // Suljetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
+                    va = true; // Vastaus viesti
+                    return va; // viestin palautus
+                }
+                else // mikäli ei onnistunut tietokannan muokkaus
+                {
+                    yh.suljeYhteys();  // Suljetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla 
+                    va = false; // Vastaus viesti
+                    return va; // viestin palautus
+                }
+                /*yh.suljeYhteys();
+                MessageBox.Show($"Tiedosto ladattu tietokantaan.");*/
+    /*}
+    catch (Exception ex)
+    {
+        MessageBox.Show($"{ex.Message} virhe2 ");
+        return false;
+    FileSize = myData.GetUInt32(myData.GetOrdinal("file_size"));
                 rawData = new byte[FileSize];
 
                 myData.GetBytes(myData.GetOrdinal("Tiedosto"), 0, rawData, 0, (int)FileSize);
@@ -274,14 +279,5 @@ namespace Pakkolinen_Ryhmä_Projecti
                 fs.Close();
                 MessageBox.Show("File successfully written to disk!",
                     "Success!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                */
-            }
-            catch(MySql.Data.MySqlClient.MySqlException ex) // poimitaan virhe talteen
-            {
-                MessageBox.Show("Error " + ex.Number + " has occurred: " + ex.Message,
-                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // palautetaan false
-            }
-        }
-    }
+*/
 }

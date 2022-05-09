@@ -172,3 +172,4 @@ C:\Users\furka\source\repos\C_sharp_Project\Pakkolinen_Ryhmä_Projecti\Pakkoline
 C:\Users\furka\source\repos\C_sharp_Project\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.pdb
 C:\Users\furka\source\repos\C_sharp_Project\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.genruntimeconfig.cache
 C:\Users\furka\source\repos\C_sharp_Project\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\ref\Pakkolinen_Ryhmä_Projecti.dll
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Pakkolinen_Ryhmä_Projecti\Pakkolinen_Ryhmä_Projecti\obj\Debug\net6.0-windows\Pakkolinen_Ryhmä_Projecti.AdminKeskusteluPalsta.resources

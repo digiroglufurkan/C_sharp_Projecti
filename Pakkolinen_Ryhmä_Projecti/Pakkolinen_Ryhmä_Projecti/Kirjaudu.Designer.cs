@@ -208,8 +208,8 @@
             this.ClientSize = new System.Drawing.Size(1176, 684);
             this.Controls.Add(this.OtsitkoLB);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Kirjaudu";

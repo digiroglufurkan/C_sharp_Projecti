@@ -41,7 +41,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         }
         public bool paivitaTiedot(string enimi,string snimi,string email,string puh,string osoite,string postinro,string postitoimi,string titteli
-            ,string kuva)
+            ,string kuva,string id)
         {
             FileStream fs; // muuttuja filestream metodille
             //BinaryReader br;
@@ -64,6 +64,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                 fs.Close(); // suljetaan filestream
                 // Tietokanta kysely ja avataan yhteys tietokantaan
                 MySqlCommand command = new MySqlCommand(); // muuttuja Sql komennolle
+                command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
                 command.Parameters.Add("@eni", MySqlDbType.VarChar).Value = enimi; // lisätään parametreinä lisäyskyselyyn arvot. Kerrotaan tietokannan tietotyyppi samalla tässä VarChar eli teksti
                 command.Parameters.Add("@sni", MySqlDbType.VarChar).Value = snimi; // lisätään parametreinä lisäyskyselyyn arvot. Kerrotaan tietokannan tietotyyppi samalla tässä VarChar eli teksti
                 command.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puh; // lisätään parametreinä lisäyskyselyyn arvot. Kerrotaan tietokannan tietotyyppi samalla tässä VarChar eli teksti
@@ -73,7 +74,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                 command.Parameters.Add("@ptoi", MySqlDbType.VarChar).Value = postitoimi; // lisätään parametreinä lisäyskyselyyn arvot.
                 command.Parameters.Add("@tit", MySqlDbType.VarChar).Value = titteli; // lisätään parametreinä lisäyskyselyyn arvot.
                 command.Parameters.Add("@img", MySqlDbType.LongBlob).Value = rawData; // Kuva, huomaa tietotyyppi
-                string updateQuest = "Update `kayttajat` Set `ETUNIMI` = @eni, `SUKUNIMI` = @sni, `PUHELIN` =@puh, `EMAIL` =@email, `OSAITE` =@oso, `POSTINUMERO` =@pnro, `TOIMIPAIKKA` =@ptoi, `TITTELI` =@tit, `KUVA` =@img WHERE ETUNIMI =@eni"; // 
+                string updateQuest = "Update `kayttajat` Set `ETUNIMI` = @eni, `SUKUNIMI` = @sni, `PUHELIN` =@puh, `EMAIL` =@email, `OSAITE` =@oso, `POSTINUMERO` =@pnro, `TOIMIPAIKKA` =@ptoi, `TITTELI` =@tit, `KUVA` =@img WHERE KAYTTAJA_TUNNUS =@id"; // 
                 command.CommandText = updateQuest; // liitetään tietokantakomentoon muokkauskysely
                 command.Connection = yh.otaYhteys(); // muodostetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
                 yh.avaaYhteys(); // avataan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla

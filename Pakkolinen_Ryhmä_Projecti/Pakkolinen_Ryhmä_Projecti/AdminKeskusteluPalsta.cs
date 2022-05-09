@@ -7,18 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-/// author@Antti Kuusisto
+using MySql.Data.MySqlClient; // pitää muistaa lisätä
+using System.Data; // pitää muistaa lisätä
+using System.Data.SqlClient; // pitää muistaa lisätä
+/// author@ Antti Kuusisto
 /// version 9.5.2022
 /// <summary>
-/// Pitäisi toimia. Ei testattu.
+/// Pitäisi toimia ei vielä testattu.
 /// </summary>
-
 namespace Pakkolinen_Ryhmä_Projecti
 {
-    public partial class YhteydenottojenHallinta : Form
+    public partial class AdminKeskusteluPalsta : Form
     {
-        ADMINYHTOTTOJAPALAUTE ad = new ADMINYHTOTTOJAPALAUTE();
-        public YhteydenottojenHallinta()
+        Yhdista yh = new Yhdista();
+        HALLINTAKESKUSTELUPALSTA ad = new HALLINTAKESKUSTELUPALSTA();
+        public AdminKeskusteluPalsta()
         {
             InitializeComponent();
         }
@@ -27,8 +30,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Close();
 
         }
-
-        private void AdminKotisivutoolStripMenuItem_Click(object sender, EventArgs e)
+        private void KotisivutoolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
@@ -84,6 +86,14 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
+            this.Hide();
+        }
+
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalasanojenHallinta saHa = new SalasanojenHallinta();
@@ -116,41 +126,29 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
-        private void YhteydenottojenHallinta_Load(object sender, EventArgs e)
+        private void AdminKeskusteluPalsta_Load(object sender, EventArgs e)
         {
-            YhtOttHallintadataGridView.DataSource = ad.haeYhtotot(); // Kutsutaan ADMINYHTOTTOJAPALAUTE CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
-            if (YhtOttHallintadataGridView.DataSource == null)
-            {
-                MessageBox.Show($"Virhe tietokannan kanssa.");
-            }
-            else
-            {
-                YhtOttHallintadataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-                var datagridview = new DataGridView();
-                datagridview.RowTemplate.MinimumHeight = 125;
-            }
+            PalstaDGW.DataSource = ad.haeKeskustelut(); // Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
+            PalstaDGW.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //var datagridview = new DataGridView();
         }
 
-        private void YhtOttHallintadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void PalstaDGW_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if(e.ColumnIndex != PoistaColumn.Index)
-                {
-                    return;
-                }
-                else
+                if (e.ColumnIndex == PoistaColumn.Index)
                 {
                     try
                     {
-                        int yTun = int.Parse(YhtOttHallintadataGridView.CurrentRow.Cells[1].Value.ToString());
-                        if (yTun.Equals(""))
+                        int tun = int.Parse(PalstaDGW.CurrentRow.Cells[1].Value.ToString());
+                        if (tun.Equals(""))
                         {
                             MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
                         }
                         else
                         {
-                            bool poisto = ad.poistaYhtotto(yTun);
+                            bool poisto = ad.poistaKeskustelu(tun);
                             if (poisto == true)
                             {
                                 MessageBox.Show($"Poisto suoritettu.");
@@ -159,6 +157,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                             {
                                 MessageBox.Show($"Poisto ei onnistunut.");
                             }
+                            PalstaDGW.DataSource = ad.haeKeskustelut();
                         }
                     }
                     catch (Exception ex)
@@ -171,14 +170,6 @@ namespace Pakkolinen_Ryhmä_Projecti
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
-            adKeHa.FormClosing += formClosing;
-            adKeHa.Show();
-            this.Hide();
         }
     }
 }

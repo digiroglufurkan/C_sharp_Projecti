@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@ Antti Kuusisto
-/// version 30.4.2022
+/// version 9.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// Toimii. Hakee automaattisesti käyttäjän tunnuksen ja vaihtaa salasanan mikäli uusi on 
+/// syötetty kaksi kertaa. Ylimääräiset visuaaliset elementit muutettu visible false.
+/// Siivottu.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -19,9 +21,11 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         SALASANOJENHALLINTATIETOKANTA tieto = new SALASANOJENHALLINTATIETOKANTA();
         Tiedansyotto salaus =new Tiedansyotto();
+        string uid; // muuttuja kättäjä tunnukselle
         public AdminSalasananVaihto()
         {
             InitializeComponent();
+            uid = Kirjaudu.ktun; // käyttäjä tunnuksen haku
         }
 
         void formClosing(object sender, FormClosingEventArgs e)
@@ -118,34 +122,31 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
+        // Salasanan vaihto
         private void VaSalasanaBT_Click(object sender, EventArgs e)
         {
-            string vanhaSalasana, uusiSalasana, uusiUudestaan,tarkistettu;
+            // Muuttuja uudelle salasanalle ja sen toistolle
+            string uusiSalasana, uusiUudestaan;
             try
             {
-                
-                vanhaSalasana = VaSalasanaTB.Text;
-                uusiSalasana = UuSalasanaTB.Text;
-                uusiUudestaan = UusiSalasanaUdTB.Text;
-                tarkistettu = salaus.Decrypt(vanhaSalasana);
-                if (vanhaSalasana.Equals("") || uusiSalasana.Equals("") || uusiUudestaan.Equals(""))
+                uusiSalasana = UuSalasanaTB.Text; // uusi salasana 
+                uusiUudestaan = UusiSalasanaUdTB.Text; // uuden toisto
+                if ( uusiSalasana.Equals("") || uusiUudestaan.Equals("")) // tarkistus, että kentissä tekstiä
                 {
                     MessageBox.Show($"Tarkista tekstikentät.");
                 }
-                else if (uusiSalasana != uusiUudestaan)
+                else if (uusiSalasana != uusiUudestaan) // tarkistus, että uusi kaksi kertaa.
                 {
                     MessageBox.Show($"Uudet salasanat eivät täsmää.");
                 }
-                /*else if (tarkistettu != vanhaSalasana)
-                {
-                    MessageBox.Show($"Vanhaa salasanaa ei löydy tieokannasta annettuväärä salasana");
-                }*/
                 else
-                {
-                    bool vastaus = tieto.vaihdaSalasana(vanhaSalasana, uusiSalasana);
-                    if (vastaus == true)
+                {   // salasanan vaihto SALASANOJENHALLINTATIETOKANTA class:ssa metodilla
+                    bool vastaus = tieto.vaihdaSalasana(uid, uusiSalasana);
+                    if (vastaus == true) // mikäli vaihto onnistui
                     {
                         MessageBox.Show($"Salasanan vaihto onnistui.");
+                        UuSalasanaTB.Text = "";
+                        UusiSalasanaUdTB.Text = "";
                     }
                     else
                     {
@@ -159,9 +160,18 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
         }
 
+        // Turha, ei vielä poistettu
         private void AdminSalasananVaihto_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
+            this.Hide();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             InitializeComponent();
         }
-        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
 
@@ -29,7 +29,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void AdminKotisivutoolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
-            adKo.FormClosing += f1_FormClosing;
+            adKo.FormClosing += formClosing;
             adKo.Show();
             this.Hide();
         }
@@ -37,7 +37,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void PalautteenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             PalautteenHallinta paHa = new PalautteenHallinta();
-            paHa.FormClosing += f1_FormClosing;
+            paHa.FormClosing += formClosing;
             paHa.Show();
             this.Hide();
         }
@@ -45,7 +45,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void LatauksienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             LatauksienHallinta laHa = new LatauksienHallinta();
-            laHa.FormClosing += f1_FormClosing;
+            laHa.FormClosing += formClosing;
             laHa.Show();
             this.Hide();
         }
@@ -53,7 +53,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KayttajatilienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajatilienHallinta kaTiHa = new KayttajatilienHallinta();
-            kaTiHa.FormClosing += f1_FormClosing;
+            kaTiHa.FormClosing += formClosing;
             kaTiHa.Show();
             this.Hide();
         }
@@ -61,7 +61,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void YhteydenottojenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             YhteydenottojenHallinta yhHa = new YhteydenottojenHallinta();
-            yhHa.FormClosing += f1_FormClosing;
+            yhHa.FormClosing += formClosing;
             yhHa.Show();
             this.Hide();
         }
@@ -69,7 +69,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MitaUuttaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             MitaUuttaHallinta miUuHa = new MitaUuttaHallinta();
-            miUuHa.FormClosing += f1_FormClosing;
+            miUuHa.FormClosing += formClosing;
             miUuHa.Show();
             this.Hide();
         }
@@ -77,7 +77,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void TiedostonJakotoolStripMenuItem_Click(object sender, EventArgs e)
         {
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
-            tiJaAd.FormClosing += f1_FormClosing;
+            tiJaAd.FormClosing += formClosing;
             tiJaAd.Show();
             this.Hide();
         }
@@ -85,7 +85,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalasanojenHallinta saHa = new SalasanojenHallinta();
-            saHa.FormClosing += f1_FormClosing;
+            saHa.FormClosing += formClosing;
             saHa.Show();
             this.Hide();
         }
@@ -93,7 +93,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
-            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.FormClosing += formClosing;
             adPrMu.Show();
             this.Hide();
         }
@@ -101,7 +101,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void VaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
-            adSaVa.FormClosing += f1_FormClosing;
+            adSaVa.FormClosing += formClosing;
             adSaVa.Show();
             this.Hide();
         }
@@ -109,8 +109,16 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Etusivu etusivu = new Etusivu();
-            etusivu.FormClosing += f1_FormClosing;
+            etusivu.FormClosing += formClosing;
             etusivu.Show();
+            this.Hide();
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
             this.Hide();
         }
     }

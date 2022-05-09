@@ -8,27 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 30.4.2022
+/// version 9.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// Kotisivulle voisi vielä laittaa latautumaan profiilikuvan.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class AdminKotisivu : Form
     {
-        //Form.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+        ADMINTERVEHDYS ad = new ADMINTERVEHDYS(); // muuttuja class:lle
+        string uid; // // muuttuja käyttäjä tunnukselle
         public AdminKotisivu()
         {
             InitializeComponent();
+            uid = Kirjaudu.ktun; // Käyttäjätunnuksen haku
         }
-
+        
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
 
         }
-
         private void kotisivuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
@@ -39,7 +40,22 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void AdminKotisivu_Load(object sender, EventArgs e)
         {
-
+            try
+            {   // kutsutaan metodia, joka palauttaa nimen.
+                string nimi = ad.nimi(uid);
+                if (nimi != "")
+                {
+                    IdLB.Text = nimi;
+                }
+                else
+                {
+                    IdLB.Text = $"{uid}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void palautteenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +135,14 @@ namespace Pakkolinen_Ryhmä_Projecti
             Etusivu etusivu = new Etusivu();
             etusivu.FormClosing += formClosing;
             etusivu.Show();
+            this.Hide();
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
             this.Hide();
         }
     }

@@ -6,7 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// author@Antti Kuusisto
+/// version 9.5.2022
+/// <summary>
+/// Pitäisi toimia. Ei testattu.
+/// </summary>
 namespace Pakkolinen_Ryhmä_Projecti
 {
      class ADMINYHTOTTOJAPALAUTE
@@ -31,25 +35,22 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return null;
             }
         }
-        public bool poistaYhtotto(string id)
+        public bool poistaYhtotto(int id)
         {
             try
             {
-                bool va; // määritys palutettavalle muutujalle
                 MySqlCommand command = new MySqlCommand("DELETE FROM otayhteytta WHERE ID = @id", yh.otaYhteys()); // tämä kesken
-                command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id; // arvojen lisäys poistokyselyyn
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id; // arvojen lisäys poistokyselyyn
                 yh.avaaYhteys(); // Yhteyden avaus YH CLASS:n funktiolla
                 if (command.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
                 {
                     yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
-                    va = true; // vastaus viesti
-                    return va; // vastauksen palautus
+                    return true; // vastauksen palautus
                 }
                 else
                 {
                     yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
-                    va = false;// vastaus viesti
-                    return va;  // vastauksen palautus
+                    return false;  // vastauksen palautus
                 }
             }
             catch (MySqlException ex)
@@ -76,25 +77,22 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return null;
             }
         }
-        public bool poistaPalaute(string id)
+        public bool poistaPalaute(int id)
         {
             try
             {
-                bool va; // määritys palutettavalle muutujalle
                 MySqlCommand command = new MySqlCommand("DELETE FROM palaute WHERE ID = @id", yh.otaYhteys()); // tämä kesken
-                command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id; // arvojen lisäys poistokyselyyn
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id; // arvojen lisäys poistokyselyyn
                 yh.avaaYhteys(); // Yhteyden avaus YH CLASS:n funktiolla
                 if (command.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
                 {
                     yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
-                    va = true; // vastaus viesti
-                    return va; // vastauksen palautus
+                    return true; // palautetaan true
                 }
                 else
                 {
                     yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
-                    va = false;// vastaus viesti
-                    return va;  // vastauksen palautus
+                    return false;  // palautetaan false
                 }
             }
             catch (MySqlException ex)
