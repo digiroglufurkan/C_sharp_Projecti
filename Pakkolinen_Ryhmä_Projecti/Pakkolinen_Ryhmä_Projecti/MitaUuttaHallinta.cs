@@ -17,6 +17,8 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class MitaUuttaHallinta : Form
     {
+        ADMINTIEDOSTOJENHALLINTA adT = new ADMINTIEDOSTOJENHALLINTA();
+        ADMINMITAUUTTA adM = new ADMINMITAUUTTA();
         public MitaUuttaHallinta()
         {
             InitializeComponent();
@@ -120,6 +122,55 @@ namespace Pakkolinen_Ryhmä_Projecti
             adKeHa.FormClosing += formClosing;
             adKeHa.Show();
             this.Hide();
+        }
+
+        private void MitaUuttaHallinta_Load(object sender, EventArgs e)
+        {
+            // Kutsutaan ADMINTIEDOSTOJENHALLINTA CLASS.ssa olevaa metodia, joka hakee tietokannasta tiedot niille varatulle aluelle
+            TalTieDGV.DataSource = adT.haeLataukset();
+            TalTieDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 200;
+            MitaUuttaDGV.DataSource = adM.haeUutuudet();
+            MitaUuttaDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            TestDGV.DataSource = adM.haeKaksiUutuutta();
+            TestDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void TalTieDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == ValitseCo.Index) // mikäli klikataan poista-buttonia
+            {
+                try // aloitetaan try:lla
+                {   // Otetaan id kentästä yksilöivä tunnus
+                    int yTun = int.Parse(TalTieDGV.CurrentRow.Cells[1].Value.ToString());
+                    if (yTun.Equals("")) // kokeillaan onko saatu talteen id tieto
+                    {   // virheviesti
+                        MessageBox.Show($"Et ole valinnut lisättävää kohdetta.");
+                    }
+                    else
+                    {   //Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka poistaa tiedoston tietokannasta
+                        bool poisto = adM.lisaaUutuus(yTun); //lähetetään id ja otetaan paluu parametrinä bool-arvo
+                        if (poisto == true) // mikäli bool arvo on true
+                        {   // viesti onnistuneesta toimenpiteestä
+                            MessageBox.Show($"Poisto suoritettu.");
+                        }
+                        else // mikäli bool arvo on false
+                        {   // virheviesti
+                            MessageBox.Show($"Poisto ei onnistunut.");
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
