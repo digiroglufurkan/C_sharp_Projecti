@@ -77,5 +77,48 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.Show();
             this.Hide();
         }
+
+        private void salasanavaihtoBT_Click(object sender, EventArgs e)
+        {
+            if(IsFormValid())
+            {
+
+            }
+        }
+
+        private void SalasananVaihto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool IsFormValid()
+        {
+            if(vanhasalisTB.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Lisää vanha salasana.","Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                vanhasalisTB.Focus();
+                return false;
+            }
+            if (uusisalisTB1.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Lisää uusi salasana.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                uusisalisTB1.Focus();
+                return false;
+            }
+            if (uusisaliTB2.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Vahvista uusi salasana.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                uusisaliTB2.Focus();
+                return false;
+            }
+            if (uusisalisTB1.Text.Trim() != uusisaliTB2.Text.Trim())
+            {
+                MessageBox.Show("Tarkista uudet salasanat.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                uusisalisTB1.Focus();
+                return false;
+            }
+
+            return true;
+        }
     }
 }

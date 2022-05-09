@@ -30,8 +30,6 @@
         {
             this.ksEtusivuOtsikkoLB = new System.Windows.Forms.Label();
             this.jaaAiheLB = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.ksKotisivuMS = new System.Windows.Forms.MenuStrip();
             this.ksJaaTiedostoKotisivuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksJaaTiedostoLatauksetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +40,6 @@
             this.muokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksVaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.palauteNimiTB = new System.Windows.Forms.TextBox();
-            this.palauteAiheTB = new System.Windows.Forms.TextBox();
             this.palauteTB = new System.Windows.Forms.TextBox();
             this.palauteLahetaBT = new System.Windows.Forms.Button();
             this.ksKotisivuMS.SuspendLayout();
@@ -63,31 +59,11 @@
             // 
             this.jaaAiheLB.AutoSize = true;
             this.jaaAiheLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.jaaAiheLB.Location = new System.Drawing.Point(164, 292);
+            this.jaaAiheLB.Location = new System.Drawing.Point(162, 227);
             this.jaaAiheLB.Name = "jaaAiheLB";
             this.jaaAiheLB.Size = new System.Drawing.Size(60, 20);
             this.jaaAiheLB.TabIndex = 10;
             this.jaaAiheLB.Text = "Palaute:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(182, 213);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 20);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Aihe:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(180, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Nimi:";
             // 
             // ksKotisivuMS
             // 
@@ -176,25 +152,9 @@
             this.ksKirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.ksKirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.ksKirjauduUlosToolStripMenuItem_Click);
             // 
-            // palauteNimiTB
-            // 
-            this.palauteNimiTB.Location = new System.Drawing.Point(245, 151);
-            this.palauteNimiTB.Multiline = true;
-            this.palauteNimiTB.Name = "palauteNimiTB";
-            this.palauteNimiTB.Size = new System.Drawing.Size(185, 20);
-            this.palauteNimiTB.TabIndex = 14;
-            // 
-            // palauteAiheTB
-            // 
-            this.palauteAiheTB.Location = new System.Drawing.Point(245, 213);
-            this.palauteAiheTB.Multiline = true;
-            this.palauteAiheTB.Name = "palauteAiheTB";
-            this.palauteAiheTB.Size = new System.Drawing.Size(185, 20);
-            this.palauteAiheTB.TabIndex = 15;
-            // 
             // palauteTB
             // 
-            this.palauteTB.Location = new System.Drawing.Point(245, 278);
+            this.palauteTB.Location = new System.Drawing.Point(248, 191);
             this.palauteTB.Multiline = true;
             this.palauteTB.Name = "palauteTB";
             this.palauteTB.Size = new System.Drawing.Size(331, 79);
@@ -202,12 +162,13 @@
             // 
             // palauteLahetaBT
             // 
-            this.palauteLahetaBT.Location = new System.Drawing.Point(291, 384);
+            this.palauteLahetaBT.Location = new System.Drawing.Point(364, 295);
             this.palauteLahetaBT.Name = "palauteLahetaBT";
             this.palauteLahetaBT.Size = new System.Drawing.Size(89, 29);
             this.palauteLahetaBT.TabIndex = 17;
             this.palauteLahetaBT.Text = "Lähetä";
             this.palauteLahetaBT.UseVisualStyleBackColor = true;
+            this.palauteLahetaBT.Click += new System.EventHandler(this.palauteLahetaBT_Click);
             // 
             // KirjautunutPalaute
             // 
@@ -216,11 +177,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.palauteLahetaBT);
             this.Controls.Add(this.palauteTB);
-            this.Controls.Add(this.palauteAiheTB);
-            this.Controls.Add(this.palauteNimiTB);
             this.Controls.Add(this.ksKotisivuMS);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.jaaAiheLB);
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KirjautunutPalaute";
@@ -236,8 +193,6 @@
 
         private Label ksEtusivuOtsikkoLB;
         private Label jaaAiheLB;
-        private Label label1;
-        private Label label2;
         private MenuStrip ksKotisivuMS;
         private ToolStripMenuItem ksJaaTiedostoKotisivuToolStripMenuItem;
         private ToolStripMenuItem ksJaaTiedostoLatauksetToolStripMenuItem;
@@ -248,8 +203,6 @@
         private ToolStripMenuItem muokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem ksVaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
-        private TextBox palauteNimiTB;
-        private TextBox palauteAiheTB;
         private TextBox palauteTB;
         private Button palauteLahetaBT;
     }

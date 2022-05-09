@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutMuokkaaProfiilia : Form
     {
+        Yhdista yhteys = new Yhdista();
+
         public KirjautunutMuokkaaProfiilia()
         {
             InitializeComponent();
@@ -76,6 +80,16 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.FormClosing += f1_FormClosing;
             etuSiv.Show();
             this.Hide();
+        }
+
+        private void KirjautunutMuokkaaProfiilia_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void muokkaaProfiiliaBT_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

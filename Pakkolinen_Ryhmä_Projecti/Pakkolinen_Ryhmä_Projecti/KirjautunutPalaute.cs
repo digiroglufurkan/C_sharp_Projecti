@@ -83,5 +83,32 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         }
 
+        private void palauteLahetaBT_Click(object sender, EventArgs e)
+        {
+            if (vaadittuTextBox(palauteTB, "Kirjoita palaute.")) { goto loppu; };
+            string palaute = palauteTB.Text;
+            TiedostonJako uusitiedosto = new TiedostonJako();
+            string tiedostoilmoitus = uusitiedosto.palauteyhdistys(palaute);
+            if (tiedostoilmoitus != "")
+            {
+                MessageBox.Show("Palaute lähetetty!");
+            }
+            else
+            {
+                MessageBox.Show("Palautetta ei lähetetty!");
+            }
+            loppu:;
+        }
+
+        private bool vaadittuTextBox(TextBox a, string b, string c = "")
+        {
+            if (a.Text == c)
+            {
+                MessageBox.Show(b);
+                return true;
+            }
+            return false;
+        }
     }
-}
+    }
+

@@ -65,7 +65,7 @@
             // 
             this.mitaUuttaLB.AutoSize = true;
             this.mitaUuttaLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mitaUuttaLB.Location = new System.Drawing.Point(244, 180);
+            this.mitaUuttaLB.Location = new System.Drawing.Point(123, 181);
             this.mitaUuttaLB.Name = "mitaUuttaLB";
             this.mitaUuttaLB.Size = new System.Drawing.Size(62, 20);
             this.mitaUuttaLB.TabIndex = 7;
@@ -75,7 +75,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(244, 322);
+            this.label2.Location = new System.Drawing.Point(123, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 9;
@@ -85,7 +85,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(221, 281);
+            this.label3.Location = new System.Drawing.Point(100, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 10;
@@ -95,7 +95,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(234, 231);
+            this.label4.Location = new System.Drawing.Point(113, 221);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 11;
@@ -103,7 +103,7 @@
             // 
             // muokkaaEtunimiLB
             // 
-            this.muokkaaEtunimiLB.Location = new System.Drawing.Point(320, 181);
+            this.muokkaaEtunimiLB.Location = new System.Drawing.Point(191, 182);
             this.muokkaaEtunimiLB.Multiline = true;
             this.muokkaaEtunimiLB.Name = "muokkaaEtunimiLB";
             this.muokkaaEtunimiLB.Size = new System.Drawing.Size(185, 20);
@@ -111,7 +111,7 @@
             // 
             // muokkaaEmailLB
             // 
-            this.muokkaaEmailLB.Location = new System.Drawing.Point(320, 281);
+            this.muokkaaEmailLB.Location = new System.Drawing.Point(191, 266);
             this.muokkaaEmailLB.Multiline = true;
             this.muokkaaEmailLB.Name = "muokkaaEmailLB";
             this.muokkaaEmailLB.Size = new System.Drawing.Size(185, 20);
@@ -119,7 +119,7 @@
             // 
             // muokkaaSukunimiLB
             // 
-            this.muokkaaSukunimiLB.Location = new System.Drawing.Point(320, 231);
+            this.muokkaaSukunimiLB.Location = new System.Drawing.Point(191, 221);
             this.muokkaaSukunimiLB.Multiline = true;
             this.muokkaaSukunimiLB.Name = "muokkaaSukunimiLB";
             this.muokkaaSukunimiLB.Size = new System.Drawing.Size(185, 20);
@@ -127,7 +127,7 @@
             // 
             // titteliLB
             // 
-            this.titteliLB.Location = new System.Drawing.Point(320, 322);
+            this.titteliLB.Location = new System.Drawing.Point(191, 305);
             this.titteliLB.Multiline = true;
             this.titteliLB.Name = "titteliLB";
             this.titteliLB.Size = new System.Drawing.Size(185, 20);
@@ -141,6 +141,7 @@
             this.muokkaaProfiiliaBT.TabIndex = 24;
             this.muokkaaProfiiliaBT.Text = "Tallenna muutokset";
             this.muokkaaProfiiliaBT.UseVisualStyleBackColor = true;
+            this.muokkaaProfiiliaBT.Click += new System.EventHandler(this.muokkaaProfiiliaBT_Click);
             // 
             // ksKotisivuMS
             // 
@@ -154,7 +155,7 @@
             this.ksKotisivuAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(105, 90);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 25;
             // 
             // ksKotisivuKotisivuToolStripMenuItem
@@ -246,6 +247,7 @@
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KirjautunutMuokkaaProfiilia";
             this.Text = "KirjautunutMuokkaaProfiilia";
+            this.Enter += new System.EventHandler(this.KirjautunutMuokkaaProfiilia_Enter);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             this.ResumeLayout(false);

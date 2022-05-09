@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,9 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutLataukset : Form
     {
+        Yhdista yhteys = new Yhdista();
+        MySqlCommand command;
+        MySqlDataAdapter da;
         public KirjautunutLataukset()
         {
             InitializeComponent();
@@ -77,5 +82,16 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.Show();
             this.Hide();
         }
+
+        private void ksLatauksetDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ksLatauksetDG_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
