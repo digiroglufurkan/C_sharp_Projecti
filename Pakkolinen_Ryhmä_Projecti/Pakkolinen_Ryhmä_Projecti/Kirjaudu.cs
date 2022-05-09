@@ -52,6 +52,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                 }
                 else
                 {
+                    ktun = KiTunnusTB.Text.ToString(); 
                     KirjautunutKotisivu ki = new KirjautunutKotisivu();
                     ki.FormClosing += f1_FormClosing;
                     ki.Show();

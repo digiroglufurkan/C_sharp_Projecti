@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions; // poista
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutPalaute : Form
     {
+        string tun;
+        KirjautunutPalauteClass pal = new KirjautunutPalauteClass();
+        Yhdista yhteys = new Yhdista();
         public KirjautunutPalaute()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -85,30 +92,34 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void palauteLahetaBT_Click(object sender, EventArgs e)
         {
-            if (vaadittuTextBox(palauteTB, "Kirjoita palaute.")) { goto loppu; };
-            string palaute = palauteTB.Text;
-            TiedostonJako uusitiedosto = new TiedostonJako();
-            string tiedostoilmoitus = uusitiedosto.palauteyhdistys(palaute);
-            if (tiedostoilmoitus != "")
+            try
             {
-                MessageBox.Show("Palaute lähetetty!");
+                string palaute = palauteTB.Text.ToString();
+                if (palaute.Equals(""))
+                {
+                    MessageBox.Show("Kirjoita palaute!");
+                }
+                else
+                {
+                    bool pala = pal.palauteJuttu(palaute, tun); 
+                    if (pala == true)
+                    {
+                        MessageBox.Show("Palaute lähetetty! :)");
+                        palauteTB.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Palaute ei mennyt eteenpäin! :(");
+                    }
+                }
             }
-            else
+            catch (Exception ex) // virheen poiminta ja näyttö
             {
-                MessageBox.Show("Palautetta ei lähetetty!");
+                MessageBox.Show($"{ex.Message} virhe1");
             }
-            loppu:;
         }
 
-        private bool vaadittuTextBox(TextBox a, string b, string c = "")
-        {
-            if (a.Text == c)
-            {
-                MessageBox.Show(b);
-                return true;
-            }
-            return false;
-        }
+        
     }
     }
 

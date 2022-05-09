@@ -41,6 +41,8 @@
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.latauksetLB = new System.Windows.Forms.Label();
             this.ksLatauksetDG = new System.Windows.Forms.DataGridView();
+            this.latausColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.ksKotisivuMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksLatauksetDG)).BeginInit();
             this.SuspendLayout();
@@ -154,6 +156,8 @@
             // ksLatauksetDG
             // 
             this.ksLatauksetDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ksLatauksetDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.latausColumn});
             this.ksLatauksetDG.Location = new System.Drawing.Point(57, 188);
             this.ksLatauksetDG.Name = "ksLatauksetDG";
             this.ksLatauksetDG.RowTemplate.Height = 25;
@@ -161,6 +165,12 @@
             this.ksLatauksetDG.TabIndex = 8;
             this.ksLatauksetDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksLatauksetDG_CellContentClick);
             this.ksLatauksetDG.Click += new System.EventHandler(this.ksLatauksetDG_Click);
+            // 
+            // latausColumn
+            // 
+            this.latausColumn.HeaderText = "Lataa tiedosto";
+            this.latausColumn.Name = "latausColumn";
+            this.latausColumn.ReadOnly = true;
             // 
             // KirjautunutLataukset
             // 
@@ -173,6 +183,7 @@
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KirjautunutLataukset";
             this.Text = "Kirjautunut Lataukset";
+            this.Load += new System.EventHandler(this.KirjautunutLataukset_Load);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksLatauksetDG)).EndInit();
@@ -196,5 +207,7 @@
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
         private Label latauksetLB;
         private DataGridView ksLatauksetDG;
+        private DataGridViewButtonColumn latausColumn;
+        private SaveFileDialog saveFileDialog2;
     }
 }

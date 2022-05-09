@@ -47,6 +47,8 @@
             this.valitseTiedostoTB = new System.Windows.Forms.TextBox();
             this.ksJaaTiedostoFD = new System.Windows.Forms.OpenFileDialog();
             this.jaaTiedostoPB = new System.Windows.Forms.PictureBox();
+            this.jaaKuvausTB = new System.Windows.Forms.TextBox();
+            this.jaaKuvausLB = new System.Windows.Forms.Label();
             this.ksKotisivuMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.jaaTiedostoPB)).BeginInit();
             this.SuspendLayout();
@@ -216,11 +218,31 @@
             this.jaaTiedostoPB.TabIndex = 15;
             this.jaaTiedostoPB.TabStop = false;
             // 
+            // jaaKuvausTB
+            // 
+            this.jaaKuvausTB.Location = new System.Drawing.Point(289, 182);
+            this.jaaKuvausTB.Multiline = true;
+            this.jaaKuvausTB.Name = "jaaKuvausTB";
+            this.jaaKuvausTB.Size = new System.Drawing.Size(185, 20);
+            this.jaaKuvausTB.TabIndex = 16;
+            // 
+            // jaaKuvausLB
+            // 
+            this.jaaKuvausLB.AutoSize = true;
+            this.jaaKuvausLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.jaaKuvausLB.Location = new System.Drawing.Point(213, 181);
+            this.jaaKuvausLB.Name = "jaaKuvausLB";
+            this.jaaKuvausLB.Size = new System.Drawing.Size(58, 20);
+            this.jaaKuvausLB.TabIndex = 17;
+            this.jaaKuvausLB.Text = "Kuvaus:";
+            // 
             // KirjautunutJaaTiedosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.jaaKuvausLB);
+            this.Controls.Add(this.jaaKuvausTB);
             this.Controls.Add(this.jaaTiedostoPB);
             this.Controls.Add(this.valitseTiedostoTB);
             this.Controls.Add(this.jaaAiheTB);
@@ -261,5 +283,7 @@
         private TextBox valitseTiedostoTB;
         private OpenFileDialog ksJaaTiedostoFD;
         private PictureBox jaaTiedostoPB;
+        private TextBox jaaKuvausTB;
+        private Label jaaKuvausLB;
     }
 }
