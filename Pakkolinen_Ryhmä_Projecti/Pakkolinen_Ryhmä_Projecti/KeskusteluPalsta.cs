@@ -15,83 +15,19 @@ namespace Pakkolinen_Ryhmä_Projecti
     public partial class KeskusteluPalsta : Form
     {
 
+        string tun;
+        KeskusteluPalstaClass pals  = new KeskusteluPalstaClass();
         Yhdista yhteys = new Yhdista();
-        //MySqlConnection con = new MySqlConnection;
-        MySqlCommand cmd;
-        MySqlDataAdapter adapter;
-        DataTable dt = new DataTable();
         public KeskusteluPalsta()
         {
             InitializeComponent();
-            // properties
-            kommenttiDG.ColumnCount = 2;
-            kommenttiDG.Columns[0].Name = "KAYTTAJA_TUNNUS";
-            kommenttiDG.Columns[1].Name = "KOMMENTTI";
-
-            kommenttiDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // selection
-            kommenttiDG.SelectionMode= DataGridViewSelectionMode.FullRowSelect;
-            kommenttiDG.MultiSelect = false;
-        }
-
-        // insert
-        private void add(string name, string com)
-        {
-            string sql = "INSERT INTO keskustelualue(KAYTTAJA_TUNNUS, KOMMENTTI) VALUES(@kayttis, @kommentti)";
-                cmd = new MySqlCommand(sql);
-            
-            try
-            {
-                yhteys.avaaYhteys();
-                if(cmd.ExecuteNonQuery()>0)
-                {
-                    MessageBox.Show("Kommenttisi on lähetetty.");
-                }
-                yhteys.suljeYhteys();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                yhteys.suljeYhteys();
-            }
+            tun = Kirjaudu.ktun; 
         }
 
         private void populate(String name, String kommentti)
         {
             kommenttiDG.Rows.Add(name, kommentti);
         }
-        //retrieve
-        private void retrieve()
-        {
-            kommenttiDG.Rows.Clear();
-
-            string sql = "SELECT * FROM keskustelualue ";
-            cmd = new MySqlCommand(sql);
-            try
-            {
-                yhteys.avaaYhteys();
-
-                adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    populate(row[0].ToString(), row[1].ToString());
-                }
-
-                yhteys.suljeYhteys();
-
-                dt.Rows.Clear();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                yhteys.suljeYhteys();
-            }
-        }
-
-
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -154,6 +90,33 @@ namespace Pakkolinen_Ryhmä_Projecti
             this.Hide();
         }
 
-
+        private void kommenttiBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string kommentoi = kommenttiBT.Text.ToString();
+                if (kommentoi.Equals(""))
+                {
+                    MessageBox.Show("Kirjoita kommentti!!");
+                }
+                else
+                {
+                    bool palsta = pals.palstaJuttu(kommentoi, tun);
+                    if (palsta == true)
+                    {
+                        MessageBox.Show("Kommentti julkaistu! :)");
+                        kommenttiBT.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kommenttia ei julkaistu! :(");
+                    }
+                }
+            }
+            catch (Exception ex) // virheen poiminta ja näyttö
+            {
+                MessageBox.Show($"{ex.Message} virhe1");
+            }
+        }
     }
 }

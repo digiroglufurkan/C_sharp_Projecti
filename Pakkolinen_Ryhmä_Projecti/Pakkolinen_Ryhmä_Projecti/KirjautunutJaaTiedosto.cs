@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutJaaTiedosto : Form
     {
+        string tun;
+        string fileType;
+        TiedostonJako jako = new TiedostonJako();
+        Yhdista yhteys = new Yhdista();
         public KirjautunutJaaTiedosto()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,36 +88,66 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void jaaSelaaBT_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            //ofd.Title = "Valitse kuva";
-
-            ofd.Filter = "PNG Image|*.png|JPEG Image|*.jpeg|JPG Image|*.jpg";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                valitseTiedostoTB.Text = ofd.FileName;
-                jaaTiedostoPB.Image = new Bitmap(ofd.FileName);
-                
+                string path = "";
+                ksJaaTiedostoFD.InitialDirectory = "C:";
+                ksJaaTiedostoFD.Filter = "All files(*.*) | *.*| All files(*.*) | *.*";
+                DialogResult result = ksJaaTiedostoFD.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    ksJaaTiedostoFD.InitialDirectory = "C:";
+                    string fileName = System.IO.Path.GetFileName(ksJaaTiedostoFD.FileName);
+                    string fdname = ksJaaTiedostoFD.FileName;
+                    valitseTiedostoTB.Text = fdname;
+                    string pattern = @"(?<=\.)[^.]+$";
+                    Regex rg = new Regex(pattern);
+                    MatchCollection co = rg.Matches(fdname);
+                    fileType = co[0].Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void jaaLataaBT_Click(object sender, EventArgs e)
         {
-            if (vaadittuTextBox(jaaAiheTB, "Kirjoita tiedostolle nimi ja/tai aihe.")) { goto loppu; };
-            string aihe = jaaAiheTB.Text;
-            if (vaadittuTextBox(valitseTiedostoTB, "Valitse tiedosto jaettavaksi.")) { goto loppu; };
-            string tiedosto = valitseTiedostoTB.Text;
-            TiedostonJako uusitiedosto = new TiedostonJako();
-            string tiedostoilmoitus = uusitiedosto.lisaatiedosto(aihe, tiedosto);
-            if (tiedostoilmoitus != "")
-            {
-                MessageBox.Show("Tiedoston jakaminen onnistui!");
+            try
+            {   // Luetaan polku label:sta 
+                string path = valitseTiedostoTB.Text.ToString();
+                // Tietokantaan tuleva tiedostonimi
+                string filename = jaaAiheTB.Text.ToString();
+                // Katsotaan, että muuttujissa on tietoa
+                string kuvaus = jaaKuvausTB.Text.ToString();
+                if (path.Equals("") || filename.Equals("") || fileType.Equals("") || kuvaus.Equals(""))
+                {
+                    MessageBox.Show($"Et ole valinnut tiedostoa.");
+                }
+                else
+                {
+                    /* Kutsutaan ADMINTIEDOSTOJENHALLINTA class:ssa olevaa metodia
+                     * läheteään polku, nimi ja tietotyyppi*/
+                    bool lisays = jako.jaaTiedosto(path, filename, kuvaus, fileType, tun);
+                    if (lisays == true) // mikäli lisäys on onnistunut
+                    {
+                        MessageBox.Show($"Tiedosto lisätty! :)");
+                        jaaAiheTB.Text = "";
+                        valitseTiedostoTB.Text = "";
+                        jaaKuvausTB.Text = "";
+                    }
+                    else
+                    {   // virhe viesti
+                        MessageBox.Show($"Tiedoston lisäys ei onnistunut! :(");
+                    }
+
+                }
             }
-            else
+            catch (Exception ex) // virheen poiminta ja näyttö
             {
-                MessageBox.Show("Tiedoston jako ei onnistunut!");
+                MessageBox.Show($"{ex.Message} virhe1");
             }
-        loppu:;
         }
 
         private bool vaadittuTextBox(TextBox a, string b, string c = "")

@@ -170,6 +170,7 @@
             this.kommenttiBT.TabIndex = 9;
             this.kommenttiBT.Text = "Julkaise";
             this.kommenttiBT.UseVisualStyleBackColor = true;
+            this.kommenttiBT.Click += new System.EventHandler(this.kommenttiBT_Click);
             // 
             // kommenttiDG
             // 

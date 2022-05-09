@@ -12,9 +12,13 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class SalasananVaihto : Form
     {
+        SalasananVaihtoClass salis = new SalasananVaihtoClass();
+        //Tiedansyotto salaus = new Tiedansyotto();
+        string tun;
         public SalasananVaihto()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,9 +84,37 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void salasanavaihtoBT_Click(object sender, EventArgs e)
         {
-            if(IsFormValid())
+            string uusSalisYks, uusSalisKaks;
+            try
             {
-
+                uusSalisYks = uusisalisTB1.Text;
+                uusSalisKaks = uusisalisTB2.Text;
+                if (uusSalisYks.Equals("") || uusSalisKaks.Equals(""))
+                {
+                    MessageBox.Show("Tarkista kentät!");
+                }
+                else if (uusSalisYks != uusSalisKaks)
+                {
+                    MessageBox.Show("Uudet salasanat eivät täsmää!");
+                }
+                else
+                {
+                    bool vaihto = salis.vaihdaSalis(tun, uusSalisYks);
+                    if (vaihto == true)
+                    {
+                        MessageBox.Show("Salasanan vaihto onnistui! :)");
+                        uusisalisTB1.Text = "";
+                        uusisalisTB2.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Salasanaa ei vaihdettu!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -91,34 +123,5 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         }
 
-        private bool IsFormValid()
-        {
-            if(vanhasalisTB.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Lisää vanha salasana.","Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                vanhasalisTB.Focus();
-                return false;
-            }
-            if (uusisalisTB1.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Lisää uusi salasana.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                uusisalisTB1.Focus();
-                return false;
-            }
-            if (uusisaliTB2.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Vahvista uusi salasana.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                uusisaliTB2.Focus();
-                return false;
-            }
-            if (uusisalisTB1.Text.Trim() != uusisaliTB2.Text.Trim())
-            {
-                MessageBox.Show("Tarkista uudet salasanat.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                uusisalisTB1.Focus();
-                return false;
-            }
-
-            return true;
-        }
     }
 }

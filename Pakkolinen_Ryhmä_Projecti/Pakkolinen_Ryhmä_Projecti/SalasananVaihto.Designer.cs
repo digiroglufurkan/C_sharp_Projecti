@@ -41,14 +41,10 @@
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salisVahvistusLB = new System.Windows.Forms.Label();
             this.uusiSalisLB = new System.Windows.Forms.Label();
-            this.vanhaSalisLB = new System.Windows.Forms.Label();
             this.uusisalisTB1 = new System.Windows.Forms.TextBox();
-            this.uusisaliTB2 = new System.Windows.Forms.TextBox();
-            this.vanhasalisTB = new System.Windows.Forms.TextBox();
+            this.uusisalisTB2 = new System.Windows.Forms.TextBox();
             this.salasanavaihtoBT = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.kayttajatunnusLB = new System.Windows.Forms.Label();
-            this.kayttisLB = new System.Windows.Forms.Label();
             this.ksKotisivuMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,7 +148,7 @@
             // 
             this.salisVahvistusLB.AutoSize = true;
             this.salisVahvistusLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.salisVahvistusLB.Location = new System.Drawing.Point(141, 289);
+            this.salisVahvistusLB.Location = new System.Drawing.Point(141, 252);
             this.salisVahvistusLB.Name = "salisVahvistusLB";
             this.salisVahvistusLB.Size = new System.Drawing.Size(156, 20);
             this.salisVahvistusLB.TabIndex = 13;
@@ -162,48 +158,29 @@
             // 
             this.uusiSalisLB.AutoSize = true;
             this.uusiSalisLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.uusiSalisLB.Location = new System.Drawing.Point(197, 252);
+            this.uusiSalisLB.Location = new System.Drawing.Point(197, 196);
             this.uusiSalisLB.Name = "uusiSalisLB";
             this.uusiSalisLB.Size = new System.Drawing.Size(100, 20);
             this.uusiSalisLB.TabIndex = 14;
             this.uusiSalisLB.Text = "Uusi salasana:";
             // 
-            // vanhaSalisLB
-            // 
-            this.vanhaSalisLB.AutoSize = true;
-            this.vanhaSalisLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.vanhaSalisLB.Location = new System.Drawing.Point(185, 214);
-            this.vanhaSalisLB.Name = "vanhaSalisLB";
-            this.vanhaSalisLB.Size = new System.Drawing.Size(112, 20);
-            this.vanhaSalisLB.TabIndex = 15;
-            this.vanhaSalisLB.Text = "Vanha salasana:";
-            // 
             // uusisalisTB1
             // 
-            this.uusisalisTB1.Location = new System.Drawing.Point(316, 253);
+            this.uusisalisTB1.Location = new System.Drawing.Point(316, 196);
             this.uusisalisTB1.Multiline = true;
             this.uusisalisTB1.Name = "uusisalisTB1";
             this.uusisalisTB1.Size = new System.Drawing.Size(185, 20);
             this.uusisalisTB1.TabIndex = 16;
             this.uusisalisTB1.UseSystemPasswordChar = true;
             // 
-            // uusisaliTB2
+            // uusisalisTB2
             // 
-            this.uusisaliTB2.Location = new System.Drawing.Point(316, 289);
-            this.uusisaliTB2.Multiline = true;
-            this.uusisaliTB2.Name = "uusisaliTB2";
-            this.uusisaliTB2.Size = new System.Drawing.Size(185, 20);
-            this.uusisaliTB2.TabIndex = 17;
-            this.uusisaliTB2.UseSystemPasswordChar = true;
-            // 
-            // vanhasalisTB
-            // 
-            this.vanhasalisTB.Location = new System.Drawing.Point(316, 214);
-            this.vanhasalisTB.Multiline = true;
-            this.vanhasalisTB.Name = "vanhasalisTB";
-            this.vanhasalisTB.Size = new System.Drawing.Size(185, 20);
-            this.vanhasalisTB.TabIndex = 18;
-            this.vanhasalisTB.UseSystemPasswordChar = true;
+            this.uusisalisTB2.Location = new System.Drawing.Point(316, 252);
+            this.uusisalisTB2.Multiline = true;
+            this.uusisalisTB2.Name = "uusisalisTB2";
+            this.uusisalisTB2.Size = new System.Drawing.Size(185, 20);
+            this.uusisalisTB2.TabIndex = 17;
+            this.uusisalisTB2.UseSystemPasswordChar = true;
             // 
             // salasanavaihtoBT
             // 
@@ -215,16 +192,6 @@
             this.salasanavaihtoBT.UseVisualStyleBackColor = true;
             this.salasanavaihtoBT.Click += new System.EventHandler(this.salasanavaihtoBT_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(302, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 20);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Hei";
-            // 
             // kayttajatunnusLB
             // 
             this.kayttajatunnusLB.AutoSize = true;
@@ -234,30 +201,15 @@
             this.kayttajatunnusLB.Size = new System.Drawing.Size(0, 20);
             this.kayttajatunnusLB.TabIndex = 22;
             // 
-            // kayttisLB
-            // 
-            this.kayttisLB.AutoSize = true;
-            this.kayttisLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.kayttisLB.Location = new System.Drawing.Point(355, 139);
-            this.kayttisLB.Name = "kayttisLB";
-            this.kayttisLB.Size = new System.Drawing.Size(104, 20);
-            this.kayttisLB.TabIndex = 23;
-            this.kayttisLB.Text = "käyttäjätunnus";
-            this.kayttisLB.Visible = false;
-            // 
             // SalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.kayttisLB);
             this.Controls.Add(this.kayttajatunnusLB);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.salasanavaihtoBT);
-            this.Controls.Add(this.vanhasalisTB);
-            this.Controls.Add(this.uusisaliTB2);
+            this.Controls.Add(this.uusisalisTB2);
             this.Controls.Add(this.uusisalisTB1);
-            this.Controls.Add(this.vanhaSalisLB);
             this.Controls.Add(this.uusiSalisLB);
             this.Controls.Add(this.salisVahvistusLB);
             this.Controls.Add(this.ksKotisivuMS);
@@ -287,13 +239,9 @@
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
         private Label salisVahvistusLB;
         private Label uusiSalisLB;
-        private Label vanhaSalisLB;
         private TextBox uusisalisTB1;
-        private TextBox uusisaliTB2;
-        private TextBox vanhasalisTB;
+        private TextBox uusisalisTB2;
         private Button salasanavaihtoBT;
-        private Label label1;
         private Label kayttajatunnusLB;
-        private Label kayttisLB;
     }
 }
