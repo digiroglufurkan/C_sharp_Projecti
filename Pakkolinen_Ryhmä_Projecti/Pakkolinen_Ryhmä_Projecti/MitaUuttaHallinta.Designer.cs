@@ -50,6 +50,7 @@
             this.TaTieLB = new System.Windows.Forms.Label();
             this.MiUuLB = new System.Windows.Forms.Label();
             this.TestDGV = new System.Windows.Forms.DataGridView();
+            this.LataaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TalTieDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MitaUuttaDGV)).BeginInit();
@@ -216,6 +217,7 @@
             this.MitaUuttaDGV.RowTemplate.Height = 29;
             this.MitaUuttaDGV.Size = new System.Drawing.Size(686, 222);
             this.MitaUuttaDGV.TabIndex = 3;
+            this.MitaUuttaDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MitaUuttaDGV_CellContentClick);
             // 
             // PoistaCo
             // 
@@ -245,12 +247,25 @@
             // TestDGV
             // 
             this.TestDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TestDGV.Location = new System.Drawing.Point(288, 555);
+            this.TestDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LataaCo});
+            this.TestDGV.Location = new System.Drawing.Point(288, 553);
             this.TestDGV.Name = "TestDGV";
             this.TestDGV.RowHeadersWidth = 51;
             this.TestDGV.RowTemplate.Height = 29;
-            this.TestDGV.Size = new System.Drawing.Size(300, 188);
+            this.TestDGV.Size = new System.Drawing.Size(636, 188);
             this.TestDGV.TabIndex = 6;
+            this.TestDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TestDGV_CellContentClick);
+            // 
+            // LataaCo
+            // 
+            this.LataaCo.HeaderText = "Lataa";
+            this.LataaCo.MinimumWidth = 6;
+            this.LataaCo.Name = "LataaCo";
+            this.LataaCo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.LataaCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.LataaCo.Text = "Lataa";
+            this.LataaCo.Width = 125;
             // 
             // MitaUuttaHallinta
             // 
@@ -302,5 +317,6 @@
         private Label TaTieLB;
         private Label MiUuLB;
         private DataGridView TestDGV;
+        private DataGridViewButtonColumn LataaCo;
     }
 }
