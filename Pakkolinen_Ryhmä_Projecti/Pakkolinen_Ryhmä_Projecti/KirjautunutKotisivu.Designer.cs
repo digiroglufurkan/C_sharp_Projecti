@@ -70,7 +70,7 @@
             this.ksKotisivuAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(108, 71);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 3;
             // 
             // ksKotisivuKotisivuToolStripMenuItem
@@ -156,7 +156,7 @@
             // 
             // ksEtusivuPB
             // 
-            this.ksEtusivuPB.Location = new System.Drawing.Point(47, 155);
+            this.ksEtusivuPB.Location = new System.Drawing.Point(45, 237);
             this.ksEtusivuPB.Name = "ksEtusivuPB";
             this.ksEtusivuPB.Size = new System.Drawing.Size(129, 121);
             this.ksEtusivuPB.TabIndex = 5;

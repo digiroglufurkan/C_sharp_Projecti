@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,12 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutLataukset : Form
     {
+        string tun;
+        KirjautunutLatauksetClass lataus = new KirjautunutLatauksetClass();
         public KirjautunutLataukset()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -77,5 +82,63 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.Show();
             this.Hide();
         }
+
+        private void ksLatauksetDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                if (e.ColumnIndex == latausColumn.Index)
+                {
+                    try
+                    {
+                        int yktunnus = int.Parse(ksLatauksetDG.CurrentRow.Cells[1].Value.ToString());
+                        if (yktunnus.Equals(""))
+                        {
+                            MessageBox.Show("Et ole valinnut tiedostoa!");
+                        }
+                        else
+                        {
+                            bool lataa = lataus.kirjautunutLataa(yktunnus);
+                            if (lataa == true)
+                            {
+                                MessageBox.Show("Tiedosto ladattu!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tiedostoa ei voitu ladata!");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} v3");
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} v1");
+            }
+            }
+
+
+        private void ksLatauksetDG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KirjautunutLataukset_Load(object sender, EventArgs e)
+        {
+            ksLatauksetDG.DataSource = lataus.haeTiedostot();
+            //ksLatauksetDG.AutoResizeColumn(DataGridViewAutoSizeColumnMode.AllCells);
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 100;
+        }
     }
 }
+

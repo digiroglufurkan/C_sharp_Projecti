@@ -40,11 +40,11 @@
             this.ksVaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mitaUuttaLB = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ksKommenttiDG = new System.Windows.Forms.DataGridView();
+            this.kommenttiTB = new System.Windows.Forms.TextBox();
+            this.kommenttiBT = new System.Windows.Forms.Button();
+            this.kommenttiDG = new System.Windows.Forms.DataGridView();
             this.ksKotisivuMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksKommenttiDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kommenttiDG)).BeginInit();
             this.SuspendLayout();
             // 
             // ksEtusivuOtsikkoLB
@@ -69,7 +69,7 @@
             this.ksKotisivuAsetuksetToolStripMenuItem});
             this.ksKotisivuMS.Location = new System.Drawing.Point(101, 60);
             this.ksKotisivuMS.Name = "ksKotisivuMS";
-            this.ksKotisivuMS.Size = new System.Drawing.Size(668, 28);
+            this.ksKotisivuMS.Size = new System.Drawing.Size(548, 28);
             this.ksKotisivuMS.TabIndex = 4;
             // 
             // ksKeskusteluKotisivuToolStripMenuItem
@@ -153,41 +153,42 @@
             this.mitaUuttaLB.TabIndex = 7;
             this.mitaUuttaLB.Text = "Jätä kommentti";
             // 
-            // textBox1
+            // kommenttiTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(189, 134);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(406, 104);
-            this.textBox1.TabIndex = 8;
+            this.kommenttiTB.Location = new System.Drawing.Point(189, 134);
+            this.kommenttiTB.Multiline = true;
+            this.kommenttiTB.Name = "kommenttiTB";
+            this.kommenttiTB.Size = new System.Drawing.Size(406, 104);
+            this.kommenttiTB.TabIndex = 8;
             // 
-            // button1
+            // kommenttiBT
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(329, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Julkaise";
-            this.button1.UseVisualStyleBackColor = true;
+            this.kommenttiBT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kommenttiBT.Location = new System.Drawing.Point(329, 244);
+            this.kommenttiBT.Name = "kommenttiBT";
+            this.kommenttiBT.Size = new System.Drawing.Size(108, 32);
+            this.kommenttiBT.TabIndex = 9;
+            this.kommenttiBT.Text = "Julkaise";
+            this.kommenttiBT.UseVisualStyleBackColor = true;
+            this.kommenttiBT.Click += new System.EventHandler(this.kommenttiBT_Click);
             // 
-            // ksKommenttiDG
+            // kommenttiDG
             // 
-            this.ksKommenttiDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksKommenttiDG.Location = new System.Drawing.Point(39, 282);
-            this.ksKommenttiDG.Name = "ksKommenttiDG";
-            this.ksKommenttiDG.RowTemplate.Height = 25;
-            this.ksKommenttiDG.Size = new System.Drawing.Size(713, 156);
-            this.ksKommenttiDG.TabIndex = 10;
+            this.kommenttiDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kommenttiDG.Location = new System.Drawing.Point(39, 282);
+            this.kommenttiDG.Name = "kommenttiDG";
+            this.kommenttiDG.RowTemplate.Height = 25;
+            this.kommenttiDG.Size = new System.Drawing.Size(713, 156);
+            this.kommenttiDG.TabIndex = 10;
             // 
             // KeskusteluPalsta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ksKommenttiDG);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.kommenttiDG);
+            this.Controls.Add(this.kommenttiBT);
+            this.Controls.Add(this.kommenttiTB);
             this.Controls.Add(this.mitaUuttaLB);
             this.Controls.Add(this.ksKotisivuMS);
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
@@ -195,7 +196,7 @@
             this.Text = "KeskusteluPalsta";
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksKommenttiDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kommenttiDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,8 +216,8 @@
         private ToolStripMenuItem ksVaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
         private Label mitaUuttaLB;
-        private TextBox textBox1;
-        private Button button1;
-        private DataGridView ksKommenttiDG;
+        private TextBox kommenttiTB;
+        private Button kommenttiBT;
+        private DataGridView kommenttiDG;
     }
 }

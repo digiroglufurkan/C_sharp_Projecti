@@ -8,20 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 30.4.2022
+/// version 9.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// HUOMIO!!! VAATII MUOKKAAMANI TIETOKANNAN, JOTTA TOIMII. HUOMIO!!!
+/// Tiedoston poisto toimii. Lataus toimii.
+/// Siivottu.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class LatauksienHallinta : Form
     {
+        ADMINTIEDOSTOJENHALLINTA ad = new ADMINTIEDOSTOJENHALLINTA();
         public LatauksienHallinta()
         {
             InitializeComponent();
         }
-        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
 
@@ -29,7 +32,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void AdminKotisivutoolStripItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
-            adKo.FormClosing += f1_FormClosing;
+            adKo.FormClosing += formClosing;
             adKo.Show();
             this.Hide();
         }
@@ -37,7 +40,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void PalautteenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             PalautteenHallinta paHa = new PalautteenHallinta();
-            paHa.FormClosing += f1_FormClosing;
+            paHa.FormClosing += formClosing;
             paHa.Show();
             this.Hide();
         }
@@ -45,7 +48,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void LatauksienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             LatauksienHallinta laHa = new LatauksienHallinta();
-            laHa.FormClosing += f1_FormClosing;
+            laHa.FormClosing += formClosing;
             laHa.Show();
             this.Hide();
         }
@@ -53,7 +56,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KayttajatilienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajatilienHallinta kaTiHa = new KayttajatilienHallinta();
-            kaTiHa.FormClosing += f1_FormClosing;
+            kaTiHa.FormClosing += formClosing;
             kaTiHa.Show();
             this.Hide();
         }
@@ -61,7 +64,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void YhteydenottojenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             YhteydenottojenHallinta yhHa = new YhteydenottojenHallinta();
-            yhHa.FormClosing += f1_FormClosing;
+            yhHa.FormClosing += formClosing;
             yhHa.Show();
             this.Hide();
         }
@@ -69,7 +72,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MitaUuttaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             MitaUuttaHallinta miUuHa = new MitaUuttaHallinta();
-            miUuHa.FormClosing += f1_FormClosing;
+            miUuHa.FormClosing += formClosing;
             miUuHa.Show();
             this.Hide();
         }
@@ -77,7 +80,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void TiedostonJakotoolStripMenuItem_Click(object sender, EventArgs e)
         {
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
-            tiJaAd.FormClosing += f1_FormClosing;
+            tiJaAd.FormClosing += formClosing;
             tiJaAd.Show();
             this.Hide();
         }
@@ -85,7 +88,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalasanojenHallinta saHa = new SalasanojenHallinta();
-            saHa.FormClosing += f1_FormClosing;
+            saHa.FormClosing += formClosing;
             saHa.Show();
             this.Hide();
         }
@@ -93,7 +96,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
-            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.FormClosing += formClosing;
             adPrMu.Show();
             this.Hide();
         }
@@ -101,7 +104,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void VaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
-            adSaVa.FormClosing += f1_FormClosing;
+            adSaVa.FormClosing += formClosing;
             adSaVa.Show();
             this.Hide();
         }
@@ -109,9 +112,140 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Etusivu etusivu = new Etusivu();
-            etusivu.FormClosing += f1_FormClosing;
+            etusivu.FormClosing += formClosing;
             etusivu.Show();
+            this.Hide();
+        }
+
+        // Toiminta, kun sivu ladataan
+        private void LatauksienHallinta_Load(object sender, EventArgs e)
+        {
+            // Kutsutaan ADMINTIEDOSTOJENHALLINTA CLASS.ssa olevaa metodia, joka hakee tietokannasta tiedot niille varatulle aluelle
+            LaHallintadataGridView.DataSource = ad.haeLataukset();
+            LaHallintadataGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 200;
+        }
+
+        // Toiminta, kun klikataan dataGridView:sä olevaa buttonia
+        private void LaHallintadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try // aloitetaan try:lla
+            {
+                if (e.ColumnIndex == PoistaColumn.Index) // mikäli klikataan poista-buttonia
+                {   
+                    try // aloitetaan try:lla
+                    {   // Otetaan id kentästä yksilöivä tunnus
+                        int yTun = int.Parse(LaHallintadataGridView.CurrentRow.Cells[2].Value.ToString());
+                        if (yTun.Equals("")) // kokeillaan onko saatu talteen id tieto
+                        {   // virheviesti
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {   //Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka poistaa tiedoston tietokannasta
+                            bool poisto = ad.poistaTiedosto(yTun); //lähetetään id ja otetaan paluu parametrinä bool-arvo
+                            if (poisto == true) // mikäli bool arvo on true
+                            {   // viesti onnistuneesta toimenpiteestä
+                                MessageBox.Show($"Poisto suoritettu.");
+                            }
+                            else // mikäli bool arvo on false
+                            {   // virheviesti
+                                MessageBox.Show($"Poisto ei onnistunut.");
+                            }
+                            // päivitetään taulukko ajan tasalle
+                            LaHallintadataGridView.DataSource = ad.haeLataukset();
+                        }
+                    }
+                    catch (Exception ex) //poimitaan virhe ja näytetään se
+                    {
+                        MessageBox.Show($"{ex.Message} v2");
+                    }
+                }
+                // toiminta mikäli klikataan lataa-button:a
+                else if(e.ColumnIndex == LataaColumn.Index)
+                {   // aloitetaan try:lla
+                    try
+                    {   // Otetaan id kentästä yksilöivä tunnus
+                        int yTun = int.Parse(LaHallintadataGridView.CurrentRow.Cells[2].Value.ToString());
+                        if (yTun.Equals("")) // kokeillaan onko saatu talteen id tieto
+                        {   // virheviesti
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {   //Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka lataa tiedoston tietokannasta
+                            bool poisto = ad.lataaTiedosto(yTun); // lähetetään id ja otetaan paluu parametrinä bool-arvo
+                            if (poisto == true) // mikäli bool arvo on true
+                            {   // viesti onnistuneesta toimenpiteestä
+                                MessageBox.Show($"Lataus suoritettu.");
+                            }
+                            else // mikäli bool arvo on false
+                            {   // virheviesti
+                                MessageBox.Show($"Lataus ei onnistunut.");
+                            }
+                        }
+                    }
+                    catch (Exception ex) //poimitaan virhe ja näytetään se
+                    {
+                        MessageBox.Show($"{ex.Message} v3");
+                    }
+                }
+                else // mikäli klikataan, jotain muuta kenttää
+                {
+                    return;
+                }
+            }
+            catch (Exception ex) //poimitaan virhe ja näytetään se
+            {
+                MessageBox.Show($"{ex.Message} v1");
+            }
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
             this.Hide();
         }
     }
 }
+/* TESTIKOODIN VARASTO TÄTÄ EI VIELÄ VIITSI HÄVITTÄÄ
+            *try
+            {
+                elseif (e.ColumnIndex != LataaColumn.Index)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        int yTun = int.Parse(LaHallintadataGridView.CurrentRow.Cells[2].ToString());
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {
+                            bool poisto = ad.lataaTiedosto(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Lataus suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Lataus ei onnistunut.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+ */

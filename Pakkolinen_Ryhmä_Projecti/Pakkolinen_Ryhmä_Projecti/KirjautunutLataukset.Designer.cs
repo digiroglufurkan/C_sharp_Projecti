@@ -41,9 +41,8 @@
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.latauksetLB = new System.Windows.Forms.Label();
             this.ksLatauksetDG = new System.Windows.Forms.DataGridView();
-            this.Aihe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kuvaus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tiedosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.latausColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.ksKotisivuMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksLatauksetDG)).BeginInit();
             this.SuspendLayout();
@@ -158,29 +157,20 @@
             // 
             this.ksLatauksetDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ksLatauksetDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Aihe,
-            this.Kuvaus,
-            this.Tiedosto});
-            this.ksLatauksetDG.Location = new System.Drawing.Point(229, 188);
+            this.latausColumn});
+            this.ksLatauksetDG.Location = new System.Drawing.Point(57, 188);
             this.ksLatauksetDG.Name = "ksLatauksetDG";
             this.ksLatauksetDG.RowTemplate.Height = 25;
-            this.ksLatauksetDG.Size = new System.Drawing.Size(345, 199);
+            this.ksLatauksetDG.Size = new System.Drawing.Size(686, 220);
             this.ksLatauksetDG.TabIndex = 8;
+            this.ksLatauksetDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksLatauksetDG_CellContentClick);
+            this.ksLatauksetDG.Click += new System.EventHandler(this.ksLatauksetDG_Click);
             // 
-            // Aihe
+            // latausColumn
             // 
-            this.Aihe.HeaderText = "Aihe";
-            this.Aihe.Name = "Aihe";
-            // 
-            // Kuvaus
-            // 
-            this.Kuvaus.HeaderText = "Kuvaus";
-            this.Kuvaus.Name = "Kuvaus";
-            // 
-            // Tiedosto
-            // 
-            this.Tiedosto.HeaderText = "Tiedosto";
-            this.Tiedosto.Name = "Tiedosto";
+            this.latausColumn.HeaderText = "Lataa tiedosto";
+            this.latausColumn.Name = "latausColumn";
+            this.latausColumn.ReadOnly = true;
             // 
             // KirjautunutLataukset
             // 
@@ -193,6 +183,7 @@
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KirjautunutLataukset";
             this.Text = "Kirjautunut Lataukset";
+            this.Load += new System.EventHandler(this.KirjautunutLataukset_Load);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksLatauksetDG)).EndInit();
@@ -216,8 +207,7 @@
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
         private Label latauksetLB;
         private DataGridView ksLatauksetDG;
-        private DataGridViewTextBoxColumn Aihe;
-        private DataGridViewTextBoxColumn Kuvaus;
-        private DataGridViewTextBoxColumn Tiedosto;
+        private DataGridViewButtonColumn latausColumn;
+        private SaveFileDialog saveFileDialog2;
     }
 }

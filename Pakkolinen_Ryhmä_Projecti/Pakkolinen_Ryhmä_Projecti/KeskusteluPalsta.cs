@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,19 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KeskusteluPalsta : Form
     {
+
+        string tun;
+        KeskusteluPalstaClass pals  = new KeskusteluPalstaClass();
+        Yhdista yhteys = new Yhdista();
         public KeskusteluPalsta()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun; 
+        }
+
+        private void populate(String name, String kommentti)
+        {
+            kommenttiDG.Rows.Add(name, kommentti);
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,6 +88,35 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.FormClosing += f1_FormClosing;
             etuSiv.Show();
             this.Hide();
+        }
+
+        private void kommenttiBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string kommentoi = kommenttiBT.Text.ToString();
+                if (kommentoi.Equals(""))
+                {
+                    MessageBox.Show("Kirjoita kommentti!!");
+                }
+                else
+                {
+                    bool palsta = pals.palstaJuttu(kommentoi, tun);
+                    if (palsta == true)
+                    {
+                        MessageBox.Show("Kommentti julkaistu! :)");
+                        kommenttiBT.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kommenttia ei julkaistu! :(");
+                    }
+                }
+            }
+            catch (Exception ex) // virheen poiminta ja näyttö
+            {
+                MessageBox.Show($"{ex.Message} virhe1");
+            }
         }
     }
 }

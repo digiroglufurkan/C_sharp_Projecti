@@ -17,11 +17,13 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class MitaUuttaHallinta : Form
     {
+        ADMINTIEDOSTOJENHALLINTA adT = new ADMINTIEDOSTOJENHALLINTA();
+        ADMINMITAUUTTA adM = new ADMINMITAUUTTA();
         public MitaUuttaHallinta()
         {
             InitializeComponent();
         }
-        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
 
@@ -29,7 +31,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void AdminKotisivutoolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
-            adKo.FormClosing += f1_FormClosing;
+            adKo.FormClosing += formClosing;
             adKo.Show();
             this.Hide();
         }
@@ -37,7 +39,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void PalautteenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             PalautteenHallinta paHa = new PalautteenHallinta();
-            paHa.FormClosing += f1_FormClosing;
+            paHa.FormClosing += formClosing;
             paHa.Show();
             this.Hide();
         }
@@ -45,7 +47,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void LatauksienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             LatauksienHallinta laHa = new LatauksienHallinta();
-            laHa.FormClosing += f1_FormClosing;
+            laHa.FormClosing += formClosing;
             laHa.Show();
             this.Hide();
         }
@@ -53,7 +55,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KayttajatilienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajatilienHallinta kaTiHa = new KayttajatilienHallinta();
-            kaTiHa.FormClosing += f1_FormClosing;
+            kaTiHa.FormClosing += formClosing;
             kaTiHa.Show();
             this.Hide();
         }
@@ -61,7 +63,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void YhteydenottojenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             YhteydenottojenHallinta yhHa = new YhteydenottojenHallinta();
-            yhHa.FormClosing += f1_FormClosing;
+            yhHa.FormClosing += formClosing;
             yhHa.Show();
             this.Hide();
         }
@@ -69,7 +71,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MitaUuttaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             MitaUuttaHallinta miUuHa = new MitaUuttaHallinta();
-            miUuHa.FormClosing += f1_FormClosing;
+            miUuHa.FormClosing += formClosing;
             miUuHa.Show();
             this.Hide();
         }
@@ -77,7 +79,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void TiedostonJakotoolStripMenuItem_Click(object sender, EventArgs e)
         {
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
-            tiJaAd.FormClosing += f1_FormClosing;
+            tiJaAd.FormClosing += formClosing;
             tiJaAd.Show();
             this.Hide();
         }
@@ -85,7 +87,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalasanojenHallinta saHa = new SalasanojenHallinta();
-            saHa.FormClosing += f1_FormClosing;
+            saHa.FormClosing += formClosing;
             saHa.Show();
             this.Hide();
         }
@@ -93,7 +95,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
-            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.FormClosing += formClosing;
             adPrMu.Show();
             this.Hide();
         }
@@ -101,7 +103,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void VaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
-            adSaVa.FormClosing += f1_FormClosing;
+            adSaVa.FormClosing += formClosing;
             adSaVa.Show();
             this.Hide();
         }
@@ -109,9 +111,66 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Etusivu etusivu = new Etusivu();
-            etusivu.FormClosing += f1_FormClosing;
+            etusivu.FormClosing += formClosing;
             etusivu.Show();
             this.Hide();
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
+            this.Hide();
+        }
+
+        private void MitaUuttaHallinta_Load(object sender, EventArgs e)
+        {
+            // Kutsutaan ADMINTIEDOSTOJENHALLINTA CLASS.ssa olevaa metodia, joka hakee tietokannasta tiedot niille varatulle aluelle
+            TalTieDGV.DataSource = adT.haeLataukset();
+            TalTieDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 200;
+            MitaUuttaDGV.DataSource = adM.haeUutuudet();
+            MitaUuttaDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            TestDGV.DataSource = adM.haeKaksiUutuutta();
+            TestDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void TalTieDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == ValitseCo.Index) // mikäli klikataan poista-buttonia
+            {
+                try // aloitetaan try:lla
+                {   // Otetaan id kentästä yksilöivä tunnus
+                    int yTun = int.Parse(TalTieDGV.CurrentRow.Cells[1].Value.ToString());
+                    if (yTun.Equals("")) // kokeillaan onko saatu talteen id tieto
+                    {   // virheviesti
+                        MessageBox.Show($"Et ole valinnut lisättävää kohdetta.");
+                    }
+                    else
+                    {   //Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka poistaa tiedoston tietokannasta
+                        bool poisto = adM.lisaaUutuus(yTun); //lähetetään id ja otetaan paluu parametrinä bool-arvo
+                        if (poisto == true) // mikäli bool arvo on true
+                        {   // viesti onnistuneesta toimenpiteestä
+                            MessageBox.Show($"Poisto suoritettu.");
+                        }
+                        else // mikäli bool arvo on false
+                        {   // virheviesti
+                            MessageBox.Show($"Poisto ei onnistunut.");
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

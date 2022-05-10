@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@Antti Kuusisto
-/// version 30.4.2022
+/// version 9.5.2022
 /// <summary>
-/// Sivut olemassa ja niille siirtyminen toimii, muuten kesken. Tietojen hakeminen tietokannasta Datagrid:n toimii.
+/// Toimii. Vielä voisi mikäli on aikaa, niin lisätä sähköpostin lähetyksen - button:n.
 /// </summary>
 
 namespace Pakkolinen_Ryhmä_Projecti
@@ -22,7 +22,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             InitializeComponent();
         }
-        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
 
@@ -30,7 +30,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void AdminKotisivutoolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminKotisivu adKo = new AdminKotisivu();
-            adKo.FormClosing += f1_FormClosing;
+            adKo.FormClosing += formClosing;
             adKo.Show();
             this.Hide();
         }
@@ -38,7 +38,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void PalautteenHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             PalautteenHallinta paHa = new PalautteenHallinta();
-            paHa.FormClosing += f1_FormClosing;
+            paHa.FormClosing += formClosing;
             paHa.Show();
             this.Hide();
         }
@@ -46,7 +46,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void LatauksienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             LatauksienHallinta laHa = new LatauksienHallinta();
-            laHa.FormClosing += f1_FormClosing;
+            laHa.FormClosing += formClosing;
             laHa.Show();
             this.Hide();
         }
@@ -54,7 +54,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KayttajatilienHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajatilienHallinta kaTiHa = new KayttajatilienHallinta();
-            kaTiHa.FormClosing += f1_FormClosing;
+            kaTiHa.FormClosing += formClosing;
             kaTiHa.Show();
             this.Hide();
         }
@@ -62,7 +62,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void YhteydenottojenhallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             YhteydenottojenHallinta yhHa = new YhteydenottojenHallinta();
-            yhHa.FormClosing += f1_FormClosing;
+            yhHa.FormClosing += formClosing;
             yhHa.Show();
             this.Hide();
         }
@@ -70,7 +70,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MitaUuttaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
         {
             MitaUuttaHallinta miUuHa = new MitaUuttaHallinta();
-            miUuHa.FormClosing += f1_FormClosing;
+            miUuHa.FormClosing += formClosing;
             miUuHa.Show();
             this.Hide();
         }
@@ -78,19 +78,21 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void TiedostonJakotoolStripMenuItem_Click(object sender, EventArgs e)
         {
             TiedostonJakoAdmin tiJaAd = new TiedostonJakoAdmin();
-            tiJaAd.FormClosing += f1_FormClosing;
+            tiJaAd.FormClosing += formClosing;
             tiJaAd.Show();
             this.Hide();
         }
 
+        // Ladataan käyttäjät DatagridVievw:n
         private void KayttajatilienHallinta_Load(object sender, EventArgs e)
         {
             KayttajatDG.DataSource = ad.fetchInformation(); // Kutsutaan ADMINKAYTHALLINTA CLASS.ssa olevaa funktiota, joka hakee tietokannasta tiedot niille varatulle aluelle
             KayttajatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             var datagridview = new DataGridView();
-            datagridview.RowTemplate.MinimumHeight = 125;
-            string salattu = KayttajatDG.Columns[9].ToString();
-            MessageBox.Show($"{salattu}");
+            datagridview.RowTemplate.MinimumHeight = 200;
+            DataGridViewImageColumn kuvat = new DataGridViewImageColumn();
+            kuvat = (DataGridViewImageColumn)KayttajatDG.Columns[13];
+            kuvat.ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
 
 
@@ -98,7 +100,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void SalasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SalasanojenHallinta saHa = new SalasanojenHallinta();
-            saHa.FormClosing += f1_FormClosing;
+            saHa.FormClosing += formClosing;
             saHa.Show();
             this.Hide();
         }
@@ -106,7 +108,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void MuokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminProfiilinMuokkaus adPrMu = new AdminProfiilinMuokkaus();
-            adPrMu.FormClosing += f1_FormClosing;
+            adPrMu.FormClosing += formClosing;
             adPrMu.Show();
             this.Hide();
         }
@@ -114,7 +116,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void VaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
-            adSaVa.FormClosing += f1_FormClosing;
+            adSaVa.FormClosing += formClosing;
             adSaVa.Show();
             this.Hide();
         }
@@ -122,45 +124,122 @@ namespace Pakkolinen_Ryhmä_Projecti
         private void KirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Etusivu etusivu = new Etusivu();
-            etusivu.FormClosing += f1_FormClosing;
+            etusivu.FormClosing += formClosing;
             etusivu.Show();
             this.Hide();
         }
 
+        // Toiminta DataGridVievw:ssä
         private void KayttajatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            KaytTunnusTB.Text = KayttajatDG.CurrentRow.Cells[0].Value.ToString();
-        }
-
-        private void PoistaBT_Click(object sender, EventArgs e)
-        {
-            string ktun;
             try
             {
-                ktun = KaytTunnusTB.Text.ToString();
-                if (ktun.Equals(""))
-                {
-                    MessageBox.Show($"Valitse käyttäjä taulukosta ja tuplaklikka, jotta käyttäjätunnus siirtyyy tekstikenttään");
+                // muuttuja käyttäjä tunnukselle
+                string yTun = KayttajatDG.CurrentRow.Cells[3].Value.ToString();
+                if (e.ColumnIndex == PoistaColumn.Index) // mikäli poistetaan käyttäjä
+                {             
+                    try
+                    {
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {
+                            // kutsutaan poisto metodia
+                            bool poisto = ad.deleteKayttaja(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Poisto suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Poisto ei onnistunut.");
+                            }
+                            // päivitetään datagridvievw
+                            KayttajatDG.DataSource = ad.fetchInformation();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                else
+                else if (e.ColumnIndex == LiAdminColumn.Index) // mikäli annetaan adminin oikeudet
                 {
-                    bool vastaus = ad.deleteKayttaja(ktun);
-                    if (vastaus==true)
+                    try
                     {
-                        MessageBox.Show($"Käyttäjä poistettu.");
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut lisättävää kohdetta.");
+                        }
+                        else
+                        {
+                            // kutsutaan metodia antamaan adminin oikeudet
+                            bool poisto = ad.lisaaAdmin(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Adminin lisäys suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Adminin lisäys ei onnistunut.");
+                            }
+                            // päivitetään datagridvievw
+                            KayttajatDG.DataSource = ad.fetchInformation();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"Käyttäjän poisto epäonnistui");
+                        MessageBox.Show(ex.Message);
                     }
-                    KayttajatDG.DataSource = ad.fetchInformation();
-                    KaytTunnusTB.Text = "";
+                }
+                else if (e.ColumnIndex == PoistaAdminColumn.Index) // mikäli poistetaan adminin oikeudet
+                {
+                    try
+                    {
+                        if (yTun.Equals(""))
+                        {
+                            MessageBox.Show($"Et ole valinnut poistettavaa kohdetta.");
+                        }
+                        else
+                        {
+                            // kutsutaan metodia poistamaan adminin oikeudet
+                            bool poisto = ad.poistaAdmin(yTun);
+                            if (poisto == true)
+                            {
+                                MessageBox.Show($"Adminin poisto suoritettu.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Adminin poisto ei onnistunut.");
+                            }
+                            // päivitetään datagridvievw
+                            KayttajatDG.DataSource = ad.fetchInformation();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else 
+                {
+                    return;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void KeskustelupalstaHallintatoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminKeskusteluPalsta adKeHa = new AdminKeskusteluPalsta();
+            adKeHa.FormClosing += formClosing;
+            adKeHa.Show();
+            this.Hide();
         }
     }
 }

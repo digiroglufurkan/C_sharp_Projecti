@@ -37,6 +37,7 @@
             this.MitaUuttaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.YhteydenottojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TiedostonJakotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KeskustelupalstaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksettoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,10 +76,11 @@
             this.MitaUuttaHallintatoolStripMenuItem,
             this.YhteydenottojenHallintatoolStripMenuItem,
             this.TiedostonJakotoolStripMenuItem,
+            this.KeskustelupalstaHallintatoolStripMenuItem,
             this.AsetuksettoolStripMenuItem});
             this.NavmenuStrip.Location = new System.Drawing.Point(0, 78);
             this.NavmenuStrip.Name = "NavmenuStrip";
-            this.NavmenuStrip.Size = new System.Drawing.Size(1072, 28);
+            this.NavmenuStrip.Size = new System.Drawing.Size(1257, 28);
             this.NavmenuStrip.TabIndex = 1;
             this.NavmenuStrip.Text = "menuStrip1";
             // 
@@ -131,6 +133,13 @@
             this.TiedostonJakotoolStripMenuItem.Text = "Tiedoston jako";
             this.TiedostonJakotoolStripMenuItem.Click += new System.EventHandler(this.TiedostonJakotoolStripMenuItem_Click);
             // 
+            // KeskustelupalstaHallintatoolStripMenuItem
+            // 
+            this.KeskustelupalstaHallintatoolStripMenuItem.Name = "KeskustelupalstaHallintatoolStripMenuItem";
+            this.KeskustelupalstaHallintatoolStripMenuItem.Size = new System.Drawing.Size(185, 24);
+            this.KeskustelupalstaHallintatoolStripMenuItem.Text = "Keskustelupalsta hallinta";
+            this.KeskustelupalstaHallintatoolStripMenuItem.Click += new System.EventHandler(this.KeskustelupalstaHallintatoolStripMenuItem_Click);
+            // 
             // AsetuksettoolStripMenuItem
             // 
             this.AsetuksettoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,6 +187,7 @@
             this.VaSalasanaLB.Size = new System.Drawing.Size(112, 20);
             this.VaSalasanaLB.TabIndex = 2;
             this.VaSalasanaLB.Text = "Vanha salasana:";
+            this.VaSalasanaLB.Visible = false;
             // 
             // UuSalasanaLB
             // 
@@ -203,6 +213,7 @@
             this.VaSalasanaTB.Name = "VaSalasanaTB";
             this.VaSalasanaTB.Size = new System.Drawing.Size(125, 27);
             this.VaSalasanaTB.TabIndex = 5;
+            this.VaSalasanaTB.Visible = false;
             // 
             // UuSalasanaTB
             // 
@@ -233,9 +244,9 @@
             this.SalasanaLB.AutoSize = true;
             this.SalasanaLB.Location = new System.Drawing.Point(689, 161);
             this.SalasanaLB.Name = "SalasanaLB";
-            this.SalasanaLB.Size = new System.Drawing.Size(50, 20);
+            this.SalasanaLB.Size = new System.Drawing.Size(0, 20);
             this.SalasanaLB.TabIndex = 9;
-            this.SalasanaLB.Text = "label1";
+            this.SalasanaLB.Visible = false;
             // 
             // AdminSalasananVaihto
             // 
@@ -287,5 +298,6 @@
         private TextBox UusiSalasanaUdTB;
         private Button VaSalasanaBT;
         private Label SalasanaLB;
+        private ToolStripMenuItem KeskustelupalstaHallintatoolStripMenuItem;
     }
 }

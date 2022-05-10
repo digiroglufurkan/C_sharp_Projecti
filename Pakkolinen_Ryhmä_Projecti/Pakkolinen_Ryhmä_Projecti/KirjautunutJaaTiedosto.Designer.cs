@@ -39,16 +39,18 @@
             this.muokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksVaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kuvausLB = new System.Windows.Forms.Label();
             this.jaaTiedostoLB = new System.Windows.Forms.Label();
             this.jaaAiheLB = new System.Windows.Forms.Label();
             this.jaaSelaaBT = new System.Windows.Forms.Button();
             this.jaaLataaBT = new System.Windows.Forms.Button();
             this.jaaAiheTB = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.valitseTiedostoTB = new System.Windows.Forms.TextBox();
             this.ksJaaTiedostoFD = new System.Windows.Forms.OpenFileDialog();
+            this.jaaTiedostoPB = new System.Windows.Forms.PictureBox();
+            this.jaaKuvausTB = new System.Windows.Forms.TextBox();
+            this.jaaKuvausLB = new System.Windows.Forms.Label();
             this.ksKotisivuMS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jaaTiedostoPB)).BeginInit();
             this.SuspendLayout();
             // 
             // ksJaaTiedostoOtsikkoLB
@@ -147,16 +149,6 @@
             this.ksKirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.ksKirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.ksKirjauduUlosToolStripMenuItem_Click);
             // 
-            // kuvausLB
-            // 
-            this.kuvausLB.AutoSize = true;
-            this.kuvausLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.kuvausLB.Location = new System.Drawing.Point(213, 275);
-            this.kuvausLB.Name = "kuvausLB";
-            this.kuvausLB.Size = new System.Drawing.Size(58, 20);
-            this.kuvausLB.TabIndex = 7;
-            this.kuvausLB.Text = "Kuvaus:";
-            // 
             // jaaTiedostoLB
             // 
             this.jaaTiedostoLB.AutoSize = true;
@@ -189,12 +181,13 @@
             // 
             // jaaLataaBT
             // 
-            this.jaaLataaBT.Location = new System.Drawing.Point(325, 336);
+            this.jaaLataaBT.Location = new System.Drawing.Point(325, 377);
             this.jaaLataaBT.Name = "jaaLataaBT";
             this.jaaLataaBT.Size = new System.Drawing.Size(89, 29);
             this.jaaLataaBT.TabIndex = 11;
             this.jaaLataaBT.Text = "Lataa";
             this.jaaLataaBT.UseVisualStyleBackColor = true;
+            this.jaaLataaBT.Click += new System.EventHandler(this.jaaLataaBT_Click);
             // 
             // jaaAiheTB
             // 
@@ -203,14 +196,6 @@
             this.jaaAiheTB.Name = "jaaAiheTB";
             this.jaaAiheTB.Size = new System.Drawing.Size(185, 20);
             this.jaaAiheTB.TabIndex = 12;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(289, 276);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 13;
             // 
             // valitseTiedostoTB
             // 
@@ -225,25 +210,53 @@
             // 
             this.ksJaaTiedostoFD.FileName = "ksJaaTiedostoFD";
             // 
+            // jaaTiedostoPB
+            // 
+            this.jaaTiedostoPB.Location = new System.Drawing.Point(289, 246);
+            this.jaaTiedostoPB.Name = "jaaTiedostoPB";
+            this.jaaTiedostoPB.Size = new System.Drawing.Size(185, 113);
+            this.jaaTiedostoPB.TabIndex = 15;
+            this.jaaTiedostoPB.TabStop = false;
+            // 
+            // jaaKuvausTB
+            // 
+            this.jaaKuvausTB.Location = new System.Drawing.Point(289, 182);
+            this.jaaKuvausTB.Multiline = true;
+            this.jaaKuvausTB.Name = "jaaKuvausTB";
+            this.jaaKuvausTB.Size = new System.Drawing.Size(185, 20);
+            this.jaaKuvausTB.TabIndex = 16;
+            // 
+            // jaaKuvausLB
+            // 
+            this.jaaKuvausLB.AutoSize = true;
+            this.jaaKuvausLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.jaaKuvausLB.Location = new System.Drawing.Point(213, 181);
+            this.jaaKuvausLB.Name = "jaaKuvausLB";
+            this.jaaKuvausLB.Size = new System.Drawing.Size(58, 20);
+            this.jaaKuvausLB.TabIndex = 17;
+            this.jaaKuvausLB.Text = "Kuvaus:";
+            // 
             // KirjautunutJaaTiedosto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.jaaKuvausLB);
+            this.Controls.Add(this.jaaKuvausTB);
+            this.Controls.Add(this.jaaTiedostoPB);
             this.Controls.Add(this.valitseTiedostoTB);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.jaaAiheTB);
             this.Controls.Add(this.jaaLataaBT);
             this.Controls.Add(this.jaaSelaaBT);
             this.Controls.Add(this.jaaAiheLB);
             this.Controls.Add(this.jaaTiedostoLB);
-            this.Controls.Add(this.kuvausLB);
             this.Controls.Add(this.ksKotisivuMS);
             this.Controls.Add(this.ksJaaTiedostoOtsikkoLB);
             this.Name = "KirjautunutJaaTiedosto";
             this.Text = "Kirjautunut JaaTiedosto";
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jaaTiedostoPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,14 +275,15 @@
         private ToolStripMenuItem muokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem ksVaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
-        private Label kuvausLB;
         private Label jaaTiedostoLB;
         private Label jaaAiheLB;
         private Button jaaSelaaBT;
         private Button jaaLataaBT;
         private TextBox jaaAiheTB;
-        private TextBox textBox1;
         private TextBox valitseTiedostoTB;
         private OpenFileDialog ksJaaTiedostoFD;
+        private PictureBox jaaTiedostoPB;
+        private TextBox jaaKuvausTB;
+        private Label jaaKuvausLB;
     }
 }

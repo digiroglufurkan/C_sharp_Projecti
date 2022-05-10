@@ -9,17 +9,82 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 ///author@Antti Kuusisto
-///version 3.5.2022
+///version 9.5.2022
 /// <summary>
-/// Admin voi vaihtaa käyttäjän salasanan ja lähettää sen käyttäjälle.
+/// Admin voi vaihtaa käyttäjän salasanan ja lähettää sen käyttäjälle. Myös normaali salasanan vaihto täällä.
+/// Pitäisi lisätä, että admin toiminnassa lähtee uusi salasana sähköpostiin ja 
+/// tämä on kehitysidea mikä toteutetaan mikäli EHDITÄÄN.
+/// Siivottu
 /// </summary>
 namespace Pakkolinen_Ryhmä_Projecti
 {
      class SALASANOJENHALLINTATIETOKANTA
     {
-        Yhdista yh = new Yhdista();
-        Tiedansyotto salaus = new Tiedansyotto();
-        /*public string haeSalasana(string ktunnus)
+        Yhdista yh = new Yhdista(); // tietokanta yhteys class
+        Tiedansyotto salaus = new Tiedansyotto(); // class, jossa salasanan kryptaus on
+        
+        // Tavallinen salasananpäivitys
+        public bool paivitaSalasana(string ktunnus, string uusiSalasana)
+        {   
+            try
+            {
+                string salattu = salaus.Encrypt(uusiSalasana); // uuden salasanan kryptaus ennen lähetystä
+                                                               // alla tietokannan päivityskysely ja yhteyden muodostus
+                MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `SALASANA` = @ssana WHERE KAYTTAJA_TUNNUS = @ktun", yh.otaYhteys());
+                command.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = ktunnus; // käyttäjä tunnus kyselyyn
+                command.Parameters.Add("@ssana", MySqlDbType.VarChar).Value = salattu; // salasana salattuna kyselyyn
+                yh.avaaYhteys(); // yhteys tietokantaan auki
+                if (command.ExecuteNonQuery() == 1) // katsotaan toteutuuko kysely
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys
+                    return true; // palautetaan true
+                }
+                else
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys
+                    return false; // palautetaan false
+                }
+            }
+            catch (Exception ex) // napataan virhe ja näytetään se
+            {
+                MessageBox.Show(ex.Message);
+                return false; // palautetaan false
+            }
+        }
+
+        // Admin hallitsee salasanoja käyttäjätunnuksella
+        public bool vaihdaSalasana(string id, string uusiSalasana)
+        {
+            try
+            {
+                
+                string salattu = salaus.Encrypt(uusiSalasana); // uuden salasanan kryptaus ennen lähetystä
+                // alla tietokannan päivityskysely ja yhteyden muodostus
+                MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `SALASANA` = @ssana WHERE KAYTTAJA_TUNNUS = @id", yh.otaYhteys());
+                command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id; // käyttäjä tunnus kyselyyn
+                command.Parameters.Add("@ssana", MySqlDbType.VarChar).Value = salattu; // salasana salattuna kyselyyn
+                yh.avaaYhteys(); // yhteys tietokantaan auki
+                if (command.ExecuteNonQuery() == 1) // katsotaan toteutuuko kysely
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys
+                    return true; // palautetaan true
+                }
+                else
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys
+                    return false; // palautetaan false
+                }
+            }
+            catch (Exception ex) // napataan virhe ja näytetään se
+            {
+                MessageBox.Show(ex.Message);
+                return false; // palautetaan false
+            }
+        }
+    }
+    /* KOODIVARASTO
+        Alla kokeilu ei käytössä
+        public string haeSalasana(string ktunnus)
         {
             string sana = "";
             string salattu = "";
@@ -47,65 +112,6 @@ namespace Pakkolinen_Ryhmä_Projecti
                 MessageBox.Show(ex.Message);
             }
             return salasana;
-        }*/
-
-        public bool paivitaSalasana(string ktunnus, string uusiSalasana)
-        {   //"Update `Yhteystiedot` Set `etunimi`
-            //command.Parameters.Add("@fnm", MySqlDbType.VarChar).Value = fName;
-            bool vastaus;
-            string salattu = salaus.Encrypt(uusiSalasana);
-            MySqlCommand command = new MySqlCommand();
-            command.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = ktunnus;
-            command.Parameters.Add("@ssana", MySqlDbType.VarChar).Value = salattu;
-            string updateQuest = "Update `kayttajat` Set `SALASANA` = @ssana WHERE KAYTTAJA_TUNNUS = @ktun"; // Sql lisäys kysely tässä opiskelijanumero on primary key
-            command.CommandText = updateQuest; // liitetään tietokantakomentoon muokkauskysely
-            command.Connection = yh.otaYhteys(); // muodostetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
-            yh.avaaYhteys();
-            if (command.ExecuteNonQuery() == 1)
-            {
-                yh.suljeYhteys();
-                vastaus = true;
-                return vastaus;
-            }
-            else
-            {
-                yh.suljeYhteys();
-                vastaus = false;
-                return vastaus;
-            }
         }
-
-        public bool vaihdaSalasana(string vanhaSalasana, string uusiSalasana)
-        {
-            try
-            {
-                bool vastaus;
-                string salattu = salaus.Encrypt(uusiSalasana);
-                MySqlCommand command = new MySqlCommand();
-                command.Parameters.Add("@vssa", MySqlDbType.VarChar).Value = vanhaSalasana;
-                command.Parameters.Add("@ssana", MySqlDbType.VarChar).Value = salattu;
-                string updateQuest = "Update `kayttajat` Set `SALASANA` = @ssana WHERE SALASANA = @vssa"; // Sql lisäys kysely tässä opiskelijanumero on primary key
-                command.CommandText = updateQuest; // liitetään tietokantakomentoon muokkauskysely
-                command.Connection = yh.otaYhteys(); // muodostetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
-                yh.avaaYhteys();
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    yh.suljeYhteys();
-                    vastaus = true;
-                    return vastaus;
-                }
-                else
-                {
-                    yh.suljeYhteys();
-                    vastaus = false;
-                    return vastaus;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-        }
-    }
+     */
 }

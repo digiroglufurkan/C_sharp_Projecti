@@ -12,9 +12,13 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class SalasananVaihto : Form
     {
+        SalasananVaihtoClass salis = new SalasananVaihtoClass();
+        //Tiedansyotto salaus = new Tiedansyotto();
+        string tun;
         public SalasananVaihto()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -77,5 +81,47 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.Show();
             this.Hide();
         }
+
+        private void salasanavaihtoBT_Click(object sender, EventArgs e)
+        {
+            string uusSalisYks, uusSalisKaks;
+            try
+            {
+                uusSalisYks = uusisalisTB1.Text;
+                uusSalisKaks = uusisalisTB2.Text;
+                if (uusSalisYks.Equals("") || uusSalisKaks.Equals(""))
+                {
+                    MessageBox.Show("Tarkista kentät!");
+                }
+                else if (uusSalisYks != uusSalisKaks)
+                {
+                    MessageBox.Show("Uudet salasanat eivät täsmää!");
+                }
+                else
+                {
+                    bool vaihto = salis.vaihdaSalis(tun, uusSalisYks);
+                    if (vaihto == true)
+                    {
+                        MessageBox.Show("Salasanan vaihto onnistui! :)");
+                        uusisalisTB1.Text = "";
+                        uusisalisTB2.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Salasanaa ei vaihdettu!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SalasananVaihto_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

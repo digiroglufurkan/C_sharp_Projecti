@@ -1,4 +1,6 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +10,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutMuokkaaProfiilia : Form
     {
+        ProfiilinMuokkaus prof = new ProfiilinMuokkaus();
+        Yhdista yhteys = new Yhdista();
+        string tun;
+
         public KirjautunutMuokkaaProfiilia()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,6 +84,88 @@ namespace Pakkolinen_Ryhmä_Projecti
             etuSiv.FormClosing += f1_FormClosing;
             etuSiv.Show();
             this.Hide();
+        }
+
+        private void KirjautunutMuokkaaProfiilia_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void muokkaaProfiiliaBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string enimi = muokkaaEtunimiTB.Text.ToString(); // luetaan etunimi
+                string snimi = muokkaaSukunimiTB.Text.ToString(); // luetaan sukunimi
+                string email = muokkaaEmailTB.Text.ToString(); // luetaan sähköposti
+                string puh = muokkaanumeroTB.Text.ToString(); // luetaan puhelin
+                string osoite = muokkaaOsoiteTB.Text.ToString(); // luetaan osoite
+                string postinro = muokkaaPostiTB.Text.ToString(); // luetaan postinumero
+                string postitoimi = muokkaaToimiTB.Text.ToString(); // luetaan postitoimipaikka
+                string titteli = muokkaatitteliTB.Text.ToString(); // luetaan titteli
+                string kuva = kuvaosoiteLB.Text.ToString(); // luetaan kuvan polku
+                                                             // Katsotaan, että kentissä on tekstiä
+                if (enimi.Equals("") || snimi.Equals("") || email.Equals("") || puh.Equals("") || osoite.Equals("") || postinro.Equals("") ||
+                    postitoimi.Equals("") || titteli.Equals(""))
+                {
+                    MessageBox.Show($"Tarkista tekstikentät!");
+                }
+                else
+                {
+                    // Kutsutaan ADMINPROFMUOKKAUS class:ssa olevaa metodia
+                    bool vastaus = prof.muokkaaProffa(enimi, snimi, email, puh, osoite, postinro, postitoimi, titteli, kuva, tun);
+                    if (vastaus == true) // mikäli vastaus on true
+                    {   //ilmoitus onnistuneesta päivityksestä
+                        MessageBox.Show($"Jee! Päivitys onnistui.");
+                        muokkaaEtunimiTB.Text = "";
+                        muokkaaSukunimiTB.Text = "";
+                        muokkaaEmailTB.Text = "";
+                        muokkaanumeroTB.Text = "";
+                        muokkaaOsoiteTB.Text = "";
+                        muokkaaPostiTB.Text = "";
+                        muokkaaToimiTB.Text = "";
+                        muokkaatitteliTB.Text = "";
+                        kuvaosoiteLB.Text = "";
+                        //ProfKuvaPB.Visible = false;
+                        //NakyvaSalasanaLB.Visible = false;
+                    }
+                    else // mikäli vastaus on false
+                    {   //ilmoitus epäonnistuneesta päivityksestä
+                        MessageBox.Show($"Päivitys ei onnistunut. :(");
+                    }
+                }
+            }
+            catch (Exception ex) // Poimitaan virhe ja näytetään se
+            {
+                MessageBox.Show($"{ex} v1");
+            }
+        }
+
+        private void KirjautunutMuokkaaProfiilia_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vaihdaKuvaBT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Avataan FileDialog.
+                OpenFileDialog muokkaakuvaOFD = new OpenFileDialog();
+                // Filter:ssä kuva - tiedosto tyypit
+                muokkaakuvaOFD.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+                if (muokkaakuvaOFD.ShowDialog() == DialogResult.OK) // Mikäli dialogia ei keskeytetä
+                {
+                    string polku = muokkaakuvaOFD.FileName; // tiedoston polku
+                    kuvaosoiteLB.Text = polku; // Näytetään polku
+                    // Avataan kuva näytölle
+                    muokkaaKuvaPB.Image = Image.FromFile(muokkaakuvaOFD.FileName);
+                }
+            }
+            catch (Exception ex) // poimitaan virhe ja näytetään se
+            {
+                MessageBox.Show($"{ex} v1"); // tuossa v1 on oma yksilöistitunnus viestille
+            }
         }
     }
 }
