@@ -112,6 +112,14 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
          
         }
+
+        private void kirjaiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Kirjaudu ki = new Kirjaudu();
+            ki.FormClosing += f1_FormClosing;
+            ki.Show();
+            this.Hide();
+        }
     }
     }
 

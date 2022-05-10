@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Pakkolinen_Ryhmä_Projecti
 {
@@ -54,6 +57,30 @@ namespace Pakkolinen_Ryhmä_Projecti
             et.Show();
             et.FormClosing += f1_FormClosing;
             this.Hide();
+        }
+        Yhdista yh = new Yhdista();
+        Tiedansyotto ti = new Tiedansyotto();
+        private void Galleria_Load(object sender, EventArgs e)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT ladattavat_tiedostot.Tiedosto FROM galleria INNER JOIN ladattavat_tiedostot on ladattavat_tiedostot.LadattavatID = galleria.LadattavatID", yh.otaYhteys());
+            yh.avaaYhteys();
+            MySqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            List<byte[]> bytekuva = new List<byte[]>();
+            while (dr.Read())
+            {
+               bytekuva.Add((byte[])dr[0]);
+                
+            }
+            yh.suljeYhteys();
+            MemoryStream mstream = new MemoryStream(bytekuva[0]);
+            pictureBox1.Image = Image.FromStream(mstream);
+            mstream = new MemoryStream(bytekuva[1]);
+            pictureBox2.Image = Image.FromStream(mstream);
+            mstream = new MemoryStream(bytekuva[2]);
+            pictureBox3.Image = Image.FromStream(mstream);
+          
+
         }
     }
 }

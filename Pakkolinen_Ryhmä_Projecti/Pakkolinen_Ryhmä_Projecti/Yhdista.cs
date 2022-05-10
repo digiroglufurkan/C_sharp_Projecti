@@ -11,7 +11,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     class Yhdista
     {
-        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost; port=3306;username=root;password=SafV6iE3.0;database=pakollinenprojekti;SSL Mode = None");
+        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost; port=3306;username=root;password=;database=pakollinenprojekti;SSL Mode = None");
 
         public MySqlConnection otaYhteys()
         {

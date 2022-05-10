@@ -84,6 +84,7 @@
             this.KiSalasanaTB.Name = "KiSalasanaTB";
             this.KiSalasanaTB.Size = new System.Drawing.Size(287, 38);
             this.KiSalasanaTB.TabIndex = 4;
+            this.KiSalasanaTB.UseSystemPasswordChar = true;
             // 
             // KirjoiduBT
             // 
@@ -180,6 +181,7 @@
             this.galleriaToolStripMenuItem.Name = "galleriaToolStripMenuItem";
             this.galleriaToolStripMenuItem.Size = new System.Drawing.Size(106, 35);
             this.galleriaToolStripMenuItem.Text = "Galleria";
+            this.galleriaToolStripMenuItem.Click += new System.EventHandler(this.galleriaToolStripMenuItem_Click);
             // 
             // otaYhteyttäToolStripMenuItem
             // 

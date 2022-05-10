@@ -67,7 +67,7 @@
             this.otaYhteyttäToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(218, 125);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(678, 39);
+            this.menuStrip.Size = new System.Drawing.Size(528, 39);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -107,25 +107,25 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(191, 250);
+            this.pictureBox1.Location = new System.Drawing.Point(47, 207);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(125, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(274, 253);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(431, 250);
+            this.pictureBox2.Location = new System.Drawing.Point(359, 207);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(125, 62);
+            this.pictureBox2.Size = new System.Drawing.Size(275, 253);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(663, 250);
+            this.pictureBox3.Location = new System.Drawing.Point(663, 207);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(125, 62);
+            this.pictureBox3.Size = new System.Drawing.Size(273, 253);
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
@@ -141,6 +141,7 @@
             this.Controls.Add(this.menuStrip);
             this.Name = "Galleria";
             this.Text = "Galleria";
+            this.Load += new System.EventHandler(this.Galleria_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

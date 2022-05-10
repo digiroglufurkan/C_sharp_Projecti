@@ -67,7 +67,7 @@
             this.galleriaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(221, 112);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(480, 39);
+            this.menuStrip.Size = new System.Drawing.Size(630, 39);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -76,24 +76,28 @@
             this.etusivuToolStripMenuItem.Name = "etusivuToolStripMenuItem";
             this.etusivuToolStripMenuItem.Size = new System.Drawing.Size(101, 35);
             this.etusivuToolStripMenuItem.Text = "Etusivu";
+            this.etusivuToolStripMenuItem.Click += new System.EventHandler(this.etusivuToolStripMenuItem_Click);
             // 
             // rekistrToolStripMenuItem
             // 
             this.rekistrToolStripMenuItem.Name = "rekistrToolStripMenuItem";
             this.rekistrToolStripMenuItem.Size = new System.Drawing.Size(152, 35);
             this.rekistrToolStripMenuItem.Text = "Rekisteröidy";
+            this.rekistrToolStripMenuItem.Click += new System.EventHandler(this.rekistrToolStripMenuItem_Click);
             // 
             // kirjaiToolStripMenuItem
             // 
             this.kirjaiToolStripMenuItem.Name = "kirjaiToolStripMenuItem";
             this.kirjaiToolStripMenuItem.Size = new System.Drawing.Size(113, 35);
             this.kirjaiToolStripMenuItem.Text = "Kirjaudu";
+            this.kirjaiToolStripMenuItem.Click += new System.EventHandler(this.kirjaiToolStripMenuItem_Click);
             // 
             // galleriaToolStripMenuItem
             // 
             this.galleriaToolStripMenuItem.Name = "galleriaToolStripMenuItem";
             this.galleriaToolStripMenuItem.Size = new System.Drawing.Size(106, 35);
             this.galleriaToolStripMenuItem.Text = "Galleria";
+            this.galleriaToolStripMenuItem.Click += new System.EventHandler(this.galleriaToolStripMenuItem_Click);
             // 
             // label1
             // 

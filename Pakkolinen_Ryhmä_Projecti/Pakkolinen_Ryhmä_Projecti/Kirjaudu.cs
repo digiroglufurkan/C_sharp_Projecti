@@ -11,6 +11,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data; 
 using System.Data.SqlClient;
+using System.IO;
 /// version 9.5.2022
 /// <summary>
 /// Kommentoitu miten luetaan kirjautumisessa käyttäjätunnus.
@@ -112,6 +113,14 @@ namespace Pakkolinen_Ryhmä_Projecti
                 MessageBox.Show("Käyttäjä Ei Löyttenyt");
             }
             yh.suljeYhteys();
+        }
+
+        private void galleriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Galleria ga = new Galleria();
+            ga.FormClosing += f1_FormClosing;
+            ga.Show();
+            this.Hide();
         }
     }
 }
