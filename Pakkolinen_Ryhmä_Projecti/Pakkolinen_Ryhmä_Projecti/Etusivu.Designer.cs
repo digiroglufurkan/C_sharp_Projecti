@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Etusivu));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.rekistrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kirjaiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +38,7 @@
             this.OtsitkoLB = new System.Windows.Forms.Label();
             this.EtusivuKuvaPB = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EtusivuKuvaPB)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +55,7 @@
             this.otaYhteyttäToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(132, 119);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(683, 39);
+            this.menuStrip.Size = new System.Drawing.Size(533, 39);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -96,24 +99,31 @@
             // 
             // EtusivuKuvaPB
             // 
-            this.EtusivuKuvaPB.Location = new System.Drawing.Point(328, 213);
+            this.EtusivuKuvaPB.Location = new System.Drawing.Point(249, 189);
             this.EtusivuKuvaPB.Name = "EtusivuKuvaPB";
-            this.EtusivuKuvaPB.Size = new System.Drawing.Size(125, 62);
+            this.EtusivuKuvaPB.Size = new System.Drawing.Size(287, 201);
             this.EtusivuKuvaPB.TabIndex = 2;
             this.EtusivuKuvaPB.TabStop = false;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(155, 365);
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(44, 407);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(488, 135);
+            this.richTextBox1.Size = new System.Drawing.Size(728, 123);
             this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Etusivu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(807, 579);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.EtusivuKuvaPB);
@@ -121,6 +131,7 @@
             this.Controls.Add(this.menuStrip);
             this.Name = "Etusivu";
             this.Text = "Etusivu";
+            this.Load += new System.EventHandler(this.Etusivu_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EtusivuKuvaPB)).EndInit();
@@ -139,5 +150,6 @@
         private Label OtsitkoLB;
         private PictureBox EtusivuKuvaPB;
         private RichTextBox richTextBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
