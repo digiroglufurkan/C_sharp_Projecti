@@ -40,26 +40,23 @@ namespace Pakkolinen_Ryhmä_Projecti
             }
         }
 
-        public DataTable fetchInformation()
+        public DataTable haeKommentit()
         {
             try
-            {
-                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, KOMMENTTI  FROM keskustelualue", yhteys.otaYhteys());
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                DataTable table = new DataTable();
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
-                return table;
+            {   
+                MySqlCommand command = new MySqlCommand("SELECT * FROM keskustelualue", yhteys.otaYhteys());
+                MySqlDataAdapter adapter = new MySqlDataAdapter(); 
+                DataTable table = new DataTable(); 
+                adapter.SelectCommand = command; 
+                adapter.Fill(table); 
+                adapter.Dispose(); 
+                return table; 
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                MessageBox.Show($"{ex} v1");
-                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, KOMMENTTI  FROM keskustelualue", yhteys.otaYhteys());
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MessageBox.Show(ex.Message);
                 DataTable table = new DataTable();
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
-                return table;
+                return table; 
             }
         }
     }

@@ -143,7 +143,33 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void KirjautunutMuokkaaProfiilia_Load(object sender, EventArgs e)
         {
+            try
+            {
+                
+                MySqlCommand command1 = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA FROM kayttajat WHERE KAYTTAJA_TUNNUS = @ktun", yhteys.otaYhteys());
+                command1.Parameters.AddWithValue("@ktun", tun); 
+                yhteys.avaaYhteys(); 
+                MySqlDataReader reader1 = command1.ExecuteReader();
+                while (reader1.Read()) 
+                {   
+                    this.muokkaaEtunimiTB.Text = (reader1["ETUNIMI"].ToString());
+                    this.muokkaaSukunimiTB.Text = (reader1["SUKUNIMI"].ToString());
+                    this.muokkaaEmailTB.Text = (reader1["EMAIL"].ToString());
+                    this.muokkaanumeroTB.Text = (reader1["PUHELIN"].ToString());
+                    this.muokkaaOsoiteTB.Text = (reader1["OSAITE"].ToString());
+                    this.muokkaaPostiTB.Text = (reader1["POSTINUMERO"].ToString());
+                    this.muokkaaToimiTB.Text = (reader1["TOIMIPAIKKA"].ToString());
+                    this.muokkaatitteliTB.Text = (reader1["TITTELI"].ToString());
+                    reader1.Close(); 
+                    break; 
+                }
 
+                yhteys.suljeYhteys(); 
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"{ex} v1");      
+            }
         }
 
         private void vaihdaKuvaBT_Click(object sender, EventArgs e)

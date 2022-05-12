@@ -175,10 +175,10 @@
             // kommenttiDG
             // 
             this.kommenttiDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kommenttiDG.Location = new System.Drawing.Point(39, 282);
+            this.kommenttiDG.Location = new System.Drawing.Point(143, 282);
             this.kommenttiDG.Name = "kommenttiDG";
             this.kommenttiDG.RowTemplate.Height = 25;
-            this.kommenttiDG.Size = new System.Drawing.Size(713, 156);
+            this.kommenttiDG.Size = new System.Drawing.Size(488, 156);
             this.kommenttiDG.TabIndex = 10;
             // 
             // KeskusteluPalsta
@@ -194,6 +194,7 @@
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Name = "KeskusteluPalsta";
             this.Text = "KeskusteluPalsta";
+            this.Load += new System.EventHandler(this.KeskusteluPalsta_Load);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kommenttiDG)).EndInit();

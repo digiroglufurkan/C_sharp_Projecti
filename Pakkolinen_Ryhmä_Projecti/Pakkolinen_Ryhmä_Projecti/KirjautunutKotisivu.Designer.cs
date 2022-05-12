@@ -40,11 +40,10 @@
             this.ksVaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ksKirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tervetuloaLB = new System.Windows.Forms.Label();
-            this.ksEtusivuPB = new System.Windows.Forms.PictureBox();
             this.mitaUuttaLB = new System.Windows.Forms.Label();
             this.ksKotisivuDG = new System.Windows.Forms.DataGridView();
+            this.LataaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ksKotisivuMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksEtusivuPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,14 +153,6 @@
             this.tervetuloaLB.TabIndex = 4;
             this.tervetuloaLB.Text = "Tervetuloa takaisin!";
             // 
-            // ksEtusivuPB
-            // 
-            this.ksEtusivuPB.Location = new System.Drawing.Point(45, 237);
-            this.ksEtusivuPB.Name = "ksEtusivuPB";
-            this.ksEtusivuPB.Size = new System.Drawing.Size(129, 121);
-            this.ksEtusivuPB.TabIndex = 5;
-            this.ksEtusivuPB.TabStop = false;
-            // 
             // mitaUuttaLB
             // 
             this.mitaUuttaLB.AutoSize = true;
@@ -175,11 +166,19 @@
             // ksKotisivuDG
             // 
             this.ksKotisivuDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksKotisivuDG.Location = new System.Drawing.Point(250, 199);
+            this.ksKotisivuDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LataaCo});
+            this.ksKotisivuDG.Location = new System.Drawing.Point(191, 199);
             this.ksKotisivuDG.Name = "ksKotisivuDG";
             this.ksKotisivuDG.RowTemplate.Height = 25;
-            this.ksKotisivuDG.Size = new System.Drawing.Size(305, 215);
+            this.ksKotisivuDG.Size = new System.Drawing.Size(439, 239);
             this.ksKotisivuDG.TabIndex = 7;
+            this.ksKotisivuDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksKotisivuDG_CellContentClick);
+            // 
+            // LataaCo
+            // 
+            this.LataaCo.HeaderText = "lataa";
+            this.LataaCo.Name = "LataaCo";
             // 
             // KirjautunutKotisivu
             // 
@@ -188,16 +187,15 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ksKotisivuDG);
             this.Controls.Add(this.mitaUuttaLB);
-            this.Controls.Add(this.ksEtusivuPB);
             this.Controls.Add(this.tervetuloaLB);
             this.Controls.Add(this.ksEtusivuOtsikkoLB);
             this.Controls.Add(this.ksKotisivuMS);
             this.MainMenuStrip = this.ksKotisivuMS;
             this.Name = "KirjautunutKotisivu";
             this.Text = "Kirjautunut Kotisivu";
+            this.Load += new System.EventHandler(this.KirjautunutKotisivu_Load);
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ksEtusivuPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,8 +216,8 @@
         private ToolStripMenuItem ksVaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem ksKirjauduUlosToolStripMenuItem;
         private Label tervetuloaLB;
-        private PictureBox ksEtusivuPB;
         private Label mitaUuttaLB;
         private DataGridView ksKotisivuDG;
+        private DataGridViewButtonColumn LataaCo;
     }
 }

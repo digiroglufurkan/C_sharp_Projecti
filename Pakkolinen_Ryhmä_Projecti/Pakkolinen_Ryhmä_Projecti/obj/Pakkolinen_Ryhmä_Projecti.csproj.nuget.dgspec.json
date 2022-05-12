@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Projektit_2\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj": {}
+    "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Projektit_2\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj": {
+    "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Projektit_2\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
+        "projectUniqueName": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
         "projectName": "Pakkolinen_Ryhmä_Projecti",
-        "projectPath": "C:\\Users\\asus\\Projektit_2\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Projektit_2\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\obj\\",
+        "projectPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti.csproj",
+        "packagesPath": "C:\\Users\\prett\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Pakkolinen_Ryhmä_Projecti\\Pakkolinen_Ryhmä_Projecti\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\prett\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
