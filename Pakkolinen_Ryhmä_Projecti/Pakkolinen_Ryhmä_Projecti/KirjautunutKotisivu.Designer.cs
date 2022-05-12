@@ -42,8 +42,12 @@
             this.tervetuloaLB = new System.Windows.Forms.Label();
             this.mitaUuttaLB = new System.Windows.Forms.Label();
             this.ksKotisivuDG = new System.Windows.Forms.DataGridView();
+            this.toinenDG = new System.Windows.Forms.DataGridView();
+            this.komenntilb = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.ksKotisivuMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toinenDG)).BeginInit();
             this.SuspendLayout();
             // 
             // ksEtusivuOtsikkoLB
@@ -155,28 +159,60 @@
             // mitaUuttaLB
             // 
             this.mitaUuttaLB.AutoSize = true;
-            this.mitaUuttaLB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mitaUuttaLB.Location = new System.Drawing.Point(361, 165);
+            this.mitaUuttaLB.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mitaUuttaLB.Location = new System.Drawing.Point(334, 155);
             this.mitaUuttaLB.Name = "mitaUuttaLB";
-            this.mitaUuttaLB.Size = new System.Drawing.Size(77, 20);
+            this.mitaUuttaLB.Size = new System.Drawing.Size(125, 32);
             this.mitaUuttaLB.TabIndex = 6;
             this.mitaUuttaLB.Text = "Mitä uutta";
             // 
             // ksKotisivuDG
             // 
             this.ksKotisivuDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksKotisivuDG.Location = new System.Drawing.Point(191, 199);
+            this.ksKotisivuDG.Location = new System.Drawing.Point(39, 199);
             this.ksKotisivuDG.Name = "ksKotisivuDG";
             this.ksKotisivuDG.RowTemplate.Height = 25;
-            this.ksKotisivuDG.Size = new System.Drawing.Size(439, 239);
+            this.ksKotisivuDG.Size = new System.Drawing.Size(358, 239);
             this.ksKotisivuDG.TabIndex = 7;
             this.ksKotisivuDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksKotisivuDG_CellContentClick);
+            // 
+            // toinenDG
+            // 
+            this.toinenDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.toinenDG.Location = new System.Drawing.Point(394, 199);
+            this.toinenDG.Name = "toinenDG";
+            this.toinenDG.RowTemplate.Height = 25;
+            this.toinenDG.Size = new System.Drawing.Size(356, 239);
+            this.toinenDG.TabIndex = 8;
+            // 
+            // komenntilb
+            // 
+            this.komenntilb.AutoSize = true;
+            this.komenntilb.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.komenntilb.Location = new System.Drawing.Point(520, 165);
+            this.komenntilb.Name = "komenntilb";
+            this.komenntilb.Size = new System.Drawing.Size(152, 20);
+            this.komenntilb.TabIndex = 9;
+            this.komenntilb.Text = "Uusimmat kommentit";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(147, 165);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Uusimmat lataukset";
             // 
             // KirjautunutKotisivu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.komenntilb);
+            this.Controls.Add(this.toinenDG);
             this.Controls.Add(this.ksKotisivuDG);
             this.Controls.Add(this.mitaUuttaLB);
             this.Controls.Add(this.tervetuloaLB);
@@ -189,6 +225,7 @@
             this.ksKotisivuMS.ResumeLayout(false);
             this.ksKotisivuMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toinenDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +247,8 @@
         private Label tervetuloaLB;
         private Label mitaUuttaLB;
         private DataGridView ksKotisivuDG;
+        private DataGridView toinenDG;
+        private Label komenntilb;
+        private Label label2;
     }
 }

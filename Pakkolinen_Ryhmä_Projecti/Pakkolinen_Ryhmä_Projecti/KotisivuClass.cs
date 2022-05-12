@@ -13,7 +13,7 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yhteys = new Yhdista();
 
-        public DataTable haeUudet()
+        public DataTable haeUudetYks()
         {
             try
             {   
@@ -30,6 +30,26 @@ namespace Pakkolinen_Ryhmä_Projecti
                 MessageBox.Show(ex.Message);
                 DataTable table = new DataTable();
                 return table; 
+            }
+        }
+
+        public DataTable haeUudetKaks()
+        {
+            try
+            {
+                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, TIEDOSTOT, KOMMENTTI FROM keskustelualue", yhteys.otaYhteys());
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                adapter.Dispose();
+                return table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                DataTable table = new DataTable();
+                return table;
             }
         }
 

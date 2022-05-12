@@ -89,8 +89,10 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void KirjautunutKotisivu_Load(object sender, EventArgs e)
         {
-            ksKotisivuDG.DataSource = kot.haeUudet();
+            ksKotisivuDG.DataSource = kot.haeUudetYks();
             ksKotisivuDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            toinenDG.DataSource = kot.haeUudetKaks();
+            toinenDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void ksKotisivuDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
