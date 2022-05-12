@@ -67,7 +67,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         }
         int a = 0;
         private void Etusivu_Load(object sender, EventArgs e)
-        {
+        {/*
             MySqlCommand cmd = new MySqlCommand("SELECT ladattavat_tiedostot.Tiedosto FROM galleria INNER JOIN ladattavat_tiedostot on ladattavat_tiedostot.LadattavatID = galleria.LadattavatID", yh.otaYhteys());
             yh.avaaYhteys();
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -81,7 +81,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             yh.suljeYhteys();
             MemoryStream mstream = new MemoryStream(bytekuva[0]);
             EtusivuKuvaPB.Image = Image.FromStream(mstream);
-            timer1.Enabled = true;
+            timer1.Enabled = true;*/
         }
     }
 }
