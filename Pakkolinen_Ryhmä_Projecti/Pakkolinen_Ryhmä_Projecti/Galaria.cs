@@ -61,8 +61,8 @@ namespace Pakkolinen_Ryhmä_Projecti
         Yhdista yh = new Yhdista();
         Tiedansyotto ti = new Tiedansyotto();
         private void Galleria_Load(object sender, EventArgs e)
-        {/*
-            MySqlCommand cmd = new MySqlCommand("SELECT ladattavat_tiedostot.Tiedosto FROM galleria INNER JOIN ladattavat_tiedostot on ladattavat_tiedostot.LadattavatID = galleria.LadattavatID", yh.otaYhteys());
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT kuva FROM `galleria`", yh.otaYhteys());
             yh.avaaYhteys();
             MySqlDataReader dr = cmd.ExecuteReader();
             dr.Read();
@@ -80,7 +80,7 @@ namespace Pakkolinen_Ryhmä_Projecti
             mstream = new MemoryStream(bytekuva[2]);
             pictureBox3.Image = Image.FromStream(mstream);
           
-            */
+
         }
     }
 }

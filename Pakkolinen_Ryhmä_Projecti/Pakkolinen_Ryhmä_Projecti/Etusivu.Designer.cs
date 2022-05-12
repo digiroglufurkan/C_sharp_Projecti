@@ -102,6 +102,7 @@
             this.EtusivuKuvaPB.Location = new System.Drawing.Point(249, 189);
             this.EtusivuKuvaPB.Name = "EtusivuKuvaPB";
             this.EtusivuKuvaPB.Size = new System.Drawing.Size(287, 201);
+            this.EtusivuKuvaPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EtusivuKuvaPB.TabIndex = 2;
             this.EtusivuKuvaPB.TabStop = false;
             // 
