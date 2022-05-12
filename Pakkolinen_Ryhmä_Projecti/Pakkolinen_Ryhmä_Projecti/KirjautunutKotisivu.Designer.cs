@@ -42,7 +42,6 @@
             this.tervetuloaLB = new System.Windows.Forms.Label();
             this.mitaUuttaLB = new System.Windows.Forms.Label();
             this.ksKotisivuDG = new System.Windows.Forms.DataGridView();
-            this.LataaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ksKotisivuMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ksKotisivuDG)).BeginInit();
             this.SuspendLayout();
@@ -166,19 +165,12 @@
             // ksKotisivuDG
             // 
             this.ksKotisivuDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ksKotisivuDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LataaCo});
             this.ksKotisivuDG.Location = new System.Drawing.Point(191, 199);
             this.ksKotisivuDG.Name = "ksKotisivuDG";
             this.ksKotisivuDG.RowTemplate.Height = 25;
             this.ksKotisivuDG.Size = new System.Drawing.Size(439, 239);
             this.ksKotisivuDG.TabIndex = 7;
             this.ksKotisivuDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ksKotisivuDG_CellContentClick);
-            // 
-            // LataaCo
-            // 
-            this.LataaCo.HeaderText = "lataa";
-            this.LataaCo.Name = "LataaCo";
             // 
             // KirjautunutKotisivu
             // 
@@ -218,6 +210,5 @@
         private Label tervetuloaLB;
         private Label mitaUuttaLB;
         private DataGridView ksKotisivuDG;
-        private DataGridViewButtonColumn LataaCo;
     }
 }

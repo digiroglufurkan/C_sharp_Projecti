@@ -95,38 +95,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void ksKotisivuDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == LataaCo.Index) // mikäli klikataan poista-buttonia
-            {
-                try // aloitetaan try:lla
-                {   // Otetaan id kentästä yksilöivä tunnus
-                    int yTun = int.Parse(ksKotisivuDG.CurrentRow.Cells[1].Value.ToString());
-                    if (yTun.Equals("")) // kokeillaan onko saatu talteen id tieto
-                    {   // virheviesti
-                        MessageBox.Show($"Et ole valinnut ladattavaa kohdetta.");
-                    }
-                    else
-                    {   //Kutsutaan ADMINMITAUUTTA CLASS.ssa olevaa metodia, joka poistaa tiedoston tietokannasta
-                        bool poisto = kot.lataaUusi(yTun); //lähetetään id ja otetaan paluu parametrinä bool-arvo
-                        if (poisto == true) // mikäli bool arvo on true
-                        {   // viesti onnistuneesta toimenpiteestä
-                            MessageBox.Show($"Lataus suoritettu.");
-                        }
-                        else // mikäli bool arvo on false
-                        {   // virheviesti
-                            MessageBox.Show($"Lataus ei onnistunut.");
-
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex.Message} v1");
-                }
-            }
-            else
-            {
-                return;
-            }
+            
         }
     }
 }
