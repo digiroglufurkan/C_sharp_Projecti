@@ -159,6 +159,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                             {
                                 MessageBox.Show($"Poisto ei onnistunut.");
                             }
+                            YhtOttHallintadataGridView.DataSource = ad.haeYhtotot();
                         }
                     }
                     catch (Exception ex)

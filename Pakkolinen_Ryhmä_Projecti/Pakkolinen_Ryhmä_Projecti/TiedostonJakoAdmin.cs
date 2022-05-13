@@ -164,7 +164,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                 string kuvaus = KuvausTB.Text.ToString();
                 if (path.Equals("") || filename.Equals("") || fileType.Equals("") || kuvaus.Equals(""))
                 {
-                    MessageBox.Show($"Et ole valinnut tiedostoa.");
+                    MessageBox.Show($"Et ole antanut aihetta tai valinnut tiedostoa tai antanut kuvausta.");
                 }
                 else
                 {
