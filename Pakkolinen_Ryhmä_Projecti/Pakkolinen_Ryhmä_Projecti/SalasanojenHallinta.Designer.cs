@@ -222,6 +222,7 @@
             this.UusiSalasanaTB.Name = "UusiSalasanaTB";
             this.UusiSalasanaTB.Size = new System.Drawing.Size(139, 27);
             this.UusiSalasanaTB.TabIndex = 6;
+            this.UusiSalasanaTB.UseSystemPasswordChar = true;
             // 
             // NykSalasana
             // 
@@ -248,6 +249,7 @@
             this.SalasanaUudelleenTB.Name = "SalasanaUudelleenTB";
             this.SalasanaUudelleenTB.Size = new System.Drawing.Size(139, 27);
             this.SalasanaUudelleenTB.TabIndex = 9;
+            this.SalasanaUudelleenTB.UseSystemPasswordChar = true;
             // 
             // VaihdaBT
             // 

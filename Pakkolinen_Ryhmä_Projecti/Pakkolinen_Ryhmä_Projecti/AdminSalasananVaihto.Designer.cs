@@ -221,6 +221,7 @@
             this.UuSalasanaTB.Name = "UuSalasanaTB";
             this.UuSalasanaTB.Size = new System.Drawing.Size(125, 27);
             this.UuSalasanaTB.TabIndex = 6;
+            this.UuSalasanaTB.UseSystemPasswordChar = true;
             // 
             // UusiSalasanaUdTB
             // 
@@ -228,6 +229,7 @@
             this.UusiSalasanaUdTB.Name = "UusiSalasanaUdTB";
             this.UusiSalasanaUdTB.Size = new System.Drawing.Size(125, 27);
             this.UusiSalasanaUdTB.TabIndex = 7;
+            this.UusiSalasanaUdTB.UseSystemPasswordChar = true;
             // 
             // VaSalasanaBT
             // 

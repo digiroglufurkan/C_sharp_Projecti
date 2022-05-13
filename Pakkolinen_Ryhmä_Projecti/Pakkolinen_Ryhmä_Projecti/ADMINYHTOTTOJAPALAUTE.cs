@@ -81,7 +81,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             try
             {
-                MySqlCommand command = new MySqlCommand("DELETE FROM palaute WHERE ID = @id", yh.otaYhteys()); // tämä kesken
+                MySqlCommand command = new MySqlCommand("DELETE FROM palaute WHERE PALAUTE_ID = @id", yh.otaYhteys()); // tämä kesken
                 command.Parameters.Add("@id", MySqlDbType.Int32).Value = id; // arvojen lisäys poistokyselyyn
                 yh.avaaYhteys(); // Yhteyden avaus YH CLASS:n funktiolla
                 if (command.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu

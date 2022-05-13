@@ -144,6 +144,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                             {
                                 MessageBox.Show($"Poisto ei onnistunut.");
                             }
+                            PaHallintadataGridView.DataSource = ad.haePalaute();
                         }
                     }
                     catch (Exception ex)
@@ -160,7 +161,7 @@ namespace Pakkolinen_Ryhmä_Projecti
 
         private void PalautteenHallinta_Load(object sender, EventArgs e)
         {
-            PaHallintadataGridView.DataSource = ad.haeYhtotot(); // Kutsutaan ADMINYHTOTTOJAPALAUTE CLASS.ssa olevaa metodia, joka hakee tietokannasta tiedot niille varatulle aluelle
+            PaHallintadataGridView.DataSource = ad.haePalaute(); // Kutsutaan ADMINYHTOTTOJAPALAUTE CLASS.ssa olevaa metodia, joka hakee tietokannasta tiedot niille varatulle aluelle
             if (PaHallintadataGridView.DataSource == null)
             {
                 MessageBox.Show($"Virhe tietokannan kanssa.");

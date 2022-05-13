@@ -113,10 +113,19 @@ namespace Pakkolinen_Ryhmä_Projecti
                     }
                 }
             }
-            catch (Exception ex) // virheen poiminta ja näyttö
+            catch (Exception ex) 
             {
                 MessageBox.Show($"{ex.Message} virhe1");
             }
+        }
+
+        private void KeskusteluPalsta_Load(object sender, EventArgs e)
+        {
+            kommenttiDG.DataSource = pals.haeKommentit();
+            kommenttiDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            var datagridview = new DataGridView();
+            datagridview.RowTemplate.MinimumHeight = 200;
+            //kommenttiDG.Columns[1].Visible = false;
         }
     }
 }
