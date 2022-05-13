@@ -148,7 +148,7 @@
             // 
             // muokkaaProfiiliaBT
             // 
-            this.muokkaaProfiiliaBT.Location = new System.Drawing.Point(465, 468);
+            this.muokkaaProfiiliaBT.Location = new System.Drawing.Point(476, 339);
             this.muokkaaProfiiliaBT.Name = "muokkaaProfiiliaBT";
             this.muokkaaProfiiliaBT.Size = new System.Drawing.Size(143, 24);
             this.muokkaaProfiiliaBT.TabIndex = 24;
@@ -244,7 +244,7 @@
             // 
             // muokkaaKuvaPB
             // 
-            this.muokkaaKuvaPB.Location = new System.Drawing.Point(148, 351);
+            this.muokkaaKuvaPB.Location = new System.Drawing.Point(160, 392);
             this.muokkaaKuvaPB.Name = "muokkaaKuvaPB";
             this.muokkaaKuvaPB.Size = new System.Drawing.Size(173, 141);
             this.muokkaaKuvaPB.TabIndex = 26;
@@ -324,7 +324,7 @@
             // 
             // vaihdaKuvaBT
             // 
-            this.vaihdaKuvaBT.Location = new System.Drawing.Point(163, 532);
+            this.vaihdaKuvaBT.Location = new System.Drawing.Point(170, 348);
             this.vaihdaKuvaBT.Name = "vaihdaKuvaBT";
             this.vaihdaKuvaBT.Size = new System.Drawing.Size(143, 24);
             this.vaihdaKuvaBT.TabIndex = 35;
@@ -339,7 +339,7 @@
             // kuvaosoiteLB
             // 
             this.kuvaosoiteLB.AutoSize = true;
-            this.kuvaosoiteLB.Location = new System.Drawing.Point(221, 495);
+            this.kuvaosoiteLB.Location = new System.Drawing.Point(230, 536);
             this.kuvaosoiteLB.Name = "kuvaosoiteLB";
             this.kuvaosoiteLB.Size = new System.Drawing.Size(38, 15);
             this.kuvaosoiteLB.TabIndex = 36;

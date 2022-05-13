@@ -13,9 +13,12 @@ namespace Pakkolinen_Ryhmä_Projecti
 {
     public partial class KirjautunutKotisivu : Form
     {
+        string tun;
+        KotisivuClass kot = new KotisivuClass();
         public KirjautunutKotisivu()
         {
             InitializeComponent();
+            tun = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,6 +85,19 @@ namespace Pakkolinen_Ryhmä_Projecti
             salVai.Show();
             salVai.FormClosing += f1_FormClosing;
             this.Hide();
+        }
+
+        private void KirjautunutKotisivu_Load(object sender, EventArgs e)
+        {
+            ksKotisivuDG.DataSource = kot.haeUudetYks();
+            ksKotisivuDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            toinenDG.DataSource = kot.haeUudetKaks();
+            toinenDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void ksKotisivuDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
