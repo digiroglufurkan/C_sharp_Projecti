@@ -4,13 +4,31 @@
     <Compile Update="AdminKotisivu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AdminMuokkaaProfiilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AdminSaatavuudet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminSalasananHallinta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdminSalasananVaihto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminTyotilanne.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Etusivu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KokkiKotisivu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KokkiRuoat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Rekisteroidy.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

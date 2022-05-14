@@ -1,6 +1,6 @@
 ﻿namespace Catering_Projectin
 {
-    partial class AdminTyotilanne
+    partial class AdminMuokkaaProfiilia
     {
         /// <summary>
         /// Required designer variable.
@@ -34,25 +34,22 @@
             this.SaatavuudetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TyotilanneTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksetTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.SalasanojenHallintaTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.TyotilanneDGV = new System.Windows.Forms.DataGridView();
-            this.AnnaTyoCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.salasanojenHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NavMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(454, 0);
+            this.OtsikkoLB.Location = new System.Drawing.Point(395, -1);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(241, 62);
+            this.OtsikkoLB.Size = new System.Drawing.Size(386, 62);
             this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Työtilanne";
+            this.OtsikkoLB.Text = "Muokkaa profiilia";
             // 
             // NavMS
             // 
@@ -64,9 +61,9 @@
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(271, 83);
+            this.NavMS.Location = new System.Drawing.Point(320, 77);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(530, 39);
+            this.NavMS.Size = new System.Drawing.Size(680, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -94,75 +91,54 @@
             // AsetuksetTSMI
             // 
             this.AsetuksetTSMI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SalasanojenHallintaTSMI,
-            this.MuokkaaProfiiliaTSMI,
-            this.VaihdaSalasanaTSMI,
-            this.KirjauduUlosTSMI});
+            this.salasanojenHallintaToolStripMenuItem,
+            this.muokkaaProfiiliaToolStripMenuItem,
+            this.vaihdaSalasanaToolStripMenuItem,
+            this.kirjauduUlosToolStripMenuItem});
             this.AsetuksetTSMI.Name = "AsetuksetTSMI";
             this.AsetuksetTSMI.Size = new System.Drawing.Size(127, 35);
             this.AsetuksetTSMI.Text = "Asetukset";
             // 
-            // SalasanojenHallintaTSMI
+            // salasanojenHallintaToolStripMenuItem
             // 
-            this.SalasanojenHallintaTSMI.Name = "SalasanojenHallintaTSMI";
-            this.SalasanojenHallintaTSMI.Size = new System.Drawing.Size(305, 36);
-            this.SalasanojenHallintaTSMI.Text = "Salasanojen hallinta";
-            this.SalasanojenHallintaTSMI.Click += new System.EventHandler(this.SalasanojenHallintaTSMI_Click);
+            this.salasanojenHallintaToolStripMenuItem.Name = "salasanojenHallintaToolStripMenuItem";
+            this.salasanojenHallintaToolStripMenuItem.Size = new System.Drawing.Size(305, 36);
+            this.salasanojenHallintaToolStripMenuItem.Text = "Salasanojen hallinta";
+            this.salasanojenHallintaToolStripMenuItem.Click += new System.EventHandler(this.salasanojenHallintaToolStripMenuItem_Click);
             // 
-            // MuokkaaProfiiliaTSMI
+            // muokkaaProfiiliaToolStripMenuItem
             // 
-            this.MuokkaaProfiiliaTSMI.Name = "MuokkaaProfiiliaTSMI";
-            this.MuokkaaProfiiliaTSMI.Size = new System.Drawing.Size(305, 36);
-            this.MuokkaaProfiiliaTSMI.Text = "Muokkaa profiilia";
-            this.MuokkaaProfiiliaTSMI.Click += new System.EventHandler(this.MuokkaaProfiiliaTSMI_Click);
+            this.muokkaaProfiiliaToolStripMenuItem.Name = "muokkaaProfiiliaToolStripMenuItem";
+            this.muokkaaProfiiliaToolStripMenuItem.Size = new System.Drawing.Size(305, 36);
+            this.muokkaaProfiiliaToolStripMenuItem.Text = "Muokkaa profiilia";
+            this.muokkaaProfiiliaToolStripMenuItem.Click += new System.EventHandler(this.muokkaaProfiiliaToolStripMenuItem_Click);
             // 
-            // VaihdaSalasanaTSMI
+            // vaihdaSalasanaToolStripMenuItem
             // 
-            this.VaihdaSalasanaTSMI.Name = "VaihdaSalasanaTSMI";
-            this.VaihdaSalasanaTSMI.Size = new System.Drawing.Size(305, 36);
-            this.VaihdaSalasanaTSMI.Text = "Vaihda salasana";
-            this.VaihdaSalasanaTSMI.Click += new System.EventHandler(this.VaihdaSalasanaTSMI_Click);
+            this.vaihdaSalasanaToolStripMenuItem.Name = "vaihdaSalasanaToolStripMenuItem";
+            this.vaihdaSalasanaToolStripMenuItem.Size = new System.Drawing.Size(305, 36);
+            this.vaihdaSalasanaToolStripMenuItem.Text = "Vaihda salasana";
+            this.vaihdaSalasanaToolStripMenuItem.Click += new System.EventHandler(this.vaihdaSalasanaToolStripMenuItem_Click);
             // 
-            // KirjauduUlosTSMI
+            // kirjauduUlosToolStripMenuItem
             // 
-            this.KirjauduUlosTSMI.Name = "KirjauduUlosTSMI";
-            this.KirjauduUlosTSMI.Size = new System.Drawing.Size(305, 36);
-            this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
-            this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
+            this.kirjauduUlosToolStripMenuItem.Name = "kirjauduUlosToolStripMenuItem";
+            this.kirjauduUlosToolStripMenuItem.Size = new System.Drawing.Size(305, 36);
+            this.kirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
+            this.kirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.kirjauduUlosToolStripMenuItem_Click);
             // 
-            // TyotilanneDGV
-            // 
-            this.TyotilanneDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TyotilanneDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AnnaTyoCo});
-            this.TyotilanneDGV.Location = new System.Drawing.Point(295, 178);
-            this.TyotilanneDGV.Name = "TyotilanneDGV";
-            this.TyotilanneDGV.RowHeadersWidth = 51;
-            this.TyotilanneDGV.RowTemplate.Height = 29;
-            this.TyotilanneDGV.Size = new System.Drawing.Size(506, 225);
-            this.TyotilanneDGV.TabIndex = 2;
-            // 
-            // AnnaTyoCo
-            // 
-            this.AnnaTyoCo.HeaderText = "Anna työ";
-            this.AnnaTyoCo.MinimumWidth = 6;
-            this.AnnaTyoCo.Name = "AnnaTyoCo";
-            this.AnnaTyoCo.Width = 125;
-            // 
-            // AdminTyotilanne
+            // AdminMuokkaaProfiilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 450);
-            this.Controls.Add(this.TyotilanneDGV);
+            this.ClientSize = new System.Drawing.Size(1180, 526);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
-            this.Name = "AdminTyotilanne";
-            this.Text = "Admin työtilanne";
+            this.Name = "AdminMuokkaaProfiilia";
+            this.Text = "Admin muokkaa profiilia";
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,11 +152,9 @@
         private ToolStripMenuItem SaatavuudetTSMI;
         private ToolStripMenuItem TyotilanneTSMI;
         private ToolStripMenuItem AsetuksetTSMI;
-        private ToolStripMenuItem SalasanojenHallintaTSMI;
-        private ToolStripMenuItem MuokkaaProfiiliaTSMI;
-        private ToolStripMenuItem VaihdaSalasanaTSMI;
-        private ToolStripMenuItem KirjauduUlosTSMI;
-        private DataGridView TyotilanneDGV;
-        private DataGridViewButtonColumn AnnaTyoCo;
+        private ToolStripMenuItem salasanojenHallintaToolStripMenuItem;
+        private ToolStripMenuItem muokkaaProfiiliaToolStripMenuItem;
+        private ToolStripMenuItem vaihdaSalasanaToolStripMenuItem;
+        private ToolStripMenuItem kirjauduUlosToolStripMenuItem;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Catering_Projectin
 {
-    partial class AdminTyotilanne
+    partial class AdminSalasananVaihto
     {
         /// <summary>
         /// Required designer variable.
@@ -38,21 +38,22 @@
             this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.TyotilanneDGV = new System.Windows.Forms.DataGridView();
-            this.AnnaTyoCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.UusiSaSanaLB = new System.Windows.Forms.Label();
+            this.UusiUudestaanLB = new System.Windows.Forms.Label();
+            this.UusiSaSanaTB = new System.Windows.Forms.TextBox();
+            this.UusiUdTB = new System.Windows.Forms.TextBox();
             this.NavMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(454, 0);
+            this.OtsikkoLB.Location = new System.Drawing.Point(399, -2);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(241, 62);
+            this.OtsikkoLB.Size = new System.Drawing.Size(375, 62);
             this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Työtilanne";
+            this.OtsikkoLB.Text = "Salasanan vaihto";
             // 
             // NavMS
             // 
@@ -64,7 +65,7 @@
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(271, 83);
+            this.NavMS.Location = new System.Drawing.Point(314, 76);
             this.NavMS.Name = "NavMS";
             this.NavMS.Size = new System.Drawing.Size(530, 39);
             this.NavMS.TabIndex = 1;
@@ -130,39 +131,54 @@
             this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
             this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
             // 
-            // TyotilanneDGV
+            // UusiSaSanaLB
             // 
-            this.TyotilanneDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TyotilanneDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AnnaTyoCo});
-            this.TyotilanneDGV.Location = new System.Drawing.Point(295, 178);
-            this.TyotilanneDGV.Name = "TyotilanneDGV";
-            this.TyotilanneDGV.RowHeadersWidth = 51;
-            this.TyotilanneDGV.RowTemplate.Height = 29;
-            this.TyotilanneDGV.Size = new System.Drawing.Size(506, 225);
-            this.TyotilanneDGV.TabIndex = 2;
+            this.UusiSaSanaLB.AutoSize = true;
+            this.UusiSaSanaLB.Location = new System.Drawing.Point(423, 167);
+            this.UusiSaSanaLB.Name = "UusiSaSanaLB";
+            this.UusiSaSanaLB.Size = new System.Drawing.Size(97, 20);
+            this.UusiSaSanaLB.TabIndex = 2;
+            this.UusiSaSanaLB.Text = "Uusi salasana";
             // 
-            // AnnaTyoCo
+            // UusiUudestaanLB
             // 
-            this.AnnaTyoCo.HeaderText = "Anna työ";
-            this.AnnaTyoCo.MinimumWidth = 6;
-            this.AnnaTyoCo.Name = "AnnaTyoCo";
-            this.AnnaTyoCo.Width = 125;
+            this.UusiUudestaanLB.AutoSize = true;
+            this.UusiUudestaanLB.Location = new System.Drawing.Point(423, 258);
+            this.UusiUudestaanLB.Name = "UusiUudestaanLB";
+            this.UusiUudestaanLB.Size = new System.Drawing.Size(139, 20);
+            this.UusiUudestaanLB.TabIndex = 3;
+            this.UusiUudestaanLB.Text = "Salasana uudestaan";
             // 
-            // AdminTyotilanne
+            // UusiSaSanaTB
+            // 
+            this.UusiSaSanaTB.Location = new System.Drawing.Point(676, 164);
+            this.UusiSaSanaTB.Name = "UusiSaSanaTB";
+            this.UusiSaSanaTB.Size = new System.Drawing.Size(125, 27);
+            this.UusiSaSanaTB.TabIndex = 4;
+            // 
+            // UusiUdTB
+            // 
+            this.UusiUdTB.Location = new System.Drawing.Point(676, 255);
+            this.UusiUdTB.Name = "UusiUdTB";
+            this.UusiUdTB.Size = new System.Drawing.Size(125, 27);
+            this.UusiUdTB.TabIndex = 5;
+            // 
+            // AdminSalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 450);
-            this.Controls.Add(this.TyotilanneDGV);
+            this.ClientSize = new System.Drawing.Size(1185, 534);
+            this.Controls.Add(this.UusiUdTB);
+            this.Controls.Add(this.UusiSaSanaTB);
+            this.Controls.Add(this.UusiUudestaanLB);
+            this.Controls.Add(this.UusiSaSanaLB);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
-            this.Name = "AdminTyotilanne";
-            this.Text = "Admin työtilanne";
+            this.Name = "AdminSalasananVaihto";
+            this.Text = "Admin salasanan vaihto";
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +196,9 @@
         private ToolStripMenuItem MuokkaaProfiiliaTSMI;
         private ToolStripMenuItem VaihdaSalasanaTSMI;
         private ToolStripMenuItem KirjauduUlosTSMI;
-        private DataGridView TyotilanneDGV;
-        private DataGridViewButtonColumn AnnaTyoCo;
+        private Label UusiSaSanaLB;
+        private Label UusiUudestaanLB;
+        private TextBox UusiSaSanaTB;
+        private TextBox UusiUdTB;
     }
 }

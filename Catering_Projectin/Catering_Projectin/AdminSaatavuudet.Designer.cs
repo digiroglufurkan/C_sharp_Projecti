@@ -36,9 +36,15 @@
             this.AsetuksetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaatavuudetDGV = new System.Windows.Forms.DataGridView();
+            this.VaraaCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.VaMaaraCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TilaaLisaaCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.MaTiLisaaCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NavMS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SaatavuudetDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
@@ -61,9 +67,9 @@
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(257, 99);
+            this.NavMS.Location = new System.Drawing.Point(345, 81);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(680, 39);
+            this.NavMS.Size = new System.Drawing.Size(530, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -113,13 +119,6 @@
             this.MuokkaaProfiiliaTSMI.Text = "Muokkaa profiilia";
             this.MuokkaaProfiiliaTSMI.Click += new System.EventHandler(this.MuokkaaProfiiliaTSMI_Click);
             // 
-            // KirjauduUlosTSMI
-            // 
-            this.KirjauduUlosTSMI.Name = "KirjauduUlosTSMI";
-            this.KirjauduUlosTSMI.Size = new System.Drawing.Size(305, 36);
-            this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
-            this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
-            // 
             // VaihdaSalasanaTSMI
             // 
             this.VaihdaSalasanaTSMI.Name = "VaihdaSalasanaTSMI";
@@ -127,11 +126,64 @@
             this.VaihdaSalasanaTSMI.Text = "Vaihda salasana";
             this.VaihdaSalasanaTSMI.Click += new System.EventHandler(this.VaihdaSalasanaTSMI_Click);
             // 
+            // KirjauduUlosTSMI
+            // 
+            this.KirjauduUlosTSMI.Name = "KirjauduUlosTSMI";
+            this.KirjauduUlosTSMI.Size = new System.Drawing.Size(305, 36);
+            this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
+            this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
+            // 
+            // SaatavuudetDGV
+            // 
+            this.SaatavuudetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SaatavuudetDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VaraaCo,
+            this.VaMaaraCo,
+            this.TilaaLisaaCo,
+            this.MaTiLisaaCo});
+            this.SaatavuudetDGV.Location = new System.Drawing.Point(345, 171);
+            this.SaatavuudetDGV.Name = "SaatavuudetDGV";
+            this.SaatavuudetDGV.RowHeadersWidth = 51;
+            this.SaatavuudetDGV.RowTemplate.Height = 29;
+            this.SaatavuudetDGV.Size = new System.Drawing.Size(530, 239);
+            this.SaatavuudetDGV.TabIndex = 2;
+            // 
+            // VaraaCo
+            // 
+            this.VaraaCo.HeaderText = "Varaa";
+            this.VaraaCo.MinimumWidth = 6;
+            this.VaraaCo.Name = "VaraaCo";
+            this.VaraaCo.Width = 125;
+            // 
+            // VaMaaraCo
+            // 
+            this.VaMaaraCo.HeaderText = "Määrä";
+            this.VaMaaraCo.MinimumWidth = 6;
+            this.VaMaaraCo.Name = "VaMaaraCo";
+            this.VaMaaraCo.Visible = false;
+            this.VaMaaraCo.Width = 125;
+            // 
+            // TilaaLisaaCo
+            // 
+            this.TilaaLisaaCo.HeaderText = "Tilaa lisaa";
+            this.TilaaLisaaCo.MinimumWidth = 6;
+            this.TilaaLisaaCo.Name = "TilaaLisaaCo";
+            this.TilaaLisaaCo.Width = 125;
+            // 
+            // MaTiLisaaCo
+            // 
+            this.MaTiLisaaCo.HeaderText = "Määrä";
+            this.MaTiLisaaCo.MinimumWidth = 6;
+            this.MaTiLisaaCo.Name = "MaTiLisaaCo";
+            this.MaTiLisaaCo.Visible = false;
+            this.MaTiLisaaCo.Width = 125;
+            // 
             // AdminSaatavuudet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 533);
+            this.Controls.Add(this.SaatavuudetDGV);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
@@ -139,6 +191,7 @@
             this.Text = "Admin saatavuudet";
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SaatavuudetDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +209,10 @@
         private ToolStripMenuItem MuokkaaProfiiliaTSMI;
         private ToolStripMenuItem KirjauduUlosTSMI;
         private ToolStripMenuItem VaihdaSalasanaTSMI;
+        private DataGridView SaatavuudetDGV;
+        private DataGridViewButtonColumn VaraaCo;
+        private DataGridViewTextBoxColumn VaMaaraCo;
+        private DataGridViewButtonColumn TilaaLisaaCo;
+        private DataGridViewTextBoxColumn MaTiLisaaCo;
     }
 }

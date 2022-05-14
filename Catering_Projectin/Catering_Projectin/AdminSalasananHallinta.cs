@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Catering_Projectin
 {
-    public partial class AdminKotisivu : Form
+    public partial class AdminSalasananHallinta : Form
     {
-        public AdminKotisivu()
+        public AdminSalasananHallinta()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void SalasanojenHallintaTSMI_Click(object sender, EventArgs e)
+        private void SalasananHallintaTSMI_Click(object sender, EventArgs e)
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
@@ -54,7 +54,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void MuokkaaProfiiliaTSMI_Click(object sender, EventArgs e)
+        private void ProfiilinMuokkausTSMI_Click(object sender, EventArgs e)
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
@@ -62,7 +62,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void VaihdaSalasanaTSMI_Click(object sender, EventArgs e)
+        private void SalasananVaihtoTSMI_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;

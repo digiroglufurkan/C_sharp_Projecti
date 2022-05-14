@@ -48,17 +48,26 @@ namespace Catering_Projectin
 
         private void SalasanojenHallintaTSMI_Click(object sender, EventArgs e)
         {
-
+            AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
+            adSaHa.FormClosing += formClosing;
+            adSaHa.Show();
+            this.Hide();
         }
 
         private void MuokkaaProfiiliaTSMI_Click(object sender, EventArgs e)
         {
-
+            AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
+            adMuPr.FormClosing += formClosing;
+            adMuPr.Show();
+            this.Hide();
         }
 
         private void VaihdaSalasanaTSMI_Click(object sender, EventArgs e)
         {
-
+            AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
+            adSaVa.FormClosing += formClosing;
+            adSaVa.Show();
+            this.Hide();
         }
 
         private void KirjauduUlosTSMI_Click(object sender, EventArgs e)

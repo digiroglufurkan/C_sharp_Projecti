@@ -10,13 +10,12 @@ using System.Windows.Forms;
 
 namespace Catering_Projectin
 {
-    public partial class AdminKotisivu : Form
+    public partial class AdminMuokkaaProfiilia : Form
     {
-        public AdminKotisivu()
+        public AdminMuokkaaProfiilia()
         {
             InitializeComponent();
         }
-
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
@@ -46,7 +45,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void SalasanojenHallintaTSMI_Click(object sender, EventArgs e)
+        private void salasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
@@ -54,7 +53,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void MuokkaaProfiiliaTSMI_Click(object sender, EventArgs e)
+        private void muokkaaProfiiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
@@ -62,7 +61,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void VaihdaSalasanaTSMI_Click(object sender, EventArgs e)
+        private void vaihdaSalasanaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
@@ -70,7 +69,7 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void KirjauduUlosTSMI_Click(object sender, EventArgs e)
+        private void kirjauduUlosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Etusivu etu = new Etusivu();
             etu.FormClosing += formClosing;

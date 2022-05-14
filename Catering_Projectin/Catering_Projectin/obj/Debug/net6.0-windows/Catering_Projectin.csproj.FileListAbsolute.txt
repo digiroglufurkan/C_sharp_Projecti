@@ -27,3 +27,9 @@ C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Pro
 C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminKotisivu.resources
 C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminSaatavuudet.resources
 C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminTyotilanne.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminMuokkaaProfiilia.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminSalasananHallinta.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.AdminSalasananVaihto.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.KokkiKotisivu.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.KokkiRuoat.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Rekisteroidy.resources

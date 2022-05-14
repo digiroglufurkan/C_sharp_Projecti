@@ -10,13 +10,12 @@ using System.Windows.Forms;
 
 namespace Catering_Projectin
 {
-    public partial class AdminKotisivu : Form
+    public partial class AdminSalasananVaihto : Form
     {
-        public AdminKotisivu()
+        public AdminSalasananVaihto()
         {
             InitializeComponent();
         }
-
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
