@@ -37,7 +37,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             try
             {
-                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, TIEDOSTOT, KOMMENTTI FROM keskustelualue", yhteys.otaYhteys());
+                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, KOMMENTTI FROM keskustelualue", yhteys.otaYhteys()); // TIEDOSTOT otin pois
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 DataTable table = new DataTable();
                 adapter.SelectCommand = command;
@@ -52,7 +52,7 @@ namespace Pakkolinen_Ryhmä_Projecti
                 return table;
             }
         }
-
+        
         public bool lataaUusi(int id)
         {
             try

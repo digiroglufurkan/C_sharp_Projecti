@@ -49,12 +49,9 @@
             this.PoistaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TaTieLB = new System.Windows.Forms.Label();
             this.MiUuLB = new System.Windows.Forms.Label();
-            this.TestDGV = new System.Windows.Forms.DataGridView();
-            this.LataaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TalTieDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MitaUuttaDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TestDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
@@ -244,35 +241,11 @@
             this.MiUuLB.TabIndex = 5;
             this.MiUuLB.Text = "Mitä uutta tietokanta";
             // 
-            // TestDGV
-            // 
-            this.TestDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TestDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LataaCo});
-            this.TestDGV.Location = new System.Drawing.Point(288, 553);
-            this.TestDGV.Name = "TestDGV";
-            this.TestDGV.RowHeadersWidth = 51;
-            this.TestDGV.RowTemplate.Height = 29;
-            this.TestDGV.Size = new System.Drawing.Size(636, 188);
-            this.TestDGV.TabIndex = 6;
-            this.TestDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TestDGV_CellContentClick);
-            // 
-            // LataaCo
-            // 
-            this.LataaCo.HeaderText = "Lataa";
-            this.LataaCo.MinimumWidth = 6;
-            this.LataaCo.Name = "LataaCo";
-            this.LataaCo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.LataaCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.LataaCo.Text = "Lataa";
-            this.LataaCo.Width = 125;
-            // 
             // MitaUuttaHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1526, 816);
-            this.Controls.Add(this.TestDGV);
+            this.ClientSize = new System.Drawing.Size(1526, 482);
             this.Controls.Add(this.MiUuLB);
             this.Controls.Add(this.TaTieLB);
             this.Controls.Add(this.MitaUuttaDGV);
@@ -287,7 +260,6 @@
             this.NavmenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TalTieDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MitaUuttaDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TestDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,7 +288,5 @@
         private DataGridViewButtonColumn PoistaCo;
         private Label TaTieLB;
         private Label MiUuLB;
-        private DataGridView TestDGV;
-        private DataGridViewButtonColumn LataaCo;
     }
 }

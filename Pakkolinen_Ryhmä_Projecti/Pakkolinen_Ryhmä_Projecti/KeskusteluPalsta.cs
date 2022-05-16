@@ -94,7 +94,7 @@ namespace Pakkolinen_Ryhmä_Projecti
         {
             try
             {
-                string kommentoi = kommenttiBT.Text.ToString();
+                string kommentoi = kommenttiTB.Text.ToString(); // oli kommenttiBT
                 if (kommentoi.Equals(""))
                 {
                     MessageBox.Show("Kirjoita kommentti!!");
