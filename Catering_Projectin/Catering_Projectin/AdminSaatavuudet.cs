@@ -12,6 +12,7 @@ namespace Catering_Projectin
 {
     public partial class AdminSaatavuudet : Form
     {
+        ADMINSAATAVUUDETHALLINTA adSaHa = new ADMINSAATAVUUDETHALLINTA();
         public AdminSaatavuudet()
         {
             InitializeComponent();
@@ -76,6 +77,16 @@ namespace Catering_Projectin
             etu.FormClosing += formClosing;
             etu.Show();
             this.Hide();
+        }
+
+        private void AdminSaatavuudet_Load(object sender, EventArgs e)
+        {
+            AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat();
+            AteriaSaatavuudetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+            JuomatDGV.DataSource = adSaHa.haeJuomat();
+            JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko();
+            JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }

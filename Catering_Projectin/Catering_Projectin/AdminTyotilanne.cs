@@ -12,6 +12,7 @@ namespace Catering_Projectin
 {
     public partial class AdminTyotilanne : Form
     {
+        ADMINTYOTILANNEHALLINTA adTyTiHa = new ADMINTYOTILANNEHALLINTA();
         public AdminTyotilanne()
         {
             InitializeComponent();
@@ -76,6 +77,12 @@ namespace Catering_Projectin
             etu.FormClosing += formClosing;
             etu.Show();
             this.Hide();
+        }
+
+        private void AdminTyotilanne_Load(object sender, EventArgs e)
+        {
+            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();
+            TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
     }
 }

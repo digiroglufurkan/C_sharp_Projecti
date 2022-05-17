@@ -160,6 +160,7 @@
             this.MainMenuStrip = this.NavMS;
             this.Name = "AdminTyotilanne";
             this.Text = "Admin työtilanne";
+            this.Load += new System.EventHandler(this.AdminTyotilanne_Load);
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).EndInit();

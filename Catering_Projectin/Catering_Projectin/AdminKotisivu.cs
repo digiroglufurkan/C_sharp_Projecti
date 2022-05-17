@@ -12,6 +12,7 @@ namespace Catering_Projectin
 {
     public partial class AdminKotisivu : Form
     {
+        ADMINTILAUKSET adTi = new ADMINTILAUKSET();
         public AdminKotisivu()
         {
             InitializeComponent();
@@ -76,6 +77,12 @@ namespace Catering_Projectin
             etu.FormClosing += formClosing;
             etu.Show();
             this.Hide();
+        }
+
+        private void AdminKotisivu_Load(object sender, EventArgs e)
+        {
+            TilauksetDGV.DataSource = adTi.haeTilaukset();
+            TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
     }
 }

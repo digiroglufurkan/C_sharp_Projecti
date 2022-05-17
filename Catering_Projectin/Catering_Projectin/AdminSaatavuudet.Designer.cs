@@ -38,13 +38,21 @@
             this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaatavuudetDGV = new System.Windows.Forms.DataGridView();
+            this.AteriaSaatavuudetDGV = new System.Windows.Forms.DataGridView();
             this.VaraaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.VaMaaraCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TilaaLisaaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MaTiLisaaCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JuomatDGV = new System.Windows.Forms.DataGridView();
+            this.JuomatAlkoDGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TilaaLiCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SaatavuudetDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AteriaSaatavuudetDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JuomatDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JuomatAlkoDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // OtsikkoLB
@@ -133,20 +141,20 @@
             this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
             this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
             // 
-            // SaatavuudetDGV
+            // AteriaSaatavuudetDGV
             // 
-            this.SaatavuudetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SaatavuudetDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AteriaSaatavuudetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AteriaSaatavuudetDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VaraaCo,
             this.VaMaaraCo,
             this.TilaaLisaaCo,
             this.MaTiLisaaCo});
-            this.SaatavuudetDGV.Location = new System.Drawing.Point(345, 171);
-            this.SaatavuudetDGV.Name = "SaatavuudetDGV";
-            this.SaatavuudetDGV.RowHeadersWidth = 51;
-            this.SaatavuudetDGV.RowTemplate.Height = 29;
-            this.SaatavuudetDGV.Size = new System.Drawing.Size(530, 239);
-            this.SaatavuudetDGV.TabIndex = 2;
+            this.AteriaSaatavuudetDGV.Location = new System.Drawing.Point(12, 193);
+            this.AteriaSaatavuudetDGV.Name = "AteriaSaatavuudetDGV";
+            this.AteriaSaatavuudetDGV.RowHeadersWidth = 51;
+            this.AteriaSaatavuudetDGV.RowTemplate.Height = 29;
+            this.AteriaSaatavuudetDGV.Size = new System.Drawing.Size(389, 239);
+            this.AteriaSaatavuudetDGV.TabIndex = 2;
             // 
             // VaraaCo
             // 
@@ -178,20 +186,83 @@
             this.MaTiLisaaCo.Visible = false;
             this.MaTiLisaaCo.Width = 125;
             // 
+            // JuomatDGV
+            // 
+            this.JuomatDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.JuomatDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.TilaaLiCo});
+            this.JuomatDGV.Location = new System.Drawing.Point(460, 193);
+            this.JuomatDGV.Name = "JuomatDGV";
+            this.JuomatDGV.RowHeadersWidth = 51;
+            this.JuomatDGV.RowTemplate.Height = 29;
+            this.JuomatDGV.Size = new System.Drawing.Size(387, 239);
+            this.JuomatDGV.TabIndex = 3;
+            // 
+            // JuomatAlkoDGV
+            // 
+            this.JuomatAlkoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.JuomatAlkoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewButtonColumn1,
+            this.dataGridViewButtonColumn2});
+            this.JuomatAlkoDGV.Location = new System.Drawing.Point(867, 193);
+            this.JuomatAlkoDGV.Name = "JuomatAlkoDGV";
+            this.JuomatAlkoDGV.RowHeadersWidth = 51;
+            this.JuomatAlkoDGV.RowTemplate.Height = 29;
+            this.JuomatAlkoDGV.Size = new System.Drawing.Size(348, 239);
+            this.JuomatAlkoDGV.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Varaa";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // TilaaLiCo
+            // 
+            this.TilaaLiCo.HeaderText = "Tilaa lisää";
+            this.TilaaLiCo.MinimumWidth = 6;
+            this.TilaaLiCo.Name = "TilaaLiCo";
+            this.TilaaLiCo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TilaaLiCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TilaaLiCo.Width = 125;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            this.dataGridViewButtonColumn1.HeaderText = "Varaa";
+            this.dataGridViewButtonColumn1.MinimumWidth = 6;
+            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            this.dataGridViewButtonColumn1.Width = 125;
+            // 
+            // dataGridViewButtonColumn2
+            // 
+            this.dataGridViewButtonColumn2.HeaderText = "Tilaa lisää";
+            this.dataGridViewButtonColumn2.MinimumWidth = 6;
+            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
+            this.dataGridViewButtonColumn2.Width = 125;
+            // 
             // AdminSaatavuudet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 533);
-            this.Controls.Add(this.SaatavuudetDGV);
+            this.ClientSize = new System.Drawing.Size(1331, 533);
+            this.Controls.Add(this.JuomatAlkoDGV);
+            this.Controls.Add(this.JuomatDGV);
+            this.Controls.Add(this.AteriaSaatavuudetDGV);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
             this.Name = "AdminSaatavuudet";
             this.Text = "Admin saatavuudet";
+            this.Load += new System.EventHandler(this.AdminSaatavuudet_Load);
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SaatavuudetDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AteriaSaatavuudetDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JuomatDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JuomatAlkoDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +280,16 @@
         private ToolStripMenuItem MuokkaaProfiiliaTSMI;
         private ToolStripMenuItem KirjauduUlosTSMI;
         private ToolStripMenuItem VaihdaSalasanaTSMI;
-        private DataGridView SaatavuudetDGV;
+        private DataGridView AteriaSaatavuudetDGV;
         private DataGridViewButtonColumn VaraaCo;
         private DataGridViewTextBoxColumn VaMaaraCo;
         private DataGridViewButtonColumn TilaaLisaaCo;
         private DataGridViewTextBoxColumn MaTiLisaaCo;
+        private DataGridView JuomatDGV;
+        private DataGridViewButtonColumn dataGridViewTextBoxColumn1;
+        private DataGridViewButtonColumn TilaaLiCo;
+        private DataGridView JuomatAlkoDGV;
+        private DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private DataGridViewButtonColumn dataGridViewButtonColumn2;
     }
 }

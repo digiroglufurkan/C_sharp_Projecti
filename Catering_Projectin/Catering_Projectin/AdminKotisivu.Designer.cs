@@ -65,7 +65,7 @@
             this.AsetuksetTSMI});
             this.NavMS.Location = new System.Drawing.Point(257, 77);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(680, 39);
+            this.NavMS.Size = new System.Drawing.Size(530, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -143,13 +143,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 521);
+            this.ClientSize = new System.Drawing.Size(1119, 538);
             this.Controls.Add(this.TilauksetDGV);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
             this.Name = "AdminKotisivu";
             this.Text = "Admin kotisivu";
+            this.Load += new System.EventHandler(this.AdminKotisivu_Load);
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).EndInit();
