@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Catering_Projectin
 {
-    public partial class KokkiRuoat : Form
+    public partial class KokkiProfiilinMuokkaus : Form
     {
-        public KokkiRuoat()
+        public KokkiProfiilinMuokkaus()
         {
             InitializeComponent();
         }
@@ -30,11 +30,11 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-        private void kokkiprofMS_Click(object sender, EventArgs e)
+        private void kokkiruoatMS_Click(object sender, EventArgs e)
         {
-            KokkiProfiilinMuokkaus kokkiprof = new KokkiProfiilinMuokkaus();
-            kokkiprof.FormClosing += f1_FormClosing;
-            kokkiprof.Show();
+            KokkiRuoat kokkiruoka = new KokkiRuoat();
+            kokkiruoka.FormClosing += f1_FormClosing;
+            kokkiruoka.Show();
             this.Hide();
         }
 

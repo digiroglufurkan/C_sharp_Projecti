@@ -16,5 +16,28 @@ namespace Catering_Projectin
         {
             InitializeComponent();
         }
+
+        void f1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Rekisteroidy_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reketusivuMS_Click(object sender, EventArgs e)
+        {
+            Etusivu etusivu = new Etusivu();
+            etusivu.FormClosing += f1_FormClosing;
+            etusivu.Show();
+            this.Hide();
+        }
+
+        private void rekkirjauduMS_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
