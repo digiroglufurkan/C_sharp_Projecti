@@ -20,7 +20,6 @@ namespace Catering_Projectin
             DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
             adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
             adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
-                                 //adapter.Dispose();
             return table; // palautetaan DataTable 
         }
     }

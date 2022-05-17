@@ -46,7 +46,13 @@ namespace Catering_Projectin
             adTy.Show();
             this.Hide();
         }
-
+        private void KayttajatTSMI_Click(object sender, EventArgs e)
+        {
+            AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
+            adKaHa.FormClosing += formClosing;
+            adKaHa.Show();
+            this.Hide();
+        }
         private void SalasanojenHallintaTSMI_Click(object sender, EventArgs e)
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
@@ -87,6 +93,57 @@ namespace Catering_Projectin
             JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko();
             JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void AteriaSaatavuudetDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == VaraaCo.Index)
+                {
+                    VaMaaraCo.Visible = true;
+                    VahVarCo.Visible = true;
+                }
+                else if (e.ColumnIndex == VahVarCo.Index )
+                    try
+                    {
+                        int varMar = int.Parse(VaMaaraCo.ToString());
+                        MessageBox.Show($"{varMar}");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} v2");
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} v1");
+            }
+        }
+
+        private void JuomatDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void JuomatAlkoDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -38,6 +38,7 @@
             this.muokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vaihdaSalasanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kirjauduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.NavMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,10 +61,11 @@
             this.KotisivuTSMI,
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
+            this.KayttajatTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(320, 77);
+            this.NavMS.Location = new System.Drawing.Point(208, 76);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(680, 39);
+            this.NavMS.Size = new System.Drawing.Size(923, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -127,6 +129,13 @@
             this.kirjauduUlosToolStripMenuItem.Text = "Kirjaudu ulos";
             this.kirjauduUlosToolStripMenuItem.Click += new System.EventHandler(this.kirjauduUlosToolStripMenuItem_Click);
             // 
+            // KayttajatTSMI
+            // 
+            this.KayttajatTSMI.Name = "KayttajatTSMI";
+            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
+            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
+            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
+            // 
             // AdminMuokkaaProfiilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -156,5 +165,6 @@
         private ToolStripMenuItem muokkaaProfiiliaToolStripMenuItem;
         private ToolStripMenuItem vaihdaSalasanaToolStripMenuItem;
         private ToolStripMenuItem kirjauduUlosToolStripMenuItem;
+        private ToolStripMenuItem KayttajatTSMI;
     }
 }

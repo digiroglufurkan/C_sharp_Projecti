@@ -40,6 +40,7 @@
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TyotilanneDGV = new System.Windows.Forms.DataGridView();
             this.AnnaTyoCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.NavMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).BeginInit();
             this.SuspendLayout();
@@ -63,10 +64,11 @@
             this.KotisivuTSMI,
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
+            this.KayttajatTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(271, 83);
+            this.NavMS.Location = new System.Drawing.Point(192, 77);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(530, 39);
+            this.NavMS.Size = new System.Drawing.Size(923, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -149,6 +151,13 @@
             this.AnnaTyoCo.Name = "AnnaTyoCo";
             this.AnnaTyoCo.Width = 125;
             // 
+            // KayttajatTSMI
+            // 
+            this.KayttajatTSMI.Name = "KayttajatTSMI";
+            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
+            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
+            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
+            // 
             // AdminTyotilanne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -183,5 +192,6 @@
         private ToolStripMenuItem KirjauduUlosTSMI;
         private DataGridView TyotilanneDGV;
         private DataGridViewButtonColumn AnnaTyoCo;
+        private ToolStripMenuItem KayttajatTSMI;
     }
 }

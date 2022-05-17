@@ -1,6 +1,6 @@
 ﻿namespace Catering_Projectin
 {
-    partial class AdminKotisivu
+    partial class AdminKayttajaHallinta
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.KaytHallintaDGV = new System.Windows.Forms.DataGridView();
             this.OtsikkoLB = new System.Windows.Forms.Label();
             this.NavMS = new System.Windows.Forms.MenuStrip();
             this.KotisivuTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.SaatavuudetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TyotilanneTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.KayttajaHallintaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.TilauksetDGV = new System.Windows.Forms.DataGridView();
-            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.PoistaCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LiAdminCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PoAdminCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.KaytHallintaDGV)).BeginInit();
             this.NavMS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).BeginInit();
             this.SuspendLayout();
+            // 
+            // KaytHallintaDGV
+            // 
+            this.KaytHallintaDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.KaytHallintaDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PoistaCo,
+            this.LiAdminCo,
+            this.PoAdminCo});
+            this.KaytHallintaDGV.Location = new System.Drawing.Point(294, 173);
+            this.KaytHallintaDGV.Name = "KaytHallintaDGV";
+            this.KaytHallintaDGV.RowHeadersWidth = 51;
+            this.KaytHallintaDGV.RowTemplate.Height = 29;
+            this.KaytHallintaDGV.Size = new System.Drawing.Size(586, 271);
+            this.KaytHallintaDGV.TabIndex = 0;
+            this.KaytHallintaDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KaytHallintaDGV_CellContentClick);
             // 
             // OtsikkoLB
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(454, -1);
+            this.OtsikkoLB.Location = new System.Drawing.Point(375, 0);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(189, 62);
-            this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Kotisivu";
+            this.OtsikkoLB.Size = new System.Drawing.Size(457, 62);
+            this.OtsikkoLB.TabIndex = 1;
+            this.OtsikkoLB.Text = "Käyttäjätilien hallinta";
             // 
             // NavMS
             // 
@@ -63,12 +81,12 @@
             this.KotisivuTSMI,
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
-            this.KayttajatTSMI,
+            this.KayttajaHallintaTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(156, 75);
+            this.NavMS.Location = new System.Drawing.Point(193, 76);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(923, 39);
-            this.NavMS.TabIndex = 1;
+            this.NavMS.Size = new System.Drawing.Size(773, 39);
+            this.NavMS.TabIndex = 2;
             this.NavMS.Text = "menuStrip1";
             // 
             // KotisivuTSMI
@@ -91,6 +109,13 @@
             this.TyotilanneTSMI.Size = new System.Drawing.Size(133, 35);
             this.TyotilanneTSMI.Text = "Työtilanne";
             this.TyotilanneTSMI.Click += new System.EventHandler(this.TyotilanneTSMI_Click);
+            // 
+            // KayttajaHallintaTSMI
+            // 
+            this.KayttajaHallintaTSMI.Name = "KayttajaHallintaTSMI";
+            this.KayttajaHallintaTSMI.Size = new System.Drawing.Size(243, 35);
+            this.KayttajaHallintaTSMI.Text = "Käyttäjätilien hallinta";
+            this.KayttajaHallintaTSMI.Click += new System.EventHandler(this.KayttajaHallintaTSMI_Click);
             // 
             // AsetuksetTSMI
             // 
@@ -131,38 +156,42 @@
             this.KirjauduUlosTSMI.Text = "Kirjaudu ulos";
             this.KirjauduUlosTSMI.Click += new System.EventHandler(this.KirjauduUlosTSMI_Click);
             // 
-            // TilauksetDGV
+            // PoistaCo
             // 
-            this.TilauksetDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TilauksetDGV.Location = new System.Drawing.Point(292, 186);
-            this.TilauksetDGV.Name = "TilauksetDGV";
-            this.TilauksetDGV.RowHeadersWidth = 51;
-            this.TilauksetDGV.RowTemplate.Height = 29;
-            this.TilauksetDGV.Size = new System.Drawing.Size(513, 297);
-            this.TilauksetDGV.TabIndex = 2;
+            this.PoistaCo.HeaderText = "Poista";
+            this.PoistaCo.MinimumWidth = 6;
+            this.PoistaCo.Name = "PoistaCo";
+            this.PoistaCo.Width = 125;
             // 
-            // KayttajatTSMI
+            // LiAdminCo
             // 
-            this.KayttajatTSMI.Name = "KayttajatTSMI";
-            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
-            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
-            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
+            this.LiAdminCo.HeaderText = "Lisää admin";
+            this.LiAdminCo.MinimumWidth = 6;
+            this.LiAdminCo.Name = "LiAdminCo";
+            this.LiAdminCo.Width = 125;
             // 
-            // AdminKotisivu
+            // PoAdminCo
+            // 
+            this.PoAdminCo.HeaderText = "Poista admin";
+            this.PoAdminCo.MinimumWidth = 6;
+            this.PoAdminCo.Name = "PoAdminCo";
+            this.PoAdminCo.Width = 125;
+            // 
+            // AdminKayttajaHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 538);
-            this.Controls.Add(this.TilauksetDGV);
+            this.ClientSize = new System.Drawing.Size(1165, 546);
             this.Controls.Add(this.OtsikkoLB);
+            this.Controls.Add(this.KaytHallintaDGV);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
-            this.Name = "AdminKotisivu";
-            this.Text = "Admin kotisivu";
-            this.Load += new System.EventHandler(this.AdminKotisivu_Load);
+            this.Name = "AdminKayttajaHallinta";
+            this.Text = "Käyttajätilien hallinta";
+            this.Load += new System.EventHandler(this.AdminKayttajaHallinta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.KaytHallintaDGV)).EndInit();
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,17 +199,20 @@
 
         #endregion
 
+        private DataGridView KaytHallintaDGV;
         private Label OtsikkoLB;
         private MenuStrip NavMS;
         private ToolStripMenuItem KotisivuTSMI;
         private ToolStripMenuItem SaatavuudetTSMI;
         private ToolStripMenuItem TyotilanneTSMI;
+        private ToolStripMenuItem KayttajaHallintaTSMI;
         private ToolStripMenuItem AsetuksetTSMI;
         private ToolStripMenuItem SalasanojenHallintaTSMI;
         private ToolStripMenuItem MuokkaaProfiiliaTSMI;
         private ToolStripMenuItem VaihdaSalasanaTSMI;
         private ToolStripMenuItem KirjauduUlosTSMI;
-        private DataGridView TilauksetDGV;
-        private ToolStripMenuItem KayttajatTSMI;
+        private DataGridViewButtonColumn PoistaCo;
+        private DataGridViewButtonColumn LiAdminCo;
+        private DataGridViewButtonColumn PoAdminCo;
     }
 }
