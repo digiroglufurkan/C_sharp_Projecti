@@ -77,9 +77,9 @@
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OtsikkoLB.Location = new System.Drawing.Point(571, 0);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(183, 62);
+            this.OtsikkoLB.Size = new System.Drawing.Size(408, 62);
             this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Otsikko";
+            this.OtsikkoLB.Text = "Profiilin muokkaus";
             // 
             // menuStrip1
             // 
@@ -98,7 +98,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(9, 62);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1257, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1407, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 

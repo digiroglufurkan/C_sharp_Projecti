@@ -37,6 +37,7 @@
             this.YhteydenottojenHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MitaUuttaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TiedostonJakotoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.KeskustelupalstaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksettoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.LataaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PoistaColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TallennasaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.KeskustelupalstaHallintatoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NavmenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LaHallintadataGridView)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +57,9 @@
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OtsikkoLB.Location = new System.Drawing.Point(657, 0);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(183, 62);
+            this.OtsikkoLB.Size = new System.Drawing.Size(224, 62);
             this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Otsikko";
+            this.OtsikkoLB.Text = "Lataukset";
             // 
             // NavmenuStrip
             // 
@@ -78,7 +78,7 @@
             this.AsetuksettoolStripMenuItem});
             this.NavmenuStrip.Location = new System.Drawing.Point(9, 84);
             this.NavmenuStrip.Name = "NavmenuStrip";
-            this.NavmenuStrip.Size = new System.Drawing.Size(1573, 31);
+            this.NavmenuStrip.Size = new System.Drawing.Size(1423, 31);
             this.NavmenuStrip.TabIndex = 1;
             this.NavmenuStrip.Text = "menuStrip1";
             // 
@@ -130,6 +130,13 @@
             this.TiedostonJakotoolStripMenuItem.Size = new System.Drawing.Size(135, 27);
             this.TiedostonJakotoolStripMenuItem.Text = "Tiedoston jako";
             this.TiedostonJakotoolStripMenuItem.Click += new System.EventHandler(this.TiedostonJakotoolStripMenuItem_Click);
+            // 
+            // KeskustelupalstaHallintatoolStripMenuItem
+            // 
+            this.KeskustelupalstaHallintatoolStripMenuItem.Name = "KeskustelupalstaHallintatoolStripMenuItem";
+            this.KeskustelupalstaHallintatoolStripMenuItem.Size = new System.Drawing.Size(210, 27);
+            this.KeskustelupalstaHallintatoolStripMenuItem.Text = "Keskustelupalsta hallinta";
+            this.KeskustelupalstaHallintatoolStripMenuItem.Click += new System.EventHandler(this.KeskustelupalstaHallintatoolStripMenuItem_Click);
             // 
             // AsetuksettoolStripMenuItem
             // 
@@ -199,13 +206,6 @@
             this.PoistaColumn.Name = "PoistaColumn";
             this.PoistaColumn.Text = "Poista";
             this.PoistaColumn.Width = 125;
-            // 
-            // KeskustelupalstaHallintatoolStripMenuItem
-            // 
-            this.KeskustelupalstaHallintatoolStripMenuItem.Name = "KeskustelupalstaHallintatoolStripMenuItem";
-            this.KeskustelupalstaHallintatoolStripMenuItem.Size = new System.Drawing.Size(210, 27);
-            this.KeskustelupalstaHallintatoolStripMenuItem.Text = "Keskustelupalsta hallinta";
-            this.KeskustelupalstaHallintatoolStripMenuItem.Click += new System.EventHandler(this.KeskustelupalstaHallintatoolStripMenuItem_Click);
             // 
             // LatauksienHallinta
             // 

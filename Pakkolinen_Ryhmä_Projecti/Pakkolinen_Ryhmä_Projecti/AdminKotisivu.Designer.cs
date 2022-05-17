@@ -52,11 +52,12 @@
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(275, -1);
+            this.OtsikkoLB.Location = new System.Drawing.Point(557, -1);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(183, 62);
+            this.OtsikkoLB.Size = new System.Drawing.Size(189, 62);
             this.OtsikkoLB.TabIndex = 0;
-            this.OtsikkoLB.Text = "Otsikko";
+            this.OtsikkoLB.Text = "Kotisivu";
+            this.OtsikkoLB.Click += new System.EventHandler(this.OtsikkoLB_Click);
             // 
             // menuStrip1
             // 
