@@ -24,7 +24,7 @@ namespace Pakkolinen_Ryhmä_Projecti
     public partial class TiedostonJakoAdmin : Form
     {
         string uid; // Muuttuja käyttäjä tunnukselle
-        string fileType; // Muuttuja tiedosto tyypille
+        string fileType = ""; // Muuttuja tiedosto tyypille
         ADMINTIEDOSTOJENHALLINTA ad = new ADMINTIEDOSTOJENHALLINTA(); //muuttuja tietojenlähetys class:n
         Yhdista yh = new Yhdista(); // tietokanta yhteys class
         public TiedostonJakoAdmin()
