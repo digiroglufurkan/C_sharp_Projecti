@@ -39,6 +39,7 @@
             this.VaihdaSalasanaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TilauksetDGV = new System.Windows.Forms.DataGridView();
+            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.NavMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(444, -2);
+            this.OtsikkoLB.Location = new System.Drawing.Point(454, -1);
             this.OtsikkoLB.Name = "OtsikkoLB";
             this.OtsikkoLB.Size = new System.Drawing.Size(189, 62);
             this.OtsikkoLB.TabIndex = 0;
@@ -62,10 +63,11 @@
             this.KotisivuTSMI,
             this.SaatavuudetTSMI,
             this.TyotilanneTSMI,
+            this.KayttajatTSMI,
             this.AsetuksetTSMI});
-            this.NavMS.Location = new System.Drawing.Point(257, 77);
+            this.NavMS.Location = new System.Drawing.Point(156, 75);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(680, 39);
+            this.NavMS.Size = new System.Drawing.Size(923, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -139,17 +141,25 @@
             this.TilauksetDGV.Size = new System.Drawing.Size(513, 297);
             this.TilauksetDGV.TabIndex = 2;
             // 
+            // KayttajatTSMI
+            // 
+            this.KayttajatTSMI.Name = "KayttajatTSMI";
+            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
+            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
+            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
+            // 
             // AdminKotisivu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 521);
+            this.ClientSize = new System.Drawing.Size(1119, 538);
             this.Controls.Add(this.TilauksetDGV);
             this.Controls.Add(this.OtsikkoLB);
             this.Controls.Add(this.NavMS);
             this.MainMenuStrip = this.NavMS;
             this.Name = "AdminKotisivu";
             this.Text = "Admin kotisivu";
+            this.Load += new System.EventHandler(this.AdminKotisivu_Load);
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).EndInit();
@@ -171,5 +181,6 @@
         private ToolStripMenuItem VaihdaSalasanaTSMI;
         private ToolStripMenuItem KirjauduUlosTSMI;
         private DataGridView TilauksetDGV;
+        private ToolStripMenuItem KayttajatTSMI;
     }
 }

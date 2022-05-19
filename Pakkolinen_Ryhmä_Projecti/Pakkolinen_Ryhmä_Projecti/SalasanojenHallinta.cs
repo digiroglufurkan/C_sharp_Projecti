@@ -169,6 +169,11 @@ namespace Pakkolinen_Ryhmä_Projecti
             adKeHa.Show();
             this.Hide();
         }
+
+        private void SalasanojenHallinta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     /* KOODIVARASTO
      * string ktunnus;

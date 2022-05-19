@@ -26,17 +26,17 @@ namespace Pakkolinen_Ryhmä_Projecti
                 DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
                 adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
                 adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
-                adapter.Dispose();
+                //adapter.Dispose();
                 return table; // palautetaan DataTable 
-            }
+                }
             catch (Exception ex) // poimitaan virhe ja toiminta sen jälkeen
             {
-                MySqlCommand command = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA, MAARAAIKA FROM kayttajat", yh.otaYhteys());
-                MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
-                DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
-                adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tieto
-                adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
-                return table; // palautetaan DataTable
+                MySqlCommand command2 = new MySqlCommand("SELECT KAYTTAJA_TUNNUS, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSAITE, POSTINUMERO, TOIMIPAIKKA, TITTELI, SALASANA, MAARAAIKA, ADMIN FROM kayttajat", yh.otaYhteys());
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
+                DataTable table2 = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
+                adapter2.SelectCommand = command2; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tieto
+                adapter2.Fill(table2); // Adapterissa oleva tieto siirretään DataTableen
+                return table2; // palautetaan DataTable
             }
             
         }

@@ -13,7 +13,7 @@ namespace Pakkolinen_Ryhmä_Projecti
     {
         Yhdista yhteys = new Yhdista(); // yhteys
 
-        public bool palstaJuttu(string id, string kommentti)
+        public bool palstaJuttu(string kommentti, string id)//string kommentti, string idstring id, string kommentti
         {
             try
             {

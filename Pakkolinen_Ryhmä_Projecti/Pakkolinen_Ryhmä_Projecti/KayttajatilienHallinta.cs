@@ -93,6 +93,14 @@ namespace Pakkolinen_Ryhmä_Projecti
             DataGridViewImageColumn kuvat = new DataGridViewImageColumn();
             kuvat = (DataGridViewImageColumn)KayttajatDG.Columns[13];
             kuvat.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
 

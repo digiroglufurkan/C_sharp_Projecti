@@ -145,5 +145,10 @@ namespace Pakkolinen_Ryhmä_Projecti
             adKeHa.Show();
             this.Hide();
         }
+
+        private void OtsikkoLB_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

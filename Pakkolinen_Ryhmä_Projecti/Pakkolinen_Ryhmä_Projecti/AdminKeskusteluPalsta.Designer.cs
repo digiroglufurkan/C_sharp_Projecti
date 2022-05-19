@@ -170,9 +170,9 @@
             this.OtsikkoLB.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OtsikkoLB.Location = new System.Drawing.Point(552, 9);
             this.OtsikkoLB.Name = "OtsikkoLB";
-            this.OtsikkoLB.Size = new System.Drawing.Size(129, 45);
+            this.OtsikkoLB.Size = new System.Drawing.Size(260, 45);
             this.OtsikkoLB.TabIndex = 1;
-            this.OtsikkoLB.Text = "Otsikko";
+            this.OtsikkoLB.Text = "Keskustelupalsta";
             // 
             // PalstaDGW
             // 

@@ -44,7 +44,13 @@ namespace Catering_Projectin
             adTy.Show();
             this.Hide();
         }
-
+        private void KayttajatTSMI_Click(object sender, EventArgs e)
+        {
+            AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
+            adKaHa.FormClosing += formClosing;
+            adKaHa.Show();
+            this.Hide();
+        }
         private void salasanojenHallintaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
@@ -76,5 +82,7 @@ namespace Catering_Projectin
             etu.Show();
             this.Hide();
         }
+
+        
     }
 }
