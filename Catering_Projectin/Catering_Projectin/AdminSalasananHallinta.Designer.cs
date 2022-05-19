@@ -42,10 +42,10 @@
             this.KayTunLB = new System.Windows.Forms.Label();
             this.UusiSaSanaLB = new System.Windows.Forms.Label();
             this.UusiUudestaanLB = new System.Windows.Forms.Label();
-            this.S = new System.Windows.Forms.TextBox();
+            this.KaytTunTB = new System.Windows.Forms.TextBox();
             this.UusiSaSanaTB = new System.Windows.Forms.TextBox();
             this.UusiUdTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.VaihdaBT = new System.Windows.Forms.Button();
             this.NavMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,12 +170,12 @@
             this.UusiUudestaanLB.TabIndex = 4;
             this.UusiUudestaanLB.Text = "Salasana uudestaan";
             // 
-            // S
+            // KaytTunTB
             // 
-            this.S.Location = new System.Drawing.Point(692, 156);
-            this.S.Name = "S";
-            this.S.Size = new System.Drawing.Size(125, 27);
-            this.S.TabIndex = 5;
+            this.KaytTunTB.Location = new System.Drawing.Point(692, 156);
+            this.KaytTunTB.Name = "KaytTunTB";
+            this.KaytTunTB.Size = new System.Drawing.Size(125, 27);
+            this.KaytTunTB.TabIndex = 5;
             // 
             // UusiSaSanaTB
             // 
@@ -191,24 +191,25 @@
             this.UusiUdTB.Size = new System.Drawing.Size(125, 27);
             this.UusiUdTB.TabIndex = 7;
             // 
-            // button1
+            // VaihdaBT
             // 
-            this.button1.Location = new System.Drawing.Point(634, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.VaihdaBT.Location = new System.Drawing.Point(517, 375);
+            this.VaihdaBT.Name = "VaihdaBT";
+            this.VaihdaBT.Size = new System.Drawing.Size(130, 29);
+            this.VaihdaBT.TabIndex = 8;
+            this.VaihdaBT.Text = "Vaihda salasana";
+            this.VaihdaBT.UseVisualStyleBackColor = true;
+            this.VaihdaBT.Click += new System.EventHandler(this.VaihdaBT_Click);
             // 
             // AdminSalasananHallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1147, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.VaihdaBT);
             this.Controls.Add(this.UusiUdTB);
             this.Controls.Add(this.UusiSaSanaTB);
-            this.Controls.Add(this.S);
+            this.Controls.Add(this.KaytTunTB);
             this.Controls.Add(this.UusiUudestaanLB);
             this.Controls.Add(this.UusiSaSanaLB);
             this.Controls.Add(this.KayTunLB);
@@ -239,10 +240,10 @@
         private Label KayTunLB;
         private Label UusiSaSanaLB;
         private Label UusiUudestaanLB;
-        private TextBox S;
+        private TextBox KaytTunTB;
         private TextBox UusiSaSanaTB;
         private TextBox UusiUdTB;
         private ToolStripMenuItem KayttajaTSMI;
-        private Button button1;
+        private Button VaihdaBT;
     }
 }
