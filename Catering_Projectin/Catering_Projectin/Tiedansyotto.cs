@@ -15,28 +15,28 @@ namespace Catering_Projectin
 {
     internal class Tiedansyotto
     {
-        Yhdista yhdeys = new Yhdista();
+        Yhdista yhteys = new Yhdista();
 
-        public string lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB, String salasana)
+        public string uusiKayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB, String salasana)
         {
             String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
             String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
-            if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
+            if (kuvaa) 
             {
                 lisayskysely = "INSERT INTO `kayttajat`" +
                     "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`,`KUVA`)" +
                     "VALUES (@usr, @enm, @snm,  @eml, @puh, @osaite,@postinumero, @toimipaikka,@titteli, @ssa,@kuva); ";
             }
-            else //jos ei halua ladata tämän SQL kysely
+            else 
             {
                 lisayskysely = "INSERT INTO `kayttajat`" +
                      "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`)" +
                      "VALUES (@usr, @enm, @snm,  @eml, @puh, @osaite,@postinumero, @toimipaikka,@titteli, @ssa); ";
             }
             komento.CommandText = lisayskysely;
-            komento.Connection = yhdeys.otaYhteys();
+            komento.Connection = yhteys.otaYhteys();
             komento.Parameters.Add("@enm", MySqlDbType.VarChar).Value = enimi;
             komento.Parameters.Add("@snm", MySqlDbType.VarChar).Value = snimi;
             komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
@@ -54,15 +54,15 @@ namespace Catering_Projectin
             }
 
 
-            yhdeys.avaaYhteys();
+            yhteys.avaaYhteys();
             if (komento.ExecuteNonQuery() == 1)
             {
-                yhdeys.suljeYhteys();
+                yhteys.suljeYhteys();
                 return ktunnus;
             }
             else
             {
-                yhdeys.suljeYhteys();
+                yhteys.suljeYhteys();
                 return "";
             }
         }
@@ -125,27 +125,6 @@ namespace Catering_Projectin
                 }
             }
             return cipherText;
-        }
-
-        public bool lisaOtayhtayta(String email, String aihe, String teksti, String nimi)
-        {
-            MySqlCommand komento = new MySqlCommand();
-            String lisayskysely;
-            lisayskysely = "INSERT INTO `otayhteytta`( `Name`,`lahettaja_email`, `Aihe`, `Text`) VALUES(@nimi, @eml, @aihe, @text);";
-            komento.CommandText = lisayskysely;
-            komento.Connection = yhdeys.otaYhteys();
-            komento.Parameters.Add("@text", MySqlDbType.VarChar).Value = teksti;
-            komento.Parameters.Add("@aihe", MySqlDbType.VarChar).Value = aihe;
-            komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
-            komento.Parameters.Add("@nimi", MySqlDbType.VarChar).Value = nimi;
-            yhdeys.avaaYhteys();
-            if (komento.ExecuteNonQuery() == 1)
-            {
-                yhdeys.suljeYhteys();
-                return true;
-            }
-            yhdeys.suljeYhteys();
-            return false;
         }
 
     }

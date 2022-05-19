@@ -40,7 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.kokkietunimiTB = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@
             this.kokkipuhelinTB = new System.Windows.Forms.TextBox();
             this.kokkitoimipaikkaTB = new System.Windows.Forms.TextBox();
             this.kokkisukunimiTB = new System.Windows.Forms.TextBox();
-            this.kokkititteliTB = new System.Windows.Forms.TextBox();
             this.kokkiosoiteTB = new System.Windows.Forms.TextBox();
             this.kokkipostiTB = new System.Windows.Forms.TextBox();
             this.kokkimuokkaaprofiiliBT = new System.Windows.Forms.Button();
@@ -67,7 +65,7 @@
             this.kokkimuokkaaprofMS.Location = new System.Drawing.Point(22, 37);
             this.kokkimuokkaaprofMS.Name = "kokkimuokkaaprofMS";
             this.kokkimuokkaaprofMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokkimuokkaaprofMS.Size = new System.Drawing.Size(394, 33);
+            this.kokkimuokkaaprofMS.Size = new System.Drawing.Size(274, 33);
             this.kokkimuokkaaprofMS.TabIndex = 4;
             this.kokkimuokkaaprofMS.Text = "menuStrip1";
             // 
@@ -165,21 +163,11 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Postitoimipaikka:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(501, 239);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Titteli:";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(494, 296);
+            this.label6.Location = new System.Drawing.Point(494, 243);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 21);
             this.label6.TabIndex = 12;
@@ -189,7 +177,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(451, 359);
+            this.label7.Location = new System.Drawing.Point(451, 302);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 21);
             this.label7.TabIndex = 13;
@@ -230,23 +218,16 @@
             this.kokkisukunimiTB.Size = new System.Drawing.Size(173, 23);
             this.kokkisukunimiTB.TabIndex = 20;
             // 
-            // kokkititteliTB
-            // 
-            this.kokkititteliTB.Location = new System.Drawing.Point(558, 241);
-            this.kokkititteliTB.Name = "kokkititteliTB";
-            this.kokkititteliTB.Size = new System.Drawing.Size(173, 23);
-            this.kokkititteliTB.TabIndex = 21;
-            // 
             // kokkiosoiteTB
             // 
-            this.kokkiosoiteTB.Location = new System.Drawing.Point(558, 294);
+            this.kokkiosoiteTB.Location = new System.Drawing.Point(558, 241);
             this.kokkiosoiteTB.Name = "kokkiosoiteTB";
             this.kokkiosoiteTB.Size = new System.Drawing.Size(173, 23);
             this.kokkiosoiteTB.TabIndex = 22;
             // 
             // kokkipostiTB
             // 
-            this.kokkipostiTB.Location = new System.Drawing.Point(558, 357);
+            this.kokkipostiTB.Location = new System.Drawing.Point(558, 300);
             this.kokkipostiTB.Name = "kokkipostiTB";
             this.kokkipostiTB.Size = new System.Drawing.Size(173, 23);
             this.kokkipostiTB.TabIndex = 23;
@@ -259,6 +240,7 @@
             this.kokkimuokkaaprofiiliBT.TabIndex = 26;
             this.kokkimuokkaaprofiiliBT.Text = "Vahvista muutokset!";
             this.kokkimuokkaaprofiiliBT.UseVisualStyleBackColor = true;
+            this.kokkimuokkaaprofiiliBT.Click += new System.EventHandler(this.kokkimuokkaaprofiiliBT_Click);
             // 
             // KokkiProfiilinMuokkaus
             // 
@@ -268,7 +250,6 @@
             this.Controls.Add(this.kokkimuokkaaprofiiliBT);
             this.Controls.Add(this.kokkipostiTB);
             this.Controls.Add(this.kokkiosoiteTB);
-            this.Controls.Add(this.kokkititteliTB);
             this.Controls.Add(this.kokkisukunimiTB);
             this.Controls.Add(this.kokkitoimipaikkaTB);
             this.Controls.Add(this.kokkipuhelinTB);
@@ -276,7 +257,6 @@
             this.Controls.Add(this.kokkietunimiTB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -285,6 +265,7 @@
             this.Controls.Add(this.kokkimuokkaaprofMS);
             this.Name = "KokkiProfiilinMuokkaus";
             this.Text = "KokkiProfiilinMuokkaus";
+            this.Load += new System.EventHandler(this.KokkiProfiilinMuokkaus_Load);
             this.kokkimuokkaaprofMS.ResumeLayout(false);
             this.kokkimuokkaaprofMS.PerformLayout();
             this.ResumeLayout(false);
@@ -306,7 +287,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
         private Label label7;
         private TextBox kokkietunimiTB;
@@ -314,7 +294,6 @@
         private TextBox kokkipuhelinTB;
         private TextBox kokkitoimipaikkaTB;
         private TextBox kokkisukunimiTB;
-        private TextBox kokkititteliTB;
         private TextBox kokkiosoiteTB;
         private TextBox kokkipostiTB;
         private Button kokkimuokkaaprofiiliBT;

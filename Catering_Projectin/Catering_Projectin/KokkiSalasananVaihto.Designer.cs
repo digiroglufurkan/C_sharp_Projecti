@@ -55,7 +55,7 @@
             this.kokkisalisvaihtoMS.Location = new System.Drawing.Point(20, 35);
             this.kokkisalisvaihtoMS.Name = "kokkisalisvaihtoMS";
             this.kokkisalisvaihtoMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokkisalisvaihtoMS.Size = new System.Drawing.Size(394, 33);
+            this.kokkisalisvaihtoMS.Size = new System.Drawing.Size(274, 33);
             this.kokkisalisvaihtoMS.TabIndex = 4;
             this.kokkisalisvaihtoMS.Text = "menuStrip1";
             // 
@@ -145,6 +145,7 @@
             this.kokkisalisBT.TabIndex = 9;
             this.kokkisalisBT.Text = "Vahvista!";
             this.kokkisalisBT.UseVisualStyleBackColor = true;
+            this.kokkisalisBT.Click += new System.EventHandler(this.kokkisalisBT_Click);
             // 
             // KokkiSalasananVaihto
             // 

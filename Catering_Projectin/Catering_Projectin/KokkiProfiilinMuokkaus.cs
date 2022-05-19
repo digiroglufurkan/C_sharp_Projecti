@@ -1,4 +1,6 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace Catering_Projectin
 {
     public partial class KokkiProfiilinMuokkaus : Form
     {
+        KokkiProfMuokkaus kproffa = new KokkiProfMuokkaus();
+        Yhdista yhteys = new Yhdista();
+        string tunnus;
         public KokkiProfiilinMuokkaus()
         {
             InitializeComponent();
+            //tunnus = Kirjaudu.ktun; kommentoitu pois, koska ei toimi vielä ja roolipuuttuu myös salis vaihto
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,6 +58,79 @@ namespace Catering_Projectin
             kokkiulos.FormClosing += f1_FormClosing;
             kokkiulos.Show();
             this.Hide();
+        }
+
+        private void kokkimuokkaaprofiiliBT_Click(object sender, EventArgs e)
+        {
+            /* try
+             {
+                 string etunimi = kokkietunimiTB.Text;
+                 string sukunimi = kokkisukunimiTB.Text;
+                 string email = kokkiemailTB.Text;
+                 string puhelin = kokkipuhelinTB.Text;
+                 string osoite = kokkiosoiteTB.Text;
+                 string toimi = kokkitoimipaikkaTB.Text;
+                 string posti = kokkipostiTB.Text;
+                 if (etunimi.Equals("") || sukunimi.Equals("") || email.Equals("") || puhelin.Equals("") || osoite.Equals("") || toimi.Equals("") ||
+                   posti.Equals(""))
+                 {
+                     MessageBox.Show($"Tarkista tekstikentät!");
+                 }
+                 else
+                 {
+                     bool muokkaa = kproffa.muokkaaKokkiProffa(etunimi, sukunimi, email, puhelin, osoite, toimi, posti, tunnus);
+                     if (muokkaa == true)
+                     {
+                         MessageBox.Show("Päivitys onnistui!");
+                         kokkietunimiTB.Text = "";
+                         kokkisukunimiTB.Text = "";
+                         kokkiemailTB.Text = "";
+                         kokkipuhelinTB.Text = "";
+                         kokkiosoiteTB.Text = "";
+                         kokkitoimipaikkaTB.Text = "";
+                         kokkipostiTB.Text = "";
+                     }
+                     else
+                     {
+                         MessageBox.Show("Päivitys ei onnistunut.");
+                     }
+                 }
+             }
+             catch (Exception ex) // Poimitaan virhe ja näytetään se
+             {
+                 MessageBox.Show($"{ex} v1");
+             }*/
+        }
+
+        private void KokkiProfiilinMuokkaus_Load(object sender, EventArgs e)
+        {
+            /*try
+            {
+
+                MySqlCommand command1 = new MySqlCommand("SELECT KayttajaTunnus, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSOITE, POSTINUMERO, POSTITOIMIPAIKKA FROM kayttajat WHERE KayttajaTunnus = @ktun", yhteys.otaYhteys());
+                command1.Parameters.AddWithValue("@ktun", tunnus);
+                yhteys.avaaYhteys();
+                MySqlDataReader reader1 = command1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    this.kokkietunimiTB.Text = (reader1["ETUNIMI"].ToString());
+                    this.kokkisukunimiTB.Text = (reader1["SUKUNIMI"].ToString());
+                    this.kokkiemailTB.Text = (reader1["EMAIL"].ToString());
+                    this.kokkipuhelinTB.Text = (reader1["PUHELIN"].ToString());
+                    this.kokkiosoiteTB.Text = (reader1["OSOITE"].ToString());
+                    this.kokkipostiTB.Text = (reader1["POSTINUMERO"].ToString());
+                    this.kokkitoimipaikkaTB.Text = (reader1["POSTITOIMIPAIKKA"].ToString());
+                    reader1.Close();
+                    break;
+                }
+
+                yhteys.suljeYhteys();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex} v1");
+            }
+        }*/
         }
     }
 }

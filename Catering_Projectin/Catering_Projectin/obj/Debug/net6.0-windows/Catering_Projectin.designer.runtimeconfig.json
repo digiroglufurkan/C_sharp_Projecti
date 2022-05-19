@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\asus\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\asus\\.nuget\\packages"
+      "C:\\Users\\prett\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\prett\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
