@@ -45,7 +45,7 @@
             // 
             this.OtsikkoLB.AutoSize = true;
             this.OtsikkoLB.Font = new System.Drawing.Font("Bell MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtsikkoLB.Location = new System.Drawing.Point(404, 0);
+            this.OtsikkoLB.Location = new System.Drawing.Point(398, 35);
             this.OtsikkoLB.Name = "OtsikkoLB";
             this.OtsikkoLB.Size = new System.Drawing.Size(307, 46);
             this.OtsikkoLB.TabIndex = 0;
