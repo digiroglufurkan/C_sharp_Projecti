@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// author@ Antti Kuusisto
+/// version 18.5.2022
+/// <summary>
+/// Saatavuudet päivittyvät taulukoihin. Ateriat voi varata tilauksen voisi ehkä poistaa. Juomat voi olla tuollaiset.
+/// Juomat alko vielä tehtävä.
+/// </summary>
 namespace Catering_Projectin
 {
     public partial class AdminSaatavuudet : Form
     {
+        // muuttuja Class:lle, jossa kommunikoidaan tietokannan kanssa
         ADMINSAATAVUUDETHALLINTA adSaHa = new ADMINSAATAVUUDETHALLINTA();
         public AdminSaatavuudet()
         {
@@ -85,30 +91,69 @@ namespace Catering_Projectin
             this.Hide();
         }
 
+        // toiminta, kun sivu latautuu
         private void AdminSaatavuudet_Load(object sender, EventArgs e)
         {
-            AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat();
+            AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat(); //Aterioiden saatavuudet datagridvievw:n
             AteriaSaatavuudetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
-            JuomatDGV.DataSource = adSaHa.haeJuomat();
-            JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko();
-            JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            // Mahdollistetaan riviltä tiedonluku
+            AteriaSaatavuudetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            JuomatDGV.DataSource = adSaHa.haeJuomat(); //Juomien saatavuudet datagridvievw:n
+            JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
+            // Mahdollistetaan riviltä tiedonluku
+            JuomatDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko(); //Viinojen saatavuudet datagridvievw:n
+            JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
+            // Mahdollistetaan riviltä tiedonluku
+            JuomatAlkoDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
+        // toiminta, kun klikataan datagridvievw:ta
         private void AteriaSaatavuudetDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
+            {   // mikäli painetaan varaa - button:a
                 if (e.ColumnIndex == VaraaCo.Index)
                 {
-                    VaMaaraCo.Visible = true;
-                    VahVarCo.Visible = true;
+                    VaMaaraCo.Visible = true; // varaus määrä TB näkyviin
+                    VahVarCo.Visible = true; // vahvistus BT näkyviin
                 }
+                // mikäli painetaan varauksen vahvistusta
                 else if (e.ColumnIndex == VahVarCo.Index )
                     try
                     {
-                        int varMar = int.Parse(VaMaaraCo.ToString());
-                        MessageBox.Show($"{varMar}");
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = AteriaSaatavuudetDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty varattava määrä
+                        if (row.Cells[1].Value != null)
+                        {
+                            // varausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[1].Value.ToString());
+                            //AteriaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool varaus = adSaHa.varaaAteria(varMar, id);
+                            // mikäli varaus onnistui
+                            if(varaus == true)
+                            {
+                                // DGV:n päivitys
+                                AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat();
+                                // Varausmäärä TB piiloon
+                                VaMaaraCo.Visible = false;
+                                // Vahvista varaus BT piiloon
+                                VahVarCo.Visible = false;
+                            }
+                            else // viesti, että varaus ei onnistunut
+                            {
+                                MessageBox.Show($"Aterioiden varaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu varattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt varaus määrää!");
+                        }
 
                     }
                     catch (Exception ex)
@@ -122,18 +167,112 @@ namespace Catering_Projectin
             }
         }
 
+        // toiminta, kun klikataan datagridvievw:ta
         private void JuomatDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+                // mikäli painetaan varaa - button:a
+                if (e.ColumnIndex == VaraaJuCo.Index)
+                {
+                    VaJuMaaraCo.Visible = true; // varaus määrä TB näkyviin
+                    VahJuVa.Visible = true; // vahvistus BT näkyviin
+                }
+                // mikäli painetaan varauksen vahvistusta
+                else if (e.ColumnIndex == VahJuVa.Index)
+                    try
+                    {
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = JuomatDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty varattava määrä
+                        if (row.Cells[1].Value != null)
+                        {
+                            // varausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[1].Value.ToString());
+                            //JuomaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool varaus = adSaHa.varaaJuoma(varMar, id);
+                            // mikäli varaus onnistui
+                            if (varaus == true)
+                            {
+                                // DGV:n päivitys
+                                JuomatDGV.DataSource = adSaHa.haeJuomat();
+                                VaJuMaaraCo.Visible = false; // Varausmäärä TB piiloon
+                                VahJuVa.Visible = false; // Vahvista varaus BT piiloon
+                            }
+                            else // viesti, että varaus ei onnistunut
+                            {
+                                MessageBox.Show($"Juomien varaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu varattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt varaus määrää!");
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} v2");
+                    }
+                // mikäli painetaan tilaa - button:a
+                else if (e.ColumnIndex == TilaaLiJuCo.Index)
+                {
+                    MaTilaaJuCo.Visible = true; // tilaus määrä TB näkyviin
+                    VahTiJuCo.Visible = true; // vahvistus BT näkyviin
+                }
+                // mikäli painetaan tilauksen vahvistusta
+                else if (e.ColumnIndex == VahTiJuCo.Index)
+                {
+                    try
+                    {
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = JuomatDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty tilattava määrä
+                        if (row.Cells[4].Value != null)
+                        {
+                            // tilausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[4].Value.ToString());
+                            //JuomaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool tilaus = adSaHa.tilaaJuoma(varMar, id);
+                            // mikäli tilaus onnistui
+                            if (tilaus == true)
+                            {
+                                // DGV:n päivitys
+                                JuomatDGV.DataSource = adSaHa.haeJuomat();
+                                MaTilaaJuCo.Visible = false; // tilausmäärä TB piiloon
+                                VahTiJuCo.Visible = false; // Vahvista tilaus BT piiloon
+                            }
+                            else // viesti, että tilaus ei onnistunut
+                            {
+                                MessageBox.Show($"Juomien tilaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu tilattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt tilaus määrää!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} juomat");
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"{ex.Message} v1");
             }
         }
 
+        // toiminta, kun klikataan datagridvievw:ta
         private void JuomatAlkoDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

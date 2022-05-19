@@ -87,7 +87,7 @@ namespace Catering_Projectin
 
         private void AdminTyotilanne_Load(object sender, EventArgs e)
         {
-            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();
+            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
             TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
 
