@@ -12,9 +12,12 @@ namespace Catering_Projectin
 {
     public partial class KokkiSalasananVaihto : Form
     {
+        KokkiSalVaihto kokkisal = new KokkiSalVaihto();
+        string tunnus;
         public KokkiSalasananVaihto()
         {
             InitializeComponent();
+            //tunnus = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,5 +56,42 @@ namespace Catering_Projectin
             kokkiulos.Show();
             this.Hide();
         }
+
+        private void kokkisalisBT_Click(object sender, EventArgs e)
+        {
+            string uusiSalisYksi, uusiSalisKaksi;
+            try
+            {
+                uusiSalisYksi = kokkisalis1TB.Text;
+                uusiSalisKaksi = kokkisalis2TB.Text;
+                if (uusiSalisYksi.Equals("") || uusiSalisKaksi.Equals(""))
+                {
+                    MessageBox.Show("Tarkista kentät!");
+                }
+                else if (uusiSalisYksi != uusiSalisKaksi)
+                {
+                    MessageBox.Show("Uudet salasanat eivät täsmää!");
+                }
+                else
+                {
+                    bool vaihto = kokkisal.vaihdaKokinSalis(tunnus, uusiSalisYksi);
+                    if (vaihto == true)
+                    {
+                        MessageBox.Show("Salasanan vaihto onnistui! :)");
+                        kokkisalis1TB.Text = "";
+                        kokkisalis2TB.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Salasanaa ei vaihdettu!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        }
     }
-}
+

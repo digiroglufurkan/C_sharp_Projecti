@@ -54,6 +54,10 @@
             this.rekpostiTB = new System.Windows.Forms.TextBox();
             this.icaoTB = new System.Windows.Forms.TextBox();
             this.rekisteroidyBT = new System.Windows.Forms.Button();
+            this.rekSalis1LB = new System.Windows.Forms.Label();
+            this.rekSalis2LB = new System.Windows.Forms.Label();
+            this.rekSalis1TB = new System.Windows.Forms.TextBox();
+            this.rekSalis2TB = new System.Windows.Forms.TextBox();
             this.rekMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@
             this.rekMS.Location = new System.Drawing.Point(331, 74);
             this.rekMS.Name = "rekMS";
             this.rekMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.rekMS.Size = new System.Drawing.Size(431, 33);
+            this.rekMS.Size = new System.Drawing.Size(311, 33);
             this.rekMS.TabIndex = 2;
             this.rekMS.Text = "menuStrip1";
             // 
@@ -107,7 +111,7 @@
             // 
             this.reklentoLB.AutoSize = true;
             this.reklentoLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.reklentoLB.Location = new System.Drawing.Point(187, 169);
+            this.reklentoLB.Location = new System.Drawing.Point(150, 171);
             this.reklentoLB.Name = "reklentoLB";
             this.reklentoLB.Size = new System.Drawing.Size(87, 21);
             this.reklentoLB.TabIndex = 4;
@@ -127,7 +131,7 @@
             // 
             this.reketunimiLB.AutoSize = true;
             this.reketunimiLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.reketunimiLB.Location = new System.Drawing.Point(208, 223);
+            this.reketunimiLB.Location = new System.Drawing.Point(171, 223);
             this.reketunimiLB.Name = "reketunimiLB";
             this.reketunimiLB.Size = new System.Drawing.Size(66, 21);
             this.reketunimiLB.TabIndex = 6;
@@ -137,7 +141,7 @@
             // 
             this.rekemailLB.AutoSize = true;
             this.rekemailLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rekemailLB.Location = new System.Drawing.Point(184, 273);
+            this.rekemailLB.Location = new System.Drawing.Point(147, 279);
             this.rekemailLB.Name = "rekemailLB";
             this.rekemailLB.Size = new System.Drawing.Size(90, 21);
             this.rekemailLB.TabIndex = 7;
@@ -147,7 +151,7 @@
             // 
             this.rekosoiteLB.AutoSize = true;
             this.rekosoiteLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rekosoiteLB.Location = new System.Drawing.Point(216, 327);
+            this.rekosoiteLB.Location = new System.Drawing.Point(176, 325);
             this.rekosoiteLB.Name = "rekosoiteLB";
             this.rekosoiteLB.Size = new System.Drawing.Size(58, 21);
             this.rekosoiteLB.TabIndex = 8;
@@ -197,7 +201,7 @@
             // 
             this.rektoimiLB.AutoSize = true;
             this.rektoimiLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rektoimiLB.Location = new System.Drawing.Point(147, 375);
+            this.rektoimiLB.Location = new System.Drawing.Point(107, 375);
             this.rektoimiLB.Name = "rektoimiLB";
             this.rektoimiLB.Size = new System.Drawing.Size(127, 21);
             this.rektoimiLB.TabIndex = 14;
@@ -205,35 +209,35 @@
             // 
             // reklentoTB
             // 
-            this.reklentoTB.Location = new System.Drawing.Point(280, 167);
+            this.reklentoTB.Location = new System.Drawing.Point(240, 171);
             this.reklentoTB.Name = "reklentoTB";
             this.reklentoTB.Size = new System.Drawing.Size(173, 23);
             this.reklentoTB.TabIndex = 15;
             // 
             // reketuTB
             // 
-            this.reketuTB.Location = new System.Drawing.Point(280, 221);
+            this.reketuTB.Location = new System.Drawing.Point(240, 221);
             this.reketuTB.Name = "reketuTB";
             this.reketuTB.Size = new System.Drawing.Size(173, 23);
             this.reketuTB.TabIndex = 16;
             // 
             // rekemailTB
             // 
-            this.rekemailTB.Location = new System.Drawing.Point(280, 273);
+            this.rekemailTB.Location = new System.Drawing.Point(240, 277);
             this.rekemailTB.Name = "rekemailTB";
             this.rekemailTB.Size = new System.Drawing.Size(173, 23);
             this.rekemailTB.TabIndex = 17;
             // 
             // rekosoiteTB
             // 
-            this.rekosoiteTB.Location = new System.Drawing.Point(280, 325);
+            this.rekosoiteTB.Location = new System.Drawing.Point(240, 323);
             this.rekosoiteTB.Name = "rekosoiteTB";
             this.rekosoiteTB.Size = new System.Drawing.Size(173, 23);
             this.rekosoiteTB.TabIndex = 18;
             // 
             // rektoimiTB
             // 
-            this.rektoimiTB.Location = new System.Drawing.Point(280, 373);
+            this.rektoimiTB.Location = new System.Drawing.Point(240, 373);
             this.rektoimiTB.Name = "rektoimiTB";
             this.rektoimiTB.Size = new System.Drawing.Size(173, 23);
             this.rektoimiTB.TabIndex = 19;
@@ -275,18 +279,57 @@
             // 
             // rekisteroidyBT
             // 
-            this.rekisteroidyBT.Location = new System.Drawing.Point(434, 445);
+            this.rekisteroidyBT.Location = new System.Drawing.Point(405, 481);
             this.rekisteroidyBT.Name = "rekisteroidyBT";
             this.rekisteroidyBT.Size = new System.Drawing.Size(149, 32);
             this.rekisteroidyBT.TabIndex = 25;
             this.rekisteroidyBT.Text = "Rekisteröidy!";
             this.rekisteroidyBT.UseVisualStyleBackColor = true;
+            this.rekisteroidyBT.Click += new System.EventHandler(this.rekisteroidyBT_Click);
+            // 
+            // rekSalis1LB
+            // 
+            this.rekSalis1LB.AutoSize = true;
+            this.rekSalis1LB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rekSalis1LB.Location = new System.Drawing.Point(160, 420);
+            this.rekSalis1LB.Name = "rekSalis1LB";
+            this.rekSalis1LB.Size = new System.Drawing.Size(74, 21);
+            this.rekSalis1LB.TabIndex = 26;
+            this.rekSalis1LB.Text = "Salasana:";
+            // 
+            // rekSalis2LB
+            // 
+            this.rekSalis2LB.AutoSize = true;
+            this.rekSalis2LB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rekSalis2LB.Location = new System.Drawing.Point(449, 420);
+            this.rekSalis2LB.Name = "rekSalis2LB";
+            this.rekSalis2LB.Size = new System.Drawing.Size(134, 21);
+            this.rekSalis2LB.TabIndex = 27;
+            this.rekSalis2LB.Text = "Vahvista salasana:";
+            // 
+            // rekSalis1TB
+            // 
+            this.rekSalis1TB.Location = new System.Drawing.Point(240, 418);
+            this.rekSalis1TB.Name = "rekSalis1TB";
+            this.rekSalis1TB.Size = new System.Drawing.Size(173, 23);
+            this.rekSalis1TB.TabIndex = 28;
+            // 
+            // rekSalis2TB
+            // 
+            this.rekSalis2TB.Location = new System.Drawing.Point(589, 422);
+            this.rekSalis2TB.Name = "rekSalis2TB";
+            this.rekSalis2TB.Size = new System.Drawing.Size(173, 23);
+            this.rekSalis2TB.TabIndex = 29;
             // 
             // Rekisteroidy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 535);
+            this.Controls.Add(this.rekSalis2TB);
+            this.Controls.Add(this.rekSalis1TB);
+            this.Controls.Add(this.rekSalis2LB);
+            this.Controls.Add(this.rekSalis1LB);
             this.Controls.Add(this.rekisteroidyBT);
             this.Controls.Add(this.icaoTB);
             this.Controls.Add(this.rekpostiTB);
@@ -348,5 +391,9 @@
         private TextBox rekpostiTB;
         private TextBox icaoTB;
         private Button rekisteroidyBT;
+        private Label rekSalis1LB;
+        private Label rekSalis2LB;
+        private TextBox rekSalis1TB;
+        private TextBox rekSalis2TB;
     }
 }
