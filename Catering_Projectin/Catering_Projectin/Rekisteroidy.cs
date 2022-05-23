@@ -42,28 +42,6 @@ namespace Catering_Projectin
 
         private void rekisteroidyBT_Click(object sender, EventArgs e)
         {
-            /* string lentoyhtio = reklentoTB.Text;
-             string titteli = rektitteliTB.Text;
-             string etunimi = reketuTB.Text;
-             string sukunimi = reksukunimiTB.Text;  
-             string email = rekemailTB.Text;
-             string puhelin = rekpuhelinTB.Text;
-             string osoite = rekosoiteTB.Text;
-             string posti = rekpostiTB.Text;
-             string toimi = rektoimiTB.Text;
-             string icao = icaoTB.Text;
-             if (etunimi.Equals("") || sukunimi.Equals("") || email.Equals("") || puhelin.Equals("") || osoite.Equals("") || posti.Equals("") || toimi.Equals("") || titteli.Equals(""))
-             {
-                 MessageBox.Show("Tarkista kentät!");
-             }
-             else if (lentoyhtio.Equals("") || icao.Equals(""))
-             {
-                 MessageBox.Show("Haluat siis rekisteröityä työntekijäksi?");
-             }
-             else
-             {
-                 MessageBox.Show("Haluat siis rekisteröityä käyttäjäksi?");
-             }*/
         }
     }
 }

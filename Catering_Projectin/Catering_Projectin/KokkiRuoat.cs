@@ -12,6 +12,7 @@ namespace Catering_Projectin
 {
     public partial class KokkiRuoat : Form
     {
+        KokinVarasto varasto = new KokinVarasto();
         public KokkiRuoat()
         {
             InitializeComponent();
@@ -52,6 +53,19 @@ namespace Catering_Projectin
             kokkiulos.FormClosing += f1_FormClosing;
             kokkiulos.Show();
             this.Hide();
+        }
+
+        private void KokkiRuoat_Load(object sender, EventArgs e)
+        {
+            kokkiruoatDG.DataSource = varasto.ruokaSaldo();
+            kokkiruoatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            kokkiruoatDG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            kokkijuomatDG.DataSource = varasto.juomaSaldo();
+            kokkijuomatDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            kokkijuomatDG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            kokkialkoDG.DataSource = varasto.alkoSaldo();
+            kokkialkoDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            kokkialkoDG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
     }
 }
