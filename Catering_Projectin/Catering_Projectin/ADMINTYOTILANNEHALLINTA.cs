@@ -48,22 +48,11 @@ namespace Catering_Projectin
                     return false;  // vastauksen palautus
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
             }
         }
-
-        /*public DataTable haeKokit()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT KayttajaTunnus FROM kayttajat WHERE RoolitID = 3", yh.otaYhteys());
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            DataTable tbl = new DataTable();
-            adapter.SelectCommand = cmd;
-            tbl.Locale = System.Globalization.CultureInfo.InvariantCulture;
-            adapter.Fill(tbl);
-            return tbl;
-        }*/
     }
 }

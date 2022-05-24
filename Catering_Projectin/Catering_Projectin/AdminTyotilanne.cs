@@ -105,14 +105,17 @@ namespace Catering_Projectin
             TilauksetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //TilauksetDGV.
             try
-            {
+            {   // haetaan tilukseen valittava tekijä
                 MySqlCommand cmd = new MySqlCommand("SELECT KayttajaTunnus FROM kayttajat WHERE RoolitID = 3", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "Tun");
+                DataSet ds = new DataSet(); // DataSet:llä käsitellään tietokannantieto
+                adapter.Fill(ds, "Tun"); // Täytetään DataSet ja nimetään se
+                //valitaan minkä niminen column näytetään kyselystä
                 TekijaCo.DisplayMember = "KayttajaTunnus";
+                //valitaan minkä niminen column antaa arvot
                 TekijaCo.ValueMember = "KayttajaTunnus";
+                //ComboBox:n DataSource
                 TekijaCo.DataSource = ds.Tables["Tun"];
                 //DataTable tbl = new DataTable();
                 //adapter.Fill(tbl);
@@ -132,7 +135,7 @@ namespace Catering_Projectin
             {   // mikäli painetaan varaa - button:a
                 if (e.ColumnIndex == MaaraaCo.Index)
                 {
-                    TekijaCo.Visible = true; // kayttäjätunnus TB näkyviin
+                    TekijaCo.Visible = true; // kayttäjätunnus CB näkyviin
                     VahMaCo.Visible = true; // vahvistus BT näkyviin
                 }
                 // mikäli painetaan varauksen vahvistusta
@@ -152,12 +155,13 @@ namespace Catering_Projectin
                             int id = int.Parse(row.Cells[3].Value.ToString());
                             // määrän ja id:n lähetys class:n
                             bool varaus = adTyTiHa.maaraaTyo(ktun, id);
-                            // mikäli varaus onnistui
+                            // mikäli määrääminen onnistui
                             if (varaus == true)
                             {
+                                MessageBox.Show($"Työ määrätty.");
                                 // DGV:n päivitys
-                                TilauksetDGV.DataSource = adTyTiHa.haeTilanne();
-                                // Varausmäärä TB piiloon
+                                TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();
+                                // kayttäjätunnus CB piiloon
                                 TekijaCo.Visible = false;
                                 // Vahvista varaus BT piiloon
                                 VahMaCo.Visible = false;
