@@ -12,7 +12,7 @@ namespace Catering_Projectin
 {
     class Yhdista
     {
-        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost; port=3306;username=root;password=SafV6iE3.0;database=catering;SSL Mode = None");
+        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost; port=3306;username=root;password=;database=catering;SSL Mode = None");
 
         public MySqlConnection otaYhteys()
         {

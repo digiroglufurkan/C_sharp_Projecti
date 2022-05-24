@@ -13,8 +13,8 @@ namespace Catering_Projectin
             ApplicationConfiguration.Initialize();
             //Application.Run(new Etusivu());
             //Application.Run(new Rekisteroidy());
-            Application.Run(new KokkiKotisivu());
-            //Application.Run(new AdminKotisivu());
+            //Application.Run(new KokkiKotisivu());
+            Application.Run(new AdminKotisivu());
         }
     }
 }
