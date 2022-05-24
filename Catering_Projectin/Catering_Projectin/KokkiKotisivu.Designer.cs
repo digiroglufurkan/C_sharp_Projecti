@@ -36,6 +36,8 @@
             this.kokkisalisMS = new System.Windows.Forms.ToolStripMenuItem();
             this.kokkiulosMS = new System.Windows.Forms.ToolStripMenuItem();
             this.koktilanneDG = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lahetaTilanneBT = new System.Windows.Forms.DataGridViewButtonColumn();
             this.kokkotiMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.koktilanneDG)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +54,7 @@
             this.kokkotiMS.Location = new System.Drawing.Point(21, 51);
             this.kokkotiMS.Name = "kokkotiMS";
             this.kokkotiMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokkotiMS.Size = new System.Drawing.Size(394, 33);
+            this.kokkotiMS.Size = new System.Drawing.Size(274, 33);
             this.kokkotiMS.TabIndex = 3;
             this.kokkotiMS.Text = "menuStrip1";
             // 
@@ -103,21 +105,41 @@
             // koktilanneDG
             // 
             this.koktilanneDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.koktilanneDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.lahetaTilanneBT});
             this.koktilanneDG.Location = new System.Drawing.Point(188, 129);
             this.koktilanneDG.Name = "koktilanneDG";
             this.koktilanneDG.RowTemplate.Height = 25;
             this.koktilanneDG.Size = new System.Drawing.Size(561, 382);
             this.koktilanneDG.TabIndex = 4;
+            this.koktilanneDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.koktilanneDG_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(419, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Työtilanne";
+            // 
+            // lahetaTilanneBT
+            // 
+            this.lahetaTilanneBT.HeaderText = "Lähetä";
+            this.lahetaTilanneBT.Name = "lahetaTilanneBT";
             // 
             // KokkiKotisivu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 550);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.koktilanneDG);
             this.Controls.Add(this.kokkotiMS);
             this.Name = "KokkiKotisivu";
             this.Text = "KokkiKotisivu";
+            this.Load += new System.EventHandler(this.KokkiKotisivu_Load);
             this.kokkotiMS.ResumeLayout(false);
             this.kokkotiMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.koktilanneDG)).EndInit();
@@ -136,5 +158,7 @@
         private ToolStripMenuItem kokkisalisMS;
         private ToolStripMenuItem kokkiulosMS;
         private DataGridView koktilanneDG;
+        private Label label1;
+        private DataGridViewButtonColumn lahetaTilanneBT;
     }
 }

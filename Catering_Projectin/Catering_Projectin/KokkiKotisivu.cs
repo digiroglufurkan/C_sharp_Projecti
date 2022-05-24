@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,8 @@ namespace Catering_Projectin
 {
     public partial class KokkiKotisivu : Form
     {
+        Yhdista yhteys = new Yhdista();
+        KokkiTyoTilanne tilanne = new KokkiTyoTilanne();
         public KokkiKotisivu()
         {
             InitializeComponent();
@@ -51,6 +55,17 @@ namespace Catering_Projectin
             kokkiulos.FormClosing += f1_FormClosing;
             kokkiulos.Show();
             this.Hide();
+        }
+
+        private void koktilanneDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void KokkiKotisivu_Load(object sender, EventArgs e)
+        {
+            koktilanneDG.DataSource = tilanne.tyoTilanne();
+            koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }

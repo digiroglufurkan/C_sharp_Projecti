@@ -209,7 +209,7 @@
             // 
             // reklentoTB
             // 
-            this.reklentoTB.Location = new System.Drawing.Point(240, 171);
+            this.reklentoTB.Location = new System.Drawing.Point(240, 173);
             this.reklentoTB.Name = "reklentoTB";
             this.reklentoTB.Size = new System.Drawing.Size(173, 23);
             this.reklentoTB.TabIndex = 15;
@@ -272,7 +272,7 @@
             // 
             // icaoTB
             // 
-            this.icaoTB.Location = new System.Drawing.Point(589, 373);
+            this.icaoTB.Location = new System.Drawing.Point(589, 371);
             this.icaoTB.Name = "icaoTB";
             this.icaoTB.Size = new System.Drawing.Size(173, 23);
             this.icaoTB.TabIndex = 24;

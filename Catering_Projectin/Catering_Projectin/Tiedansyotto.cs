@@ -17,19 +17,19 @@ namespace Catering_Projectin
     {
         Yhdista yhteys = new Yhdista();
 
-        public string uusiKayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB, String salasana)
+        public string lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB, String salasana)
         {
             String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
             String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
-            if (kuvaa) 
+            if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
             {
                 lisayskysely = "INSERT INTO `kayttajat`" +
                     "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`,`KUVA`)" +
                     "VALUES (@usr, @enm, @snm,  @eml, @puh, @osaite,@postinumero, @toimipaikka,@titteli, @ssa,@kuva); ";
             }
-            else 
+            else //jos ei halua ladata tämän SQL kysely
             {
                 lisayskysely = "INSERT INTO `kayttajat`" +
                      "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`)" +

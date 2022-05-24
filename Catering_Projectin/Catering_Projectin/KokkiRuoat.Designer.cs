@@ -36,8 +36,14 @@
             this.kokkisalisMS = new System.Windows.Forms.ToolStripMenuItem();
             this.kokkiulosMS = new System.Windows.Forms.ToolStripMenuItem();
             this.kokkiruoatDG = new System.Windows.Forms.DataGridView();
+            this.kokkijuomatDG = new System.Windows.Forms.DataGridView();
+            this.kokkialkoDG = new System.Windows.Forms.DataGridView();
+            this.tilaaJuomaC = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tilaaAlkoC = new System.Windows.Forms.DataGridViewButtonColumn();
             this.kokinvarastoMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kokkiruoatDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokkijuomatDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokkialkoDG)).BeginInit();
             this.SuspendLayout();
             // 
             // kokinvarastoMS
@@ -52,7 +58,7 @@
             this.kokinvarastoMS.Location = new System.Drawing.Point(23, 38);
             this.kokinvarastoMS.Name = "kokinvarastoMS";
             this.kokinvarastoMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokinvarastoMS.Size = new System.Drawing.Size(394, 33);
+            this.kokinvarastoMS.Size = new System.Drawing.Size(274, 33);
             this.kokinvarastoMS.TabIndex = 4;
             this.kokinvarastoMS.Text = "menuStrip1";
             // 
@@ -103,24 +109,61 @@
             // kokkiruoatDG
             // 
             this.kokkiruoatDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kokkiruoatDG.Location = new System.Drawing.Point(185, 119);
+            this.kokkiruoatDG.Location = new System.Drawing.Point(23, 121);
             this.kokkiruoatDG.Name = "kokkiruoatDG";
             this.kokkiruoatDG.RowTemplate.Height = 25;
-            this.kokkiruoatDG.Size = new System.Drawing.Size(561, 382);
+            this.kokkiruoatDG.Size = new System.Drawing.Size(274, 375);
             this.kokkiruoatDG.TabIndex = 5;
+            // 
+            // kokkijuomatDG
+            // 
+            this.kokkijuomatDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kokkijuomatDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tilaaJuomaC});
+            this.kokkijuomatDG.Location = new System.Drawing.Point(320, 121);
+            this.kokkijuomatDG.Name = "kokkijuomatDG";
+            this.kokkijuomatDG.RowTemplate.Height = 25;
+            this.kokkijuomatDG.Size = new System.Drawing.Size(275, 375);
+            this.kokkijuomatDG.TabIndex = 6;
+            // 
+            // kokkialkoDG
+            // 
+            this.kokkialkoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kokkialkoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tilaaAlkoC});
+            this.kokkialkoDG.Location = new System.Drawing.Point(612, 121);
+            this.kokkialkoDG.Name = "kokkialkoDG";
+            this.kokkialkoDG.RowTemplate.Height = 25;
+            this.kokkialkoDG.Size = new System.Drawing.Size(275, 375);
+            this.kokkialkoDG.TabIndex = 7;
+            // 
+            // tilaaJuomaC
+            // 
+            this.tilaaJuomaC.HeaderText = "Tilaa";
+            this.tilaaJuomaC.Name = "tilaaJuomaC";
+            // 
+            // tilaaAlkoC
+            // 
+            this.tilaaAlkoC.HeaderText = "Tilaa";
+            this.tilaaAlkoC.Name = "tilaaAlkoC";
             // 
             // KokkiRuoat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 545);
+            this.Controls.Add(this.kokkialkoDG);
+            this.Controls.Add(this.kokkijuomatDG);
             this.Controls.Add(this.kokkiruoatDG);
             this.Controls.Add(this.kokinvarastoMS);
             this.Name = "KokkiRuoat";
             this.Text = "KokkiRuoat";
+            this.Load += new System.EventHandler(this.KokkiRuoat_Load);
             this.kokinvarastoMS.ResumeLayout(false);
             this.kokinvarastoMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kokkiruoatDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokkijuomatDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokkialkoDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +179,9 @@
         private ToolStripMenuItem kokkisalisMS;
         private ToolStripMenuItem kokkiulosMS;
         private DataGridView kokkiruoatDG;
+        private DataGridView kokkijuomatDG;
+        private DataGridView kokkialkoDG;
+        private DataGridViewButtonColumn tilaaJuomaC;
+        private DataGridViewButtonColumn tilaaAlkoC;
     }
 }
