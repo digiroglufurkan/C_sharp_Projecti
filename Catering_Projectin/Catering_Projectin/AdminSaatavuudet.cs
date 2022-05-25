@@ -10,8 +10,7 @@ using System.Windows.Forms;
 /// author@ Antti Kuusisto
 /// version 18.5.2022
 /// <summary>
-/// Saatavuudet päivittyvät taulukoihin. Ateriat voi varata tilauksen voisi ehkä poistaa. Juomat voi olla tuollaiset.
-/// Juomat alko vielä tehtävä.
+/// Hakee adminille varastosaldon ja varauksien määrän ja antaa mahdollisuuden varata ja tilata lisää tuotteita.
 /// </summary>
 namespace Catering_Projectin
 {
@@ -154,12 +153,57 @@ namespace Catering_Projectin
                         {
                             MessageBox.Show($"Et syöttänyt varaus määrää!");
                         }
-
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"{ex.Message} v2");
                     }
+                // mikäli painetaan tilaa lisää
+                else if(e.ColumnIndex == TilaaLisaaCo.Index)
+                {
+                    MaTiLisaaCo.Visible = true;
+                    VahTilCo.Visible = true;
+                }
+                //kun painetaan tilauksen vahvistusta
+                else if(e.ColumnIndex == VahTilCo.Index)
+                    try
+                    {
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = AteriaSaatavuudetDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty tilattava määrä
+                        if (row.Cells[4].Value != null)
+                        {
+                            // tilausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[4].Value.ToString());
+                            //JuomaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool tilaus = adSaHa.tilaaAteria(varMar, id);
+                            // mikäli tilaus onnistui
+                            if (tilaus == true)
+                            {
+                                // DGV:n päivitys
+                                AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat();
+                                MaTiLisaaCo.Visible = false; // tilausmäärä TB piiloon
+                                VahTilCo.Visible = false; // Vahvista tilaus BT piiloon
+                            }
+                            else // viesti, että tilaus ei onnistunut
+                            {
+                                MessageBox.Show($"Aterioiden tilaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu tilattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt tilaus määrää!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} v3");
+                    }
+
             }
             catch (Exception ex)
             {
@@ -277,7 +321,99 @@ namespace Catering_Projectin
         {
             try
             {
+                // mikäli painetaan varaa - button:a
+                if (e.ColumnIndex == VarAlkoCO.Index)
+                {
+                    VarAlkoMaCo.Visible = true; // varaus määrä TB näkyviin
+                    VahAlkoVarCo.Visible = true; // vahvistus BT näkyviin
+                }
+                // mikäli painetaan varauksen vahvistusta
+                else if (e.ColumnIndex == VahAlkoVarCo.Index)
+                    try
+                    {
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = JuomatAlkoDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty varattava määrä
+                        if (row.Cells[1].Value != null)
+                        {
+                            // varausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[1].Value.ToString());
+                            //JuomaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool varaus = adSaHa.varaaJuomaAlko(varMar, id);
+                            // mikäli varaus onnistui
+                            if (varaus == true)
+                            {
+                                // DGV:n päivitys
+                                JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko();
+                                VarAlkoMaCo.Visible = false; // Varausmäärä TB piiloon
+                                VahAlkoVarCo.Visible = false; // Vahvista varaus BT piiloon
+                            }
+                            else // viesti, että varaus ei onnistunut
+                            {
+                                MessageBox.Show($"Juomien varaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu varattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt varaus määrää!");
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} v2");
+                    }
+                // mikäli painetaan tilaa - button:a
+                else if (e.ColumnIndex == TilaaAlkoCo.Index)
+                {
+                    TilAlkoMaaraCo.Visible = true; // tilaus määrä TB näkyviin
+                    VahAlkoTilCo.Visible = true; // vahvistus BT näkyviin
+                }
+                // mikäli painetaan tilauksen vahvistusta
+                else if (e.ColumnIndex == VahTiJuCo.Index)
+                {
+                    try
+                    {
+                        // muuttuja datagridvievw:n riville
+                        DataGridViewRow row = new DataGridViewRow();
+                        // napin rivin lisäys muuttujaan
+                        row = JuomatAlkoDGV.SelectedRows[0];
+                        // tarkistetaan, että on syötetty tilattava määrä
+                        if (row.Cells[4].Value != null)
+                        {
+                            // tilausmäärä muuttujaan
+                            int varMar = int.Parse(row.Cells[4].Value.ToString());
+                            //JuomaID muuttujaan
+                            int id = int.Parse(row.Cells[6].Value.ToString());
+                            // määrän ja id:n lähetys class:n
+                            bool tilaus = adSaHa.tilaaJuomaAlko(varMar, id);
+                            // mikäli tilaus onnistui
+                            if (tilaus == true)
+                            {
+                                // DGV:n päivitys
+                                JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko();
+                                TilAlkoMaaraCo.Visible = false; // tilausmäärä TB piiloon
+                                VahAlkoTilCo.Visible = false; // Vahvista tilaus BT piiloon
+                            }
+                            else // viesti, että tilaus ei onnistunut
+                            {
+                                MessageBox.Show($"Juomien tilaus ei onnistunut.");
+                            }
+                        }
+                        else // viesti ettei ole valittu tilattavaa määrää
+                        {
+                            MessageBox.Show($"Et syöttänyt tilaus määrää!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message} juomat");
+                    }
+                }
             }
             catch (Exception ex)
             {

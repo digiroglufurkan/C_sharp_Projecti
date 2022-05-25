@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@ Antti Kuusisto
-/// version 18.5.2022
+/// version 25.5.2022
 /// <summary>
-/// Ateriat ja toinen juomista toimii. Toiseen juomat osioon voisi katsoa mikäli aikaa riittää, niin 
-/// tuon tietokantakyselyn sellaiseksi, että muuttuja summataan kyselyssä tietokannassa olevaan lukuun, eikä
-/// lueta, summata ja lähetetä takaisin.
+/// Ohjelmassa kaksi erilaista ratkaisua päivittää määrä tietokantaan. Aterioissa ja alkoholittomissajuomissa on
+/// enemmän kirjoittamista vaativa ratkaisu ja alkoholillisissajuomissa on tiivistetympi versio. Kummatkin käytössä,
+/// koska koulutyö ja palvelee esimerkkinä, että aluksi keksi tällä tavalla saa kokonaisuuden toimivaksi, mutta on
+/// hieman työläs kirjoitaa ja voisi päivitää paremmaksi. Kun keksi paremman tavan, niin käytin sitä, sitten viimeisessä
+/// osassa.
 /// </summary>
 namespace Catering_Projectin
 {
@@ -93,6 +95,34 @@ namespace Catering_Projectin
                 }
             }
             catch(Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} class");
+                return false;
+            }
+        }
+
+        public bool tilaaAteria(int ma, int id)
+        {
+            try
+            {
+                MySqlCommand cmd1 = new MySqlCommand("UPDATE ateriat SET Varasto_saldo = Varasto_saldo + @ma WHERE AteriaID = @id", yh.otaYhteys());
+                cmd1.Parameters.Add("@ma", MySqlDbType.Int32).Value = ma;// tilauksien määrä
+                cmd1.Parameters.Add("@id", MySqlDbType.Int32).Value = id;// AteriaID
+                yh.avaaYhteys();//yhteys auki
+                if (cmd1.ExecuteNonQuery() == 1)//katsotaan suoritettiinko kysely
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    //viesti paljonko on tilattu lisää.
+                    MessageBox.Show($"Tilattu lisää {ma} kpl.");
+                    return true;//palutetaan true
+                }
+                else
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    return false;//palautetaan false
+                }
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} class");
                 return false;
@@ -183,6 +213,63 @@ namespace Catering_Projectin
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} class");
+                return false;
+            }
+        }
+
+        public bool varaaJuomaAlko(int ma, int id)
+        {
+            try
+            {
+                MySqlCommand cmd1 = new MySqlCommand("UPDATE juomatalkoholilliset SET Varattu = Varattu + @ma WHERE JuomaAlkoID = @id", yh.otaYhteys());
+                cmd1.Parameters.Add("@ma", MySqlDbType.Int32).Value = ma;// varauksien määrä
+                cmd1.Parameters.Add("@id", MySqlDbType.Int32).Value = id;// JuomaID
+                yh.avaaYhteys();//yhteys auki
+                if (cmd1.ExecuteNonQuery() == 1)//katsotaan suoritettiinko kysely
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    //viesti paljonko on tilattu lisää.
+                    MessageBox.Show($"Varattu {ma} kpl.");
+                    return true;//palutetaan true
+                }
+                else
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    return false;//palautetaan false
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool tilaaJuomaAlko(int ma, int id)
+        {
+            try
+            {
+                //MySqlCommand cmd1 = new MySqlCommand("UPDATE juomatalkoholilliset SET Varasto_saldo = @ma WHERE JuomaAlkoID = ( SELECT JuomaAlkoID FROM( SELECT JuomaAlkoID FROM juomatalkoholilliset WHERE JuomaAlkoID = @id ) AS innerResult)", yh.otaYhteys());
+                MySqlCommand cmd1 = new MySqlCommand("UPDATE juomatalkoholilliset SET Varasto_saldo = Varasto_saldo + @ma WHERE JuomaAlkoID = @id", yh.otaYhteys());
+                cmd1.Parameters.Add("@ma", MySqlDbType.Int32).Value = ma;// tilauksien määrä
+                cmd1.Parameters.Add("@id", MySqlDbType.Int32).Value = id;// JuomaID
+                yh.avaaYhteys();//yhteys auki
+                if (cmd1.ExecuteNonQuery() == 1)//katsotaan suoritettiinko kysely
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    //viesti paljonko on tilattu lisää.
+                    MessageBox.Show($"Tilattu lisää {ma} kpl.");
+                    return true;//palutetaan true
+                }
+                else
+                {
+                    yh.suljeYhteys();//suljetaan yhteys
+                    return false;//palautetaan false
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }
