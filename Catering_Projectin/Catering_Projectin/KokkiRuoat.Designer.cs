@@ -38,8 +38,8 @@
             this.kokkiruoatDG = new System.Windows.Forms.DataGridView();
             this.kokkijuomatDG = new System.Windows.Forms.DataGridView();
             this.kokkialkoDG = new System.Windows.Forms.DataGridView();
-            this.tilaaJuomaC = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tilaaAlkoC = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.juomaSaldoC = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.alkoSaldoC = new System.Windows.Forms.DataGridViewButtonColumn();
             this.kokinvarastoMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kokkiruoatDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kokkijuomatDG)).BeginInit();
@@ -112,46 +112,48 @@
             this.kokkiruoatDG.Location = new System.Drawing.Point(23, 121);
             this.kokkiruoatDG.Name = "kokkiruoatDG";
             this.kokkiruoatDG.RowTemplate.Height = 25;
-            this.kokkiruoatDG.Size = new System.Drawing.Size(274, 375);
+            this.kokkiruoatDG.Size = new System.Drawing.Size(328, 375);
             this.kokkiruoatDG.TabIndex = 5;
             // 
             // kokkijuomatDG
             // 
             this.kokkijuomatDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kokkijuomatDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tilaaJuomaC});
-            this.kokkijuomatDG.Location = new System.Drawing.Point(320, 121);
+            this.juomaSaldoC});
+            this.kokkijuomatDG.Location = new System.Drawing.Point(357, 121);
             this.kokkijuomatDG.Name = "kokkijuomatDG";
             this.kokkijuomatDG.RowTemplate.Height = 25;
-            this.kokkijuomatDG.Size = new System.Drawing.Size(275, 375);
+            this.kokkijuomatDG.Size = new System.Drawing.Size(342, 375);
             this.kokkijuomatDG.TabIndex = 6;
+            this.kokkijuomatDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kokkijuomatDG_CellContentClick);
             // 
             // kokkialkoDG
             // 
             this.kokkialkoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kokkialkoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tilaaAlkoC});
-            this.kokkialkoDG.Location = new System.Drawing.Point(612, 121);
+            this.alkoSaldoC});
+            this.kokkialkoDG.Location = new System.Drawing.Point(705, 121);
             this.kokkialkoDG.Name = "kokkialkoDG";
             this.kokkialkoDG.RowTemplate.Height = 25;
-            this.kokkialkoDG.Size = new System.Drawing.Size(275, 375);
+            this.kokkialkoDG.Size = new System.Drawing.Size(321, 375);
             this.kokkialkoDG.TabIndex = 7;
+            this.kokkialkoDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kokkialkoDG_CellContentClick);
             // 
-            // tilaaJuomaC
+            // juomaSaldoC
             // 
-            this.tilaaJuomaC.HeaderText = "Tilaa";
-            this.tilaaJuomaC.Name = "tilaaJuomaC";
+            this.juomaSaldoC.HeaderText = "Lisää";
+            this.juomaSaldoC.Name = "juomaSaldoC";
             // 
-            // tilaaAlkoC
+            // alkoSaldoC
             // 
-            this.tilaaAlkoC.HeaderText = "Tilaa";
-            this.tilaaAlkoC.Name = "tilaaAlkoC";
+            this.alkoSaldoC.HeaderText = "Lisää";
+            this.alkoSaldoC.Name = "alkoSaldoC";
             // 
             // KokkiRuoat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 545);
+            this.ClientSize = new System.Drawing.Size(1038, 624);
             this.Controls.Add(this.kokkialkoDG);
             this.Controls.Add(this.kokkijuomatDG);
             this.Controls.Add(this.kokkiruoatDG);
@@ -181,7 +183,7 @@
         private DataGridView kokkiruoatDG;
         private DataGridView kokkijuomatDG;
         private DataGridView kokkialkoDG;
-        private DataGridViewButtonColumn tilaaJuomaC;
-        private DataGridViewButtonColumn tilaaAlkoC;
+        private DataGridViewButtonColumn juomaSaldoC;
+        private DataGridViewButtonColumn alkoSaldoC;
     }
 }

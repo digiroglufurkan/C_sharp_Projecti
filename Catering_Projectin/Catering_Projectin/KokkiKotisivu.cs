@@ -59,13 +59,66 @@ namespace Catering_Projectin
 
         private void koktilanneDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == lahetaTilanneBT.Index)
+            {
+                try
+                {
+                    string stat = koktilanneDG.CurrentRow.Cells[3].Value.ToString();
+                    if (e.ColumnIndex == lahetaTilanneBT.Index)
+                    {
+                        try
+                        {
+                            if (stat.Equals(""))
+                            {
+                                MessageBox.Show("Et ole muuttanut tilannetta!");
+                            }
+                            else
+                            {
+                                bool paivita = tilanne.paivitaTilanne(stat);
+                                if (paivita == true)
+                                {
+                                    MessageBox.Show("Tilanne päivitetty!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Tilannetta ei pystytty nyt päivittämään!");
+                                }
+                                koktilanneDG.DataSource = tilanne.tyoTilanne();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void KokkiKotisivu_Load(object sender, EventArgs e)
         {
             koktilanneDG.DataSource = tilanne.tyoTilanne();
-            koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            //koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            try
+            {
+                MySqlCommand komento = new MySqlCommand("SELECT Status FROM status", yhteys.otaYhteys());
+                MySqlDataAdapter adapteri = new MySqlDataAdapter();
+                adapteri.SelectCommand = komento;
+                DataSet dset = new DataSet();
+                adapteri.Fill(dset, "stat");
+                statusC.DisplayMember = "Status";
+                statusC.ValueMember = "Status";
+                statusC.DataSource = dset.Tables["stat"]; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

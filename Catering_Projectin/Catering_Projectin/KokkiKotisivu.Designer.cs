@@ -38,6 +38,7 @@
             this.koktilanneDG = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lahetaTilanneBT = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.statusC = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.kokkotiMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.koktilanneDG)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +107,8 @@
             // 
             this.koktilanneDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.koktilanneDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.lahetaTilanneBT});
+            this.lahetaTilanneBT,
+            this.statusC});
             this.koktilanneDG.Location = new System.Drawing.Point(188, 129);
             this.koktilanneDG.Name = "koktilanneDG";
             this.koktilanneDG.RowTemplate.Height = 25;
@@ -126,8 +128,18 @@
             // 
             // lahetaTilanneBT
             // 
+            this.lahetaTilanneBT.Frozen = true;
             this.lahetaTilanneBT.HeaderText = "Lähetä";
+            this.lahetaTilanneBT.MinimumWidth = 50;
             this.lahetaTilanneBT.Name = "lahetaTilanneBT";
+            // 
+            // statusC
+            // 
+            this.statusC.FillWeight = 200F;
+            this.statusC.HeaderText = "Status";
+            this.statusC.MinimumWidth = 20;
+            this.statusC.Name = "statusC";
+            this.statusC.Width = 120;
             // 
             // KokkiKotisivu
             // 
@@ -160,5 +172,6 @@
         private DataGridView koktilanneDG;
         private Label label1;
         private DataGridViewButtonColumn lahetaTilanneBT;
+        private DataGridViewComboBoxColumn statusC;
     }
 }
