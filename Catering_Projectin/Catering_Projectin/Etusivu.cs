@@ -7,6 +7,6 @@ namespace Catering_Projectin
             InitializeComponent();
         }
 
-        
+
     }
 }

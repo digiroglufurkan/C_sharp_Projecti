@@ -94,7 +94,7 @@
             this.KirjoiduBT.TabIndex = 5;
             this.KirjoiduBT.Text = "Kirjoidu";
             this.KirjoiduBT.UseVisualStyleBackColor = true;
-            this.KirjoiduBT.Click += new System.EventHandler(this.button1_Click);
+            this.KirjoiduBT.Click += new System.EventHandler(this.KirjoiduBT_Click);
             // 
             // linkLabel1
             // 

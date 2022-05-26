@@ -25,6 +25,15 @@
     <Compile Update="Etusivu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Tilaus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KayttajanKotisivu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Otayhtayta.cs">
       <SubType>Form</SubType>
     </Compile>

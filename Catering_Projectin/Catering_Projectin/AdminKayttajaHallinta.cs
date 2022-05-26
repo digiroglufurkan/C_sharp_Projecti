@@ -103,7 +103,7 @@ namespace Catering_Projectin
         {
             try
             {
-                if(e.ColumnIndex == PoistaCo.Index)
+                if (e.ColumnIndex == PoistaCo.Index)
                 {
                     try
                     {
@@ -118,7 +118,7 @@ namespace Catering_Projectin
                             if (poista == true)
                             {
                                 MessageBox.Show($"Käyttäjän poisto onnistui.");
-                                KaytHallintaDGV.DataSource =adKaHa.haeKayttajat();
+                                KaytHallintaDGV.DataSource = adKaHa.haeKayttajat();
                             }
                             else
                             {
@@ -126,12 +126,12 @@ namespace Catering_Projectin
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show($"{ex.Message} v2");
                     }
                 }
-                else if(e.ColumnIndex == LiAdminCo.Index)
+                else if (e.ColumnIndex == LiAdminCo.Index)
                 {
                     try
                     {
@@ -159,7 +159,7 @@ namespace Catering_Projectin
                         MessageBox.Show($"{ex.Message} v3");
                     }
                 }
-                else if(e.ColumnIndex == PoAdminCo.Index)
+                else if (e.ColumnIndex == PoAdminCo.Index)
                 {
                     try
                     {

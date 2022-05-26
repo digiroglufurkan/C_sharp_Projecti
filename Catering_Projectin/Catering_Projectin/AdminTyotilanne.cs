@@ -90,7 +90,5 @@ namespace Catering_Projectin
             TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
             TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
-
-        
     }
 }
