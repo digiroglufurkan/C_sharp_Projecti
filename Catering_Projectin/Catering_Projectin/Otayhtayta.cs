@@ -24,7 +24,7 @@ namespace Catering_Projectin
             if (tarkistaTextBox(OtAiheTB.Text, "Vaaditan Aihe")) { goto loppu; };
             if (tarkistaTextBox(OtTekstiRTB.Text, "Vaaditan Teksti")) { goto loppu; };
             Tiedansyotto ti = new Tiedansyotto();
-            if (ti.lisaOtayhtayta(OtEmailTB.Text, OtAiheTB.Text, OtTekstiRTB.Text, OtNimiTB.Text))
+            /*if (ti.lisaOtayhtayta(OtEmailTB.Text, OtAiheTB.Text, OtTekstiRTB.Text, OtNimiTB.Text))
             {
                 MessageBox.Show("Viestisi on vastaanotettu");
                 OtEmailTB.Text = "";
@@ -35,7 +35,7 @@ namespace Catering_Projectin
             else
             {
                 MessageBox.Show("Valittevasti  ei vastaanotettu");
-            }
+            }*/
         loppu:;
         }
 

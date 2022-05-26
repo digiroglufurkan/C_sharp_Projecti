@@ -66,6 +66,87 @@ namespace Catering_Projectin
                 return "";
             }
         }
+        public bool lisaTilaa(String kayyttajaID, String hinta, String lentoID)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            String lisayskysely;
+            lisayskysely = "INSERT INTO `tilaus`( `kayttajaID`,`LentoID`, `Hinta`) VALUES (@kID,@lentoID,@hinta);";
+            komento.CommandText = lisayskysely;
+            komento.Connection = yhteys.otaYhteys();
+            //komento.Parameters.Add("@tID", MySqlDbType.VarChar).Value = tilaID;
+            komento.Parameters.Add("@kID", MySqlDbType.Int16).Value = Convert.ToUInt16(kayyttajaID);
+            komento.Parameters.Add("@lentoID", MySqlDbType.Int16).Value = Convert.ToUInt16(lentoID);
+            komento.Parameters.Add("@hinta", MySqlDbType.Float).Value = float.Parse(hinta);
+            yhteys.avaaYhteys();
+            if (komento.ExecuteNonQuery() == 1)
+            {
+                yhteys.suljeYhteys();
+                return true;
+            }
+            yhteys.suljeYhteys();
+            return false;
+        }
+        public bool lisaTilaatieto(String tilaID, String AteriaID, String JuomaId, String AjuomaID, String Maara)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            String lisayskysely;
+            if (AteriaID != "")
+            {
+                lisayskysely = "INSERT INTO `tilausyhdiste`(`TilausID`, `AteriatID`,  `Maara`) VALUES (@tID,@ateriaID,@maara);";
+                komento.CommandText = lisayskysely;
+                komento.Connection = yhteys.otaYhteys();
+                komento.Parameters.Add("@tID", MySqlDbType.Int16).Value = Convert.ToInt16(tilaID);
+                komento.Parameters.Add("@ateriaID", MySqlDbType.Int16).Value = Convert.ToInt16(AteriaID);
+            }
+            else if (JuomaId != "")
+            {
+                lisayskysely = "INSERT INTO `tilausyhdiste`(`TilausID`, `JuomaID`,  `Maara`) VALUES (@tID,@juomaID,@maara);";
+                komento.CommandText = lisayskysely;
+                komento.Connection = yhteys.otaYhteys();
+                komento.Parameters.Add("@tID", MySqlDbType.Int16).Value = Convert.ToInt16(tilaID);
+                komento.Parameters.Add("@juomaID", MySqlDbType.Int16).Value = Convert.ToInt16(JuomaId);
+            }
+            //lisayskysely = "INSERT INTO `tilausyhdiste`(`TilausID`, `AteriatID`, `JuomaAlkoID`, `JuomaID`, `Maara`) VALUES (@tID,@ateriaID,@ajuomaID,@juomaID,@maara);";
+            else
+            {
+                lisayskysely = "INSERT INTO `tilausyhdiste`(`TilausID`, `JuomaAlkoID`,  `Maara`) VALUES (@tID,@ajuomaID,@maara);";
+                komento.CommandText = lisayskysely;
+                komento.Connection = yhteys.otaYhteys();
+                komento.Parameters.Add("@tID", MySqlDbType.Int16).Value = Convert.ToInt16(tilaID);
+                komento.Parameters.Add("@ajuomaID", MySqlDbType.Int16).Value = Convert.ToInt16(AjuomaID);
+            }
+
+            komento.Parameters.Add("@maara", MySqlDbType.Int16).Value = Convert.ToInt16(Maara);
+            yhteys.avaaYhteys();
+            if (komento.ExecuteNonQuery() == 1)
+            {
+                yhteys.suljeYhteys();
+                return true;
+            }
+            yhteys.suljeYhteys();
+            return false;
+        }
+
+        public bool lisaOtayhtayta(String email, String aihe, String teksti, String nimi)
+        {
+            MySqlCommand komento = new MySqlCommand();
+            String lisayskysely;
+            lisayskysely = "INSERT INTO `otayhteytta`( `Name`,`lahettaja_email`, `Aihe`, `Text`) VALUES(@nimi, @eml, @aihe, @text);";
+            komento.CommandText = lisayskysely;
+            komento.Connection = yhteys.otaYhteys();
+            komento.Parameters.Add("@text", MySqlDbType.VarChar).Value = teksti;
+            komento.Parameters.Add("@aihe", MySqlDbType.VarChar).Value = aihe;
+            komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
+            komento.Parameters.Add("@nimi", MySqlDbType.VarChar).Value = nimi;
+            yhteys.avaaYhteys();
+            if (komento.ExecuteNonQuery() == 1)
+            {
+                yhteys.suljeYhteys();
+                return true;
+            }
+            yhteys.suljeYhteys();
+            return false;
+        }
         public string Encrypt(string clearText)
         {
             string EncryptionKey = "MAKV2SPBNI99212";
