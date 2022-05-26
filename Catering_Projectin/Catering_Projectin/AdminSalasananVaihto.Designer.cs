@@ -33,6 +33,7 @@
             this.KotisivuTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.SaatavuudetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TyotilanneTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.AsetuksetTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.SalasanojenHallintaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.MuokkaaProfiiliaTSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,7 @@
             this.UusiUudestaanLB = new System.Windows.Forms.Label();
             this.UusiSaSanaTB = new System.Windows.Forms.TextBox();
             this.UusiUdTB = new System.Windows.Forms.TextBox();
-            this.KayttajatTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.VaihdaBT = new System.Windows.Forms.Button();
             this.NavMS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +70,7 @@
             this.AsetuksetTSMI});
             this.NavMS.Location = new System.Drawing.Point(179, 60);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(923, 39);
+            this.NavMS.Size = new System.Drawing.Size(773, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -93,6 +94,13 @@
             this.TyotilanneTSMI.Size = new System.Drawing.Size(133, 35);
             this.TyotilanneTSMI.Text = "Työtilanne";
             this.TyotilanneTSMI.Click += new System.EventHandler(this.TyotilanneTSMI_Click);
+            // 
+            // KayttajatTSMI
+            // 
+            this.KayttajatTSMI.Name = "KayttajatTSMI";
+            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
+            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
+            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
             // 
             // AsetuksetTSMI
             // 
@@ -165,18 +173,22 @@
             this.UusiUdTB.Size = new System.Drawing.Size(125, 27);
             this.UusiUdTB.TabIndex = 5;
             // 
-            // KayttajatTSMI
+            // VaihdaBT
             // 
-            this.KayttajatTSMI.Name = "KayttajatTSMI";
-            this.KayttajatTSMI.Size = new System.Drawing.Size(243, 35);
-            this.KayttajatTSMI.Text = "Käyttäjätilien hallinta";
-            this.KayttajatTSMI.Click += new System.EventHandler(this.KayttajatTSMI_Click);
+            this.VaihdaBT.Location = new System.Drawing.Point(535, 331);
+            this.VaihdaBT.Name = "VaihdaBT";
+            this.VaihdaBT.Size = new System.Drawing.Size(132, 29);
+            this.VaihdaBT.TabIndex = 6;
+            this.VaihdaBT.Text = "Vaihda salasana";
+            this.VaihdaBT.UseVisualStyleBackColor = true;
+            this.VaihdaBT.Click += new System.EventHandler(this.VaihdaBT_Click);
             // 
             // AdminSalasananVaihto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1185, 534);
+            this.Controls.Add(this.VaihdaBT);
             this.Controls.Add(this.UusiUdTB);
             this.Controls.Add(this.UusiSaSanaTB);
             this.Controls.Add(this.UusiUudestaanLB);
@@ -210,5 +222,6 @@
         private TextBox UusiSaSanaTB;
         private TextBox UusiUdTB;
         private ToolStripMenuItem KayttajatTSMI;
+        private Button VaihdaBT;
     }
 }

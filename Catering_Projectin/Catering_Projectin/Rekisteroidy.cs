@@ -39,5 +39,9 @@ namespace Catering_Projectin
         {
 
         }
+
+        private void rekisteroidyBT_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

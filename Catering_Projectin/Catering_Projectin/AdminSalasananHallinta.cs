@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// author@ Antti Kuusisto
+/// version 19.5.2022
+/// <summary>
+/// Vaihtaa halutun käyttäjän salasanan
+/// </summary>
 namespace Catering_Projectin
 {
     public partial class AdminSalasananHallinta : Form
     {
+        ADMINSALASANAT adSa = new ADMINSALASANAT();
         public AdminSalasananHallinta()
         {
             InitializeComponent();
@@ -84,6 +89,42 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-
+        private void VaihdaBT_Click(object sender, EventArgs e)
+        {
+            string ktunnus = "",uusiSalasana = "", uusiUudestaan = "";
+            try
+            {
+                ktunnus = KaytTunTB.Text.ToString(); // luetaan käyttäjätunnus muuttujaan
+                uusiSalasana = UusiSaSanaTB.Text.ToString(); // luetaan uusi salasana muuttujaan
+                uusiUudestaan = UusiUdTB.Text.ToString(); // uuden salasanan toisto muuttujaan
+                if (ktunnus.Equals("") || uusiSalasana.Equals("") || uusiUudestaan.Equals("")) // tarkistetaan, että kentissä on tekstiä
+                {
+                    MessageBox.Show($"Tarkista tekstikentät");
+                }
+                else if (uusiSalasana != uusiUudestaan) // tarkistetaan, että uusi salasana ja toisto täsmäävät
+                {
+                    MessageBox.Show($"Salasanat eivät täsmää.");
+                }
+                else
+                {   // kutsutaan metodia ADMINSALASANAT class:ssa, joka päivittää salasanan.
+                    bool paivitys = adSa.paivitaKaytSalasana(ktunnus, uusiSalasana);
+                    if (paivitys == true) // mikäli päivitys onnistui
+                    {
+                        MessageBox.Show($"Salasana päivitetty");
+                        KaytTunTB.Text = "";
+                        UusiSaSanaTB.Text = "";
+                        UusiUdTB.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Salasanan päivitys epäonnistui.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

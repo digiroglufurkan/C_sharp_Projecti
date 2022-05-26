@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// author@ Antti Kuusisto
+/// version 19.5.2022
+/// <summary>
+/// Vaihtaa käyttäjän salasanan, pitää päivittää dynaaminen käyttäjätunnuksen haku, kun Kirjaudu-sivu on
+/// valmis.
+/// </summary>
 namespace Catering_Projectin
 {
     public partial class AdminSalasananVaihto : Form
     {
+        ADMINSALASANAT adSa = new ADMINSALASANAT();
         public AdminSalasananVaihto()
         {
             InitializeComponent();
@@ -83,6 +89,42 @@ namespace Catering_Projectin
             this.Hide();
         }
 
-
+        private void VaihdaBT_Click(object sender, EventArgs e)
+        {
+            // Muuttuja uudelle salasanalle ja sen toistolle
+            string uusiSalasana = "", uusiUudestaan = "";
+            string uid = "kayt"; // Poistetaan, kun on valmis
+            try
+            {
+                uusiSalasana = UusiSaSanaTB.Text; // uusi salasana 
+                uusiUudestaan = UusiUdTB.Text; // uuden toisto
+                if (uusiSalasana.Equals("") || uusiUudestaan.Equals("")) // tarkistus, että kentissä tekstiä
+                {
+                    MessageBox.Show($"Tarkista tekstikentät.");
+                }
+                else if (uusiSalasana != uusiUudestaan) // tarkistus, että uusi kaksi kertaa.
+                {
+                    MessageBox.Show($"Uudet salasanat eivät täsmää.");
+                }
+                else
+                {   // salasanan vaihto ADMINSALASANAT class:ssa metodilla
+                    bool vastaus = adSa.vaihdaSalasana(uid, uusiSalasana);
+                    if (vastaus == true) // mikäli vaihto onnistui
+                    {
+                        MessageBox.Show($"Salasanan vaihto onnistui.");
+                        UusiSaSanaTB.Text = "";
+                        UusiUdTB.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Salasanan vaihto ei onnistunut.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

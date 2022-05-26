@@ -60,6 +60,11 @@
   <metadata name="NavMS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="Kuvaus1RTB.Text" xml:space="preserve">
+    <value>Tarjoamme laadukkaita catering palveluita kaikille lentoyhtiöille, jotka niitä haluavat.
+Rekisteröitumällä palveluumme pääset käyttämään laadukasta palveluamme, joka
+tekee pitkästäkin matkasta nautinnollisen ja miellyttävän matkustajille.</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

@@ -47,17 +47,19 @@
             this.MaTiLisaaCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VahTilCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.JuomatDGV = new System.Windows.Forms.DataGridView();
-            this.JuomatAlkoDGV = new System.Windows.Forms.DataGridView();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.TiMaaraCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VaraaJuCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.VaJuMaaraCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VahJuVa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TilaaLiJuCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MaTilaaJuCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VahTiJuCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.JuomatAlkoDGV = new System.Windows.Forms.DataGridView();
+            this.VarAlkoCO = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.VarAlkoMaCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VahAlkoVarCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TilaaAlkoCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TilAlkoMaaraCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VahAlkoTilCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AteriaSaatavuudetDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JuomatDGV)).BeginInit();
@@ -242,52 +244,6 @@
             this.JuomatDGV.TabIndex = 3;
             this.JuomatDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.JuomatDGV_CellContentClick);
             // 
-            // JuomatAlkoDGV
-            // 
-            this.JuomatAlkoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.JuomatAlkoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewButtonColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewButtonColumn2,
-            this.TiMaaraCo});
-            this.JuomatAlkoDGV.Location = new System.Drawing.Point(867, 193);
-            this.JuomatAlkoDGV.Name = "JuomatAlkoDGV";
-            this.JuomatAlkoDGV.RowHeadersWidth = 51;
-            this.JuomatAlkoDGV.RowTemplate.Height = 29;
-            this.JuomatAlkoDGV.Size = new System.Drawing.Size(348, 239);
-            this.JuomatAlkoDGV.TabIndex = 4;
-            this.JuomatAlkoDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.JuomatAlkoDGV_CellContentClick);
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            this.dataGridViewButtonColumn1.HeaderText = "Varaa";
-            this.dataGridViewButtonColumn1.MinimumWidth = 6;
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Määrä";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewButtonColumn2
-            // 
-            this.dataGridViewButtonColumn2.HeaderText = "Tilaa lisää";
-            this.dataGridViewButtonColumn2.MinimumWidth = 6;
-            this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            this.dataGridViewButtonColumn2.Width = 125;
-            // 
-            // TiMaaraCo
-            // 
-            this.TiMaaraCo.HeaderText = "Määrä";
-            this.TiMaaraCo.MinimumWidth = 6;
-            this.TiMaaraCo.Name = "TiMaaraCo";
-            this.TiMaaraCo.Visible = false;
-            this.TiMaaraCo.Width = 125;
-            // 
             // VaraaJuCo
             // 
             this.VaraaJuCo.HeaderText = "Varaa";
@@ -342,6 +298,74 @@
             this.VahTiJuCo.Visible = false;
             this.VahTiJuCo.Width = 125;
             // 
+            // JuomatAlkoDGV
+            // 
+            this.JuomatAlkoDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.JuomatAlkoDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VarAlkoCO,
+            this.VarAlkoMaCo,
+            this.VahAlkoVarCo,
+            this.TilaaAlkoCo,
+            this.TilAlkoMaaraCo,
+            this.VahAlkoTilCo});
+            this.JuomatAlkoDGV.Location = new System.Drawing.Point(925, 193);
+            this.JuomatAlkoDGV.Name = "JuomatAlkoDGV";
+            this.JuomatAlkoDGV.RowHeadersWidth = 51;
+            this.JuomatAlkoDGV.RowTemplate.Height = 29;
+            this.JuomatAlkoDGV.Size = new System.Drawing.Size(348, 239);
+            this.JuomatAlkoDGV.TabIndex = 4;
+            this.JuomatAlkoDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.JuomatAlkoDGV_CellContentClick);
+            // 
+            // VarAlkoCO
+            // 
+            this.VarAlkoCO.HeaderText = "Varaa";
+            this.VarAlkoCO.MinimumWidth = 6;
+            this.VarAlkoCO.Name = "VarAlkoCO";
+            this.VarAlkoCO.Width = 125;
+            // 
+            // VarAlkoMaCo
+            // 
+            this.VarAlkoMaCo.HeaderText = "Määrä";
+            this.VarAlkoMaCo.MinimumWidth = 6;
+            this.VarAlkoMaCo.Name = "VarAlkoMaCo";
+            this.VarAlkoMaCo.Visible = false;
+            this.VarAlkoMaCo.Width = 125;
+            // 
+            // VahAlkoVarCo
+            // 
+            this.VahAlkoVarCo.HeaderText = "Vahvista";
+            this.VahAlkoVarCo.MinimumWidth = 6;
+            this.VahAlkoVarCo.Name = "VahAlkoVarCo";
+            this.VahAlkoVarCo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VahAlkoVarCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.VahAlkoVarCo.Visible = false;
+            this.VahAlkoVarCo.Width = 125;
+            // 
+            // TilaaAlkoCo
+            // 
+            this.TilaaAlkoCo.HeaderText = "Tilaa lisää";
+            this.TilaaAlkoCo.MinimumWidth = 6;
+            this.TilaaAlkoCo.Name = "TilaaAlkoCo";
+            this.TilaaAlkoCo.Width = 125;
+            // 
+            // TilAlkoMaaraCo
+            // 
+            this.TilAlkoMaaraCo.HeaderText = "Määrä";
+            this.TilAlkoMaaraCo.MinimumWidth = 6;
+            this.TilAlkoMaaraCo.Name = "TilAlkoMaaraCo";
+            this.TilAlkoMaaraCo.Visible = false;
+            this.TilAlkoMaaraCo.Width = 125;
+            // 
+            // VahAlkoTilCo
+            // 
+            this.VahAlkoTilCo.HeaderText = "Vahvista";
+            this.VahAlkoTilCo.MinimumWidth = 6;
+            this.VahAlkoTilCo.Name = "VahAlkoTilCo";
+            this.VahAlkoTilCo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VahAlkoTilCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.VahAlkoTilCo.Visible = false;
+            this.VahAlkoTilCo.Width = 125;
+            // 
             // AdminSaatavuudet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -382,10 +406,6 @@
         private DataGridView JuomatDGV;
         private DataGridView JuomatAlkoDGV;
         private ToolStripMenuItem KayttajatTSMI;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewButtonColumn dataGridViewButtonColumn2;
-        private DataGridViewTextBoxColumn TiMaaraCo;
         private DataGridViewButtonColumn VaraaCo;
         private DataGridViewTextBoxColumn VaMaaraCo;
         private DataGridViewButtonColumn VahVarCo;
@@ -398,5 +418,11 @@
         private DataGridViewButtonColumn TilaaLiJuCo;
         private DataGridViewTextBoxColumn MaTilaaJuCo;
         private DataGridViewButtonColumn VahTiJuCo;
+        private DataGridViewButtonColumn VarAlkoCO;
+        private DataGridViewTextBoxColumn VarAlkoMaCo;
+        private DataGridViewButtonColumn VahAlkoVarCo;
+        private DataGridViewButtonColumn TilaaAlkoCo;
+        private DataGridViewTextBoxColumn TilAlkoMaaraCo;
+        private DataGridViewButtonColumn VahAlkoTilCo;
     }
 }

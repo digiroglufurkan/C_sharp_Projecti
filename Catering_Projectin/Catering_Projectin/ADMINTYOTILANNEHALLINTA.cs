@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@ Antti Kuusisto
-/// version 18.5.2022
+/// version 23.5.2022
 /// <summary>
-/// Hakee työtilantaan
+/// Toimii jotenkin. Hieman muokattava hakukyselyitä.
 /// </summary>
 namespace Catering_Projectin
 {
@@ -25,6 +25,34 @@ namespace Catering_Projectin
             adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
             adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
             return table; // palautetaan DataTable 
+        }
+
+        public bool maaraaTyo(string ktun, int tilId)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO tyotilanne (KayttajaTunnus, TilausID, Status, LentoID) VALUES(@ktun,@tid,@sta,@len)", yh.otaYhteys());
+                cmd.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = ktun;
+                cmd.Parameters.Add("@tid", MySqlDbType.Int32).Value = tilId;
+                cmd.Parameters.Add("@sta", MySqlDbType.Int32).Value = 1;
+                cmd.Parameters.Add("@len", MySqlDbType.Int32).Value = 0;
+                yh.avaaYhteys(); // avataan yhteys tietokantaan
+                if (cmd.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
+                    return true; // vastauksen palautus
+                }
+                else
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
+                    return false;  // vastauksen palautus
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
     }
 }

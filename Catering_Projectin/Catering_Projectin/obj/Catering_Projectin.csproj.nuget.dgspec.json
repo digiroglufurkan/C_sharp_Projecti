@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\furka\\source\\repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj": {}
+    "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\furka\\source\\repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj": {
+    "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\furka\\source\\repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj",
+        "projectUniqueName": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj",
         "projectName": "Catering_Projectin",
-        "projectPath": "C:\\Users\\furka\\source\\repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj",
-        "packagesPath": "C:\\Users\\furka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\furka\\source\\repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\obj\\",
+        "projectPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\Catering_Projectin.csproj",
+        "packagesPath": "C:\\Users\\prett\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prett\\Source\\Repos\\C_sharp_Projecti\\Catering_Projectin\\Catering_Projectin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\furka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\prett\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

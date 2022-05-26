@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Etusivu));
             this.OtsikkoLB = new System.Windows.Forms.Label();
             this.NavMS = new System.Windows.Forms.MenuStrip();
             this.EtusivuTMSI = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,9 +108,9 @@
             this.Kuvaus1RTB.Location = new System.Drawing.Point(268, 527);
             this.Kuvaus1RTB.Name = "Kuvaus1RTB";
             this.Kuvaus1RTB.ReadOnly = true;
-            this.Kuvaus1RTB.Size = new System.Drawing.Size(494, 171);
+            this.Kuvaus1RTB.Size = new System.Drawing.Size(567, 171);
             this.Kuvaus1RTB.TabIndex = 4;
-            this.Kuvaus1RTB.Text = "Hieman tarjoamistamme catering palveluista";
+            this.Kuvaus1RTB.Text = resources.GetString("Kuvaus1RTB.Text");
             // 
             // Etusivu
             // 
