@@ -15,7 +15,7 @@ namespace Catering_Projectin
 
         public DataTable ruokaSaldo()
         {
-            MySqlCommand komento = new MySqlCommand("SELECT AterianNimi, Varasto_saldo FROM ateriat", yhteys.otaYhteys());
+            MySqlCommand komento = new MySqlCommand("SELECT AterianNimi, Varasto_saldo, Varattu FROM ateriat", yhteys.otaYhteys());
             MySqlDataAdapter adapteri = new MySqlDataAdapter(); 
             DataTable dt = new DataTable(); 
             adapteri.SelectCommand = komento; 
@@ -25,7 +25,7 @@ namespace Catering_Projectin
 
         public DataTable alkoSaldo()
         {
-            MySqlCommand komento = new MySqlCommand("SELECT Nimi, Varasto_saldo FROM juomatalkoholilliset", yhteys.otaYhteys());
+            MySqlCommand komento = new MySqlCommand("SELECT Nimi, Varasto_saldo, Varattu FROM juomatalkoholilliset", yhteys.otaYhteys());
             MySqlDataAdapter adapteri = new MySqlDataAdapter();
             DataTable dt = new DataTable();
             adapteri.SelectCommand = komento;
@@ -35,12 +35,15 @@ namespace Catering_Projectin
 
         public DataTable juomaSaldo()
         {
-            MySqlCommand komento = new MySqlCommand("SELECT Nimi, Varasto_saldo FROM juomatalkoholittomat", yhteys.otaYhteys());
+            MySqlCommand komento = new MySqlCommand("SELECT Nimi, Varasto_saldo, Varattu FROM juomatalkoholittomat", yhteys.otaYhteys());
             MySqlDataAdapter adapteri = new MySqlDataAdapter();
             DataTable dt = new DataTable();
             adapteri.SelectCommand = komento;
             adapteri.Fill(dt);
             return dt;
         }
+
+        //public bool juomaVarastoLisa()
+     
     }
 }

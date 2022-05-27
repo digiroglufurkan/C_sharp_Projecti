@@ -67,5 +67,18 @@ namespace Catering_Projectin
             kokkialkoDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             kokkialkoDG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
+        private void kokkijuomatDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+    
+
+
+
+        }
+
+        private void kokkialkoDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

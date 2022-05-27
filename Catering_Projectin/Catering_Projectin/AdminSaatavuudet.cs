@@ -118,7 +118,7 @@ namespace Catering_Projectin
                     VahVarCo.Visible = true; // vahvistus BT näkyviin
                 }
                 // mikäli painetaan varauksen vahvistusta
-                else if (e.ColumnIndex == VahVarCo.Index )
+                else if (e.ColumnIndex == VahVarCo.Index)
                     try
                     {
                         // muuttuja datagridvievw:n riville
@@ -135,7 +135,7 @@ namespace Catering_Projectin
                             // määrän ja id:n lähetys class:n
                             bool varaus = adSaHa.varaaAteria(varMar, id);
                             // mikäli varaus onnistui
-                            if(varaus == true)
+                            if (varaus == true)
                             {
                                 // DGV:n päivitys
                                 AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat();

@@ -91,6 +91,6 @@ namespace Catering_Projectin
             TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
 
-        
+
     }
 }

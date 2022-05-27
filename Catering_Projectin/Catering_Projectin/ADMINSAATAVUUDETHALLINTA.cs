@@ -59,7 +59,7 @@ namespace Catering_Projectin
 
         // aterian varaus
         public bool varaaAteria(int ma, int id)
-        { 
+        {
             int liVaMa = ma;// muuttuja viestiä varten
             int vaMa = 0; // muuttuja tietokannassa olevia varauksia varten
             try
@@ -71,7 +71,7 @@ namespace Catering_Projectin
                 MySqlDataReader reader1 = cmd.ExecuteReader();// datareader:n kysely
                 while (reader1.Read()) // Kun DataReader lukee
                 {   // while silmukalla muuttujaan varaukset
-                   vaMa = reader1.GetInt32(0);
+                    vaMa = reader1.GetInt32(0);
                     reader1.Close(); //suljetaan DataReader
                     break;
                 }
@@ -81,7 +81,7 @@ namespace Catering_Projectin
                 cmd1.Parameters.Add("@ma", MySqlDbType.Int32).Value = ma; // varauksien määrä
                 cmd1.Parameters.Add("@id", MySqlDbType.Int32).Value = id; // AteriaID
                 yh.avaaYhteys();//yhteys auki
-                if(cmd1.ExecuteNonQuery() == 1)//katsotaan suoritettiinko kysely
+                if (cmd1.ExecuteNonQuery() == 1)//katsotaan suoritettiinko kysely
                 {
                     yh.suljeYhteys();//suljetaan yhteys
                     // viesti paljonko varattiin ja paljonko on yhteensä varattu
@@ -94,7 +94,7 @@ namespace Catering_Projectin
                     return false;//palutetaan false
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message} class");
                 return false;
