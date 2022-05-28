@@ -18,7 +18,7 @@ namespace Catering_Projectin
         Yhdista yh = new Yhdista();
         public DataTable haeTilaukset()
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM tilaus", yh.otaYhteys());
+            MySqlCommand command = new MySqlCommand("SELECT t.TilausID, t.kayttajaID, t.LentoID, t.Hinta, s.Status FROM tilaus t JOIN status s ON t.Status = s.StatusID;", yh.otaYhteys());
             MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
             DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
             adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet

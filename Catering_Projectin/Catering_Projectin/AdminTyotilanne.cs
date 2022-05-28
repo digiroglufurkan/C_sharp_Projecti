@@ -124,9 +124,6 @@ namespace Catering_Projectin
             {
                 MessageBox.Show(ex.Message);
             }
-            /*TekijaCo.DataSource = adTyTiHa.haeKokit();
-            TekijaCo.ValueMember = TekijaCo.Kayttajat.ToString();
-            TekijaCo.DisplayMember = TekijaCo.ValueMember;*/
         }
        
         private void TilauksetDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -153,8 +150,10 @@ namespace Catering_Projectin
                             string ktun = row.Cells[1].Value.ToString();
                             //TilausID muuttujaan
                             int id = int.Parse(row.Cells[3].Value.ToString());
-                            // määrän ja id:n lähetys class:n
-                            bool varaus = adTyTiHa.maaraaTyo(ktun, id);
+                            //LentoID muuttujaan
+                            int lId = int.Parse(row.Cells[5].Value.ToString());
+                            // määrän, tilausID:n ja lentoID:n lähetys class:n
+                            bool varaus = adTyTiHa.maaraaTyo(ktun, id, lId);
                             // mikäli määrääminen onnistui
                             if (varaus == true)
                             {
@@ -191,7 +190,38 @@ namespace Catering_Projectin
           
         private void TyotilanneDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                if(e.ColumnIndex == PoistaCo.Index)
+                {
+                    int tId = int.Parse(TyotilanneDGV.CurrentRow.Cells[2].Value.ToString());
+                    if (tId == 0)
+                    {
+                        MessageBox.Show($"Et ole valinnut poistettavaa käyttäjää");
+                    }
+                    else
+                    {
+                        bool poista = adTyTiHa.poistaMaarays(tId);
+                        if (poista == true)
+                        {
+                            MessageBox.Show($"Työmääräyksen poisto onnistui.");
+                            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Työmääräyksen poisto ei onnistunut");
+                        }
+                    }
+                }
+                else 
+                {
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} v1");
+            }
         }
     }
 }

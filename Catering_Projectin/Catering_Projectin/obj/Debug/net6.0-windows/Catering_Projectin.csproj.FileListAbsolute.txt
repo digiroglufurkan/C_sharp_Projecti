@@ -117,3 +117,8 @@ C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Project
 C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.csproj.CopyComplete
 C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.genruntimeconfig.cache
 C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\ref\Catering_Projectin.dll
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.KayttajanKotisivu.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Kirjaudu.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Menu.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Otayhtayta.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Tilaus.resources

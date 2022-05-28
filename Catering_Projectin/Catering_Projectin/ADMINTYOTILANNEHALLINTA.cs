@@ -27,7 +27,7 @@ namespace Catering_Projectin
             return table; // palautetaan DataTable 
         }
 
-        public bool maaraaTyo(string ktun, int tilId)
+        public bool maaraaTyo(string ktun, int tilId, int lId)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Catering_Projectin
                 cmd.Parameters.Add("@ktun", MySqlDbType.VarChar).Value = ktun;
                 cmd.Parameters.Add("@tid", MySqlDbType.Int32).Value = tilId;
                 cmd.Parameters.Add("@sta", MySqlDbType.Int32).Value = 1;
-                cmd.Parameters.Add("@len", MySqlDbType.Int32).Value = 0;
+                cmd.Parameters.Add("@len", MySqlDbType.Int32).Value = lId;
                 yh.avaaYhteys(); // avataan yhteys tietokantaan
                 if (cmd.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
                 {
@@ -49,6 +49,32 @@ namespace Catering_Projectin
                 }
             }
             catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool poistaMaarays(int tId)
+        {
+            try
+            {
+                // käyttäjänpoistokysely ja yhteyden muodostus
+                MySqlCommand command = new MySqlCommand("DELETE FROM tyotilanne WHERE TyoID = @id", yh.otaYhteys()); // tämä kesken
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = tId; //käyttäjä tunnuksen lisäys
+                yh.avaaYhteys(); // Yhteyden avaus YH CLASS:lla
+                if (command.ExecuteNonQuery() == 1) // katsotaan onko komento suoritettu
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
+                    return true; // vastauksen palautus
+                }
+                else
+                {
+                    yh.suljeYhteys(); // suljetaan yhteys Yhdista CLASS:n funktiolla
+                    return false;  // vastauksen palautus
+                }
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
