@@ -15,7 +15,27 @@ namespace Catering_Projectin
 
         public DataTable tyoTilanne()
         {
-            MySqlCommand komento = new MySqlCommand("SELECT TilausID  FROM tyotilanne", yhteys.otaYhteys());
+            MySqlCommand komento = new MySqlCommand("SELECT TilausID, Status, LentoID FROM tyotilanne", yhteys.otaYhteys());
+            MySqlDataAdapter adapteri = new MySqlDataAdapter();
+            DataTable dt = new DataTable();
+            adapteri.SelectCommand = komento;
+            adapteri.Fill(dt);
+            return dt;
+        }
+
+        public DataTable tilausTilanne()
+        {
+            MySqlCommand komento = new MySqlCommand("SELECT TilausID, AteriaID, JuomaID, JuomaAlkoID FROM tilaus", yhteys.otaYhteys());
+            MySqlDataAdapter adapteri = new MySqlDataAdapter();
+            DataTable dt = new DataTable();
+            adapteri.SelectCommand = komento;
+            adapteri.Fill(dt);
+            return dt;
+        }
+
+        public DataTable statusInfo()
+        {
+            MySqlCommand komento = new MySqlCommand("SELECT * FROM status", yhteys.otaYhteys());
             MySqlDataAdapter adapteri = new MySqlDataAdapter();
             DataTable dt = new DataTable();
             adapteri.SelectCommand = komento;
@@ -24,12 +44,13 @@ namespace Catering_Projectin
 
         }
 
-        public bool paivitaTilanne(string stat)
+        public bool paivitaTilanne(string tilaus, string status)
         {
             try
             {
-                MySqlCommand koemnto = new MySqlCommand("UPDATE FROM Tyotilanne WHERE Status = @stat", yhteys.otaYhteys());
-                koemnto.Parameters.Add("stat", MySqlDbType.VarChar).Value = stat;
+                MySqlCommand koemnto = new MySqlCommand("UPDATE tyotilanne SET Status = @sta WHERE TilausID = @til", yhteys.otaYhteys());
+                koemnto.Parameters.Add("@til", MySqlDbType.VarChar).Value = tilaus;
+                koemnto.Parameters.Add("@sta", MySqlDbType.VarChar).Value = status;
                 yhteys.avaaYhteys();
                 if (koemnto.ExecuteNonQuery() == 1) 
                 {
