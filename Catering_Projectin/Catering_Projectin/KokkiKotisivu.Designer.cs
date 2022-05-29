@@ -37,10 +37,18 @@
             this.kokkiulosMS = new System.Windows.Forms.ToolStripMenuItem();
             this.koktilanneDG = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.lahetaTilanneBT = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.statusC = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tilauksetLB = new System.Windows.Forms.Label();
+            this.kokTilauksetDG = new System.Windows.Forms.DataGridView();
+            this.tilausLB = new System.Windows.Forms.Label();
+            this.statusLB = new System.Windows.Forms.Label();
+            this.tilausCB = new System.Windows.Forms.ComboBox();
+            this.statusCB = new System.Windows.Forms.ComboBox();
+            this.tilanneBT = new System.Windows.Forms.Button();
+            this.statusInfoDG = new System.Windows.Forms.DataGridView();
             this.kokkotiMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.koktilanneDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokTilauksetDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusInfoDG)).BeginInit();
             this.SuspendLayout();
             // 
             // kokkotiMS
@@ -106,13 +114,11 @@
             // koktilanneDG
             // 
             this.koktilanneDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.koktilanneDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.lahetaTilanneBT,
-            this.statusC});
-            this.koktilanneDG.Location = new System.Drawing.Point(188, 129);
+            this.koktilanneDG.Location = new System.Drawing.Point(53, 127);
             this.koktilanneDG.Name = "koktilanneDG";
             this.koktilanneDG.RowTemplate.Height = 25;
-            this.koktilanneDG.Size = new System.Drawing.Size(561, 382);
+            this.koktilanneDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.koktilanneDG.Size = new System.Drawing.Size(427, 173);
             this.koktilanneDG.TabIndex = 4;
             this.koktilanneDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.koktilanneDG_CellContentClick);
             // 
@@ -120,32 +126,104 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(419, 105);
+            this.label1.Location = new System.Drawing.Point(193, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(156, 21);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Työtilanne";
+            this.label1.Text = "Määrätyt työtilaukset";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // lahetaTilanneBT
+            // tilauksetLB
             // 
-            this.lahetaTilanneBT.Frozen = true;
-            this.lahetaTilanneBT.HeaderText = "Lähetä";
-            this.lahetaTilanneBT.MinimumWidth = 50;
-            this.lahetaTilanneBT.Name = "lahetaTilanneBT";
+            this.tilauksetLB.AutoSize = true;
+            this.tilauksetLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tilauksetLB.Location = new System.Drawing.Point(178, 327);
+            this.tilauksetLB.Name = "tilauksetLB";
+            this.tilauksetLB.Size = new System.Drawing.Size(171, 21);
+            this.tilauksetLB.TabIndex = 6;
+            this.tilauksetLB.Text = "Tämänhetkiset tilaukset";
             // 
-            // statusC
+            // kokTilauksetDG
             // 
-            this.statusC.FillWeight = 200F;
-            this.statusC.HeaderText = "Status";
-            this.statusC.MinimumWidth = 20;
-            this.statusC.Name = "statusC";
-            this.statusC.Width = 120;
+            this.kokTilauksetDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kokTilauksetDG.Location = new System.Drawing.Point(53, 351);
+            this.kokTilauksetDG.Name = "kokTilauksetDG";
+            this.kokTilauksetDG.RowTemplate.Height = 25;
+            this.kokTilauksetDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.kokTilauksetDG.Size = new System.Drawing.Size(427, 173);
+            this.kokTilauksetDG.TabIndex = 7;
+            // 
+            // tilausLB
+            // 
+            this.tilausLB.AutoSize = true;
+            this.tilausLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tilausLB.Location = new System.Drawing.Point(690, 313);
+            this.tilausLB.Name = "tilausLB";
+            this.tilausLB.Size = new System.Drawing.Size(53, 21);
+            this.tilausLB.TabIndex = 8;
+            this.tilausLB.Text = "Tilaus:";
+            // 
+            // statusLB
+            // 
+            this.statusLB.AutoSize = true;
+            this.statusLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.statusLB.Location = new System.Drawing.Point(673, 369);
+            this.statusLB.Name = "statusLB";
+            this.statusLB.Size = new System.Drawing.Size(70, 21);
+            this.statusLB.TabIndex = 9;
+            this.statusLB.Text = "StatusID:";
+            // 
+            // tilausCB
+            // 
+            this.tilausCB.FormattingEnabled = true;
+            this.tilausCB.Location = new System.Drawing.Point(753, 313);
+            this.tilausCB.Name = "tilausCB";
+            this.tilausCB.Size = new System.Drawing.Size(140, 23);
+            this.tilausCB.TabIndex = 10;
+            this.tilausCB.SelectedIndexChanged += new System.EventHandler(this.tilausCB_SelectedIndexChanged);
+            // 
+            // statusCB
+            // 
+            this.statusCB.FormattingEnabled = true;
+            this.statusCB.Location = new System.Drawing.Point(755, 367);
+            this.statusCB.Name = "statusCB";
+            this.statusCB.Size = new System.Drawing.Size(138, 23);
+            this.statusCB.TabIndex = 11;
+            this.statusCB.SelectedIndexChanged += new System.EventHandler(this.statusCB_SelectedIndexChanged);
+            // 
+            // tilanneBT
+            // 
+            this.tilanneBT.Location = new System.Drawing.Point(772, 421);
+            this.tilanneBT.Name = "tilanneBT";
+            this.tilanneBT.Size = new System.Drawing.Size(99, 32);
+            this.tilanneBT.TabIndex = 12;
+            this.tilanneBT.Text = "Vaihda status";
+            this.tilanneBT.UseVisualStyleBackColor = true;
+            this.tilanneBT.Click += new System.EventHandler(this.tilanneBT_Click);
+            // 
+            // statusInfoDG
+            // 
+            this.statusInfoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statusInfoDG.Location = new System.Drawing.Point(682, 127);
+            this.statusInfoDG.Name = "statusInfoDG";
+            this.statusInfoDG.RowTemplate.Height = 25;
+            this.statusInfoDG.Size = new System.Drawing.Size(245, 129);
+            this.statusInfoDG.TabIndex = 13;
+            this.statusInfoDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.statusInfoDG_CellContentClick);
             // 
             // KokkiKotisivu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 550);
+            this.ClientSize = new System.Drawing.Size(1071, 549);
+            this.Controls.Add(this.statusInfoDG);
+            this.Controls.Add(this.tilanneBT);
+            this.Controls.Add(this.statusCB);
+            this.Controls.Add(this.tilausCB);
+            this.Controls.Add(this.statusLB);
+            this.Controls.Add(this.tilausLB);
+            this.Controls.Add(this.kokTilauksetDG);
+            this.Controls.Add(this.tilauksetLB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.koktilanneDG);
             this.Controls.Add(this.kokkotiMS);
@@ -155,6 +233,8 @@
             this.kokkotiMS.ResumeLayout(false);
             this.kokkotiMS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.koktilanneDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kokTilauksetDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusInfoDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,7 +251,13 @@
         private ToolStripMenuItem kokkiulosMS;
         private DataGridView koktilanneDG;
         private Label label1;
-        private DataGridViewButtonColumn lahetaTilanneBT;
-        private DataGridViewComboBoxColumn statusC;
+        private Label tilauksetLB;
+        private DataGridView kokTilauksetDG;
+        private Label tilausLB;
+        private Label statusLB;
+        private ComboBox tilausCB;
+        private ComboBox statusCB;
+        private Button tilanneBT;
+        private DataGridView statusInfoDG;
     }
 }
