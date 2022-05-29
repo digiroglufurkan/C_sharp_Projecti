@@ -35,7 +35,7 @@ namespace Catering_Projectin
 
         public DataTable juomaSaldo()
         {
-            MySqlCommand komento = new MySqlCommand("SELECT Nimi, Varasto_saldo, Varattu FROM juomatalkoholittomat", yhteys.otaYhteys());
+            MySqlCommand komento = new MySqlCommand("SELECT * FROM juomatalkoholittomat", yhteys.otaYhteys());
             MySqlDataAdapter adapteri = new MySqlDataAdapter();
             DataTable dt = new DataTable();
             adapteri.SelectCommand = komento;
@@ -43,7 +43,57 @@ namespace Catering_Projectin
             return dt;
         }
 
-        //public bool juomaVarastoLisa()
-     
+        
+
+        public bool juomaVahvistus(int id)
+        {
+            try
+            {
+                MySqlCommand command = new MySqlCommand("UPDATE juomatalkoholittomat SET Varasto_saldo = Varasto_saldo + 500 WHERE JuomaID = @id", yhteys.otaYhteys()); 
+                command.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
+                yhteys.avaaYhteys(); 
+                if (command.ExecuteNonQuery() == 1) 
+                {
+                    yhteys.suljeYhteys(); 
+                    return true; 
+                }
+                else
+                {
+                    yhteys.suljeYhteys(); 
+                    return false;  
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public bool alkoVahvistus(int id)
+        {
+            try
+            { // alkoissa ei toiminut JuomaAlkoID vaan piti laittaa Nimi(?) mikä ei ehkä toimi jos alkoja on enemmän, mutta nyt toimii 
+                MySqlCommand command = new MySqlCommand("UPDATE juomatalkoholilliset SET Varasto_saldo = Varasto_saldo + 500 WHERE Nimi = @id", yhteys.otaYhteys());
+                command.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
+                yhteys.avaaYhteys();
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    yhteys.suljeYhteys();
+                    return true;
+                }
+                else
+                {
+                    yhteys.suljeYhteys();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
     }
 }

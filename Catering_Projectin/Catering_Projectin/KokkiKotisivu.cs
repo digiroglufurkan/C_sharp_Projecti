@@ -65,9 +65,11 @@ namespace Catering_Projectin
         private void KokkiKotisivu_Load(object sender, EventArgs e)
         {
             koktilanneDG.DataSource = tilanne.tyoTilanne();
-            //koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             kokTilauksetDG.DataSource = tilanne.tilausTilanne();
+            kokTilauksetDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             statusInfoDG.DataSource = tilanne.statusInfo();
+            statusInfoDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
             try
             {

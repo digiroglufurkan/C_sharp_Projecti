@@ -17,7 +17,7 @@ namespace Catering_Projectin
         public KokkiSalasananVaihto()
         {
             InitializeComponent();
-            //tunnus = Kirjaudu.ktun;
+            tunnus = Kirjaudu.ktun;
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)

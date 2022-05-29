@@ -45,6 +45,7 @@
             // 
             // kokkisalisvaihtoMS
             // 
+            this.kokkisalisvaihtoMS.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.kokkisalisvaihtoMS.Dock = System.Windows.Forms.DockStyle.None;
             this.kokkisalisvaihtoMS.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkisalisvaihtoMS.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -55,21 +56,23 @@
             this.kokkisalisvaihtoMS.Location = new System.Drawing.Point(20, 35);
             this.kokkisalisvaihtoMS.Name = "kokkisalisvaihtoMS";
             this.kokkisalisvaihtoMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokkisalisvaihtoMS.Size = new System.Drawing.Size(274, 33);
+            this.kokkisalisvaihtoMS.Size = new System.Drawing.Size(272, 31);
             this.kokkisalisvaihtoMS.TabIndex = 4;
             this.kokkisalisvaihtoMS.Text = "menuStrip1";
             // 
             // kokkikotiMS
             // 
+            this.kokkikotiMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.kokkikotiMS.Name = "kokkikotiMS";
-            this.kokkikotiMS.Size = new System.Drawing.Size(90, 29);
+            this.kokkikotiMS.Size = new System.Drawing.Size(90, 27);
             this.kokkikotiMS.Text = "Kotisivu";
             this.kokkikotiMS.Click += new System.EventHandler(this.kokkikotiMS_Click);
             // 
             // kokkiruoatMS
             // 
+            this.kokkiruoatMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.kokkiruoatMS.Name = "kokkiruoatMS";
-            this.kokkiruoatMS.Size = new System.Drawing.Size(73, 29);
+            this.kokkiruoatMS.Size = new System.Drawing.Size(71, 27);
             this.kokkiruoatMS.Text = "Ruoat";
             this.kokkiruoatMS.Click += new System.EventHandler(this.kokkiruoatMS_Click);
             // 
@@ -79,8 +82,9 @@
             this.kokkiprofMS,
             this.kokkisalisMS,
             this.kokkiulosMS});
+            this.kokkiasetuksetMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkiasetuksetMS.Name = "kokkiasetuksetMS";
-            this.kokkiasetuksetMS.Size = new System.Drawing.Size(104, 29);
+            this.kokkiasetuksetMS.Size = new System.Drawing.Size(104, 27);
             this.kokkiasetuksetMS.Text = "Asetukset";
             // 
             // kokkiprofMS
@@ -106,26 +110,26 @@
             // kokkisalis1LB
             // 
             this.kokkisalis1LB.AutoSize = true;
-            this.kokkisalis1LB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kokkisalis1LB.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkisalis1LB.Location = new System.Drawing.Point(224, 207);
             this.kokkisalis1LB.Name = "kokkisalis1LB";
-            this.kokkisalis1LB.Size = new System.Drawing.Size(107, 21);
+            this.kokkisalis1LB.Size = new System.Drawing.Size(107, 19);
             this.kokkisalis1LB.TabIndex = 5;
             this.kokkisalis1LB.Text = "Uusi salasana:";
             // 
             // kokkisalis2LB
             // 
             this.kokkisalis2LB.AutoSize = true;
-            this.kokkisalis2LB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kokkisalis2LB.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkisalis2LB.Location = new System.Drawing.Point(164, 286);
             this.kokkisalis2LB.Name = "kokkisalis2LB";
-            this.kokkisalis2LB.Size = new System.Drawing.Size(167, 21);
+            this.kokkisalis2LB.Size = new System.Drawing.Size(168, 19);
             this.kokkisalis2LB.TabIndex = 6;
             this.kokkisalis2LB.Text = "Vahvista uusi salasana:";
             // 
             // kokkisalis1TB
             // 
-            this.kokkisalis1TB.Location = new System.Drawing.Point(337, 209);
+            this.kokkisalis1TB.Location = new System.Drawing.Point(337, 207);
             this.kokkisalis1TB.Name = "kokkisalis1TB";
             this.kokkisalis1TB.Size = new System.Drawing.Size(188, 23);
             this.kokkisalis1TB.TabIndex = 7;
@@ -139,6 +143,7 @@
             // 
             // kokkisalisBT
             // 
+            this.kokkisalisBT.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkisalisBT.Location = new System.Drawing.Point(356, 363);
             this.kokkisalisBT.Name = "kokkisalisBT";
             this.kokkisalisBT.Size = new System.Drawing.Size(145, 40);
@@ -151,6 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(887, 548);
             this.Controls.Add(this.kokkisalisBT);
             this.Controls.Add(this.kokkisalis2TB);

@@ -18,7 +18,7 @@ namespace Catering_Projectin
             try
             {
                 //string salattu = salaus.Encrypt(uusSalisYks);
-                MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `SALASANA` = @salis WHERE KayttajaTunnus = @id", yhteys.otaYhteys());
+                MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `Salasana` = @salis WHERE KayttajaTunnus = @id", yhteys.otaYhteys());
                 command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
                 command.Parameters.Add("@salis", MySqlDbType.VarChar).Value = uusiSalisYksi;
                 yhteys.avaaYhteys();

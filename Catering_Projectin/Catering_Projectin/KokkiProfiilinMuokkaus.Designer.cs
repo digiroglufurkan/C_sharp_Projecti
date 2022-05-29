@@ -55,6 +55,7 @@
             // 
             // kokkimuokkaaprofMS
             // 
+            this.kokkimuokkaaprofMS.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.kokkimuokkaaprofMS.Dock = System.Windows.Forms.DockStyle.None;
             this.kokkimuokkaaprofMS.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkimuokkaaprofMS.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -65,21 +66,23 @@
             this.kokkimuokkaaprofMS.Location = new System.Drawing.Point(22, 37);
             this.kokkimuokkaaprofMS.Name = "kokkimuokkaaprofMS";
             this.kokkimuokkaaprofMS.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.kokkimuokkaaprofMS.Size = new System.Drawing.Size(274, 33);
+            this.kokkimuokkaaprofMS.Size = new System.Drawing.Size(272, 31);
             this.kokkimuokkaaprofMS.TabIndex = 4;
             this.kokkimuokkaaprofMS.Text = "menuStrip1";
             // 
             // kokkikotiMS
             // 
+            this.kokkikotiMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.kokkikotiMS.Name = "kokkikotiMS";
-            this.kokkikotiMS.Size = new System.Drawing.Size(90, 29);
+            this.kokkikotiMS.Size = new System.Drawing.Size(90, 27);
             this.kokkikotiMS.Text = "Kotisivu";
             this.kokkikotiMS.Click += new System.EventHandler(this.kokkikotiMS_Click);
             // 
             // kokkiruoatMS
             // 
+            this.kokkiruoatMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.kokkiruoatMS.Name = "kokkiruoatMS";
-            this.kokkiruoatMS.Size = new System.Drawing.Size(73, 29);
+            this.kokkiruoatMS.Size = new System.Drawing.Size(71, 27);
             this.kokkiruoatMS.Text = "Ruoat";
             this.kokkiruoatMS.Click += new System.EventHandler(this.kokkiruoatMS_Click);
             // 
@@ -89,8 +92,9 @@
             this.kokkiprofMS,
             this.kokkisalisMS,
             this.kokkiulosMS});
+            this.kokkiasetuksetMS.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkiasetuksetMS.Name = "kokkiasetuksetMS";
-            this.kokkiasetuksetMS.Size = new System.Drawing.Size(104, 29);
+            this.kokkiasetuksetMS.Size = new System.Drawing.Size(104, 27);
             this.kokkiasetuksetMS.Text = "Asetukset";
             // 
             // kokkiprofMS
@@ -116,70 +120,70 @@
             // kokkisalis1LB
             // 
             this.kokkisalis1LB.AutoSize = true;
-            this.kokkisalis1LB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.kokkisalis1LB.Location = new System.Drawing.Point(149, 185);
+            this.kokkisalis1LB.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.kokkisalis1LB.Location = new System.Drawing.Point(149, 187);
             this.kokkisalis1LB.Name = "kokkisalis1LB";
-            this.kokkisalis1LB.Size = new System.Drawing.Size(66, 21);
+            this.kokkisalis1LB.Size = new System.Drawing.Size(70, 19);
             this.kokkisalis1LB.TabIndex = 6;
             this.kokkisalis1LB.Text = "Etunimi:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(473, 187);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 21);
+            this.label1.Size = new System.Drawing.Size(81, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Sukunimi:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(124, 241);
+            this.label2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(128, 243);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Sähköposti:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(149, 300);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 21);
+            this.label3.Size = new System.Drawing.Size(67, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Puhelin:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(88, 363);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 21);
+            this.label4.Size = new System.Drawing.Size(135, 19);
             this.label4.TabIndex = 10;
             this.label4.Text = "Postitoimipaikka:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(494, 243);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 21);
+            this.label6.Size = new System.Drawing.Size(60, 19);
             this.label6.TabIndex = 12;
             this.label6.Text = "Osoite:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(451, 302);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 21);
+            this.label7.Size = new System.Drawing.Size(103, 19);
             this.label7.TabIndex = 13;
             this.label7.Text = "Postinumero:";
             // 
@@ -234,6 +238,7 @@
             // 
             // kokkimuokkaaprofiiliBT
             // 
+            this.kokkimuokkaaprofiiliBT.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kokkimuokkaaprofiiliBT.Location = new System.Drawing.Point(371, 435);
             this.kokkimuokkaaprofiiliBT.Name = "kokkimuokkaaprofiiliBT";
             this.kokkimuokkaaprofiiliBT.Size = new System.Drawing.Size(149, 32);
@@ -246,6 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(912, 527);
             this.Controls.Add(this.kokkimuokkaaprofiiliBT);
             this.Controls.Add(this.kokkipostiTB);
