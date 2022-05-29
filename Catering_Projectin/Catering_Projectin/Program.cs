@@ -16,6 +16,7 @@ namespace Catering_Projectin
             //Application.Run(new AdminKotisivu());
             //Application.Run(new Menu());
             //Application.Run(new Kirjaudu());
+            //Application.Run(new Rekisteroidy());
         }
     }
 }

@@ -17,42 +17,30 @@ namespace Catering_Projectin
     {
         Yhdista yhteys = new Yhdista();
 
-        public string lisakayttaja(String enimi, String snimi, String puh, String email, String osaite, String postinumero, String toimipaikka, String titteli, bool kuvaa, PictureBox PB, String salasana)
+        public string lisakayttaja(String enimi, String snimi, String email, String puh, String osoite, String posti, String toimi, String yhtio, String icao, String salasana)
         {
             String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
             String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
-            if (kuvaa) // jos kayttaja halu ladata kuva tämän SQL kysely
             {
                 lisayskysely = "INSERT INTO `kayttajat`" +
-                    "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`,`KUVA`)" +
-                    "VALUES (@usr, @enm, @snm,  @eml, @puh, @osaite,@postinumero, @toimipaikka,@titteli, @ssa,@kuva); ";
-            }
-            else //jos ei halua ladata tämän SQL kysely
-            {
-                lisayskysely = "INSERT INTO `kayttajat`" +
-                     "(`KAYTTAJA_TUNNUS`, `ETUNIMI`, `SUKUNIMI`, `EMAIL`, `PUHELIN`, `OSAITE`, `POSTINUMERO`, `TOIMIPAIKKA`, `TITTELI`, `SALASANA`)" +
-                     "VALUES (@usr, @enm, @snm,  @eml, @puh, @osaite,@postinumero, @toimipaikka,@titteli, @ssa); ";
+                    "(`KayttajaTunnus`, `Etunimi`, `Sukunimi`, `Email`, `Puhelin`, `Osoite`, `Postinumero`, `Postitoimipaikka`, `RoolitID` `Salasana`)" +
+                    "VALUES (@usr, @etu, @suku,  @eml, @puh, @oso, @post, @toim, @ssa); ";
             }
             komento.CommandText = lisayskysely;
             komento.Connection = yhteys.otaYhteys();
-            komento.Parameters.Add("@enm", MySqlDbType.VarChar).Value = enimi;
-            komento.Parameters.Add("@snm", MySqlDbType.VarChar).Value = snimi;
+            komento.Parameters.Add("@etu", MySqlDbType.VarChar).Value = enimi;
+            komento.Parameters.Add("@suku", MySqlDbType.VarChar).Value = snimi;
             komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
             komento.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puh;
-            komento.Parameters.Add("@osaite", MySqlDbType.VarChar).Value = osaite;
-            komento.Parameters.Add("@postinumero", MySqlDbType.VarChar).Value = postinumero;
-            komento.Parameters.Add("@toimipaikka", MySqlDbType.VarChar).Value = toimipaikka;
-            komento.Parameters.Add("@titteli", MySqlDbType.VarChar).Value = titteli;
+            komento.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite;
+            komento.Parameters.Add("@post", MySqlDbType.VarChar).Value = posti;
+            komento.Parameters.Add("@toim", MySqlDbType.VarChar).Value = toimi;
+            komento.Parameters.Add("@yht", MySqlDbType.VarChar).Value = yhtio;
+            komento.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
             komento.Parameters.Add("@usr", MySqlDbType.VarChar).Value = ktunnus;
             komento.Parameters.Add("@ssa", MySqlDbType.VarChar).Value = salattu;
-            if (kuvaa) //jos kuva ladata converto byte from kuva
-            {
-                ImageConverter convert = new ImageConverter();
-                komento.Parameters.Add("@kuva", MySqlDbType.LongBlob).Value = (byte[])convert.ConvertTo(PB.Image, typeof(byte[]));
-            }
-
 
             yhteys.avaaYhteys();
             if (komento.ExecuteNonQuery() == 1)
