@@ -45,9 +45,11 @@ namespace Catering_Projectin
             {
                 if (1 == Convert.ToInt32(dr.GetValue(2))) // tarkista etta onko kayttaja admin tai ei
                 {
-                    ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
+                    //ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
                     AdminKotisivu ki = new AdminKotisivu();
+                    ki.Ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
                     ki.FormClosing += f1_FormClosing;
+                    //ki.Ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
                     ki.Show();
                     this.Hide();
                 }

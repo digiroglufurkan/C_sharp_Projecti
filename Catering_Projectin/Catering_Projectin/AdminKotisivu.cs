@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +13,13 @@ namespace Catering_Projectin
     public partial class AdminKotisivu : Form
     {
         ADMINTILAUKSET adTi = new ADMINTILAUKSET();
+        string uid = ""; // muuttuja käyttäjä tunnukselle
+        private string ktun = string.Empty;
+        public string Ktun
+        {
+            get { return ktun; }
+            set { ktun = value; }
+        }
         public AdminKotisivu()
         {
             InitializeComponent();
@@ -27,6 +34,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
+            adKo.Ktun = uid;
             adKo.Show();
             this.Hide();
         }
@@ -35,6 +43,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
+            adSa.Ktun = uid;
             adSa.Show();
             this.Hide();
         }
@@ -43,6 +52,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
+            adTy.Ktun = uid;
             adTy.Show();
             this.Hide();
         }
@@ -50,6 +60,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
+            adKaHa.Ktun = uid;
             adKaHa.Show();
             this.Hide();
         }
@@ -57,6 +68,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
+            adSaHa.Ktun = uid;
             adSaHa.Show();
             this.Hide();
         }
@@ -64,7 +76,9 @@ namespace Catering_Projectin
         private void MuokkaaProfiiliaTSMI_Click(object sender, EventArgs e)
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
+            adMuPr.Ktun = uid;
             adMuPr.FormClosing += formClosing;
+            //adMuPr.Ktun = uid;
             adMuPr.Show();
             this.Hide();
         }
@@ -73,6 +87,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
+            adSaVa.Ktun = uid;
             adSaVa.Show();
             this.Hide();
         }
@@ -87,6 +102,8 @@ namespace Catering_Projectin
 
         private void AdminKotisivu_Load(object sender, EventArgs e)
         {
+            uid = Ktun;
+            MessageBox.Show($"{uid}");
             TilauksetDGV.DataSource = adTi.haeTilaukset();
             TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }

@@ -13,6 +13,13 @@ namespace Catering_Projectin
     public partial class AdminKayttajaHallinta : Form
     {
         ADMINKAYTTAJIENHALLINTA adKaHa = new ADMINKAYTTAJIENHALLINTA();
+        string uid = ""; // muuttuja käyttäjä tunnukselle
+        private string ktun = string.Empty;
+        public string Ktun
+        {
+            get { return ktun; }
+            set { ktun = value; }
+        }
         public AdminKayttajaHallinta()
         {
             InitializeComponent();
@@ -26,6 +33,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
+            adKo.Ktun = uid;
             adKo.Show();
             this.Hide();
         }
@@ -34,6 +42,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
+            adSa.Ktun = uid;
             adSa.Show();
             this.Hide();
         }
@@ -42,6 +51,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
+            adTy.Ktun = uid;
             adTy.Show();
             this.Hide();
         }
@@ -50,6 +60,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
+            adKaHa.Ktun = uid;
             adKaHa.Show();
             this.Hide();
         }
@@ -58,6 +69,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
+            adSaHa.Ktun = uid;
             adSaHa.Show();
             this.Hide();
         }
@@ -66,6 +78,7 @@ namespace Catering_Projectin
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
+            adMuPr.Ktun = uid;
             adMuPr.Show();
             this.Hide();
         }
@@ -74,6 +87,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
+            adSaVa.Ktun = uid;
             adSaVa.Show();
             this.Hide();
         }
@@ -88,8 +102,10 @@ namespace Catering_Projectin
 
         private void AdminKayttajaHallinta_Load(object sender, EventArgs e)
         {
+            
             try
             {
+                uid = Ktun;
                 KaytHallintaDGV.DataSource = adKaHa.haeKayttajat();
                 KaytHallintaDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
             }

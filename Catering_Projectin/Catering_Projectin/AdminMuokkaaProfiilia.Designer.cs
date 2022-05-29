@@ -42,14 +42,12 @@
             this.ENimiLB = new System.Windows.Forms.Label();
             this.SNimi = new System.Windows.Forms.Label();
             this.EmailLB = new System.Windows.Forms.Label();
-            this.TitteliLB = new System.Windows.Forms.Label();
             this.OsoiteLB = new System.Windows.Forms.Label();
             this.PToimiLB = new System.Windows.Forms.Label();
             this.PostiNroLB = new System.Windows.Forms.Label();
             this.PuhNroLB = new System.Windows.Forms.Label();
             this.EnimiTB = new System.Windows.Forms.TextBox();
             this.EmailTB = new System.Windows.Forms.TextBox();
-            this.TitteliTB = new System.Windows.Forms.TextBox();
             this.PToimiTB = new System.Windows.Forms.TextBox();
             this.SnimiTB = new System.Windows.Forms.TextBox();
             this.PuhNroTB = new System.Windows.Forms.TextBox();
@@ -182,15 +180,6 @@
             this.EmailLB.TabIndex = 4;
             this.EmailLB.Text = "Sähköposti";
             // 
-            // TitteliLB
-            // 
-            this.TitteliLB.AutoSize = true;
-            this.TitteliLB.Location = new System.Drawing.Point(192, 304);
-            this.TitteliLB.Name = "TitteliLB";
-            this.TitteliLB.Size = new System.Drawing.Size(47, 20);
-            this.TitteliLB.TabIndex = 5;
-            this.TitteliLB.Text = "Titteli";
-            // 
             // OsoiteLB
             // 
             this.OsoiteLB.AutoSize = true;
@@ -240,13 +229,6 @@
             this.EmailTB.Name = "EmailTB";
             this.EmailTB.Size = new System.Drawing.Size(125, 27);
             this.EmailTB.TabIndex = 11;
-            // 
-            // TitteliTB
-            // 
-            this.TitteliTB.Location = new System.Drawing.Point(431, 304);
-            this.TitteliTB.Name = "TitteliTB";
-            this.TitteliTB.Size = new System.Drawing.Size(125, 27);
-            this.TitteliTB.TabIndex = 12;
             // 
             // PToimiTB
             // 
@@ -324,14 +306,12 @@
             this.Controls.Add(this.PuhNroTB);
             this.Controls.Add(this.SnimiTB);
             this.Controls.Add(this.PToimiTB);
-            this.Controls.Add(this.TitteliTB);
             this.Controls.Add(this.EmailTB);
             this.Controls.Add(this.EnimiTB);
             this.Controls.Add(this.PuhNroLB);
             this.Controls.Add(this.PostiNroLB);
             this.Controls.Add(this.PToimiLB);
             this.Controls.Add(this.OsoiteLB);
-            this.Controls.Add(this.TitteliLB);
             this.Controls.Add(this.EmailLB);
             this.Controls.Add(this.SNimi);
             this.Controls.Add(this.ENimiLB);
@@ -364,14 +344,12 @@
         private Label ENimiLB;
         private Label SNimi;
         private Label EmailLB;
-        private Label TitteliLB;
         private Label OsoiteLB;
         private Label PToimiLB;
         private Label PostiNroLB;
         private Label PuhNroLB;
         private TextBox EnimiTB;
         private TextBox EmailTB;
-        private TextBox TitteliTB;
         private TextBox PToimiTB;
         private TextBox SnimiTB;
         private TextBox PuhNroTB;
