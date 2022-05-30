@@ -160,16 +160,16 @@ namespace Catering_Projectin
                         DataGridViewRow row = new DataGridViewRow();
                         // napin rivin lisäys muuttujaan
                         row = TilauksetDGV.SelectedRows[0];
-                        // tarkistetaan, että on syötetty varattava määrä
+                        
                         if (row.Cells[1].Value != null)
                         {
-                            // varausmäärä muuttujaan
+                            // käyttäjätunnuksen luku muuttujaan
                             string ktun = row.Cells[1].Value.ToString();
                             //TilausID muuttujaan
                             int id = int.Parse(row.Cells[3].Value.ToString());
                             //LentoID muuttujaan
                             int lId = int.Parse(row.Cells[5].Value.ToString());
-                            // määrän, tilausID:n ja lentoID:n lähetys class:n
+                            // käyttäjätunnuksen, tilausID:n ja lentoID:n lähetys class:n
                             bool varaus = adTyTiHa.maaraaTyo(ktun, id, lId);
                             // mikäli määrääminen onnistui
                             if (varaus == true)
@@ -214,7 +214,7 @@ namespace Catering_Projectin
                     int tId = int.Parse(TyotilanneDGV.CurrentRow.Cells[2].Value.ToString());
                     if (tId == 0)
                     {   //virheviesti
-                        MessageBox.Show($"Et ole valinnut poistettavaa käyttäjää");
+                        MessageBox.Show($"Et ole valinnut poistettavaa työmääräystä");
                     }
                     else
                     {   // kutsutaan metodia, jolla poistetaan työmääräys

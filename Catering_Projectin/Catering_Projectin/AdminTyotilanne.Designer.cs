@@ -230,6 +230,7 @@
             this.IlmAsiakCo.HeaderText = "Ilmoita";
             this.IlmAsiakCo.MinimumWidth = 6;
             this.IlmAsiakCo.Name = "IlmAsiakCo";
+            this.IlmAsiakCo.Visible = false;
             this.IlmAsiakCo.Width = 125;
             // 
             // PoistaCo
