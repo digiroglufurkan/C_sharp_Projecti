@@ -6,7 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// author@ Antti Kuusisto
+/// version 30.5.2022
+/// <summary>
+/// Hakee adminille varastosaldon ja varauksien määrän ja antaa mahdollisuuden varata ja tilata lisää tuotteita.
+/// </summary>
 namespace Catering_Projectin
 {
     class ADMINPROFIILINMUOKKAUS

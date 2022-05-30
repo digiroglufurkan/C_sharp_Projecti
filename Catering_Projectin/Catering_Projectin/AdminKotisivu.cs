@@ -103,7 +103,6 @@ namespace Catering_Projectin
         private void AdminKotisivu_Load(object sender, EventArgs e)
         {
             uid = Ktun;
-            MessageBox.Show($"{uid}");
             TilauksetDGV.DataSource = adTi.haeTilaukset();
             TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
