@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@ Antti Kuusisto
-/// version 18.5.2022
+/// version 30.5.2022
 /// <summary>
-/// Hakee tilaukset
+/// Hakee tilaukset tietokannasta. 
 /// </summary>
 namespace Catering_Projectin
 {
@@ -18,12 +18,12 @@ namespace Catering_Projectin
         Yhdista yh = new Yhdista();
         public DataTable haeTilaukset()
         {
+            // hakukysely jossa yhdistetään kaksi(2) tietokantaa ja yhteyden avaus
             MySqlCommand command = new MySqlCommand("SELECT t.TilausID, t.kayttajaID, t.LentoID, t.Hinta, s.Status FROM tilaus t JOIN status s ON t.Status = s.StatusID;", yh.otaYhteys());
             MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
             DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
             adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
             adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
-                                 //adapter.Dispose();
             return table; // palautetaan DataTable 
         }
     }

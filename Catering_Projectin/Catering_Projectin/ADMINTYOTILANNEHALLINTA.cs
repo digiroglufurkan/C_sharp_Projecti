@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 /// author@ Antti Kuusisto
-/// version 23.5.2022
+/// version 30.5.2022
 /// <summary>
-/// Toimii jotenkin. Hieman muokattava hakukyselyitä.
+/// Työnmäärääminen eli työtilanteen muokkaus
 /// </summary>
 namespace Catering_Projectin
 {

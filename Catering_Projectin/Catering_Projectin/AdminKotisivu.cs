@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// author@ Antti Kuusisto
+/// version 30.5.2022
+/// <summary>
+/// Adminin kotisivun toiminta
+/// </summary>
 namespace Catering_Projectin
 {
     public partial class AdminKotisivu : Form
     {
         ADMINTILAUKSET adTi = new ADMINTILAUKSET();
         string uid = ""; // muuttuja käyttäjä tunnukselle
-        private string ktun = string.Empty;
-        public string Ktun
+        private string ktun = string.Empty; // muuttuja käyttäjä tunnukselle
+        public string Ktun // get/set metodi, jolla siirretään käyttäjätunnus sivulta toiselle
         {
             get { return ktun; }
             set { ktun = value; }
@@ -34,7 +38,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
-            adKo.Ktun = uid;
+            adKo.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKo.Show();
             this.Hide();
         }
@@ -43,7 +47,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
-            adSa.Ktun = uid;
+            adSa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSa.Show();
             this.Hide();
         }
@@ -52,7 +56,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
-            adTy.Ktun = uid;
+            adTy.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adTy.Show();
             this.Hide();
         }
@@ -60,7 +64,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
-            adKaHa.Ktun = uid;
+            adKaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKaHa.Show();
             this.Hide();
         }
@@ -68,7 +72,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
-            adSaHa.Ktun = uid;
+            adSaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaHa.Show();
             this.Hide();
         }
@@ -76,9 +80,8 @@ namespace Catering_Projectin
         private void MuokkaaProfiiliaTSMI_Click(object sender, EventArgs e)
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
-            adMuPr.Ktun = uid;
+            adMuPr.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adMuPr.FormClosing += formClosing;
-            //adMuPr.Ktun = uid;
             adMuPr.Show();
             this.Hide();
         }
@@ -87,7 +90,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
-            adSaVa.Ktun = uid;
+            adSaVa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaVa.Show();
             this.Hide();
         }
@@ -100,10 +103,11 @@ namespace Catering_Projectin
             this.Hide();
         }
 
+        //Toiminta, kun sivu ladataan
         private void AdminKotisivu_Load(object sender, EventArgs e)
         {
-            uid = Ktun;
-            TilauksetDGV.DataSource = adTi.haeTilaukset();
+            uid = Ktun; // Haetaan käyttäjätunnus kirjautumisesta tälle sivulle.
+            TilauksetDGV.DataSource = adTi.haeTilaukset(); // Päivitetään DGV, jossa näytetään tilaukset
             TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
         }
 

@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@ Antti Kuusisto
-/// version 19.5.2022
+/// version 30.5.2022
 /// <summary>
-/// Vaihtaa käyttäjän salasanan, pitää päivittää dynaaminen käyttäjätunnuksen haku, kun Kirjaudu-sivu on
-/// valmis.
+/// Vaihtaa käyttäjän salasanan.
 /// </summary>
 namespace Catering_Projectin
 {
@@ -19,8 +18,8 @@ namespace Catering_Projectin
     {
         ADMINSALASANAT adSa = new ADMINSALASANAT();
         string uid = ""; // muuttuja käyttäjä tunnukselle
-        private string ktun = string.Empty;
-        public string Ktun
+        private string ktun = string.Empty;// muuttuja käyttäjä tunnukselle
+        public string Ktun // get/set metodi, jolla siirretään käyttäjätunnus sivulta toiselle
         {
             get { return ktun; }
             set { ktun = value; }
@@ -38,7 +37,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
-            adKo.Ktun = uid;
+            adKo.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKo.Show();
             this.Hide();
         }
@@ -47,7 +46,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
-            adSa.Ktun = uid;
+            adSa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSa.Show();
             this.Hide();
         }
@@ -56,7 +55,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
-            adTy.Ktun = uid;
+            adTy.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adTy.Show();
             this.Hide();
         }
@@ -64,7 +63,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
-            adKaHa.Ktun = uid;
+            adKaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKaHa.Show();
             this.Hide();
         }
@@ -72,7 +71,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
-            adSaHa.Ktun = uid;
+            adSaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaHa.Show();
             this.Hide();
         }
@@ -81,7 +80,7 @@ namespace Catering_Projectin
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
-            adMuPr.Ktun = uid;
+            adMuPr.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adMuPr.Show();
             this.Hide();
         }
@@ -90,7 +89,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
-            adSaVa.Ktun = uid;
+            adSaVa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaVa.Show();
             this.Hide();
         }
@@ -113,11 +112,11 @@ namespace Catering_Projectin
                 uusiSalasana = UusiSaSanaTB.Text; // uusi salasana 
                 uusiUudestaan = UusiUdTB.Text; // uuden toisto
                 if (uusiSalasana.Equals("") || uusiUudestaan.Equals("")) // tarkistus, että kentissä tekstiä
-                {
+                {   //virheviesti
                     MessageBox.Show($"Tarkista tekstikentät.");
                 }
                 else if (uusiSalasana != uusiUudestaan) // tarkistus, että uusi kaksi kertaa.
-                {
+                {   //virheviesti
                     MessageBox.Show($"Uudet salasanat eivät täsmää.");
                 }
                 else
@@ -125,12 +124,12 @@ namespace Catering_Projectin
                     bool vastaus = adSa.vaihdaSalasana(uid, uusiSalasana);
                     if (vastaus == true) // mikäli vaihto onnistui
                     {
-                        MessageBox.Show($"Salasanan vaihto onnistui.");
-                        UusiSaSanaTB.Text = "";
-                        UusiUdTB.Text = "";
+                        MessageBox.Show($"Salasanan vaihto onnistui.");//viesti
+                        UusiSaSanaTB.Text = ""; //kentäntyhjennys
+                        UusiUdTB.Text = "";//kentäntyhjennys
                     }
                     else
-                    {
+                    {   //virheviesti
                         MessageBox.Show($"Salasanan vaihto ei onnistunut.");
                     }
                 }
@@ -141,9 +140,10 @@ namespace Catering_Projectin
             }
         }
 
+        //toiminta, kun sivu ladataan
         private void AdminSalasananVaihto_Load(object sender, EventArgs e)
         {
-            uid = Ktun;
+            uid = Ktun; //kyttäjätunnuksen haku
         }
     }
 }

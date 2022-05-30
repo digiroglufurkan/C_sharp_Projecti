@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// author@ Antti Kuusisto
 /// version 30.5.2022
 /// <summary>
-/// Hakee adminille varastosaldon ja varauksien määrän ja antaa mahdollisuuden varata ja tilata lisää tuotteita.
+/// Toiminta tietokannan kanssa, kun muokataan profiilia
 /// </summary>
 namespace Catering_Projectin
 {
@@ -20,8 +20,10 @@ namespace Catering_Projectin
             , string id)
         {
             try
-            {
+            {   
+                // Päivityskysely ja yhteyden avaus.
                 MySqlCommand cmd = new MySqlCommand("Update `kayttajat` Set `Etunimi` = @eni, `Sukunimi` = @sni, `Email` =@email, `Puhelin` =@puh, `Osoite` =@oso,`Postitoimipaikka` =@ptoi, `Postinumero` =@pnro WHERE KayttajaTunnus =@id", yh.otaYhteys());
+                // Alla parametrien määrittely.
                 cmd.Parameters.Add("@eni", MySqlDbType.VarChar).Value = enimi;
                 cmd.Parameters.Add("@sni", MySqlDbType.VarChar).Value = snimi;
                 cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;

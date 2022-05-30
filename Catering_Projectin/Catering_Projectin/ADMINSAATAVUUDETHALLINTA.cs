@@ -248,8 +248,7 @@ namespace Catering_Projectin
         public bool tilaaJuomaAlko(int ma, int id)
         {
             try
-            {
-                //MySqlCommand cmd1 = new MySqlCommand("UPDATE juomatalkoholilliset SET Varasto_saldo = @ma WHERE JuomaAlkoID = ( SELECT JuomaAlkoID FROM( SELECT JuomaAlkoID FROM juomatalkoholilliset WHERE JuomaAlkoID = @id ) AS innerResult)", yh.otaYhteys());
+            { 
                 MySqlCommand cmd1 = new MySqlCommand("UPDATE juomatalkoholilliset SET Varasto_saldo = Varasto_saldo + @ma WHERE JuomaAlkoID = @id", yh.otaYhteys());
                 cmd1.Parameters.Add("@ma", MySqlDbType.Int32).Value = ma;// tilauksien määrä
                 cmd1.Parameters.Add("@id", MySqlDbType.Int32).Value = id;// JuomaID

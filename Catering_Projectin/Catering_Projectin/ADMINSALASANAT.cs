@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// author@ Antti Kuusisto
 /// version 19.5.2022
 /// <summary>
-/// Admin salasanojen vaihto class. Täällä metodit joilla hallitaan tietokannassa olevia salasanoja.
+/// Tietokannassa olevien salasanojen hallinta
 /// </summary>
 namespace Catering_Projectin
 {
@@ -17,6 +17,8 @@ namespace Catering_Projectin
     {
         Yhdista yh = new Yhdista();
         Tiedansyotto salaus = new Tiedansyotto(); // class, jossa salasanan kryptaus on
+
+        //käyttäjän salasanan vaihtaminen
         public bool paivitaKaytSalasana(string ktun, string saSana)
         {
             try
@@ -45,6 +47,7 @@ namespace Catering_Projectin
             }
         }
 
+        //adminin oman salasanan vaihtaminen
         public bool vaihdaSalasana(string ktun, string saSana)
         {
             try

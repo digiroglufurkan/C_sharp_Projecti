@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@ Antti Kuusisto
-/// version 23.5.2022
+/// version 30.5.2022
 /// <summary>
-/// Toimii jotenkin. Hieman muokattava hakukyselyitä.
+/// Uuden tilauksen määrääminen tehtäväksi
 /// </summary>
 namespace Catering_Projectin
 {
@@ -110,17 +110,19 @@ namespace Catering_Projectin
         // Toiminta, kun sivu ladataan
         private void AdminTyotilanne_Load(object sender, EventArgs e)
         {
-            uid = Ktun;
-            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
-            TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
-            //hyödynnetään etusivulle tilaukset hakevaa metodia
-            TilauksetDGV.DataSource = adTi.haeTilaukset();
-            TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //Mahdollistetaan valinta riviltä
-            TilauksetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //TilauksetDGV.
+            
             try
-            {   // haetaan tilukseen valittava tekijä
+            {
+                uid = Ktun;
+                TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
+                TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+                                                                                          //hyödynnetään etusivulle tilaukset hakevaa metodia
+                TilauksetDGV.DataSource = adTi.haeTilaukset();
+                TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                //Mahdollistetaan valinta riviltä
+                TilauksetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //TilauksetDGV.
+                // haetaan tilukseen valittava tekijä
                 MySqlCommand cmd = new MySqlCommand("SELECT KayttajaTunnus FROM kayttajat WHERE RoolitID = 3", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
@@ -142,7 +144,7 @@ namespace Catering_Projectin
         }
        
         private void TilauksetDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { // /*
+        { 
             try
             {   // mikäli painetaan varaa - button:a
                 if (e.ColumnIndex == MaaraaCo.Index)
@@ -200,30 +202,30 @@ namespace Catering_Projectin
             {
                 MessageBox.Show($"{ex.Message} v1");
             }
-            // */
+            
         }
           
         private void TyotilanneDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
+            {   //mikäli painetaan poista-button:a
                 if(e.ColumnIndex == PoistaCo.Index)
-                {
+                {   // luetaan id
                     int tId = int.Parse(TyotilanneDGV.CurrentRow.Cells[2].Value.ToString());
                     if (tId == 0)
-                    {
+                    {   //virheviesti
                         MessageBox.Show($"Et ole valinnut poistettavaa käyttäjää");
                     }
                     else
-                    {
+                    {   // kutsutaan metodia, jolla poistetaan työmääräys
                         bool poista = adTyTiHa.poistaMaarays(tId);
-                        if (poista == true)
+                        if (poista == true)//mikäli poisto onnistui
                         {
-                            MessageBox.Show($"Työmääräyksen poisto onnistui.");
-                            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();
+                            MessageBox.Show($"Työmääräyksen poisto onnistui.");//viesti
+                            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n päivitys
                         }
                         else
-                        {
+                        {   //virheviesti
                             MessageBox.Show($"Työmääräyksen poisto ei onnistunut");
                         }
                     }
