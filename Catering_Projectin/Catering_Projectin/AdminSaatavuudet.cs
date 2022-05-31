@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@ Antti Kuusisto
-/// version 18.5.2022
+/// version 30.5.2022
 /// <summary>
 /// Hakee adminille varastosaldon ja varauksien määrän ja antaa mahdollisuuden varata ja tilata lisää tuotteita.
 /// </summary>
@@ -18,6 +18,13 @@ namespace Catering_Projectin
     {
         // muuttuja Class:lle, jossa kommunikoidaan tietokannan kanssa
         ADMINSAATAVUUDETHALLINTA adSaHa = new ADMINSAATAVUUDETHALLINTA();
+        string uid = ""; // muuttuja käyttäjä tunnukselle
+        private string ktun = string.Empty; // muuttuja käyttäjä tunnukselle
+        public string Ktun // get/set metodi, jolla siirretään käyttäjätunnus sivulta toiselle
+        {
+            get { return ktun; }
+            set { ktun = value; }
+        }
         public AdminSaatavuudet()
         {
             InitializeComponent();
@@ -32,6 +39,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
+            adKo.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKo.Show();
             this.Hide();
         }
@@ -40,6 +48,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
+            adSa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSa.Show();
             this.Hide();
         }
@@ -48,6 +57,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
+            adTy.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adTy.Show();
             this.Hide();
         }
@@ -55,6 +65,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
+            adKaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKaHa.Show();
             this.Hide();
         }
@@ -62,6 +73,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
+            adSaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaHa.Show();
             this.Hide();
         }
@@ -70,7 +82,8 @@ namespace Catering_Projectin
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
-            adMuPr.Show();
+            adMuPr.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
+            adMuPr.Show(); 
             this.Hide();
         }
 
@@ -78,6 +91,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
+            adSaVa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaVa.Show();
             this.Hide();
         }
@@ -93,18 +107,27 @@ namespace Catering_Projectin
         // toiminta, kun sivu latautuu
         private void AdminSaatavuudet_Load(object sender, EventArgs e)
         {
-            AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat(); //Aterioiden saatavuudet datagridvievw:n
-            AteriaSaatavuudetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
-            // Mahdollistetaan riviltä tiedonluku
-            AteriaSaatavuudetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            JuomatDGV.DataSource = adSaHa.haeJuomat(); //Juomien saatavuudet datagridvievw:n
-            JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
-            // Mahdollistetaan riviltä tiedonluku
-            JuomatDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko(); //Viinojen saatavuudet datagridvievw:n
-            JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
-            // Mahdollistetaan riviltä tiedonluku
-            JuomatAlkoDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                uid = Ktun;
+                AteriaSaatavuudetDGV.DataSource = adSaHa.haeAteriat(); //Aterioiden saatavuudet datagridvievw:n
+                AteriaSaatavuudetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+                                                                                                 // Mahdollistetaan riviltä tiedonluku
+                AteriaSaatavuudetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                JuomatDGV.DataSource = adSaHa.haeJuomat(); //Juomien saatavuudet datagridvievw:n
+                JuomatDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
+                                                                                       // Mahdollistetaan riviltä tiedonluku
+                JuomatDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                JuomatAlkoDGV.DataSource = adSaHa.haeJuomatAlko(); //Viinojen saatavuudet datagridvievw:n
+                JuomatAlkoDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells); // datagridview:n muotoilua
+                                                                                           // Mahdollistetaan riviltä tiedonluku
+                JuomatAlkoDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         // toiminta, kun klikataan datagridvievw:ta

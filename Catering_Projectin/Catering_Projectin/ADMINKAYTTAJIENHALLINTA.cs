@@ -6,7 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// author@ Antti Kuusisto
+/// version 30.5.2022
+/// <summary>
+/// Toiminta toiminta tietokannassa, kun hallitaan käyttäjätilejä
+/// </summary>
 namespace Catering_Projectin
 {
     class ADMINKAYTTAJIENHALLINTA

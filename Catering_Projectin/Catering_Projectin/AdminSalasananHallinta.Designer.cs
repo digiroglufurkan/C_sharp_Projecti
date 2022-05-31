@@ -183,6 +183,7 @@
             this.UusiSaSanaTB.Name = "UusiSaSanaTB";
             this.UusiSaSanaTB.Size = new System.Drawing.Size(125, 27);
             this.UusiSaSanaTB.TabIndex = 6;
+            this.UusiSaSanaTB.UseSystemPasswordChar = true;
             // 
             // UusiUdTB
             // 
@@ -190,6 +191,7 @@
             this.UusiUdTB.Name = "UusiUdTB";
             this.UusiUdTB.Size = new System.Drawing.Size(125, 27);
             this.UusiUdTB.TabIndex = 7;
+            this.UusiUdTB.UseSystemPasswordChar = true;
             // 
             // VaihdaBT
             // 
@@ -218,6 +220,7 @@
             this.MainMenuStrip = this.NavMS;
             this.Name = "AdminSalasananHallinta";
             this.Text = "Admin salasanojen hallinta";
+            this.Load += new System.EventHandler(this.AdminSalasananHallinta_Load);
             this.NavMS.ResumeLayout(false);
             this.NavMS.PerformLayout();
             this.ResumeLayout(false);

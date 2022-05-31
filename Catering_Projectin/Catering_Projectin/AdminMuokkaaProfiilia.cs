@@ -9,19 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// author@ Antti Kuusisto
+/// version 30.5.2022
+/// <summary>
+/// Toiminta, kun muokataan profiilia
+/// </summary>
 namespace Catering_Projectin
 {
     public partial class AdminMuokkaaProfiilia : Form
     {
         ADMINPROFIILINMUOKKAUS ad = new ADMINPROFIILINMUOKKAUS(); // muuttuja class:lle
-        Tiedansyotto salaus = new Tiedansyotto(); // muuttuja class:lle
+        Tiedansyotto salaus = new Tiedansyotto(); // muuttuja class:lle, jossa kryptaus
         Yhdista yh = new Yhdista(); // muuttuja class:lle
-        string uid; // muuttuja käyttäjä tunnukselle
+        string uid = ""; // muuttuja käyttäjä tunnukselle
+        private string ktun = string.Empty; // muuttuja käyttäjä tunnukselle
+        public string Ktun // get/set metodi, jolla siirretään käyttäjätunnus sivulta toiselle
+        {
+            get { return ktun; }
+            set { ktun = value; }
+        }
         public AdminMuokkaaProfiilia()
         {
             InitializeComponent();
         }
+
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
@@ -31,6 +42,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
+            adKo.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKo.Show();
             this.Hide();
         }
@@ -39,6 +51,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
+            adSa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSa.Show();
             this.Hide();
         }
@@ -47,6 +60,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
+            adTy.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adTy.Show();
             this.Hide();
         }
@@ -54,6 +68,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
+            adKaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adKaHa.Show();
             this.Hide();
         }
@@ -61,6 +76,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
+            adSaHa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaHa.Show();
             this.Hide();
         }
@@ -69,6 +85,7 @@ namespace Catering_Projectin
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
+            adMuPr.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adMuPr.Show();
             this.Hide();
         }
@@ -77,6 +94,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
+            adSaVa.Ktun = uid; // Käyttäjätunnuksen siirto toiselle sivulle
             adSaVa.Show();
             this.Hide();
         }
@@ -92,11 +110,12 @@ namespace Catering_Projectin
         private void AdminMuokkaaProfiilia_Load(object sender, EventArgs e)
         {
             string salattu = ""; // muuttuja kryptatulle salasanalle
+            uid = Ktun;
             // Aloitus try:lla
             try
             {
                 // Hakukysely käyttäjän tiedoista, samassa tietokantayhteyden ottaminen.
-                MySqlCommand command1 = new MySqlCommand("SELECT Salasana, Etunimi, Sukunimi, Email, Puhelin, Titteli ,Osoite, Postitoimipaikka, Postinumero FROM kayttajat WHERE KAYTTAJA_TUNNUS = @ktun", yh.otaYhteys());
+                MySqlCommand command1 = new MySqlCommand("SELECT Salasana, Etunimi, Sukunimi, Email, Puhelin, Titteli ,Osoite, Postitoimipaikka, Postinumero FROM kayttajat WHERE KayttajaTunnus = @ktun", yh.otaYhteys());
                 command1.Parameters.AddWithValue("@ktun", uid); // käyttäjä tunnuksen lisäys kyselyyn
                 yh.avaaYhteys(); // tietokantayhteyden avaus
                 // hakukysely DataReaderiin
@@ -108,7 +127,6 @@ namespace Catering_Projectin
                     this.SnimiTB.Text = (reader1["Sukunimi"].ToString());
                     this.EmailTB.Text = (reader1["Email"].ToString());
                     this.PuhNroTB.Text = (reader1["Puhelin"].ToString());
-                    this.TitteliTB.Text = (reader1["Titteli"].ToString());
                     this.OsoiteTB.Text = (reader1["Osoite"].ToString());
                     this.PToimiTB.Text = (reader1["Postitoimipaikka"].ToString());
                     this.PostiNroTB.Text = (reader1["Postinumero"].ToString());
@@ -131,20 +149,19 @@ namespace Catering_Projectin
                 string enimi = EnimiTB.Text.ToString(); // luetaan etunimi
                 string snimi = SnimiTB.Text.ToString(); // luetaan sukunimi
                 string email = EmailTB.Text.ToString(); // luetaan sähköposti
-                string puh = PuhNroTB.Text.ToString(); // luetaan puhelin
+                int puh = int.Parse(PuhNroTB.Text.ToString()); // luetaan puhelin
                 string osoite = OsoiteTB.Text.ToString(); // luetaan osoite
-                string postinro = PostiNroTB.Text.ToString(); // luetaan postinumero
+                int postinro = int.Parse(PostiNroTB.Text.ToString()); // luetaan postinumero
                 string postitoimi = PToimiTB.Text.ToString(); // luetaan postitoimipaikka
-                string titteli = TitteliTB.Text.ToString(); // luetaan titteli
                 if (enimi.Equals("") || snimi.Equals("") || email.Equals("") || puh.Equals("") || osoite.Equals("") || postinro.Equals("") ||
-                    postitoimi.Equals("") || titteli.Equals(""))
+                    postitoimi.Equals(""))
                 {
                     MessageBox.Show($"Tarkista tekstikentät");
                 }
                 else
                 {
                     // Kutsutaan ADMINPROFMUOKKAUS class:ssa olevaa metodia
-                    bool vastaus = ad.paivitaTiedot(enimi, snimi, email, puh, osoite, postinro, postitoimi, titteli, uid);
+                    bool vastaus = ad.paivitaTiedot(enimi, snimi, email, puh, osoite, postinro, postitoimi, uid);
                     if (vastaus == true) // mikäli vastaus on true
                     {   //ilmoitus onnistuneesta päivityksestä
                         MessageBox.Show($"Päivitys onnistui");
@@ -155,7 +172,6 @@ namespace Catering_Projectin
                         OsoiteTB.Text = "";
                         PostiNroTB.Text = "";
                         PToimiTB.Text = "";
-                        TitteliTB.Text = "";
                         NakyvaSalasanaLB.Visible = false;
                     }
                     else // mikäli vastaus on false

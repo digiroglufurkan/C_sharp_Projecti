@@ -6,20 +6,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// author@ Antti Kuusisto
+/// version 30.5.2022
+/// <summary>
+/// Toiminta tietokannan kanssa, kun muokataan profiilia
+/// </summary>
 namespace Catering_Projectin
 {
     class ADMINPROFIILINMUOKKAUS
     {
         Yhdista yh = new Yhdista();
-        public bool paivitaTiedot(string enimi, string snimi, string email, string puh, string osoite, string postinro, string postitoimi, string titteli
+        public bool paivitaTiedot(string enimi, string snimi, string email, int puh, string osoite, int postinro, string postitoimi
             , string id)
         {
             try
-            {
-                MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `ETUNIMI` = @eni, `SUKUNIMI` = @sni, `PUHELIN` =@puh, `EMAIL` =@email, `OSAITE` =@oso, `POSTINUMERO` =@pnro, `TOIMIPAIKKA` =@ptoi, `TITTELI` =@tit, `KUVA` =@img WHERE KAYTTAJA_TUNNUS =@id", yh.otaYhteys());
+            {   
+                // Päivityskysely ja yhteyden avaus.
+                MySqlCommand cmd = new MySqlCommand("Update `kayttajat` Set `Etunimi` = @eni, `Sukunimi` = @sni, `Email` =@email, `Puhelin` =@puh, `Osoite` =@oso,`Postitoimipaikka` =@ptoi, `Postinumero` =@pnro WHERE KayttajaTunnus =@id", yh.otaYhteys());
+                // Alla parametrien määrittely.
+                cmd.Parameters.Add("@eni", MySqlDbType.VarChar).Value = enimi;
+                cmd.Parameters.Add("@sni", MySqlDbType.VarChar).Value = snimi;
+                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                cmd.Parameters.Add("@puh",MySqlDbType.Int32).Value = puh;
+                cmd.Parameters.Add("@oso",MySqlDbType.VarChar).Value = osoite;
+                cmd.Parameters.Add("@ptoi", MySqlDbType.VarChar).Value = postitoimi;
+                cmd.Parameters.Add("@pnro", MySqlDbType.Int32).Value = postinro;
+                cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+
                 yh.avaaYhteys(); // avataan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
-                if (command.ExecuteNonQuery() == 1) // Katsotaan suoritettiinko komento
+                if (cmd.ExecuteNonQuery() == 1) // Katsotaan suoritettiinko komento
                 {
                     yh.suljeYhteys(); // Suljetaan yhteys tietokantaan YH CLASS:ssa olevan funktion avulla
                     return true; // viestin palautus
@@ -32,7 +47,7 @@ namespace Catering_Projectin
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"{ex.Message} class");
                 return false;
             }
         }

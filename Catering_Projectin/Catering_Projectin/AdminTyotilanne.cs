@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 /// author@ Antti Kuusisto
-/// version 23.5.2022
+/// version 30.5.2022
 /// <summary>
-/// Toimii jotenkin. Hieman muokattava hakukyselyitä.
+/// Uuden tilauksen määrääminen tehtäväksi
 /// </summary>
 namespace Catering_Projectin
 {
@@ -21,6 +21,13 @@ namespace Catering_Projectin
         Yhdista yh = new Yhdista();
         ADMINTYOTILANNEHALLINTA adTyTiHa = new ADMINTYOTILANNEHALLINTA();
         ADMINTILAUKSET adTi = new ADMINTILAUKSET(); // hyödynnetään jo muualla käytettävää class:a
+        string uid = ""; // muuttuja käyttäjä tunnukselle
+        private string ktun = string.Empty;
+        public string Ktun
+        {
+            get { return ktun; }
+            set { ktun = value; }
+        }
         public AdminTyotilanne()
         {
             InitializeComponent();
@@ -35,6 +42,7 @@ namespace Catering_Projectin
         {
             AdminKotisivu adKo = new AdminKotisivu();
             adKo.FormClosing += formClosing;
+            adKo.Ktun = uid;
             adKo.Show();
             this.Hide();
         }
@@ -43,6 +51,7 @@ namespace Catering_Projectin
         {
             AdminSaatavuudet adSa = new AdminSaatavuudet();
             adSa.FormClosing += formClosing;
+            adSa.Ktun = uid;
             adSa.Show();
             this.Hide();
         }
@@ -51,6 +60,7 @@ namespace Catering_Projectin
         {
             AdminTyotilanne adTy = new AdminTyotilanne();
             adTy.FormClosing += formClosing;
+            adTy.Ktun = uid;
             adTy.Show();
             this.Hide();
         }
@@ -58,6 +68,7 @@ namespace Catering_Projectin
         {
             AdminKayttajaHallinta adKaHa = new AdminKayttajaHallinta();
             adKaHa.FormClosing += formClosing;
+            adKaHa.Ktun = uid;
             adKaHa.Show();
             this.Hide();
         }
@@ -65,6 +76,7 @@ namespace Catering_Projectin
         {
             AdminSalasananHallinta adSaHa = new AdminSalasananHallinta();
             adSaHa.FormClosing += formClosing;
+            adSaHa.Ktun = uid;
             adSaHa.Show();
             this.Hide();
         }
@@ -73,6 +85,7 @@ namespace Catering_Projectin
         {
             AdminMuokkaaProfiilia adMuPr = new AdminMuokkaaProfiilia();
             adMuPr.FormClosing += formClosing;
+            adMuPr.Ktun = uid;
             adMuPr.Show();
             this.Hide();
         }
@@ -81,6 +94,7 @@ namespace Catering_Projectin
         {
             AdminSalasananVaihto adSaVa = new AdminSalasananVaihto();
             adSaVa.FormClosing += formClosing;
+            adSaVa.Ktun = uid;
             adSaVa.Show();
             this.Hide();
         }
@@ -96,16 +110,19 @@ namespace Catering_Projectin
         // Toiminta, kun sivu ladataan
         private void AdminTyotilanne_Load(object sender, EventArgs e)
         {
-            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
-            TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
-            //hyödynnetään etusivulle tilaukset hakevaa metodia
-            TilauksetDGV.DataSource = adTi.haeTilaukset();
-            TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //Mahdollistetaan valinta riviltä
-            TilauksetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //TilauksetDGV.
+            
             try
-            {   // haetaan tilukseen valittava tekijä
+            {
+                uid = Ktun;
+                TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n täyttö
+                TyotilanneDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);// datagridview:n muotoilua
+                                                                                          //hyödynnetään etusivulle tilaukset hakevaa metodia
+                TilauksetDGV.DataSource = adTi.haeTilaukset();
+                TilauksetDGV.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                //Mahdollistetaan valinta riviltä
+                TilauksetDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //TilauksetDGV.
+                // haetaan tilukseen valittava tekijä
                 MySqlCommand cmd = new MySqlCommand("SELECT KayttajaTunnus FROM kayttajat WHERE RoolitID = 3", yh.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
@@ -124,13 +141,10 @@ namespace Catering_Projectin
             {
                 MessageBox.Show(ex.Message);
             }
-            /*TekijaCo.DataSource = adTyTiHa.haeKokit();
-            TekijaCo.ValueMember = TekijaCo.Kayttajat.ToString();
-            TekijaCo.DisplayMember = TekijaCo.ValueMember;*/
         }
        
         private void TilauksetDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        { // /*
+        { 
             try
             {   // mikäli painetaan varaa - button:a
                 if (e.ColumnIndex == MaaraaCo.Index)
@@ -146,15 +160,17 @@ namespace Catering_Projectin
                         DataGridViewRow row = new DataGridViewRow();
                         // napin rivin lisäys muuttujaan
                         row = TilauksetDGV.SelectedRows[0];
-                        // tarkistetaan, että on syötetty varattava määrä
+                        
                         if (row.Cells[1].Value != null)
                         {
-                            // varausmäärä muuttujaan
+                            // käyttäjätunnuksen luku muuttujaan
                             string ktun = row.Cells[1].Value.ToString();
                             //TilausID muuttujaan
                             int id = int.Parse(row.Cells[3].Value.ToString());
-                            // määrän ja id:n lähetys class:n
-                            bool varaus = adTyTiHa.maaraaTyo(ktun, id);
+                            //LentoID muuttujaan
+                            int lId = int.Parse(row.Cells[5].Value.ToString());
+                            // käyttäjätunnuksen, tilausID:n ja lentoID:n lähetys class:n
+                            bool varaus = adTyTiHa.maaraaTyo(ktun, id, lId);
                             // mikäli määrääminen onnistui
                             if (varaus == true)
                             {
@@ -186,12 +202,43 @@ namespace Catering_Projectin
             {
                 MessageBox.Show($"{ex.Message} v1");
             }
-            // */
+            
         }
           
         private void TyotilanneDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {   //mikäli painetaan poista-button:a
+                if(e.ColumnIndex == PoistaCo.Index)
+                {   // luetaan id
+                    int tId = int.Parse(TyotilanneDGV.CurrentRow.Cells[2].Value.ToString());
+                    if (tId == 0)
+                    {   //virheviesti
+                        MessageBox.Show($"Et ole valinnut poistettavaa työmääräystä");
+                    }
+                    else
+                    {   // kutsutaan metodia, jolla poistetaan työmääräys
+                        bool poista = adTyTiHa.poistaMaarays(tId);
+                        if (poista == true)//mikäli poisto onnistui
+                        {
+                            MessageBox.Show($"Työmääräyksen poisto onnistui.");//viesti
+                            TyotilanneDGV.DataSource = adTyTiHa.haeTilanne();//DGV:n päivitys
+                        }
+                        else
+                        {   //virheviesti
+                            MessageBox.Show($"Työmääräyksen poisto ei onnistunut");
+                        }
+                    }
+                }
+                else 
+                {
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex.Message} v1");
+            }
         }
     }
 }

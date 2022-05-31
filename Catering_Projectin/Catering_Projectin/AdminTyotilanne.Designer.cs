@@ -41,12 +41,13 @@
             this.KirjauduUlosTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TyotilanneDGV = new System.Windows.Forms.DataGridView();
             this.TilauksetDGV = new System.Windows.Forms.DataGridView();
-            this.TilLB = new System.Windows.Forms.Label();
-            this.TyoTilanneLB = new System.Windows.Forms.Label();
-            this.IlmAsiakCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.MaaraaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TekijaCo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.VahMaCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TilLB = new System.Windows.Forms.Label();
+            this.TyoTilanneLB = new System.Windows.Forms.Label();
+            this.IlmAsiakCo = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PoistaCo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NavMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TyotilanneDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TilauksetDGV)).BeginInit();
@@ -150,7 +151,8 @@
             // 
             this.TyotilanneDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TyotilanneDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IlmAsiakCo});
+            this.IlmAsiakCo,
+            this.PoistaCo});
             this.TyotilanneDGV.Location = new System.Drawing.Point(581, 182);
             this.TyotilanneDGV.Name = "TyotilanneDGV";
             this.TyotilanneDGV.RowHeadersWidth = 51;
@@ -173,33 +175,6 @@
             this.TilauksetDGV.Size = new System.Drawing.Size(538, 225);
             this.TilauksetDGV.TabIndex = 3;
             this.TilauksetDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TilauksetDGV_CellContentClick);
-            // 
-            // TilLB
-            // 
-            this.TilLB.AutoSize = true;
-            this.TilLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TilLB.Location = new System.Drawing.Point(192, 136);
-            this.TilLB.Name = "TilLB";
-            this.TilLB.Size = new System.Drawing.Size(88, 28);
-            this.TilLB.TabIndex = 4;
-            this.TilLB.Text = "Tilaukset";
-            // 
-            // TyoTilanneLB
-            // 
-            this.TyoTilanneLB.AutoSize = true;
-            this.TyoTilanneLB.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TyoTilanneLB.Location = new System.Drawing.Point(899, 136);
-            this.TyoTilanneLB.Name = "TyoTilanneLB";
-            this.TyoTilanneLB.Size = new System.Drawing.Size(92, 25);
-            this.TyoTilanneLB.TabIndex = 5;
-            this.TyoTilanneLB.Text = "Työtilanne";
-            // 
-            // IlmAsiakCo
-            // 
-            this.IlmAsiakCo.HeaderText = "Ilmoita";
-            this.IlmAsiakCo.MinimumWidth = 6;
-            this.IlmAsiakCo.Name = "IlmAsiakCo";
-            this.IlmAsiakCo.Width = 125;
             // 
             // MaaraaCo
             // 
@@ -229,6 +204,41 @@
             this.VahMaCo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.VahMaCo.Visible = false;
             this.VahMaCo.Width = 125;
+            // 
+            // TilLB
+            // 
+            this.TilLB.AutoSize = true;
+            this.TilLB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TilLB.Location = new System.Drawing.Point(192, 136);
+            this.TilLB.Name = "TilLB";
+            this.TilLB.Size = new System.Drawing.Size(88, 28);
+            this.TilLB.TabIndex = 4;
+            this.TilLB.Text = "Tilaukset";
+            // 
+            // TyoTilanneLB
+            // 
+            this.TyoTilanneLB.AutoSize = true;
+            this.TyoTilanneLB.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TyoTilanneLB.Location = new System.Drawing.Point(899, 136);
+            this.TyoTilanneLB.Name = "TyoTilanneLB";
+            this.TyoTilanneLB.Size = new System.Drawing.Size(92, 25);
+            this.TyoTilanneLB.TabIndex = 5;
+            this.TyoTilanneLB.Text = "Työtilanne";
+            // 
+            // IlmAsiakCo
+            // 
+            this.IlmAsiakCo.HeaderText = "Ilmoita";
+            this.IlmAsiakCo.MinimumWidth = 6;
+            this.IlmAsiakCo.Name = "IlmAsiakCo";
+            this.IlmAsiakCo.Visible = false;
+            this.IlmAsiakCo.Width = 125;
+            // 
+            // PoistaCo
+            // 
+            this.PoistaCo.HeaderText = "Poista";
+            this.PoistaCo.MinimumWidth = 6;
+            this.PoistaCo.Name = "PoistaCo";
+            this.PoistaCo.Width = 125;
             // 
             // AdminTyotilanne
             // 
@@ -268,12 +278,13 @@
         private ToolStripMenuItem KirjauduUlosTSMI;
         private DataGridView TyotilanneDGV;
         private ToolStripMenuItem KayttajatTSMI;
-        private DataGridViewButtonColumn IlmAsiakCo;
         private DataGridView TilauksetDGV;
         private DataGridViewButtonColumn MaaraaCo;
         private DataGridViewComboBoxColumn TekijaCo;
         private DataGridViewButtonColumn VahMaCo;
         private Label TilLB;
         private Label TyoTilanneLB;
+        private DataGridViewButtonColumn IlmAsiakCo;
+        private DataGridViewButtonColumn PoistaCo;
     }
 }

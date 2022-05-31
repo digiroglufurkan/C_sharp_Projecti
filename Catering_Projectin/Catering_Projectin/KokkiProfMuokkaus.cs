@@ -26,7 +26,7 @@ namespace Catering_Projectin
                 command.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite; 
                 command.Parameters.Add("@toimi", MySqlDbType.VarChar).Value = toimi; 
                 command.Parameters.Add("@post", MySqlDbType.VarChar).Value = posti; 
-                string updateQuest = "Update `kayttajat` Set `ETUNIMI` = @etu, `SUKUNIMI` = @suku, `EMAIL` =@email, `PUHELIN` =@puh, `OSOITE` =@oso, `POSTITOIMIPAIKKA` =@toimi, `POSTINUMERO` =@post WHERE KayttajaTunnus =@id";  
+                string updateQuest = "Update `kayttajat` Set `Etunimi` = @etu, `Sukunimi` = @suku, `Email` =@email, `Puhelin` =@puh, `Osoite` =@oso, `Postitoimipaikka` =@toimi, `Postinumero` =@post WHERE KayttajaTunnus =@id";  
                 command.CommandText = updateQuest; 
                 command.Connection = yhteys.otaYhteys(); 
                 yhteys.avaaYhteys(); 
@@ -52,7 +52,7 @@ namespace Catering_Projectin
         {   
             try
             {   
-                MySqlCommand command = new MySqlCommand("SELECT KayttajaTunnus, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSOITE, POSTITOIMIPAIKKA, POSTINUMERO kayttajat", yhteys.otaYhteys());
+                MySqlCommand command = new MySqlCommand("SELECT KayttajaTunnus, Etunimi, Sukunimi, Email, Puhelin, Osoite, Postitoimipaikka, Postinumero FROM kayttajat", yhteys.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(); 
                 DataTable table = new DataTable(); 
                 adapter.SelectCommand = command; 
@@ -62,7 +62,7 @@ namespace Catering_Projectin
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex} v1");
-                MySqlCommand command = new MySqlCommand("SELECT KayttajaTunnus, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSOITE, POSTITOIMIPAIKKA,, POSTINUMERO FROM kayttajat", yhteys.otaYhteys());
+                MySqlCommand command = new MySqlCommand("SELECT KayttajaTunnus, Etunimi, Sukunimi, Email, Puhelin, Osoite, Postitoimipaikka, Postinumero FROM kayttajat", yhteys.otaYhteys());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(); 
                 DataTable table = new DataTable(); 
                 adapter.SelectCommand = command; 

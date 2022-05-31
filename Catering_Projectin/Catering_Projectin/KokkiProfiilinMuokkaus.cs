@@ -20,7 +20,7 @@ namespace Catering_Projectin
         public KokkiProfiilinMuokkaus()
         {
             InitializeComponent();
-            //tunnus = Kirjaudu.ktun; kommentoitu pois, koska ei toimi vielä ja roolipuuttuu myös salis vaihto
+            tunnus = Kirjaudu.ktun; 
         }
 
         void f1_FormClosing(object sender, FormClosingEventArgs e)
@@ -62,7 +62,7 @@ namespace Catering_Projectin
 
         private void kokkimuokkaaprofiiliBT_Click(object sender, EventArgs e)
         {
-            /* try
+             try
              {
                  string etunimi = kokkietunimiTB.Text;
                  string sukunimi = kokkisukunimiTB.Text;
@@ -96,30 +96,30 @@ namespace Catering_Projectin
                      }
                  }
              }
-             catch (Exception ex) // Poimitaan virhe ja näytetään se
+             catch (Exception ex) 
              {
                  MessageBox.Show($"{ex} v1");
-             }*/
+             }
         }
 
         private void KokkiProfiilinMuokkaus_Load(object sender, EventArgs e)
         {
-            /*try
+            try
             {
 
-                MySqlCommand command1 = new MySqlCommand("SELECT KayttajaTunnus, ETUNIMI, SUKUNIMI, EMAIL, PUHELIN, OSOITE, POSTINUMERO, POSTITOIMIPAIKKA FROM kayttajat WHERE KayttajaTunnus = @ktun", yhteys.otaYhteys());
+                MySqlCommand command1 = new MySqlCommand("SELECT KayttajaTunnus, Etunimi, Sukunimi, Email, Puhelin, Osoite, Postitoimipaikka, Postinumero FROM kayttajat WHERE KayttajaTunnus = @ktun", yhteys.otaYhteys());
                 command1.Parameters.AddWithValue("@ktun", tunnus);
                 yhteys.avaaYhteys();
                 MySqlDataReader reader1 = command1.ExecuteReader();
                 while (reader1.Read())
                 {
-                    this.kokkietunimiTB.Text = (reader1["ETUNIMI"].ToString());
-                    this.kokkisukunimiTB.Text = (reader1["SUKUNIMI"].ToString());
-                    this.kokkiemailTB.Text = (reader1["EMAIL"].ToString());
-                    this.kokkipuhelinTB.Text = (reader1["PUHELIN"].ToString());
-                    this.kokkiosoiteTB.Text = (reader1["OSOITE"].ToString());
-                    this.kokkipostiTB.Text = (reader1["POSTINUMERO"].ToString());
-                    this.kokkitoimipaikkaTB.Text = (reader1["POSTITOIMIPAIKKA"].ToString());
+                    this.kokkietunimiTB.Text = (reader1["Etunimi"].ToString());
+                    this.kokkisukunimiTB.Text = (reader1["Sukunimi"].ToString());
+                    this.kokkiemailTB.Text = (reader1["Email"].ToString());
+                    this.kokkipuhelinTB.Text = (reader1["Puhelin"].ToString());
+                    this.kokkiosoiteTB.Text = (reader1["Osoite"].ToString());
+                    this.kokkipostiTB.Text = (reader1["Postinumero"].ToString());
+                    this.kokkitoimipaikkaTB.Text = (reader1["Postitoimipaikka"].ToString());
                     reader1.Close();
                     break;
                 }
@@ -130,7 +130,7 @@ namespace Catering_Projectin
             {
                 MessageBox.Show($"{ex} v1");
             }
-        }*/
+        }
         }
     }
-}
+

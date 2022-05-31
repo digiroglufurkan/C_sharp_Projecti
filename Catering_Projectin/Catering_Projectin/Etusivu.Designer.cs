@@ -63,7 +63,7 @@
             this.RekisteroidyTMSI});
             this.NavMS.Location = new System.Drawing.Point(308, 103);
             this.NavMS.Name = "NavMS";
-            this.NavMS.Size = new System.Drawing.Size(374, 39);
+            this.NavMS.Size = new System.Drawing.Size(524, 39);
             this.NavMS.TabIndex = 1;
             this.NavMS.Text = "menuStrip1";
             // 
@@ -72,18 +72,21 @@
             this.EtusivuTMSI.Name = "EtusivuTMSI";
             this.EtusivuTMSI.Size = new System.Drawing.Size(101, 35);
             this.EtusivuTMSI.Text = "Etusivu";
+            this.EtusivuTMSI.Click += new System.EventHandler(this.EtusivuTMSI_Click);
             // 
             // KirjauduTMSI
             // 
             this.KirjauduTMSI.Name = "KirjauduTMSI";
             this.KirjauduTMSI.Size = new System.Drawing.Size(113, 35);
             this.KirjauduTMSI.Text = "Kirjaudu";
+            this.KirjauduTMSI.Click += new System.EventHandler(this.KirjauduTMSI_Click);
             // 
             // RekisteroidyTMSI
             // 
             this.RekisteroidyTMSI.Name = "RekisteroidyTMSI";
             this.RekisteroidyTMSI.Size = new System.Drawing.Size(152, 35);
             this.RekisteroidyTMSI.Text = "Rekisteröidy";
+            this.RekisteroidyTMSI.Click += new System.EventHandler(this.RekisteroidyTMSI_Click);
             // 
             // pictureBox1
             // 

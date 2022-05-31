@@ -59,66 +59,104 @@ namespace Catering_Projectin
 
         private void koktilanneDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == lahetaTilanneBT.Index)
-            {
-                try
-                {
-                    string stat = koktilanneDG.CurrentRow.Cells[3].Value.ToString();
-                    if (e.ColumnIndex == lahetaTilanneBT.Index)
-                    {
-                        try
-                        {
-                            if (stat.Equals(""))
-                            {
-                                MessageBox.Show("Et ole muuttanut tilannetta!");
-                            }
-                            else
-                            {
-                                bool paivita = tilanne.paivitaTilanne(stat);
-                                if (paivita == true)
-                                {
-                                    MessageBox.Show("Tilanne päivitetty!");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Tilannetta ei pystytty nyt päivittämään!");
-                                }
-                                koktilanneDG.DataSource = tilanne.tyoTilanne();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+
         }
 
         private void KokkiKotisivu_Load(object sender, EventArgs e)
         {
             koktilanneDG.DataSource = tilanne.tyoTilanne();
-            //koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            koktilanneDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            kokTilauksetDG.DataSource = tilanne.tilausTilanne();
+            kokTilauksetDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            statusInfoDG.DataSource = tilanne.statusInfo();
+            statusInfoDG.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
             try
             {
-                MySqlCommand komento = new MySqlCommand("SELECT Status FROM status", yhteys.otaYhteys());
+                MySqlCommand komento = new MySqlCommand("SELECT TilausID FROM tyotilanne", yhteys.otaYhteys());
                 MySqlDataAdapter adapteri = new MySqlDataAdapter();
                 adapteri.SelectCommand = komento;
-                DataSet dset = new DataSet();
-                adapteri.Fill(dset, "stat");
-                statusC.DisplayMember = "Status";
-                statusC.ValueMember = "Status";
-                statusC.DataSource = dset.Tables["stat"]; 
+                DataTable dt = new System.Data.DataTable();
+                adapteri.Fill(dt);
+                tilausCB.DisplayMember = "TilausID";
+                tilausCB.ValueMember = "TilausID";
+                tilausCB.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                MySqlCommand komento = new MySqlCommand("SELECT StatusID FROM status", yhteys.otaYhteys());
+                MySqlDataAdapter adapteri = new MySqlDataAdapter();
+                adapteri.SelectCommand = komento;
+                DataTable dt = new System.Data.DataTable();
+                adapteri.Fill(dt);
+                statusCB.DisplayMember = "StatusID";
+                statusCB.ValueMember = "StatusID";
+                statusCB.DataSource = dt;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tilausCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void tilanneBT_Click(object sender, EventArgs e)
+        {
+            string tilaus = "Työtilaukset";
+            string status = "Status";
+            try
+            {
+                tilaus = tilausCB.Text.ToString(); 
+                status = statusCB.Text.ToString(); 
+                if (tilaus.Equals("") || status.Equals("")) 
+                {
+                    MessageBox.Show("Tarkasta kentät!");
+                }
+
+                else
+                {   
+                    bool paivitys = tilanne.paivitaTilanne(tilaus, status);
+                    if (paivitys == true) 
+                    {
+                        MessageBox.Show("Status päivitetty!");
+                        koktilanneDG.DataSource = tilanne.tyoTilanne();
+                        kokTilauksetDG.DataSource = tilanne.tilausTilanne();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Päivitys epäonnistui!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void statusInfoDG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void statusCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+    }
+
