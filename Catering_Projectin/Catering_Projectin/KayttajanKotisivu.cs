@@ -18,9 +18,20 @@ namespace Catering_Projectin
         }
         public string kaNimi;
         public string kaID;
+        Sqlkysely kysely = new Sqlkysely(); 
         private void KayttajanKotisivu_Load(object sender, EventArgs e)
         {
             tervetuluaLB.Text = "Tervetulua " + kaNimi;
+            DataTable dt = kysely.tilauksia_ID(kaID);
+            string idlist ="";
+            foreach (DataRow dr in dt.Rows)
+            {
+                idlist += dr[0].ToString() +",";
+            }
+            idlist = idlist.Substring(0, idlist.Length - 1);
+            dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].Visible = false;
+
         }
 
         void formClosing(object sender, FormClosingEventArgs e)
@@ -36,9 +47,18 @@ namespace Catering_Projectin
         {
             Menu me = new Menu();
             me.kaID = kaID;
+            me.kanimi = kaNimi;
             me.FormClosing += formClosing;
             me.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+           string id =  dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            dataGridView2.DataSource = kysely.tilauksia(id);
+            dataGridView2.Columns[0].Visible=false;
         }
     }
 }

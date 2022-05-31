@@ -115,5 +115,26 @@ namespace Catering_Projectin
             adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
             return table.Rows[0][0].ToString(); // palautetaan DataTable 
         }
+        public DataTable tilauksia_ID(string id)
+        {
+            string sql = " SELECT * FROM (SELECT t.kayttajaID, t.TilausID,t.Status,l.ICAOkoodi,l.Lahtopaikka, l.LentoAika FROM tilaus t, lennot l where t.LentoID=l.LentoID) as tablo WHERE kayttajaID  in (" + id + ");";
+            MySqlCommand command = new MySqlCommand(sql, yh.otaYhteys());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
+            DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
+            adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
+            adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTable
+            return table; // palautetaan DataTable 
+        }
+        public DataTable tilauksia(string id)
+        {
+            string sqltext= "SELECT * FROM (SELECT T.TilausID,T.Maara, J.Nimi FROM `tilausyhdiste` T, `Juomatalkoholilliset` J WHERE t.JuomaAlkoID=j.JuomaAlkoID UNION SELECT T.TilausID,T.Maara, K.Nimi FROM `tilausyhdiste` T, `juomatalkoholittomat` K WHERE t.JuomaID = K.JuomaID    UNION SELECT T.TilausID,T.Maara, A.AterianNimi FROM `tilausyhdiste` T, `ateriat` A WHERE t.AteriatID = A.AteriaID) AS d WHERE TilausID in (" + id + ");";
+          
+            MySqlCommand command = new MySqlCommand(sqltext, yh.otaYhteys());
+            MySqlDataAdapter adapter = new MySqlDataAdapter(); // Luodaan data-adapteri tietokannasta tulevalle tiedolle
+            DataTable table = new DataTable(); // Luodaan uusi DataTable jolle tulee tietokannasta tuleva tieto
+            adapter.SelectCommand = command; // Adapteriin valitaan Sql komento ja tähän tulee kaikki tietokannasta tuleva tiet
+            adapter.Fill(table); // Adapterissa oleva tieto siirretään DataTableen
+            return table; // palautetaan DataTable 
+        }
     }
 }

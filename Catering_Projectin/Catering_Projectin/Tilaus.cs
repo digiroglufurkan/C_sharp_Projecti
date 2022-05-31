@@ -28,6 +28,7 @@ namespace Catering_Projectin
         public List<string> T_Alkoli_juomamaara;
         float summa = 0;
         public string kaId;
+        public string kanimi;
         void formClosing(object sender, FormClosingEventArgs e)
         {
             this.Close();
@@ -103,6 +104,26 @@ namespace Catering_Projectin
                     }
             }
             MessageBox.Show("Tilasi on tallennettu");
+        }
+
+        private void kotisivuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KayttajanKotisivu kotisivu = new KayttajanKotisivu();
+            kotisivu.kaNimi = kanimi;
+            kotisivu.kaID = kaId;
+            kotisivu.FormClosing += formClosing;
+            kotisivu.Show();
+            this.Hide();
+        }
+
+        private void tilausToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Menu me = new Menu();
+            me.kaID = kaId;
+            me.kanimi = kanimi;
+            me.FormClosing += formClosing;
+            me.Show();
+            this.Hide();
         }
     }
 

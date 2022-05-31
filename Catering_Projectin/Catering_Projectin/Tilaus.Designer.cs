@@ -86,7 +86,7 @@
             this.asatuksetToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(396, 127);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(329, 39);
+            this.menuStrip.Size = new System.Drawing.Size(479, 39);
             this.menuStrip.TabIndex = 19;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -95,12 +95,14 @@
             this.kotisivuToolStripMenuItem.Name = "kotisivuToolStripMenuItem";
             this.kotisivuToolStripMenuItem.Size = new System.Drawing.Size(107, 35);
             this.kotisivuToolStripMenuItem.Text = "Kotisivu";
+            this.kotisivuToolStripMenuItem.Click += new System.EventHandler(this.kotisivuToolStripMenuItem_Click);
             // 
             // tilausToolStripMenuItem
             // 
             this.tilausToolStripMenuItem.Name = "tilausToolStripMenuItem";
             this.tilausToolStripMenuItem.Size = new System.Drawing.Size(87, 35);
             this.tilausToolStripMenuItem.Text = "Menu";
+            this.tilausToolStripMenuItem.Click += new System.EventHandler(this.tilausToolStripMenuItem_Click);
             // 
             // asatuksetToolStripMenuItem
             // 

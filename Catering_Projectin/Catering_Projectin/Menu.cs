@@ -93,6 +93,7 @@ namespace Catering_Projectin
         List<string> juoma_maara = new List<string>();
         List<string > Alkoli_juomamaara = new List<string>();
         public string kaID;
+        public string kanimi;
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -164,6 +165,7 @@ namespace Catering_Projectin
             ti.aterialist1 = ateriatlist.Substring(0, ateriatlist.Length-1 );
             ti.lento1 = lento;
             ti.kaId = kaID;
+            ti.kanimi = kanimi;
             ti.alkolijuomalist1 = alkolijuoma.Substring(0, alkolijuoma.Length-1);
             ti.juomalist1=juomalist.Substring(0, juomalist.Length-1);
             ti.T_Alkoli_juomamaara = Alkoli_juomamaara;
