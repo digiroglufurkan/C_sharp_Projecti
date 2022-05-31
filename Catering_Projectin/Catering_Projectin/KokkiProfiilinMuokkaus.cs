@@ -67,10 +67,10 @@ namespace Catering_Projectin
                  string etunimi = kokkietunimiTB.Text;
                  string sukunimi = kokkisukunimiTB.Text;
                  string email = kokkiemailTB.Text;
-                 string puhelin = kokkipuhelinTB.Text;
+                 int puhelin = int.Parse(kokkipuhelinTB.Text);
                  string osoite = kokkiosoiteTB.Text;
                  string toimi = kokkitoimipaikkaTB.Text;
-                 string posti = kokkipostiTB.Text;
+                 int posti = int.Parse(kokkipostiTB.Text);
                  if (etunimi.Equals("") || sukunimi.Equals("") || email.Equals("") || puhelin.Equals("") || osoite.Equals("") || toimi.Equals("") ||
                    posti.Equals(""))
                  {
