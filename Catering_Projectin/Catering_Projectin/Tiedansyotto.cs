@@ -17,30 +17,29 @@ namespace Catering_Projectin
     {
         Yhdista yhteys = new Yhdista();
 
-        public string lisakayttaja(String enimi, String snimi, String email, String puh, String osoite, String posti, String toimi, String yhtio, String icao, String salasana)
+        public string lisakayttaja(String enimi, String snimi, String email, int puh, string osoite, int posti, string toimi, String yhtio, String icao, String salasana, int rooli)
         {
             String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
             String salattu = Encrypt(salasana);
             MySqlCommand komento = new MySqlCommand();
             String lisayskysely;
             {
-                lisayskysely = "INSERT INTO `kayttajat`" +
-                    "(`KayttajaTunnus`, `Etunimi`, `Sukunimi`, `Email`, `Puhelin`, `Osoite`, `Postinumero`, `Postitoimipaikka`, `RoolitID` `Salasana`)" +
-                    "VALUES (@usr, @etu, @suku,  @eml, @puh, @oso, @post, @toim, @ssa); ";
+                lisayskysely = "INSERT INTO `kayttajat`(`RoolitID`,`KayttajaTunnus`,`Salasana`,`Etunimi`,`Sukunimi`,`Email`,`Puhelin`,`Osoite`,`Postitoimipaikka`,`Postinumero`)VALUES (@role,@usr,@ssa,@etu,@suku,@eml,@puh,@oso,@toim,@post);";
             }
             komento.CommandText = lisayskysely;
             komento.Connection = yhteys.otaYhteys();
             komento.Parameters.Add("@etu", MySqlDbType.VarChar).Value = enimi;
             komento.Parameters.Add("@suku", MySqlDbType.VarChar).Value = snimi;
             komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
-            komento.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puh;
+            komento.Parameters.Add("@puh", MySqlDbType.Int32).Value = puh;
             komento.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite;
-            komento.Parameters.Add("@post", MySqlDbType.VarChar).Value = posti;
+            komento.Parameters.Add("@post", MySqlDbType.Int32).Value = posti;
             komento.Parameters.Add("@toim", MySqlDbType.VarChar).Value = toimi;
             komento.Parameters.Add("@yht", MySqlDbType.VarChar).Value = yhtio;
             komento.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
             komento.Parameters.Add("@usr", MySqlDbType.VarChar).Value = ktunnus;
             komento.Parameters.Add("@ssa", MySqlDbType.VarChar).Value = salattu;
+            komento.Parameters.Add("@role", MySqlDbType.Int32).Value = rooli;
 
             yhteys.avaaYhteys();
             if (komento.ExecuteNonQuery() == 1)

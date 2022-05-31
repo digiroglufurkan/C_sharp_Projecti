@@ -39,62 +39,89 @@ namespace Catering_Projectin
 
         private void rekkirjauduMS_Click(object sender, EventArgs e)
         {
-
+            Kirjaudu kir = new Kirjaudu();
+            kir.FormClosing += f1_FormClosing;
+            kir.Show();
+            this.Hide();
         }
 
         private void rekisteroidyBT_Click(object sender, EventArgs e)
         {
+            // Kentän tarkistus
             if (tarkistusTextBox(reketuTB, "Vaaditaan etunimi!")) { goto loppu; };
-            string etunimi = reketuTB.Text;
+            string etunimi = reketuTB.Text; // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(reksukunimiTB, "Vaaditaan sukunimi!")) { goto loppu; };
-            string sukunimi = reksukunimiTB.Text;
+            string sukunimi = reksukunimiTB.Text; // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rekemailTB, "Vaaditaan sähköposti!")) { goto loppu; };
-            string email = rekemailTB.Text;
+            string email = rekemailTB.Text; // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rekpuhelinTB, "Vaaditaan puhelinnumero!")) { goto loppu; };
-            string puhelin = rekpuhelinTB.Text;
+            int puhelin = int.Parse(rekpuhelinTB.Text); // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rekosoiteTB, "Vaaditaan osoite!")) { goto loppu; };
-            string osoite = rekosoiteTB.Text;
+            string osoite = rekosoiteTB.Text; // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rekpostiTB, "Vaaditaan postinumero!")) { goto loppu; };
-            string posti = rekpostiTB.Text;
+            int posti = int.Parse(rekpostiTB.Text); // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rektoimiTB, "Vaaditaan toimipaikka!")) { goto loppu; };
-            string toimi = rektoimiTB.Text;
+            string toimi = rektoimiTB.Text; // muuttujalle arvo
+            // Kentän tarkistus
             if (tarkistusTextBox(rektoimiTB, "Vaaditaan toimipaikka!")) { goto loppu; };
-            string yhtio = reklentoTB.Text;
-            string icao = icaoTB.Text;
-
-
-            // Tiedansyotto reksyotto = new Tiedansyotto();
-            string salasana;
-            if (rekSalis1TB.Text == rekSalis2TB.Text)
+            string yhtio = reklentoTB.Text; // muuttujalle arvo
+            string icao = icaoTB.Text; // muuttujalle arvo
+            string salasana; // muuttujalle arvo
+            if (rekSalis1TB.Text == rekSalis2TB.Text) //tarkistus, että salasana kaksi kertaa
             {
-                salasana = rekSalis1TB.Text;
+                salasana = rekSalis1TB.Text; // muuttujalle arvo
             }
-            else { MessageBox.Show("Salasanat eivät täsmää!"); goto loppu; }
+            else { MessageBox.Show("Salasanat eivät täsmää!"); goto loppu; } //virheviesti
+            if (yhtio.Equals("") || icao.Equals(""))//mikäli ei yhtötä eikä ICAO:a syötetty
+            {   // kysytään haluaako olla työntekijä
+                DialogResult dialogResult = MessageBox.Show("Sure", "Haluat siis rekisteröityä työntekijäksi?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)// mikäli vastaa kyllä
+                {
+                    int rooli = 3; //määritellään RooliID
+                    string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, yhtio, icao, salasana, rooli);
+                    if (ktunus != "")
+                    {
+                        MessageBox.Show("Rekisteröinti onnistui! Käyttäjätunnuksesi on : " + ktunus);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valitettavasti rekisteröinti ei nyt onnistunut.");
+                    }
 
-            string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, yhtio, icao, salasana);
-
-            if (ktunus != "")
-            {
-                MessageBox.Show("Rekisteröinti onnistui! Käyttäjätunnuksesi on : " + ktunus);
-            }
-            else
-            {
-                MessageBox.Show("Valitettavasti rekisteröinti ei nyt onnistunut.");
-            }
-
-            if (yhtio.Equals("") || icao.Equals(""))
-            {
-                MessageBox.Show("Haluat siis rekisteröityä työntekijäksi?");
-
-
-            }
-            else
-            {
-                MessageBox.Show("Haluat siis rekisteröityä käyttäjäksi?");
+                }
+                else if (dialogResult == DialogResult.No)// mikäli vastaa ei
+                {
+                    return;
+                }
                 
-
             }
-
+            else
+            {   // kysytään haluaako olla käyttäjä
+                DialogResult dialogResult = MessageBox.Show("Sure", "Haluat siis rekisteröityä käyttäjäksi", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)// mikäli vastaa kyllä
+                {
+                    int rooli = 2; //määritellään RooliID
+                    string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, yhtio, icao, salasana, rooli);
+                    if (ktunus != "")
+                    {
+                        MessageBox.Show("Rekisteröinti onnistui! Käyttäjätunnuksesi on : " + ktunus);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valitettavasti rekisteröinti ei nyt onnistunut.");
+                    }
+                }
+                else if (dialogResult == DialogResult.No)// mikäli vastaa ei
+                {
+                    return;
+                }
+            }
             loppu:;
         }
 

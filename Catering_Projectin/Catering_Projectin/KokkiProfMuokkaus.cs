@@ -13,7 +13,7 @@ namespace Catering_Projectin
     {
         Yhdista yhteys = new Yhdista();
 
-        public bool muokkaaKokkiProffa(string enimi, string snimi, string email, string puhelin, string osoite, string toimi, string posti, string id)
+        public bool muokkaaKokkiProffa(string enimi, string snimi, string email, int puhelin, string osoite, string toimi, int posti, string id)
         {
             try
             {
@@ -22,10 +22,10 @@ namespace Catering_Projectin
                 command.Parameters.Add("@etu", MySqlDbType.VarChar).Value = enimi; 
                 command.Parameters.Add("@suku", MySqlDbType.VarChar).Value = snimi; 
                 command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email; 
-                command.Parameters.Add("@puh", MySqlDbType.VarChar).Value = puhelin; 
+                command.Parameters.Add("@puh", MySqlDbType.Int32).Value = puhelin; 
                 command.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite; 
                 command.Parameters.Add("@toimi", MySqlDbType.VarChar).Value = toimi; 
-                command.Parameters.Add("@post", MySqlDbType.VarChar).Value = posti; 
+                command.Parameters.Add("@post", MySqlDbType.Int32).Value = posti; 
                 string updateQuest = "Update `kayttajat` Set `Etunimi` = @etu, `Sukunimi` = @suku, `Email` =@email, `Puhelin` =@puh, `Osoite` =@oso, `Postitoimipaikka` =@toimi, `Postinumero` =@post WHERE KayttajaTunnus =@id";  
                 command.CommandText = updateQuest; 
                 command.Connection = yhteys.otaYhteys(); 

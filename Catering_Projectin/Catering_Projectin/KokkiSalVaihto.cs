@@ -12,15 +12,15 @@ namespace Catering_Projectin
     internal class KokkiSalVaihto
     {
         Yhdista yhteys = new Yhdista();
-
+        Tiedansyotto salaus = new Tiedansyotto();
         public bool vaihdaKokinSalis(string id, string uusiSalisYksi)
         {
             try
             {
-                //string salattu = salaus.Encrypt(uusSalisYks);
+                string salattu = salaus.Encrypt(uusiSalisYksi);
                 MySqlCommand command = new MySqlCommand("Update `kayttajat` Set `Salasana` = @salis WHERE KayttajaTunnus = @id", yhteys.otaYhteys());
                 command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
-                command.Parameters.Add("@salis", MySqlDbType.VarChar).Value = uusiSalisYksi;
+                command.Parameters.Add("@salis", MySqlDbType.VarChar).Value = salattu;
                 yhteys.avaaYhteys();
                 if (command.ExecuteNonQuery() == 1)
                 {
