@@ -17,7 +17,7 @@ namespace Catering_Projectin
     {
         Yhdista yhteys = new Yhdista();
 
-        public string lisakayttaja(String enimi, String snimi, String email, int puh, string osoite, int posti, string toimi, String yhtio, String icao, String salasana, int rooli)
+        public string lisatyontekija(String enimi, String snimi, String email, int puh, string osoite, int posti, string toimi, String salasana, int rooli)
         {
             String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
             String salattu = Encrypt(salasana);
@@ -35,8 +35,8 @@ namespace Catering_Projectin
             komento.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite;
             komento.Parameters.Add("@post", MySqlDbType.Int32).Value = posti;
             komento.Parameters.Add("@toim", MySqlDbType.VarChar).Value = toimi;
-            komento.Parameters.Add("@yht", MySqlDbType.VarChar).Value = yhtio;
-            komento.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
+            //komento.Parameters.Add("@yht", MySqlDbType.VarChar).Value = yhtio;
+            //komento.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
             komento.Parameters.Add("@usr", MySqlDbType.VarChar).Value = ktunnus;
             komento.Parameters.Add("@ssa", MySqlDbType.VarChar).Value = salattu;
             komento.Parameters.Add("@role", MySqlDbType.Int32).Value = rooli;
@@ -50,6 +50,88 @@ namespace Catering_Projectin
             else
             {
                 yhteys.suljeYhteys();
+                return "";
+            }
+        }
+
+        public bool yhtioTiedot(string yhtio, string icao)
+        {
+            try
+            {
+                int yhtId = 0;
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `lentoyhtionyhteyshenkilot`(YhtionNimi,ICAOkoodi) VALUES (@yht,@icao)", yhteys.otaYhteys());
+                cmd.Parameters.Add("@yht", MySqlDbType.VarChar).Value = yhtio;
+                cmd.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
+                yhteys.avaaYhteys();
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    /*MySqlCommand cmd1 = new MySqlCommand("SELECT YhtioID FROM lentoyhtionyhteyshenkilot WHERE ICAOkoodi = @icao");
+                    cmd1.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
+                    MySqlDataReader reader1 = cmd1.ExecuteReader();
+                    while (reader1.Read()) // Kun DataReader lukee
+                    {   // while silmukalla tekstikenttiin käyttäjän tiedot
+                        yhtId = (int)reader1.GetInt32(0);
+                        //(reader1["Email"].ToString());
+                        reader1.Close(); // DataReader:n sulku
+                        break; // Silmukan lopetus
+                    }*/
+                    yhteys.suljeYhteys();
+                    //MessageBox.Show($"{yhtId}");
+                    return true;
+                }
+                else
+                {
+                    //yhteys.suljeYhteys();
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public string lisakayttaja(String enimi, String snimi, String email, int puh, string osoite, int posti, string toimi, String salasana, int rooli, int yhtID)
+        {
+            try
+            {
+                String ktunnus = enimi.ToLower() + "." + snimi.ToLower();
+                String salattu = Encrypt(salasana);
+                MySqlCommand komento = new MySqlCommand();
+                String lisayskysely;
+                {
+                    lisayskysely = "INSERT INTO `kayttajat`(`RoolitID`,`KayttajaTunnus`,`Salasana`,`Etunimi`,`Sukunimi`,`Email`,`Puhelin`,`Osoite`,`Postitoimipaikka`,`Postinumero`,`YhtioID`)VALUES (@role,@usr,@ssa,@etu,@suku,@eml,@puh,@oso,@toim,@post,@yhtId);";
+                }
+                komento.CommandText = lisayskysely;
+                komento.Connection = yhteys.otaYhteys();
+                komento.Parameters.Add("@etu", MySqlDbType.VarChar).Value = enimi;
+                komento.Parameters.Add("@suku", MySqlDbType.VarChar).Value = snimi;
+                komento.Parameters.Add("@eml", MySqlDbType.VarChar).Value = email;
+                komento.Parameters.Add("@puh", MySqlDbType.Int32).Value = puh;
+                komento.Parameters.Add("@oso", MySqlDbType.VarChar).Value = osoite;
+                komento.Parameters.Add("@post", MySqlDbType.Int32).Value = posti;
+                komento.Parameters.Add("@toim", MySqlDbType.VarChar).Value = toimi;
+                komento.Parameters.Add("@usr", MySqlDbType.VarChar).Value = ktunnus;
+                komento.Parameters.Add("@ssa", MySqlDbType.VarChar).Value = salattu;
+                komento.Parameters.Add("@role", MySqlDbType.Int32).Value = rooli;
+                komento.Parameters.Add("@yhtId", MySqlDbType.Int32).Value = yhtID;
+
+                yhteys.avaaYhteys();
+                if (komento.ExecuteNonQuery() == 1)
+                {
+                    yhteys.suljeYhteys();
+                    return ktunnus;
+                }
+                else
+                {
+                    yhteys.suljeYhteys();
+                    return "";
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 return "";
             }
         }

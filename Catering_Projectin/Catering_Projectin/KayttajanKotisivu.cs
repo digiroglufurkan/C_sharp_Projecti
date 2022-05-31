@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/// <summary>
+/// Ohjelma kaatui, kun KayttajanKotisivu_Load metodissa ei ollut try-catch kohtaa. Lisätty, jotta
+/// uusi rekisteröitynyt käyttäjä pääsee ohjelmaan sisään, kun ei ole vielä tehtyjä tilauksia.
+/// </summary>
 
 namespace Catering_Projectin
 {
@@ -21,17 +25,23 @@ namespace Catering_Projectin
         Sqlkysely kysely = new Sqlkysely();
         private void KayttajanKotisivu_Load(object sender, EventArgs e)
         {
-
-            tervetuluaLB.Text = "Tervetulua " + kaNimi;
-            DataTable dt = kysely.tilauksia_ID(kaID);
-            string idlist = "";
-            foreach (DataRow dr in dt.Rows)
+            try
             {
-                idlist += dr[0].ToString() + ",";
+                tervetuluaLB.Text = "Tervetulua " + kaNimi;
+                DataTable dt = kysely.tilauksia_ID(kaID);
+                string idlist = "";
+                foreach (DataRow dr in dt.Rows)
+                {
+                    idlist += dr[0].ToString() + ",";
+                }
+                idlist = idlist.Substring(0, idlist.Length - 1);
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns[0].Visible = false;
             }
-            idlist = idlist.Substring(0, idlist.Length - 1);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns[0].Visible = false;
+            catch(Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
 
         }
 

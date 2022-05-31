@@ -131,3 +131,4 @@ C:\Users\prett\Source\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Project
 C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Properties.Resources.resources
 C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.Properties.Resources.resources
 C:\Users\furka\source\repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.kayttayatili.resources
+C:\Users\asus\Projektit_2\Repos\C_sharp_Projecti\Catering_Projectin\Catering_Projectin\obj\Debug\net6.0-windows\Catering_Projectin.kayttayatili.resources

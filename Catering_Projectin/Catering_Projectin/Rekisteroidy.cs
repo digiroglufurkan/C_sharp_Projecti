@@ -1,4 +1,5 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Catering_Projectin
     public partial class Rekisteroidy : Form
     {
         Tiedansyotto reksyotto = new Tiedansyotto();
+        Yhdista yhteys = new Yhdista();
 
         public Rekisteroidy()
         {
@@ -84,7 +86,7 @@ namespace Catering_Projectin
                 if (dialogResult == DialogResult.Yes)// mikäli vastaa kyllä
                 {
                     int rooli = 3; //määritellään RooliID
-                    string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, yhtio, icao, salasana, rooli);
+                    string ktunus = reksyotto.lisatyontekija(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, salasana, rooli);
                     if (ktunus != "")
                     {
                         MessageBox.Show("Rekisteröinti onnistui! Käyttäjätunnuksesi on : " + ktunus);
@@ -103,12 +105,27 @@ namespace Catering_Projectin
             }
             else
             {   // kysytään haluaako olla käyttäjä
-                DialogResult dialogResult = MessageBox.Show("Sure", "Haluat siis rekisteröityä käyttäjäksi", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Haluat siis rekisteröityä käyttäjäksi", "Oletko varma?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)// mikäli vastaa kyllä
                 {
+                    int yhId = 0;
                     int rooli = 2; //määritellään RooliID
-                    string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, yhtio, icao, salasana, rooli);
-                    if (ktunus != "")
+                    bool eka = reksyotto.yhtioTiedot(yhtio, icao);
+                    MySqlCommand cmd1 = new MySqlCommand("SELECT YhtioID FROM lentoyhtionyhteyshenkilot WHERE ICAOkoodi = @icao", yhteys.otaYhteys());
+                    cmd1.Parameters.Add("@icao", MySqlDbType.VarChar).Value = icao;
+                    yhteys.avaaYhteys();
+                    MySqlDataReader reader1 = cmd1.ExecuteReader();
+                    while (reader1.Read()) // Kun DataReader lukee
+                    {   // while silmukalla tekstikenttiin käyttäjän tiedot
+                        yhId = (int)reader1.GetInt32(0);
+                        //(reader1["Email"].ToString());
+                        reader1.Close(); // DataReader:n sulku
+                        break; // Silmukan lopetus
+                    }
+                    yhteys.suljeYhteys();
+                    MessageBox.Show($"{yhId}");
+                    string ktunus = reksyotto.lisakayttaja(etunimi, sukunimi, email, puhelin, osoite, posti, toimi, salasana, rooli, yhId); 
+                    if (ktunus != "" || yhId != 0)
                     {
                         MessageBox.Show("Rekisteröinti onnistui! Käyttäjätunnuksesi on : " + ktunus);
                     }
