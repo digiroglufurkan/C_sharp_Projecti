@@ -44,25 +44,40 @@ namespace Catering_Projectin
             dt.Columns.Add("Maara", typeof(string));
             dt.Columns.Add("Hinta", typeof(string));
             dt.Columns.Add("Summa",typeof(float));
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.HeaderText = "Poista";
+            btn.Text = "Pois";
+            btn.Name = "pois";
+            btn.UseColumnTextForButtonValue = true;
+            btn.DefaultCellStyle.BackColor = Color.Red;
+            dataGridView1.Columns.Add(btn);
             int a = 0;
-            foreach (DataRow drow in kysely.haeateriattila(aterialist1).Rows)
+            if (T_ateria_maara.Count > 0)
             {
-                dt.Rows.Add(drow[0].ToString(), "Ateria", drow[2].ToString(),T_ateria_maara[a],drow[4].ToString()) ;
-                a++;
+                foreach (DataRow drow in kysely.haeateriattila(aterialist1).Rows)
+                {
+                    dt.Rows.Add(drow[0].ToString(), "Ateria", drow[2].ToString(), T_ateria_maara[a], drow[4].ToString());
+                    a++;
+                }
             }
             a= 0;
-            foreach (DataRow drow in kysely.haealkolijuomatlist(alkolijuomalist1).Rows)
+            if (T_Alkoli_juomamaara.Count > 0)
             {
-                dt.Rows.Add(drow[0].ToString(),"Alkoli Juoma", drow[1].ToString(), T_Alkoli_juomamaara[a], drow[3].ToString());
-                a++;
+                foreach (DataRow drow in kysely.haealkolijuomatlist(alkolijuomalist1).Rows)
+                {
+                    dt.Rows.Add(drow[0].ToString(), "Alkoli Juoma", drow[1].ToString(), T_Alkoli_juomamaara[a], drow[3].ToString());
+                    a++;
+                }
             }
             a = 0;
-            foreach (DataRow drow in kysely.haejuomatalkolimattila(juomalist1).Rows)
+            if (T_juoma_maara.Count > 0)
             {
-                dt.Rows.Add(drow[0].ToString(), "Juoma", drow[1].ToString(),T_juoma_maara[a], drow[2].ToString());
-                a++;
+                foreach (DataRow drow in kysely.haejuomatalkolimattila(juomalist1).Rows)
+                {
+                    dt.Rows.Add(drow[0].ToString(), "Juoma", drow[1].ToString(), T_juoma_maara[a], drow[2].ToString());
+                    a++;
+                }
             }
-             
               foreach(DataRow drow in dt.Rows)
             {
                  drow[5]= float.Parse(drow[4].ToString()) * float.Parse(drow[3].ToString());
@@ -75,6 +90,7 @@ namespace Catering_Projectin
             lahtopaikka.Text= dt.Rows[0][1].ToString();
             maaranpaa.Text= dt.Rows[0][2].ToString();
             lentoaika.Text= dt.Rows[0][3].ToString();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -124,6 +140,40 @@ namespace Catering_Projectin
             me.FormClosing += formClosing;
             me.Show();
             this.Hide();
+        }
+
+        private void muokkaTiliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            kayttayatili tili = new kayttayatili();
+            tili.kaId = kaId;
+            tili.FormClosing += formClosing;
+            tili.Show();
+            this.Hide();
+        }
+
+        private void kirjouduUlosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Etusivu et = new Etusivu();
+            et.FormClosing += formClosing;
+            et.Show();
+            this.Hide();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.ColumnIndex == dataGridView1.Columns["pois"].Index)
+            {
+                if (e.RowIndex != dataGridView1.Rows.Count - 1)
+                {
+                    
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                    float b = float.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                    summa = summa- b;
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[5].Value = summa.ToString();
+                    dataGridView1.Refresh();
+                }
+            }
         }
     }
 

@@ -32,9 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tilausToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asatuksetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muokkaTiliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kirjouduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OtsikkoLB = new System.Windows.Forms.Label();
             this.tervetuluaLB = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,14 +53,21 @@
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
             this.tilausToolStripMenuItem,
+            this.menuToolStripMenuItem,
             this.asatuksetToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(284, 127);
+            this.menuStrip.Location = new System.Drawing.Point(384, 128);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(355, 39);
+            this.menuStrip.Size = new System.Drawing.Size(323, 39);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip";
+            // 
+            // tilausToolStripMenuItem
+            // 
+            this.tilausToolStripMenuItem.Name = "tilausToolStripMenuItem";
+            this.tilausToolStripMenuItem.Size = new System.Drawing.Size(101, 35);
+            this.tilausToolStripMenuItem.Text = "Etusivu";
+            this.tilausToolStripMenuItem.Click += new System.EventHandler(this.tilausToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
@@ -67,17 +76,28 @@
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
-            // tilausToolStripMenuItem
-            // 
-            this.tilausToolStripMenuItem.Name = "tilausToolStripMenuItem";
-            this.tilausToolStripMenuItem.Size = new System.Drawing.Size(133, 35);
-            this.tilausToolStripMenuItem.Text = "Tee Tilaus ";
-            // 
             // asatuksetToolStripMenuItem
             // 
+            this.asatuksetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.muokkaTiliToolStripMenuItem,
+            this.kirjouduUlosToolStripMenuItem});
             this.asatuksetToolStripMenuItem.Name = "asatuksetToolStripMenuItem";
             this.asatuksetToolStripMenuItem.Size = new System.Drawing.Size(127, 35);
             this.asatuksetToolStripMenuItem.Text = "Asatukset";
+            // 
+            // muokkaTiliToolStripMenuItem
+            // 
+            this.muokkaTiliToolStripMenuItem.Name = "muokkaTiliToolStripMenuItem";
+            this.muokkaTiliToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.muokkaTiliToolStripMenuItem.Text = "Muokka Tili";
+            this.muokkaTiliToolStripMenuItem.Click += new System.EventHandler(this.muokkaTiliToolStripMenuItem_Click);
+            // 
+            // kirjouduUlosToolStripMenuItem
+            // 
+            this.kirjouduUlosToolStripMenuItem.Name = "kirjouduUlosToolStripMenuItem";
+            this.kirjouduUlosToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.kirjouduUlosToolStripMenuItem.Text = "Kirjoudu Ulos";
+            this.kirjouduUlosToolStripMenuItem.Click += new System.EventHandler(this.tilausToolStripMenuItem_Click);
             // 
             // OtsikkoLB
             // 
@@ -181,12 +201,14 @@
 
         private MenuStrip menuStrip;
         private ToolStripMenuItem menuToolStripMenuItem;
-        private ToolStripMenuItem tilausToolStripMenuItem;
         private ToolStripMenuItem asatuksetToolStripMenuItem;
         private Label OtsikkoLB;
         private Label tervetuluaLB;
         private Label label1;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
+        private ToolStripMenuItem tilausToolStripMenuItem;
+        private ToolStripMenuItem muokkaTiliToolStripMenuItem;
+        private ToolStripMenuItem kirjouduUlosToolStripMenuItem;
     }
 }
