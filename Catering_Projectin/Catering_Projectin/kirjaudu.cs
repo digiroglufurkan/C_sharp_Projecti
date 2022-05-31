@@ -36,47 +36,57 @@ namespace Catering_Projectin
 
         private void KirjoiduBT_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT `Etunimi`,`Salasana`,`RoolitID`,`KayttajaID` FROM `kayttajat` WHERE  KayttajaTunnus= '" + KiTunnusTB.Text + "'", yh.otaYhteys());
-            yh.avaaYhteys();
-            MySqlDataReader dr = cmd.ExecuteReader();
-            dr.Read();
-            string sal = (String)dr.GetValue(1);
-            if (KiSalasanaTB.Text == ti.Decrypt(sal))
+           
+            try
             {
-                if (1 == Convert.ToInt32(dr.GetValue(2))) // tarkista etta onko kayttaja admin tai ei
+                MySqlCommand cmd = new MySqlCommand("SELECT `Etunimi`,`Salasana`,`RoolitID`,`KayttajaID` FROM `kayttajat` WHERE  KayttajaTunnus= '" + KiTunnusTB.Text + "'", yh.otaYhteys());
+                yh.avaaYhteys();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                string sal = (String)dr.GetValue(1);
+                if (KiSalasanaTB.Text == ti.Decrypt(sal))
                 {
-                    //ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
-                    AdminKotisivu ki = new AdminKotisivu();
-                    ki.Ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
-                    ki.FormClosing += f1_FormClosing;
-                    //ki.Ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
-                    ki.Show();
-                    this.Hide();
-                }
-                else if (2 == Convert.ToInt32(dr.GetValue(2)))
-                {
-                    ktun = KiTunnusTB.Text;
-                    KayttajanKotisivu ka = new KayttajanKotisivu();
-                    ka.kaNimi = dr.GetValue(0).ToString();
-                    ka.kaID= dr.GetValue(3).ToString();
-                    ka.FormClosing += f1_FormClosing;
-                    ka.Show();
-                    this.Hide();
+                    if (1 == Convert.ToInt32(dr.GetValue(2))) // tarkista etta onko kayttaja admin tai ei
+                    {
+                        
+                        AdminKotisivu ki = new AdminKotisivu();
+                        ki.Ktun = KiTunnusTB.Text.ToString(); // Luetaan käyttäjä tunnus muuttujaan.
+                        ki.FormClosing += f1_FormClosing;
+                        
+                        ki.Show();
+                        this.Hide();
+                    }
+                    else if (2 == Convert.ToInt32(dr.GetValue(2)))
+                    {
+                        ktun = KiTunnusTB.Text;
+                        KayttajanKotisivu ka = new KayttajanKotisivu();
+                        ka.kaNimi = dr.GetValue(0).ToString();
+                        ka.kaID = dr.GetValue(3).ToString();
+                        ka.FormClosing += f1_FormClosing;
+                        ka.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        ktun = KiTunnusTB.Text.ToString();
+                        KokkiKotisivu ko = new KokkiKotisivu();
+                        ko.FormClosing += f1_FormClosing;
+                        ko.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {
-                    ktun = KiTunnusTB.Text.ToString();
-                    KokkiKotisivu ko = new KokkiKotisivu();
-                     ko.FormClosing += f1_FormClosing;
-                    ko.Show();
-                    this.Hide();
+                    MessageBox.Show("Käyttajan Tunnus tai Salasana Värin");
+
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Käyttajan Tunnus tai Salasana Värin");
-
+                yh.suljeYhteys();
+                MessageBox.Show(ex.Message);
             }
+           
             yh.suljeYhteys();
 
 

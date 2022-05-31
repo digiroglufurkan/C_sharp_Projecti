@@ -42,6 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.muokkaTiliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kirjouduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AteriatGW)).BeginInit();
@@ -90,6 +92,9 @@
             // 
             // asatuksetToolStripMenuItem
             // 
+            this.asatuksetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.muokkaTiliToolStripMenuItem,
+            this.kirjouduUlosToolStripMenuItem});
             this.asatuksetToolStripMenuItem.Name = "asatuksetToolStripMenuItem";
             this.asatuksetToolStripMenuItem.Size = new System.Drawing.Size(127, 35);
             this.asatuksetToolStripMenuItem.Text = "Asatukset";
@@ -185,6 +190,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // muokkaTiliToolStripMenuItem
+            // 
+            this.muokkaTiliToolStripMenuItem.Name = "muokkaTiliToolStripMenuItem";
+            this.muokkaTiliToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.muokkaTiliToolStripMenuItem.Text = "Muokka Tili";
+            this.muokkaTiliToolStripMenuItem.Click += new System.EventHandler(this.muokkaTiliToolStripMenuItem_Click);
+            // 
+            // kirjouduUlosToolStripMenuItem
+            // 
+            this.kirjouduUlosToolStripMenuItem.Name = "kirjouduUlosToolStripMenuItem";
+            this.kirjouduUlosToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.kirjouduUlosToolStripMenuItem.Text = "Kirjoudu Ulos";
+            this.kirjouduUlosToolStripMenuItem.Click += new System.EventHandler(this.kirjouduUlosToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -231,5 +250,7 @@
         private Label label4;
         private Label label5;
         private Button button1;
+        private ToolStripMenuItem muokkaTiliToolStripMenuItem;
+        private ToolStripMenuItem kirjouduUlosToolStripMenuItem;
     }
 }

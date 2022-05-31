@@ -35,6 +35,8 @@
             this.kotisivuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tilausToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asatuksetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muokkaTiliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kirjouduUlosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lahtopaikka = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.maaranpaa = new System.Windows.Forms.TextBox();
@@ -54,6 +56,7 @@
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(973, 215);
             this.dataGridView1.TabIndex = 22;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label1
             // 
@@ -86,7 +89,7 @@
             this.asatuksetToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(396, 127);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(479, 39);
+            this.menuStrip.Size = new System.Drawing.Size(329, 39);
             this.menuStrip.TabIndex = 19;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -106,9 +109,26 @@
             // 
             // asatuksetToolStripMenuItem
             // 
+            this.asatuksetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.muokkaTiliToolStripMenuItem,
+            this.kirjouduUlosToolStripMenuItem});
             this.asatuksetToolStripMenuItem.Name = "asatuksetToolStripMenuItem";
             this.asatuksetToolStripMenuItem.Size = new System.Drawing.Size(127, 35);
             this.asatuksetToolStripMenuItem.Text = "Asatukset";
+            // 
+            // muokkaTiliToolStripMenuItem
+            // 
+            this.muokkaTiliToolStripMenuItem.Name = "muokkaTiliToolStripMenuItem";
+            this.muokkaTiliToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.muokkaTiliToolStripMenuItem.Text = "Muokka Tili";
+            this.muokkaTiliToolStripMenuItem.Click += new System.EventHandler(this.muokkaTiliToolStripMenuItem_Click);
+            // 
+            // kirjouduUlosToolStripMenuItem
+            // 
+            this.kirjouduUlosToolStripMenuItem.Name = "kirjouduUlosToolStripMenuItem";
+            this.kirjouduUlosToolStripMenuItem.Size = new System.Drawing.Size(239, 36);
+            this.kirjouduUlosToolStripMenuItem.Text = "Kirjoudu Ulos";
+            this.kirjouduUlosToolStripMenuItem.Click += new System.EventHandler(this.kirjouduUlosToolStripMenuItem_Click);
             // 
             // lahtopaikka
             // 
@@ -206,5 +226,7 @@
         private TextBox lentoaika;
         private Label label3;
         private Button button1;
+        private ToolStripMenuItem muokkaTiliToolStripMenuItem;
+        private ToolStripMenuItem kirjouduUlosToolStripMenuItem;
     }
 }

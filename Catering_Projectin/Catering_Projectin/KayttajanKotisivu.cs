@@ -18,15 +18,16 @@ namespace Catering_Projectin
         }
         public string kaNimi;
         public string kaID;
-        Sqlkysely kysely = new Sqlkysely(); 
+        Sqlkysely kysely = new Sqlkysely();
         private void KayttajanKotisivu_Load(object sender, EventArgs e)
         {
+
             tervetuluaLB.Text = "Tervetulua " + kaNimi;
             DataTable dt = kysely.tilauksia_ID(kaID);
-            string idlist ="";
+            string idlist = "";
             foreach (DataRow dr in dt.Rows)
             {
-                idlist += dr[0].ToString() +",";
+                idlist += dr[0].ToString() + ",";
             }
             idlist = idlist.Substring(0, idlist.Length - 1);
             dataGridView1.DataSource = dt;
@@ -39,10 +40,7 @@ namespace Catering_Projectin
             this.Close();
 
         }
-        private void kotisivuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
+
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Menu me = new Menu();
@@ -55,10 +53,37 @@ namespace Catering_Projectin
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                string id = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                dataGridView2.DataSource = kysely.tilauksia(id);
+                dataGridView2.Columns[0].Visible = false;
+            }
+            catch
+            {
 
-           string id =  dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            dataGridView2.DataSource = kysely.tilauksia(id);
-            dataGridView2.Columns[0].Visible=false;
+            }
+
         }
+
+        private void muokkaTiliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            kayttayatili tili = new kayttayatili();
+            tili.kaId = kaID;
+            tili.FormClosing += formClosing;
+            tili.Show();
+            this.Hide();
+        }
+
+        private void tilausToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Etusivu et = new Etusivu();
+            et.FormClosing += formClosing;
+            et.Show();
+            this.Hide();
+        }
+
+    
     }
 }
+

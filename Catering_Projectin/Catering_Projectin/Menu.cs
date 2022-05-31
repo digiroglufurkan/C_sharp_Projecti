@@ -28,7 +28,7 @@ namespace Catering_Projectin
             dt.Columns.Add(dc);
             dt.Columns[2].SetOrdinal(dt.Columns.Count - 1);
             dt.Columns["Maara"].SetOrdinal(2);
-           
+
             return dt;
         }
         private void Menu_Load(object sender, EventArgs e)
@@ -81,17 +81,17 @@ namespace Catering_Projectin
             AteriatGW.Columns[5].Visible = false;
             AteriatGW.Columns[6].Visible = false;
             AteriatGW.Columns.Insert(0, chkbox3);
-            
+
 
         }
-        
+
         string ateriatlist = "";
         string juomalist = "";
         string alkolijuoma = "";
         string lento = "";
         List<string> ateria_maara = new List<string>();
         List<string> juoma_maara = new List<string>();
-        List<string > Alkoli_juomamaara = new List<string>();
+        List<string> Alkoli_juomamaara = new List<string>();
         public string kaID;
         public string kanimi;
         private void button1_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace Catering_Projectin
 
                 if (Convert.ToInt32(row.Cells[0].Value) == 1)
                 {
-                    lento = row.Cells[1].Value.ToString() ;
+                    lento = row.Cells[1].Value.ToString();
 
                 }
 
@@ -114,10 +114,10 @@ namespace Catering_Projectin
             {
                 if (Convert.ToInt32(row.Cells[0].Value) == 1)
                 {
-                    
-                    ateriatlist  += row.Cells[1].Value.ToString() + ",";
+
+                    ateriatlist += row.Cells[1].Value.ToString() + ",";
                     ateria_maara.Add(row.Cells[3].Value.ToString());
-                    
+
                 }
 
             }
@@ -140,7 +140,7 @@ namespace Catering_Projectin
 
                 }
             }
-            
+
 
             //MessageBox.Show(tilaus[0][0].ToString() + tilaus[0][1].ToString());
         }
@@ -152,6 +152,8 @@ namespace Catering_Projectin
         private void kotisivuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             KayttajanKotisivu kotisivu = new KayttajanKotisivu();
+            kotisivu.kaID = kaID;
+            kotisivu.kaNimi = kanimi;
             kotisivu.FormClosing += formClosing;
             kotisivu.Show();
             this.Hide();
@@ -159,21 +161,53 @@ namespace Catering_Projectin
 
         private void tilausToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Tilaus ti = new Tilaus();
-            //dataGridView1.Rows.Clear();
-            DataTable dt = (DataTable)dataGridView1.DataSource;
-            ti.aterialist1 = ateriatlist.Substring(0, ateriatlist.Length-1 );
-            ti.lento1 = lento;
-            ti.kaId = kaID;
-            ti.kanimi = kanimi;
-            ti.alkolijuomalist1 = alkolijuoma.Substring(0, alkolijuoma.Length-1);
-            ti.juomalist1=juomalist.Substring(0, juomalist.Length-1);
-            ti.T_Alkoli_juomamaara = Alkoli_juomamaara;
-            ti.T_ateria_maara = ateria_maara;
-            ti.T_juoma_maara = juoma_maara;
-            ti.FormClosing += formClosing;
-            ti.Show();
+            if (lento == "")
+            {
+                MessageBox.Show("Olehyvä ja valitse lento");
+            }
+            else
+            {
+                if (Alkoli_juomamaara.Count > 0 || juoma_maara.Count > 0 || ateria_maara.Count > 0)
+                {
+                    Tilaus ti = new Tilaus();
+                    //dataGridView1.Rows.Clear();
+                    DataTable dt = (DataTable)dataGridView1.DataSource;
+                    ti.aterialist1 = (ateriatlist.Length>0 )?ateriatlist.Substring(0, ateriatlist.Length - 1):ateriatlist;
+                    ti.lento1 = lento;
+                    ti.kaId = kaID;
+                    ti.kanimi = kanimi;
+                    ti.alkolijuomalist1 = (alkolijuoma.Length >0)? alkolijuoma.Substring(0, alkolijuoma.Length - 1): alkolijuoma;
+                    ti.juomalist1 = (juomalist.Length>0)?juomalist.Substring(0, juomalist.Length - 1): juomalist;
+                    ti.T_Alkoli_juomamaara = Alkoli_juomamaara;
+                    ti.T_ateria_maara = ateria_maara;
+                    ti.T_juoma_maara = juoma_maara;
+                    ti.FormClosing += formClosing;
+                    ti.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Olehyvä ja valitse ruoka tai juoma");
+                }
+            }
+        }
+
+        private void muokkaTiliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            kayttayatili tili = new kayttayatili();
+            tili.kaId = kaID;
+            tili.FormClosing += formClosing;
+            tili.Show();
+            this.Hide();
+        }
+
+        private void kirjouduUlosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Etusivu et = new Etusivu();
+            et.FormClosing += formClosing;
+            et.Show();
             this.Hide();
         }
     }
+    
 }
