@@ -82,7 +82,7 @@ namespace Catering_Projectin
             else { MessageBox.Show("Salasanat eivät täsmää!"); goto loppu; } //virheviesti
             if (yhtio.Equals("") || icao.Equals(""))//mikäli ei yhtötä eikä ICAO:a syötetty
             {   // kysytään haluaako olla työntekijä
-                DialogResult dialogResult = MessageBox.Show("Sure", "Haluat siis rekisteröityä työntekijäksi?", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Haluat siis rekisteröityä työntekijäksi", "Oletko varma?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)// mikäli vastaa kyllä
                 {
                     int rooli = 3; //määritellään RooliID
